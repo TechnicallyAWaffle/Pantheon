@@ -5,4 +5,5 @@ public class SOCommand : ScriptableObject
 {
     public string commandName;
     public string description;
+    public string[] arguments;
 }

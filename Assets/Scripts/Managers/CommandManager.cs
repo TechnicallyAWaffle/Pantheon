@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class CommandManager : MonoBehaviour, ICommandIndex
 {
     [SerializeField] private TMP_InputField inputField;
-    [SerializeField] private TextMeshProUGUI outputText;
+
+    //Runtime Vars
+    SOCommand lastInputtedCommand;
 
 
     //DEV DEBUG 
@@ -40,9 +42,10 @@ public class CommandManager : MonoBehaviour, ICommandIndex
             new Dictionary<string, Action<string[]>>
             {
                 { "run",    args => CmdRun(args)    },
-                { "stop",   args => CmdStop(args)   },
-                { "delete", args => CmdDelete(args) },
-                { "list",   args => CmdList(args)   },
+                { "suspend",   args => CmdSuspend(args)   },
+                { "kill", args => CmdKill(args) },
+                { "help",   args => CmdHelp(args)   },
+                { "overclock",   args => CmdOverclock(args)   },
             };
     }
 
@@ -64,7 +67,7 @@ public class CommandManager : MonoBehaviour, ICommandIndex
             }
         }
 
-        // Check the reverse — handlers with no matching SO
+        // Check in reverse just to make sure we didn't add anything in the wrong order
         foreach (var key in handlerMap.Keys)
         {
             if (!commands.ContainsKey(key))
@@ -80,7 +83,20 @@ public class CommandManager : MonoBehaviour, ICommandIndex
         ParseInput(input.Trim());
 
         inputField.text = "";
-        inputField.ActivateInputField(); // keep focus
+        inputField.ActivateInputField(); // keep focus after submitting
+    }
+
+    SOCommand GetCommandDataByString(string commandName)
+    {
+        if (commands.TryGetValue(commandName, out var entry))
+        {
+            return entry.data;
+        }
+        else
+        {
+            Debug.Log("Could not find command with name: " + commandName);
+            return null;
+        }
     }
 
     void ParseInput(string input)
@@ -93,10 +109,12 @@ public class CommandManager : MonoBehaviour, ICommandIndex
             : new string[0];
 
         if (commands.TryGetValue(verb, out var entry))
+        {
+            lastInputtedCommand = entry.data;
             entry.handler(args);
+        }
         else
             Print($"Unknown command: '{verb}'. Type 'help' for a list.");
-        //what
     }
 
     // --- Command Handlers ---
@@ -105,21 +123,28 @@ public class CommandManager : MonoBehaviour, ICommandIndex
     {
         if (args.Length == 0) { Print("Usage: run <program>"); return; }
         string programName = args[0];
+
         Print($"Running '{programName}'...");
         
     }
 
-    void CmdStop(string[] args)
+    void CmdSuspend(string[] args)
     {
         if (args.Length == 0) { Print("Usage: stop <program>"); return; }
         Print($"Stopping '{args[0]}'...");
     }
 
-    void CmdDelete(string[] args) { /* ... */ }
-    void CmdList(string[] args) { Print("Programs: program1, program2"); }
+    void CmdKill(string[] args) { /* ... */ }
+
+    void CmdHelp(string[] args) 
+    {
+        if (args.Length == 0) { Print("Usage: help <process>"); return; }
+        Print(GetCommandDataByString(args[0]).description);
+    }
+    void CmdOverclock(string[] args) { }
 
     void Print(string message)
     {
-        outputText.text += message + "\n";
+        //outputText.text += message + "\n";
     }
 }
