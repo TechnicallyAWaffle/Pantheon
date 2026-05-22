@@ -96,6 +96,7 @@ public class CommandManager : MonoBehaviour, ICommandIndex
             entry.handler(args);
         else
             Print($"Unknown command: '{verb}'. Type 'help' for a list.");
+        //what
     }
 
     // --- Command Handlers ---
