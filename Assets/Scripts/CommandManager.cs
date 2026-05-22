@@ -1,13 +1,27 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CommandManager : MonoBehaviour, ICommandIndex
 {
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI outputText;
+
+
+    //DEV DEBUG 
+    private void Update()
+    {
+        //Keep focus on input field for now
+        if (Input.GetMouseButtonDown(0))
+        {
+            inputField.ActivateInputField();
+        }
+    }
+
 
     void Start()
     {
@@ -34,7 +48,6 @@ public class CommandManager : MonoBehaviour, ICommandIndex
 
     public void RegisterCommands()
     {
-        // Map each SO's name to its handler
         var handlerMap = BuildHandlerMap();
 
         commands = new Dictionary<string, (SOCommand, Action<string[]>)>();
@@ -92,7 +105,7 @@ public class CommandManager : MonoBehaviour, ICommandIndex
         if (args.Length == 0) { Print("Usage: run <program>"); return; }
         string programName = args[0];
         Print($"Running '{programName}'...");
-        // your logic here
+        
     }
 
     void CmdStop(string[] args)
