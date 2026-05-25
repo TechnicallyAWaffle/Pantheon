@@ -2,15 +2,6 @@ using UnityEngine;
 
 public class DaemonDB : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+    //unused for now but may use in the future
 }

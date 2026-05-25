@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 
-public class CommandManager : MonoBehaviour, ICommandIndex
+public class CommandManager : MonoBehaviour
 {
     //References
     [SerializeField] private TMP_InputField inputField;

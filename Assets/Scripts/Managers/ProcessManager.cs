@@ -37,4 +37,10 @@ public class ProcessManager : MonoBehaviour
         //SOProcessData data = args[0]
     }
 
+    public bool CheckProcessOwnership(RunningProcess process, Entity compareTo)
+    {
+        return compareTo == process.owner;
+    }
+
+
 }
