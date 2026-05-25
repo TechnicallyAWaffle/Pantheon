@@ -3,8 +3,10 @@ using UnityEngine;
 public class ReferenceManager : MonoBehaviour
 {
 
-    [SerializeField] CommandManager commandManager;
-    [SerializeField] TerminalUIManager terminalUIManager;
+    [SerializeField] public CommandManager commandManager;
+    [SerializeField] public TerminalUIManager terminalUIManager;
+    [SerializeField] public ProcessManager processManager;
+    [SerializeField] public Entity player;
 
     public static ReferenceManager Instance;
 

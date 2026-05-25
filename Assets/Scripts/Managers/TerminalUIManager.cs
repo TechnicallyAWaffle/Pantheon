@@ -8,15 +8,8 @@ public class TerminalUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI outputText;
     [SerializeField] private ScrollRect scrollRect;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Print(string output)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        outputText.text += output + "\n";
     }
 }

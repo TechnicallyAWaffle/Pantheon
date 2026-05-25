@@ -1,14 +1,21 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class CommandManager : MonoBehaviour, ICommandIndex
 {
+    //References
     [SerializeField] private TMP_InputField inputField;
+    private ReferenceManager referenceManager;
+    private TerminalUIManager terminalUIManager;
+    private ProcessManager processManager;
+    private Entity player;
 
     //Runtime Vars
     SOCommand lastInputtedCommand;
@@ -31,6 +38,12 @@ public class CommandManager : MonoBehaviour, ICommandIndex
         inputField.onSubmit.AddListener(OnSubmit);
         inputField.text = "meowemeowmeoemwe";
         inputField.ActivateInputField();
+
+        referenceManager = ReferenceManager.Instance;
+        terminalUIManager = referenceManager.terminalUIManager;
+        processManager = referenceManager.processManager;
+        player = referenceManager.player;
+
     }
 
     [SerializeField] private SOCommand[] baseCommandData;
@@ -79,7 +92,7 @@ public class CommandManager : MonoBehaviour, ICommandIndex
     {
         if (string.IsNullOrWhiteSpace(input)) return;
 
-        Print("> " + input);
+        terminalUIManager.Print("> " + input);
         ParseInput(input.Trim());
 
         inputField.text = "";
@@ -103,6 +116,8 @@ public class CommandManager : MonoBehaviour, ICommandIndex
     {
         string[] tokens = input.Split(new char[] { ' ' }, System.StringSplitOptions.RemoveEmptyEntries);
 
+        if (tokens.Length < 1)
+            return;
         string verb = tokens[0].ToLower();
         string[] args = tokens.Length > 1
             ? tokens[1..]
@@ -114,37 +129,48 @@ public class CommandManager : MonoBehaviour, ICommandIndex
             entry.handler(args);
         }
         else
-            Print($"Unknown command: '{verb}'. Type 'help' for a list.");
+            terminalUIManager.Print($"Unknown command: '{verb}'. Type 'help' for a list.");
     }
 
     // --- Command Handlers ---
 
     void CmdRun(string[] args)
     {
-        if (args.Length == 0) { Print("Usage: run <program>"); return; }
+        if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <location>"); return; }
+
+        processManager.TryRunProcess(args, player);
+
+        //Archive of old implementation
+        /*if (args[1] == null)
+            terminalUIManager.Print("Process location not specified. Specify process execution on local machine or connected server: local/server");
+        else
+        {
+            if (args[1] == "server" || args[1] == "local")
+            {
+                //Run with extra parameters
+            }
+        }*/
+
         string programName = args[0];
 
-        Print($"Running '{programName}'...");
+        terminalUIManager.Print($"");
+        terminalUIManager.Print($"Running '{programName}'...");
         
     }
 
+
     void CmdSuspend(string[] args)
     {
-        if (args.Length == 0) { Print("Usage: stop <program>"); return; }
-        Print($"Stopping '{args[0]}'...");
+        if (args.Length == 0) { terminalUIManager.Print("Usage: stop <program>"); return; }
+        terminalUIManager.Print($"Stopping '{args[0]}'...");
     }
 
     void CmdKill(string[] args) { /* ... */ }
 
     void CmdHelp(string[] args) 
     {
-        if (args.Length == 0) { Print("Usage: help <process>"); return; }
-        Print(GetCommandDataByString(args[0]).description);
+        if (args.Length == 0) { terminalUIManager.Print("Usage: help <process>"); return; }
+        terminalUIManager.Print(GetCommandDataByString(args[0]).description);
     }
     void CmdOverclock(string[] args) { }
-
-    void Print(string message)
-    {
-        //outputText.text += message + "\n";
-    }
 }
