@@ -54,7 +54,8 @@ public class CommandManager : MonoBehaviour
         return
             new Dictionary<string, Action<string[]>>
             {
-                { "run",    args => CmdRun(args)    },
+                { "run",    args => CmdRun(args, false)    },
+                { "srun",    args => CmdRun(args, true)    },
                 { "suspend",   args => CmdSuspend(args)   },
                 { "kill", args => CmdKill(args) },
                 { "help",   args => CmdHelp(args)   },
@@ -134,7 +135,7 @@ public class CommandManager : MonoBehaviour
 
     // --- Command Handlers ---
 
-    void CmdRun(string[] args)
+    void CmdRun(string[] args, bool isServer)
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <location>"); return; }
 
@@ -157,6 +158,7 @@ public class CommandManager : MonoBehaviour
         terminalUIManager.Print($"Running '{programName}'...");
         
     }
+
 
 
     void CmdSuspend(string[] args)
