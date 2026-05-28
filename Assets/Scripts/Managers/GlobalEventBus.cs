@@ -1,4 +1,6 @@
 using System;
+using UnityEngine;
+using UnityEngine.Playables;
 
 public static class GlobalEventBus
 {
@@ -22,6 +24,16 @@ public static class GlobalEventBus
     // Daemon events
     public static event Action<Entity> OnDaemonRevealed;
 
+    // requests — anyone can fire these
+    public static event Action<Entity, long> OnMemoryRequested;
+    public static event Action<Entity, double> OnComputeRequested;
+
+    // results — manager fires these after processing
+    public static event Action<Entity, long> OnMemoryAllocated;
+    public static event Action<Entity, long> OnMemoryDenied;
+
+    
+
     // Invokers
     public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);
     public static void ProcessCompleted(RunningProcess p) => OnProcessCompleted?.Invoke(p);
@@ -29,4 +41,9 @@ public static class GlobalEventBus
                                                                     => OnProcessKilled?.Invoke(p, killer);
     public static void AuthorityChanged(Entity p, int newVal) => OnAuthorityChanged?.Invoke(p, newVal);
     public static void ServerQueueCountChanged(int count) => OnServerQueueCountChanged?.Invoke(count);
+
+    public static void RequestMemory(Entity player, long amount)
+        => OnMemoryRequested?.Invoke(player, amount);
+    public static void RequestCompute(Entity player, double amount)
+        => OnComputeRequested?.Invoke(player, amount);
 }
