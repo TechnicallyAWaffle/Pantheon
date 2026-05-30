@@ -18,14 +18,12 @@ public class QueueManager : MonoBehaviour
 
     public void AddProcess(SOProcessData process, ProcessQueue queue, Entity owner)
     {
-
         RunningProcess runningProcessInstance = new RunningProcess();
         runningProcessInstance.data = process;
         runningProcessInstance.owner = owner;
         runningProcessInstance.timeRemaining = process.baseExecutionTime;
         runningProcessInstance.baseTime = process.baseExecutionTime;
         runningProcessInstance.encryption = process.encryption;
-        
         GlobalEventBus.ProcessQueued(runningProcessInstance);
     }
 
@@ -45,6 +43,7 @@ public class QueueManager : MonoBehaviour
             if (firstProcessInLine.timeRemaining <= 0)
             {
                 firstProcessInLine.data.processScript.Execute();
+                GlobalEventBus.ProcessCompleted(firstProcessInLine);
                 queue.RemoveAt(0);
             }
         }
