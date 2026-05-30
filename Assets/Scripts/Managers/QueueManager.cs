@@ -12,6 +12,8 @@ public class QueueManager : MonoBehaviour
         playerLocalQueue = new ProcessQueue();
         serverQueue = new ProcessQueue();
         enemyLocalQueue = new ProcessQueue();
+
+        GlobalEventBus.OnComputeChanged += RecalculateProcessExecutionTimes;
     }
 
     public void AddProcess(SOProcessData process, ProcessQueue queue, Entity owner)
@@ -38,18 +40,20 @@ public class QueueManager : MonoBehaviour
 
         void TickQueue(List<RunningProcess> queue)
         {
-            for (int i = queue.Count - 1; i >= 0; i--)
+            RunningProcess firstProcessInLine = queue[0];
+            firstProcessInLine.timeRemaining -= Time.deltaTime;
+            if (firstProcessInLine.timeRemaining <= 0)
             {
-                queue[i].timeRemaining -= Time.deltaTime;
-                if (queue[i].timeRemaining <= 0)
-                {
-                    GlobalEventBus.ProcessCompleted(queue[i]);
-
-                    //Execute process here, defer to commandindex for their logic. lookup by string maybe idk?
-                    queue.RemoveAt(i);
-                }
+                firstProcessInLine.data.processScript.Execute();
+                queue.RemoveAt(0);
             }
         }
+    }
+
+    //Event Hooks
+    public void RecalculateProcessExecutionTimes(Entity entity, double newCompute)
+    {
+        //Take first element of each queue and search for all RunningProcesses with the matching owner instance and do some math mojo im too lazy to figure out rn
     }
 
 }

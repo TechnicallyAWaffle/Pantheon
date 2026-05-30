@@ -15,6 +15,7 @@ public class CommandManager : MonoBehaviour
     private ReferenceManager referenceManager;
     private TerminalUIManager terminalUIManager;
     private ProcessManager processManager;
+    private QueueManager queueManager;
     private Entity player;
 
     //Runtime Vars
@@ -43,6 +44,7 @@ public class CommandManager : MonoBehaviour
         terminalUIManager = referenceManager.terminalUIManager;
         processManager = referenceManager.processManager;
         player = referenceManager.player;
+        queueManager = referenceManager.queueManager;
 
     }
 
@@ -54,8 +56,8 @@ public class CommandManager : MonoBehaviour
         return
             new Dictionary<string, Action<string[]>>
             {
-                { "run",    args => CmdRun(args, false)    },
-                { "srun",    args => CmdRun(args, true)    },
+                { "run",    args => CmdRun(args)    },
+                { "srun",    args => CmdRunServer(args)    },
                 { "suspend",   args => CmdSuspend(args)   },
                 { "kill", args => CmdKill(args) },
                 { "help",   args => CmdHelp(args)   },
@@ -135,30 +137,29 @@ public class CommandManager : MonoBehaviour
 
     // --- Command Handlers ---
 
-    void CmdRun(string[] args, bool isServer)
+    void CmdRun(string[] args)
     {
-        if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <location>"); return; }
+        if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <-arguments>"); return; }
 
-        processManager.TryRunProcess(args, player);
-
-        //Archive of old implementation
-        /*if (args[1] == null)
-            terminalUIManager.Print("Process location not specified. Specify process execution on local machine or connected server: local/server");
-        else
-        {
-            if (args[1] == "server" || args[1] == "local")
-            {
-                //Run with extra parameters
-            }
-        }*/
+        processManager.TryRunProcess(args, player, queueManager.playerLocalQueue);
 
         string programName = args[0];
 
         terminalUIManager.Print($"");
-        terminalUIManager.Print($"Running '{programName}'...");
-        
+        terminalUIManager.Print($"Process '{programName}' added to LOCALHOST scheduler queue");   
     }
 
+    void CmdRunServer(string[] args)
+    {
+        if (args.Length == 0) { terminalUIManager.Print("Usage: srun <program> <-arguments>"); return; }
+
+        processManager.TryRunProcess(args, player, queueManager.serverQueue);
+
+        string programName = args[0];
+
+        terminalUIManager.Print($"");
+        terminalUIManager.Print($"Process '{programName}' added to SERVER CONNECTION scheduler queue");
+    }
 
 
     void CmdSuspend(string[] args)
