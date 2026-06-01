@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour
 {
 
     //Refs
-    ReferenceManager referenceManager;
+    public ReferenceManager referenceManager;
     QueueManager queueManager;
 
     private void Start()
@@ -14,8 +14,9 @@ public class Entity : MonoBehaviour
         queueManager = referenceManager.queueManager;
     }
 
-
-    public int authority;           // 0 (kernel) to 3
+    // Ok irl 0 is kernel but for the sake of not losing my mind we're doing 0 - 3 with 3 being the highest authority
+    // This is so I don't confuse the shit out of myself trying to compare this to encryption levels
+    public int authority;           
     public int reservedLocalMemory;
     public int reservedLocalCompute;
     public int reservedServerMemory;

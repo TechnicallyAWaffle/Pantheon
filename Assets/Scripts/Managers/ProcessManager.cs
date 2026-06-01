@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
 using static QueueManager;
+using static UnityEngine.Rendering.GPUSort;
 
 public class ProcessManager : MonoBehaviour
 {
@@ -56,6 +57,12 @@ public class ProcessManager : MonoBehaviour
         return flagData;
     }
 
+    private string[] ParseArguments(string[] commandArgs, string[] processArgs)
+    {
+        //See if any of the arguments match the possible arguments from the process's scriptableobject
+        return commandArgs.Intersect(processArgs).ToArray();
+    }
+
     public void TryRunProcess(string[] args, Entity entity, QueueManager.ProcessQueue processQueue)
     {
         SOProcessData processData = GetProcessByName(args[0]);
@@ -67,14 +74,16 @@ public class ProcessManager : MonoBehaviour
         }
         else
         {
-            //This just compares the command input to both the process's unique arguments and the universal flags you can apply to them
-            string[] processArguments = args.Intersect(processData.arguments).ToArray();
-            ParseFlags(args.Except(processData.arguments).ToArray(), processData);
+            string[] processArguments = ParseArguments(args, processData.arguments);
+            //ParseFlags(args.Except(processData.arguments).ToArray(), processData);
 
             queueManager.AddProcess(processData, processQueue, entity, processArguments);
         }
     }
 
+    /*
+     * //FLAG IMPLEMENTATION IS REACH GOAL
+            //Anything that's NOT a matching argument of the process might be a flag, so send it over to ParseFlags()
     private void ParseFlags(string[] flags, SOProcessData processData)
     {
         foreach (string flagName in flags)
@@ -83,11 +92,14 @@ public class ProcessManager : MonoBehaviour
             GetFlagByName(flagName).flagScript.ApplyFlag(processData);
         }
     }
+    */
 
     public void TryRunProcessServer(string[] args, Entity entity, QueueManager.ProcessQueue processQueue)
     {
         SOProcessData processData = GetProcessByName(args[0]);
         Debug.Log("Attempting to run Process " + processData.processName + " on server queue");
+        
+        //Check memory to see if we can run the process
         if (entity.reservedServerMemory < processData.memoryUsage)
         {
             terminalUIManager.Print("Insufficient memory");
@@ -95,18 +107,26 @@ public class ProcessManager : MonoBehaviour
         }
         else
         {
-            string[] processArguments = args.Intersect(processData.arguments).ToArray();
-            ParseFlags(args.Except(processData.arguments).ToArray(), processData);
+            string[] processArguments = ParseArguments(args, processData.arguments);
+
+            //ParseFlags(args.Except(processData.arguments).ToArray(), processData);
+
             queueManager.AddProcess(processData, processQueue, entity, processArguments);
         }
     }
 
+    public bool CheckAuthority(Entity entity, RunningProcess process)
+    {
+        return entity.authority >= process.encryption;
+    }
+
     public void KillProcess(RunningProcess process)
     {
+        //maybe i shouldn't name both of these properties queue lmfao
         //kill me
         process.queue.queue.Remove(process);
 
-        //Will be updated with other things later 
+        //We can add additional functionality here (vfx, sfx, etc.)
     }
 
     public bool CheckProcessOwnership(RunningProcess process, Entity compareTo)

@@ -4,6 +4,10 @@ using UnityEngine.Playables;
 
 public static class GlobalEventBus
 {
+    //README
+    //Suscribe whatever you need to the events here with Action += Function in Start()
+    //Set when these events actually fire by calling the Invokers down below
+
 
     // Process events
     public static event Action<RunningProcess> OnProcessQueued;

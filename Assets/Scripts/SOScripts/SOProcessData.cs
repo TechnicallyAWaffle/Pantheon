@@ -8,11 +8,8 @@ public class SOProcessData : ScriptableObject
     public string processName;
     public string description;
     public float baseExecutionTime;
-    public long memoryUsage;        
-    public double computeUsage;     
-    public EncryptionLevel encryption;
-    public IProcess processScript;
+    public int memoryUsage;        
+    public int encryption; // 1 - 3 just like authority
+    public GameObject processObject;
     public string[] arguments;
 }
-
-public enum EncryptionLevel { None, Light, Moderate, Heavy }

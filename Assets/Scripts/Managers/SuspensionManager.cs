@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SuspensionManager : MonoBehaviour
 {
-
+    //When a process is suspended, a Suspension class instance is created that stores the process its suspending and its lift condition
+    //Then it's added to a list of suspended proccesses and ticked every update to check if its lift condition has become true
     private class Suspension
     {
         public RunningProcess processSuspended;
@@ -32,8 +33,10 @@ public class SuspensionManager : MonoBehaviour
     {
         for (int i = activeSuspensions.Count - 1; i >= 0; i--)
         {
+            //Check if lift condition is now true
             if (activeSuspensions[i].liftCondition())
             {
+                //Lift the suspension and then remove the Suspension instance from this list
                 Lift(activeSuspensions[i]);
                 activeSuspensions.RemoveAt(i);
             }

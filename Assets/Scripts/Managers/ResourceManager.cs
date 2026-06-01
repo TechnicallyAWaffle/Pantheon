@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public long openPlayerLocalMemory;
-    public double openPlayerLocalCompute;
+    public int openPlayerLocalMemory;
+    public int openPlayerLocalCompute;
 
-    public long openServerMemory;
-    public double openServerCompute;
+    public int openServerMemory;
+    public int openServerCompute;
 
-    public long openEnemyLocalMemory;
-    public double openEnemyLocalCompute;
+    public int openEnemyLocalMemory;
+    public int openEnemyLocalCompute;
     
     //Pass in memory/compute location by reference so we can set it in the same function
-    public long RequestMemory(ref long openMemory, long amountRequested, Entity requester)
+    //All this script does is validate if you are allowed to extract X amount of memory/compute from Y place and give it to you
+    public long RequestMemory(ref int openMemory, int amountRequested, Entity requester)
     {
         GlobalEventBus.RequestMemory(requester, amountRequested);
 
@@ -28,7 +29,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public double RequestCompute(ref double openCompute, double amountRequested, Entity requester)
+    public double RequestCompute(ref int openCompute, int amountRequested, Entity requester)
     {
         GlobalEventBus.RequestCompute(requester, amountRequested);
 

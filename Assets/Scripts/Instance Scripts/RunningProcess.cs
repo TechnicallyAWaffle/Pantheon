@@ -1,19 +1,19 @@
 using System;
+using UnityEngine;
 
-public class RunningProcess
+public class RunningProcess : MonoBehaviour
 {
     public SOProcessData data;
     public Entity owner;
-    public float timeRemaining;
-    public float baseTime;          // needed to recalculate on compute changes
-    public EncryptionLevel encryption;
-    public bool isServerSide;
-    public int processID;
     public string[] arguments;
     public QueueManager.ProcessQueue queue;
+    public int memoryUsed;
 
-    //Runtime
+    //runtime
+    public float timeRemaining;
+    public float baseTime;          // needed to recalculate on compute changes
+    public int encryption;
+    public int processID;
     public bool isSuspended;
     public Func<bool> suspensionLiftCondition;
-    public int memoryUsed;
 }

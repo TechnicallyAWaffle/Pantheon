@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7dcb5338ed258548a6b9f2a70f9952f, type: 3}
-  m_Name: SOProcessData
+  m_Name: scryProcess
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
-  processName: 
-  description: 
-  baseExecutionTime: 0
+  processName: scry
+  description: Grants you 1 TB of open memory
+  baseExecutionTime: 3
   memoryUsage: 0
-  computeUsage: 0
   encryption: 0
+  processObject: {fileID: 335334265794423092, guid: d94044b676e744049a319c20ec2a3ffd, type: 3}
+  arguments: []
