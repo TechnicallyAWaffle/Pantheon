@@ -605,6 +605,7 @@ MonoBehaviour:
   reservedServerCompute: 0
   temperature: 0
   ownedProcesses: []
+  daemons: []
 --- !u!1 &447002095
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +973,9 @@ MonoBehaviour:
   processManager: {fileID: 1176176996}
   queueManager: {fileID: 906591921}
   resourceManager: {fileID: 255440242}
+  daemonManager: {fileID: 1643238844}
   player: {fileID: 430377111}
+  opponent: {fileID: 0}
 --- !u!1 &853939685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1011,7 @@ Transform:
   - {fileID: 543163619}
   - {fileID: 906591920}
   - {fileID: 255440241}
+  - {fileID: 1643238843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &906591919
@@ -1678,6 +1682,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1643238842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643238843}
+  - component: {fileID: 1643238844}
+  m_Layer: 0
+  m_Name: DaemonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643238843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643238842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 853939686}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643238844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643238842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3faf3fc08b027b4b90a7305669f509f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DaemonManager
 --- !u!1 &2034088361
 GameObject:
   m_ObjectHideFlags: 0

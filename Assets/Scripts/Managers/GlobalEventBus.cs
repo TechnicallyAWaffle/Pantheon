@@ -16,7 +16,7 @@ public static class GlobalEventBus
     public static event Action<RunningProcess, Entity> OnProcessSuspended;
 
     // Resource events
-    public static event Action<Entity, int> OnMemoryChanged;    
+    public static event Action<Entity, int, QueueManager.ProcessQueue> OnMemoryChanged;    
     public static event Action<Entity, int> OnComputeChanged;
     public static event Action<Entity, int> OnAuthorityChanged; 
 
@@ -36,9 +36,12 @@ public static class GlobalEventBus
     public static event Action<Entity, int> OnMemoryAllocated;
     public static event Action<Entity, int> OnMemoryDenied;
 
-    
+
 
     // Invokers
+
+    public static void MemoryChanged(Entity owner, int amount, QueueManager.ProcessQueue location)
+        => OnMemoryChanged?.Invoke(owner, amount, location);
     public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);
     public static void ProcessCompleted(RunningProcess p) => OnProcessCompleted?.Invoke(p);
 

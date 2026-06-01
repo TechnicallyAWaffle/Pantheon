@@ -4,7 +4,7 @@ public class ProcessBase : MonoBehaviour
 {
     ReferenceManager referenceManager;
     RunningProcess runtimeProcessData;
-
+    
     public bool isExecuted = false;
 
     private void Start()

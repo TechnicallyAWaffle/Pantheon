@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class SuspensionManager : MonoBehaviour
@@ -9,13 +10,21 @@ public class SuspensionManager : MonoBehaviour
     private class Suspension
     {
         public RunningProcess processSuspended;
+        public DaemonBase daemonSuspended;
         public Func<bool> liftCondition;        // returns true when suspension should lift
 
-        public Suspension(RunningProcess process, Func<bool> condition, Entity suspender)
+        public Suspension(RunningProcess process, Func<bool> condition)
         {
             this.processSuspended = process;
             this.liftCondition = condition;
         }
+
+        public Suspension(DaemonBase daemon, Func<bool> condition)
+        {
+            this.daemonSuspended = daemon;
+            this.liftCondition = condition;
+        }
+
     }
 
     private List<Suspension> activeSuspensions = new();
@@ -25,9 +34,17 @@ public class SuspensionManager : MonoBehaviour
     public void Suspend(RunningProcess process, Func<bool> condition, Entity suspender)
     {
         process.isSuspended = true;
-        activeSuspensions.Add(new Suspension(process, condition, suspender));
+        activeSuspensions.Add(new Suspension(process, condition));
         GlobalEventBus.ProcessSuspended(process, suspender);
     }
+
+    public void Suspend(DaemonBase daemon, Func<bool> condition, Entity suspender)
+    {
+        daemon.isSuspended = true;
+        activeSuspensions.Add(new Suspension(daemon, condition));
+        //GlobalEventBus.ProcessSuspended(process, suspender);
+    }
+
 
     void Update()
     {
@@ -45,8 +62,10 @@ public class SuspensionManager : MonoBehaviour
 
     void Lift(Suspension suspension)
     {
-        suspension.processSuspended.isSuspended = false;
-        
+        if (suspension.processSuspended)
+            suspension.processSuspended.isSuspended = false;
+        else
+            suspension.daemonSuspended.isSuspended = false;
         //If we need something to listen to when a process is resumed we can add a condition for that in the global event bus
         //GlobalEventBus.ProcessResumed(suspension.suspended);
     }

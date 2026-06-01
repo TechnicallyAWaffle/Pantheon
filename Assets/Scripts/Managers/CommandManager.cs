@@ -32,7 +32,6 @@ public class CommandManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         RegisterCommands();
@@ -126,6 +125,7 @@ public class CommandManager : MonoBehaviour
             ? tokens[1..]
             : new string[0];
 
+
         if (commands.TryGetValue(verb, out var entry))
         {
             lastInputtedCommand = entry.data;
@@ -141,7 +141,7 @@ public class CommandManager : MonoBehaviour
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <-arguments>"); return; }
 
-        processManager.TryRunProcess(args, player, queueManager.playerLocalQueue);
+        processManager.TryRunProcess(args, player, queueManager.playerLocalQueue, false);
 
         string programName = args[0];
 
@@ -153,7 +153,7 @@ public class CommandManager : MonoBehaviour
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: srun <program> <-arguments>"); return; }
 
-        processManager.TryRunProcess(args, player, queueManager.serverQueue);
+        processManager.TryRunProcess(args, player, queueManager.serverQueue, true);
 
         string programName = args[0];
 
@@ -165,7 +165,7 @@ public class CommandManager : MonoBehaviour
     void CmdSuspend(string[] args)
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: stop <program>"); return; }
-        terminalUIManager.Print($"Stopping '{args[0]}'...");
+
     }
 
     void CmdKill(string[] args) { /* ... */ }

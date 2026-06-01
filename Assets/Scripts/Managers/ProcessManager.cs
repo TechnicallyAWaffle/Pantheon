@@ -57,64 +57,66 @@ public class ProcessManager : MonoBehaviour
         return flagData;
     }
 
-    private string[] ParseArguments(string[] commandArgs, string[] processArgs)
+    private string[] ReturnArguments(string[] commandArgs, string[] processArguments)
     {
-        //See if any of the arguments match the possible arguments from the process's scriptableobject
-        return commandArgs.Intersect(processArgs).ToArray();
+        //My math might be wrong on this but essentially this tries to tell how many arguments there are and then returns the elements
+        //in that range
+        return commandArgs[1..(processArguments.Length + 1)];
     }
 
-    public void TryRunProcess(string[] args, Entity entity, QueueManager.ProcessQueue processQueue)
+    public void TryRunProcess(string[] args, Entity owner, QueueManager.ProcessQueue processQueue, bool isServer)
     {
+        bool canRun = false;
+        //Argument at index 0 is the processname
         SOProcessData processData = GetProcessByName(args[0]);
-        Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
-        if (entity.reservedLocalMemory < processData.memoryUsage)
+        if (isServer)
         {
-            terminalUIManager.Print("Insufficient memory");
-            return;
+            if (owner.reservedServerMemory < processData.memoryUsage)
+            {
+                terminalUIManager.Print("Insufficient memory");
+                return;
+            }
+            canRun = true;
+            //Take memory
+            owner.reservedServerMemory -= processData.memoryUsage;
+            GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
+            Debug.Log("Attempting to run Process " + processData.processName + " on server queue");
         }
         else
         {
-            string[] processArguments = ParseArguments(args, processData.arguments);
-            //ParseFlags(args.Except(processData.arguments).ToArray(), processData);
-
-            queueManager.AddProcess(processData, processQueue, entity, processArguments);
+            if (owner.reservedLocalMemory < processData.memoryUsage)
+            {
+                terminalUIManager.Print("Insufficient memory");
+                return;
+            }
+            canRun = true;
+            //Take memory
+            owner.reservedLocalMemory -= processData.memoryUsage;
+            GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
+            Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
         }
-    }
-
-    /*
-     * //FLAG IMPLEMENTATION IS REACH GOAL
-            //Anything that's NOT a matching argument of the process might be a flag, so send it over to ParseFlags()
-    private void ParseFlags(string[] flags, SOProcessData processData)
-    {
-        foreach (string flagName in flags)
-        {
-            Debug.Log("Parsing flag: " + flagName);
-            GetFlagByName(flagName).flagScript.ApplyFlag(processData);
-        }
-    }
-    */
-
-    public void TryRunProcessServer(string[] args, Entity entity, QueueManager.ProcessQueue processQueue)
-    {
-        SOProcessData processData = GetProcessByName(args[0]);
-        Debug.Log("Attempting to run Process " + processData.processName + " on server queue");
         
-        //Check memory to see if we can run the process
-        if (entity.reservedServerMemory < processData.memoryUsage)
-        {
-            terminalUIManager.Print("Insufficient memory");
-            return;
-        }
-        else
-        {
-            string[] processArguments = ParseArguments(args, processData.arguments);
+        //If can't run then just return
+        if (!canRun) return;
 
-            //ParseFlags(args.Except(processData.arguments).ToArray(), processData);
-
-            queueManager.AddProcess(processData, processQueue, entity, processArguments);
+        List<string> argsList = new();
+        List<string> flagsList = new();
+        //Exclude first element since that's just the process name
+        foreach (string argumentOrFlag in args[1..])
+        {
+            if (argumentOrFlag[0] != '-')
+                argsList.Add(argumentOrFlag);
+            else
+                flagsList.Add(argumentOrFlag);
         }
+
+        //Flag parsing is reach goal. In future I'll probably send this to a FlagManager once the RunningProcess has been created 
+        //since that's the object that actually has data that gets changed during runtime
+        //ParseFlags(flagsList.ToArray());
+        queueManager.AddProcess(processData, processQueue, owner, argsList.ToArray());
     }
 
+    
     public bool CheckAuthority(Entity entity, RunningProcess process)
     {
         return entity.authority >= process.encryption;
