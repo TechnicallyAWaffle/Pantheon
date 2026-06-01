@@ -12,8 +12,8 @@ public static class GlobalEventBus
     public static event Action<RunningProcess, Entity> OnProcessSuspended;
 
     // Resource events
-    public static event Action<Entity, long> OnMemoryChanged;    
-    public static event Action<Entity, double> OnComputeChanged;
+    public static event Action<Entity, int> OnMemoryChanged;    
+    public static event Action<Entity, int> OnComputeChanged;
     public static event Action<Entity, int> OnAuthorityChanged; 
 
     // Queue events
@@ -25,25 +25,27 @@ public static class GlobalEventBus
     public static event Action<Entity> OnDaemonRevealed;
 
     // requests — anyone can fire these
-    public static event Action<Entity, long> OnMemoryRequested;
-    public static event Action<Entity, double> OnComputeRequested;
+    public static event Action<Entity, int> OnMemoryRequested;
+    public static event Action<Entity, int> OnComputeRequested;
 
     // results — manager fires these after processing
-    public static event Action<Entity, long> OnMemoryAllocated;
-    public static event Action<Entity, long> OnMemoryDenied;
+    public static event Action<Entity, int> OnMemoryAllocated;
+    public static event Action<Entity, int> OnMemoryDenied;
 
     
 
     // Invokers
     public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);
     public static void ProcessCompleted(RunningProcess p) => OnProcessCompleted?.Invoke(p);
+
+    public static void ProcessSuspended(RunningProcess p, Entity suspender) => OnProcessSuspended?.Invoke(p, suspender);
     public static void ProcessKilled(RunningProcess p, Entity killer)
                                                                     => OnProcessKilled?.Invoke(p, killer);
     public static void AuthorityChanged(Entity p, int newVal) => OnAuthorityChanged?.Invoke(p, newVal);
     public static void ServerQueueCountChanged(int count) => OnServerQueueCountChanged?.Invoke(count);
 
-    public static void RequestMemory(Entity player, long amount)
+    public static void RequestMemory(Entity player, int amount)
         => OnMemoryRequested?.Invoke(player, amount);
-    public static void RequestCompute(Entity player, double amount)
+    public static void RequestCompute(Entity player, int amount)
         => OnComputeRequested?.Invoke(player, amount);
 }

@@ -16,11 +16,12 @@ public class Entity : MonoBehaviour
 
 
     public int authority;           // 0 (kernel) to 3
-    public long reservedLocalMemory;
-    public double reservedLocalCompute;
-    public long reservedServerMemory;
-    public double reservedServerCompute;
-    public float temperature;
+    public int reservedLocalMemory;
+    public int reservedLocalCompute;
+    public int reservedServerMemory;
+    public int reservedServerCompute;
+    public int temperature;
+    public List<RunningProcess> ownedProcesses;
 
     
     //public string activeEnterprise;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
 using static QueueManager;
@@ -55,8 +56,6 @@ public class ProcessManager : MonoBehaviour
         return flagData;
     }
 
-    //args[0] is the process name
-    //args[1..] are arguments
     public void TryRunProcess(string[] args, Entity entity, QueueManager.ProcessQueue processQueue)
     {
         SOProcessData processData = GetProcessByName(args[0]);
@@ -68,12 +67,15 @@ public class ProcessManager : MonoBehaviour
         }
         else
         {
-            ProcessFlags(args[1..], processData);
-            queueManager.AddProcess(processData, processQueue, entity);
+            //This just compares the command input to both the process's unique arguments and the universal flags you can apply to them
+            string[] processArguments = args.Intersect(processData.arguments).ToArray();
+            ParseFlags(args.Except(processData.arguments).ToArray(), processData);
+
+            queueManager.AddProcess(processData, processQueue, entity, processArguments);
         }
     }
 
-    private void ProcessFlags(string[] flags, SOProcessData processData)
+    private void ParseFlags(string[] flags, SOProcessData processData)
     {
         foreach (string flagName in flags)
         {
@@ -93,8 +95,18 @@ public class ProcessManager : MonoBehaviour
         }
         else
         {
-            queueManager.AddProcess(processData, processQueue, entity);
+            string[] processArguments = args.Intersect(processData.arguments).ToArray();
+            ParseFlags(args.Except(processData.arguments).ToArray(), processData);
+            queueManager.AddProcess(processData, processQueue, entity, processArguments);
         }
+    }
+
+    public void KillProcess(RunningProcess process)
+    {
+        //kill me
+        process.queue.queue.Remove(process);
+
+        //Will be updated with other things later 
     }
 
     public bool CheckProcessOwnership(RunningProcess process, Entity compareTo)

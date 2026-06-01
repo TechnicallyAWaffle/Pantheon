@@ -12,6 +12,7 @@ public class SOProcessData : ScriptableObject
     public double computeUsage;     
     public EncryptionLevel encryption;
     public IProcess processScript;
+    public string[] arguments;
 }
 
 public enum EncryptionLevel { None, Light, Moderate, Heavy }
