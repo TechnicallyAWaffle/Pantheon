@@ -14,57 +14,9 @@ public class QueueManager : MonoBehaviour
     //Refs
     [SerializeField] private ReferenceManager referenceManager;
 
-    public class ProcessQueue : MonoBehaviour
-    {
-        public List<RunningProcess> queue = new();
-
-
-        void Update()
-        {
-            TickQueue(queue);
-        }
-
-        void TickQueue(List<RunningProcess> queue)
-        {
-
-            foreach (RunningProcess process in queue)
-            {
-                //Skip over counting down time if process is suspended
-                if (!process.isSuspended)
-                    process.timeRemaining -= Time.deltaTime;
-
-                if (process.timeRemaining <= 0)
-                {
-                    //Execute the process
-                    process.data.processObject.TryGetComponent<ProcessBase>(out ProcessBase processScript);
-                    processScript.Execute(process.owner, process.arguments);
-                    GlobalEventBus.ProcessCompleted(process);
-
-                    //Remove processes from both the queue and the owner's list of owned processes
-                    process.owner.ownedProcesses.Remove(process);
-                    queue.RemoveAt(0);
-                }
-            }
-            /*
-            RunningProcess firstProcessInLine = queue[0];
-            firstProcessInLine.timeRemaining -= Time.deltaTime;
-            if (firstProcessInLine.timeRemaining <= 0)
-            {
-                firstProcessInLine.data.processScript.Execute();
-                GlobalEventBus.ProcessCompleted(firstProcessInLine);
-                queue.RemoveAt(0);
-            }
-            */
-        }
-    }
-
     private void Start()
     {
         referenceManager = ReferenceManager.Instance;
-
-        playerLocalQueue = referenceManager.player.AddComponent<ProcessQueue>();
-        serverQueue = this.AddComponent<ProcessQueue>();
-        opponentLocalQueue = referenceManager.opponent.AddComponent<ProcessQueue>();
 
         GlobalEventBus.OnComputeChanged += RecalculateProcessExecutionTimes;
         GlobalEventBus.OnMemoryChanged += CheckAndRemoveProcessesInQueue;
@@ -94,7 +46,7 @@ public class QueueManager : MonoBehaviour
 
     //Event Hooks
 
-    public void CheckAndRemoveProcessesInQueue(Entity owner, int memoryChanged, QueueManager.ProcessQueue processQueue)
+    public void CheckAndRemoveProcessesInQueue(Entity owner, int memoryChanged, ProcessQueue processQueue)
     {
         float totalMemoryUsed = 0;
         foreach (RunningProcess process in processQueue.queue)

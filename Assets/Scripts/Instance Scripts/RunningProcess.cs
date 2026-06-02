@@ -6,7 +6,7 @@ public class RunningProcess : MonoBehaviour
     public SOProcessData data;
     public Entity owner;
     public string[] arguments;
-    public QueueManager.ProcessQueue queue;
+    public ProcessQueue queue;
     public int memoryUsed;
 
     //runtime

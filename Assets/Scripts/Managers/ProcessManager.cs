@@ -64,7 +64,7 @@ public class ProcessManager : MonoBehaviour
         return commandArgs[1..(processArguments.Length + 1)];
     }
 
-    public void TryRunProcess(string[] args, Entity owner, QueueManager.ProcessQueue processQueue, bool isServer)
+    public void TryRunProcess(string[] args, Entity owner, ProcessQueue processQueue, bool isServer)
     {
         bool canRun = false;
         //Argument at index 0 is the processname
@@ -127,6 +127,7 @@ public class ProcessManager : MonoBehaviour
         //maybe i shouldn't name both of these properties queue lmfao
         //kill me
         process.queue.queue.Remove(process);
+        GameObject.Destroy(process);
 
         //We can add additional functionality here (vfx, sfx, etc.)
     }
