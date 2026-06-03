@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class ProcessQueue : MonoBehaviour
 {
-    
+
     //Refs
     //Future implementation for setting unique server compute/memory levels, though honestly this can probably just be hardcoded lmao
     //SOServerData serverData; 
-    public Entity owner; //Leave this blank for server
+    [HideInInspector] public Entity owner; //Leave this blank for server
 
     //Tuning
+    [Header("Tuning vars")]
     public int startingMemory;
     public int startingCompute;
 
+    [Header("Runtime vars, DO NOT MODIFY")]
     //Runtime
     public int openMemory; //memory up for grabs by anyone
     public int openCompute; //memory up for grabs by anyone
 
     public List<RunningProcess> queue = new();
+
+    private void Awake()
+    {
+        if (startingMemory != openMemory || startingCompute != openCompute)
+            Debug.LogWarning("There's a mismatch between the starting and compute values for memory or compute, fix it bro!!");
+    }
 
     void Update()
     {

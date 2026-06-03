@@ -84,14 +84,14 @@ public class ProcessManager : MonoBehaviour
         }
         else
         {
-            if (owner.reservedLocalMemory < processData.memoryUsage)
+            if (owner.localProcessQueue.openMemory < processData.memoryUsage)
             {
                 terminalUIManager.Print("Insufficient memory");
                 return;
             }
             canRun = true;
             //Take memory
-            owner.reservedLocalMemory -= processData.memoryUsage;
+            owner.localProcessQueue.openMemory -= processData.memoryUsage;
             GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
             Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
         }

@@ -5,31 +5,26 @@ public class Entity : MonoBehaviour
 {
 
     //Refs
-    public ReferenceManager referenceManager;
-    QueueManager queueManager;
-    [SerializeField] ProcessQueue serverProcessQueue;
-    [SerializeField] ProcessQueue localProcessQueue;
+    private ReferenceManager referenceManager;
+    private QueueManager queueManager;
+    private ProcessQueue serverProcessQueue;
+    [HideInInspector] public ProcessQueue localProcessQueue;
 
     private void Start()
     {
         referenceManager = ReferenceManager.Instance;
         queueManager = referenceManager.queueManager;
-
+        serverProcessQueue = referenceManager.serverProcessQueue;
+        
         localProcessQueue = GetComponent<ProcessQueue>();
-        //localProcessQueue.RequestMemory(localProcessQueue.startingMemory, this);
-
-        resources.Add(serverProcessQueue, reservedLocalMemory);
     }
 
     // Ok irl 0 is kernel but for the sake of not losing my mind we're doing 0 - 3 with 3 being the highest authority
     // This is so I don't confuse the shit out of myself trying to compare this to encryption levels
     public int authority;
     
-    public int reservedLocalMemory;
-    public int reservedLocalCompute;
     public int reservedServerMemory;
     public int reservedServerCompute;
-
     public int busyLocalMemory = 0; //These two values are for memory that is currently being used by a process
     public int busySeverMemory = 0;
 
@@ -37,7 +32,6 @@ public class Entity : MonoBehaviour
     public List<RunningProcess> ownedProcesses;
     public List<DaemonBase> daemons;
 
-    public Dictionary<ProcessQueue, int> resources = new();
 
     public void ModifyBusyMemory(ProcessQueue queue, int incomingValue)
     {
@@ -49,13 +43,11 @@ public class Entity : MonoBehaviour
         else
         {
             busyLocalMemory -= incomingValue;
-            reservedLocalMemory += incomingValue;
         }
     }
 
-    public void RequestMemory(int amountRequested)
+    public void RequestServerMemory(int amountRequested)
     {
-        GlobalEventBus.RequestMemory(this, amountRequested);
         int openMemory = serverProcessQueue.openMemory;
         if (amountRequested > openMemory)
         {
@@ -67,11 +59,11 @@ public class Entity : MonoBehaviour
             openMemory -= amountRequested;
             reservedServerMemory += amountRequested;
         }
+        GlobalEventBus.RequestMemory(this, amountRequested);
     }
 
-    public void RequestCompute(int amountRequested)
+    public void RequestServerCompute(int amountRequested)
     {
-        GlobalEventBus.RequestCompute(this, amountRequested);
         int openCompute = serverProcessQueue.openCompute;
         if (amountRequested > openCompute)
         {
@@ -83,6 +75,7 @@ public class Entity : MonoBehaviour
             openCompute -= amountRequested;
             reservedServerCompute += amountRequested;
         }
+        GlobalEventBus.RequestCompute(this, amountRequested);
     }
 
 

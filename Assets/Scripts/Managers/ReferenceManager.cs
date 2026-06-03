@@ -11,7 +11,7 @@ public class ReferenceManager : MonoBehaviour
     [SerializeField] public DaemonManager daemonManager;
     [SerializeField] public Entity player;
     [SerializeField] public Entity opponent;
-    [SerializeField] 
+    public ProcessQueue serverProcessQueue;
 
     public static ReferenceManager Instance;
 

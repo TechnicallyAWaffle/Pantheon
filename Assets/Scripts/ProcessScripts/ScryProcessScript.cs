@@ -5,6 +5,6 @@ public class ScryProcessScript : ProcessBase
 {
     public override void Execute(Entity owner, string[] arguments)
     {
-        owner.RequestMemory(1);
+        owner.RequestServerMemory(1);
     }
 }

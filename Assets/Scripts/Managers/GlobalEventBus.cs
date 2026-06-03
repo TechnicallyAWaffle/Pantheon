@@ -16,7 +16,7 @@ public static class GlobalEventBus
     public static event Action<RunningProcess, Entity> OnProcessSuspended;
 
     // Resource events
-    public static event Action<Entity, int, ProcessQueue> OnMemoryChanged;    
+    public static event Action<Entity, int, ProcessQueue> OnMemoryChanged;    //Todo figure out what events i actually want
     public static event Action<Entity, int> OnComputeChanged;
     public static event Action<Entity, int> OnAuthorityChanged; 
 

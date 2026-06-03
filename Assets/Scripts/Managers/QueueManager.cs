@@ -12,7 +12,7 @@ public class QueueManager : MonoBehaviour
     [SerializeField] private Transform activeProcessesParent;
 
     //Refs
-    [SerializeField] private ReferenceManager referenceManager;
+    private ReferenceManager referenceManager;
 
     private void Start()
     {

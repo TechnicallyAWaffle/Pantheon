@@ -10,8 +10,22 @@ using UnityEngine.UI;
 public class TerminalUIManager : MonoBehaviour
 {
 
+
     [SerializeField] private TextMeshProUGUI outputText;
-    [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private TextMeshProUGUI playerReservedServerMemory;
+    [SerializeField] private TextMeshProUGUI playerReservedServerCompute;
+    [SerializeField] private TextMeshProUGUI opponentReservedServerMemory;
+    [SerializeField] private TextMeshProUGUI opponentReservedServerCompute;
+    [SerializeField] private TextMeshProUGUI playerLocalMemory;
+    [SerializeField] private TextMeshProUGUI playerLocalCompute;
+    [SerializeField] private TextMeshProUGUI opponentLocalMemory;
+    [SerializeField] private TextMeshProUGUI opponentLocalCompute;
+    //[SerializeField] private ScrollRect scrollRect;
+
+    private void Start()
+    {
+        //GlobalEventBus.OnMemoryChanged += UpdateMemoryUI;
+    }
 
     private Dictionary<int, string> encryptionIntToDisplayName = new()
     {
@@ -32,5 +46,16 @@ public class TerminalUIManager : MonoBehaviour
     {
         outputText.text += output + "\n";
     }
+
+    private void UpdateMemoryUI()
+    { 
+        
+    }
+
+    public void UpdateServerMemoryAndComputeDistribution()
+    { 
+        //playerReservedServerMemory.text = 
+    }
+
 
 }
