@@ -26,7 +26,7 @@ public class QueueManager : MonoBehaviour
         opponentLocalQueue = referenceManager.opponent.GetComponent<ProcessQueue>();
 
         GlobalEventBus.OnComputeChanged += RecalculateProcessExecutionTimes;
-        GlobalEventBus.OnMemoryChanged += CheckAndRemoveProcessesInQueue;
+        //GlobalEventBus.OnMemoryChanged += CheckAndRemoveProcessesInQueue;
     }
 
     public void AddProcess(SOProcessData process, ProcessQueue queueObject, Entity owner, string[] processArguments)

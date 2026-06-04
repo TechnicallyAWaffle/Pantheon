@@ -791,14 +791,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerminalUIManager
   outputText: {fileID: 1936447203}
-  playerReservedServerMemory: {fileID: 0}
-  playerReservedServerCompute: {fileID: 0}
-  opponentReservedServerMemory: {fileID: 0}
-  opponentReservedServerCompute: {fileID: 0}
-  playerLocalMemory: {fileID: 0}
-  playerLocalCompute: {fileID: 0}
-  opponentLocalMemory: {fileID: 0}
-  opponentLocalCompute: {fileID: 0}
+  playerReservedServerMemory: {fileID: 1745829079}
+  playerReservedServerCompute: {fileID: 2108392979}
+  opponentReservedServerMemory: {fileID: 913813520}
+  opponentReservedServerCompute: {fileID: 1501727861}
+  playerLocalMemory: {fileID: 603941151}
+  playerLocalCompute: {fileID: 1813056849}
+  opponentLocalMemory: {fileID: 1546747543}
+  opponentLocalCompute: {fileID: 1205930010}
 --- !u!1 &569374781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853939686}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: '-- Managers -- '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1828,7 +1828,7 @@ GameObject:
   - component: {fileID: 1111543923}
   - component: {fileID: 1111543922}
   m_Layer: 5
-  m_Name: Main Canvas
+  m_Name: -- Main Canvas --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2578,7 +2578,7 @@ GameObject:
   - component: {fileID: 1510904593}
   - component: {fileID: 1510904592}
   m_Layer: 0
-  m_Name: ServerProcessQueue
+  m_Name: == SERVER PROCESS QUEUE ==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2597,8 +2597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
   owner: {fileID: 0}
-  startingMemory: 0
-  startingCompute: 0
+  startingMemory: 50
+  startingCompute: 50
   openMemory: 0
   openCompute: 0
   queue: []
@@ -2948,7 +2948,7 @@ GameObject:
   - component: {fileID: 1586301206}
   - component: {fileID: 1586301205}
   m_Layer: 0
-  m_Name: Opponent
+  m_Name: Opponents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4100,7 +4100,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 4
+  m_overflowMode: 3
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0

@@ -24,7 +24,8 @@ public class TerminalUIManager : MonoBehaviour
 
     private void Start()
     {
-        //GlobalEventBus.OnMemoryChanged += UpdateMemoryUI;
+        GlobalEventBus.OnMemoryRequested += UpdateMemoryUI;
+        GlobalEventBus.OnComputeRequested += UpdateComputeUI;
         outputText.text = string.Empty;
     }
 
@@ -49,9 +50,16 @@ public class TerminalUIManager : MonoBehaviour
         outputText.text = output + "\n" + currentText;
     }
 
-    private void UpdateMemoryUI()
-    { 
-        
+    private void UpdateMemoryUI(Entity entity, int amount)
+    {
+        playerLocalMemory.text = entity.localProcessQueue.openMemory.ToString();
+        playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
+    }
+
+    private void UpdateComputeUI(Entity entity, int amount)
+    {
+        playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
+        playerReservedServerCompute.text = entity.reservedServerCompute.ToString();
     }
 
     public void UpdateServerMemoryAndComputeDistribution()
