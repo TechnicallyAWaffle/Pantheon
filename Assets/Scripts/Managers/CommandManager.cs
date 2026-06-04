@@ -12,15 +12,22 @@ public class CommandManager : MonoBehaviour
 {
     //References
     [SerializeField] private TMP_InputField inputField;
+    [SerializeField] private TextMeshProUGUI inputText;
     private ReferenceManager referenceManager;
     private TerminalUIManager terminalUIManager;
     private ProcessManager processManager;
     private QueueManager queueManager;
     private Entity player;
 
+    //Tuning
+    readonly char[] trimParams = {'_', ' '};
+    [SerializeField] private float inputSuffixBlinkRate = 0.5f;
+
     //Runtime Vars
     SOCommand lastInputtedCommand;
-
+    private string currentText;
+    private float timer;
+    private bool inputSuffixVisible = true;
 
     //DEV DEBUG 
     private void Update()
@@ -30,14 +37,25 @@ public class CommandManager : MonoBehaviour
         {
             inputField.ActivateInputField();
         }
+
+        if (timer >= inputSuffixBlinkRate)
+        {
+            inputSuffixVisible = !inputSuffixVisible;
+            timer = 0;
+            UpdateInputFieldDisplay();
+        }
+        else
+            timer += Time.deltaTime;
+
     }
 
     void Start()
     {
         RegisterCommands();
         inputField.onSubmit.AddListener(OnSubmit);
-        inputField.text = "meowemeowmeoemwe";
+        inputField.text = "";
         inputField.ActivateInputField();
+        //inputField.onValueChanged.AddListener(SetText);
 
         referenceManager = ReferenceManager.Instance;
         terminalUIManager = referenceManager.terminalUIManager;
@@ -46,6 +64,21 @@ public class CommandManager : MonoBehaviour
         queueManager = referenceManager.queueManager;
 
     }
+
+    private void SetText(string value)
+    {
+        currentText = value;
+        inputSuffixVisible = true;
+        timer = 0f;
+        UpdateInputFieldDisplay();
+    }
+
+    private void UpdateInputFieldDisplay()
+    {
+        inputText.text = currentText + (inputSuffixVisible ? '_' : ' ');
+    }
+
+
 
     [SerializeField] private SOCommand[] baseCommandData;
     private Dictionary<string, (SOCommand data, Action<string[]> handler)> commands;
@@ -60,6 +93,7 @@ public class CommandManager : MonoBehaviour
                 { "suspend",   args => CmdSuspend(args)   },
                 { "kill", args => CmdKill(args) },
                 { "help",   args => CmdHelp(args)   },
+                { "ping",   args => CmdPing(args)   },
                 { "overclock",   args => CmdOverclock(args)   },
             };
     }
@@ -94,8 +128,10 @@ public class CommandManager : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(input)) return;
 
-        terminalUIManager.Print("> " + input);
-        ParseInput(input.Trim());
+        string trimmedInput = input.Trim(trimParams);
+        terminalUIManager.Print("> " + trimmedInput);
+        
+        ParseInput(trimmedInput);
 
         inputField.text = "";
         inputField.ActivateInputField(); // keep focus after submitting
@@ -142,11 +178,6 @@ public class CommandManager : MonoBehaviour
         if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <-arguments>"); return; }
 
         processManager.TryRunProcess(args, player, queueManager.playerLocalQueue, false);
-
-        string programName = args[0];
-
-        terminalUIManager.Print($"");
-        terminalUIManager.Print($"Process '{programName}' added to LOCALHOST scheduler queue");   
     }
 
     void CmdRunServer(string[] args)
@@ -154,11 +185,6 @@ public class CommandManager : MonoBehaviour
         if (args.Length == 0) { terminalUIManager.Print("Usage: srun <program> <-arguments>"); return; }
 
         processManager.TryRunProcess(args, player, queueManager.serverQueue, true);
-
-        string programName = args[0];
-
-        terminalUIManager.Print($"");
-        terminalUIManager.Print($"Process '{programName}' added to SERVER CONNECTION scheduler queue");
     }
 
 
@@ -173,7 +199,26 @@ public class CommandManager : MonoBehaviour
     void CmdHelp(string[] args) 
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: help <process>"); return; }
-        terminalUIManager.Print(GetCommandDataByString(args[0]).description);
+        //TODO: Genericize description getting
+        if (!GetCommandDataByString(args[0]))
+        {
+            terminalUIManager.Print("Command not reconized");
+            return;
+        }
+        else
+            terminalUIManager.Print(GetCommandDataByString(args[0]).description);
+        if (!processManager.GetProcessByName(args[0]))
+        {
+            terminalUIManager.Print("Process not recognized");
+            return;
+        }
+        else
+            terminalUIManager.Print(processManager.GetProcessByName(args[0]).description);
     }
+
+    void CmdPing(string[] args)
+    { 
+    }
+
     void CmdOverclock(string[] args) { }
 }

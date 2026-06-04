@@ -25,6 +25,7 @@ public class TerminalUIManager : MonoBehaviour
     private void Start()
     {
         //GlobalEventBus.OnMemoryChanged += UpdateMemoryUI;
+        outputText.text = string.Empty;
     }
 
     private Dictionary<int, string> encryptionIntToDisplayName = new()
@@ -44,7 +45,8 @@ public class TerminalUIManager : MonoBehaviour
 
     public void Print(string output)
     {
-        outputText.text += output + "\n";
+        string currentText = outputText.text;
+        outputText.text = output + "\n" + currentText;
     }
 
     private void UpdateMemoryUI()

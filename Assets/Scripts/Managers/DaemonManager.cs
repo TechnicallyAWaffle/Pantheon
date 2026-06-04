@@ -4,6 +4,7 @@ using UnityEngine;
 public class DaemonManager : MonoBehaviour
 {
     //Daemons are gameobject prefabs that we physically attach to the player and opponent
+    
     public void AddDaemon(GameObject daemon, Entity owner)
     { 
         daemon.transform.parent = owner.transform;

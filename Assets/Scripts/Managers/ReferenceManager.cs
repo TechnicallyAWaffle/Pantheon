@@ -7,7 +7,6 @@ public class ReferenceManager : MonoBehaviour
     [SerializeField] public TerminalUIManager terminalUIManager;
     [SerializeField] public ProcessManager processManager;
     [SerializeField] public QueueManager queueManager;
-    [SerializeField] public ResourceManager resourceManager;
     [SerializeField] public DaemonManager daemonManager;
     [SerializeField] public Entity player;
     [SerializeField] public Entity opponent;

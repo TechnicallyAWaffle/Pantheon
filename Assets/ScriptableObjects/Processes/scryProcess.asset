@@ -15,7 +15,8 @@ MonoBehaviour:
   processName: scry
   description: Grants you 1 TB of open memory
   baseExecutionTime: 3
-  memoryUsage: 0
-  encryption: 0
+  memoryUsage: 3
+  encryption: 1
   processObject: {fileID: 335334265794423092, guid: d94044b676e744049a319c20ec2a3ffd, type: 3}
   arguments: []
+  removedWhenExecuted: 1

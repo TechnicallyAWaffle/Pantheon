@@ -13,7 +13,8 @@ public class RunningProcess : MonoBehaviour
     public float timeRemaining;
     public float baseTime;          // needed to recalculate on compute changes
     public int encryption;
-    public int processID;
+    public string processID;
     public bool isSuspended;
     public Func<bool> suspensionLiftCondition;
+    public bool executed = false;
 }

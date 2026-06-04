@@ -69,6 +69,11 @@ public class ProcessManager : MonoBehaviour
         bool canRun = false;
         //Argument at index 0 is the processname
         SOProcessData processData = GetProcessByName(args[0]);
+        if (processData == null)
+        {
+            terminalUIManager.Print("Process " + args[0] + " not recognized");
+            return;
+        }
         if (isServer)
         {
             if (owner.reservedServerMemory < processData.memoryUsage)
@@ -113,7 +118,9 @@ public class ProcessManager : MonoBehaviour
         //Flag parsing is reach goal. In future I'll probably send this to a FlagManager once the RunningProcess has been created 
         //since that's the object that actually has data that gets changed during runtime
         //ParseFlags(flagsList.ToArray());
+        Debug.Log("Adding process " + processData.processName + " to " + processQueue.name + " with owner " + owner.name);
         queueManager.AddProcess(processData, processQueue, owner, argsList.ToArray());
+        
     }
 
     
