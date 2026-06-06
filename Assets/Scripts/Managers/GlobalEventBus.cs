@@ -10,10 +10,11 @@ public static class GlobalEventBus
 
 
     // Process events
-    public static event Action<RunningProcess> OnProcessQueued;
+    public static event Action<RunningProcess> OnPlayerQueuedAProcess;
+    public static event Action<RunningProcess, Entity> OnProcessQueued;
     public static event Action<RunningProcess> OnProcessCompleted;
     public static event Action<RunningProcess, Entity> OnProcessKilled;
-    public static event Action<RunningProcess, Entity> OnProcessSuspended;
+    public static event Action<RunningProcess, RunningProcess> OnProcessSuspended;
 
     // Resource events
     public static event Action<Entity> OnMemoryChanged;    //Todo figure out what events i actually want
@@ -42,10 +43,12 @@ public static class GlobalEventBus
 
     public static void MemoryChanged(Entity owner, int amount, ProcessQueue location)
         => OnMemoryChanged?.Invoke(owner);
-    public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);
+    public static void ProcessQueued(RunningProcess p, Entity entity) => OnProcessQueued?.Invoke(p, entity);
+
+    public static void PlayerQueuedProcess(RunningProcess p) => OnPlayerQueuedAProcess?.Invoke(p);
     public static void ProcessCompleted(RunningProcess p) => OnProcessCompleted?.Invoke(p);
 
-    public static void ProcessSuspended(RunningProcess p, Entity suspender) => OnProcessSuspended?.Invoke(p, suspender);
+    public static void ProcessSuspended(RunningProcess p, RunningProcess suspender) => OnProcessSuspended?.Invoke(p, suspender);
     public static void ProcessKilled(RunningProcess p, Entity killer)
                                                                     => OnProcessKilled?.Invoke(p, killer);
     public static void AuthorityChanged(Entity p, int newVal) => OnAuthorityChanged?.Invoke(p, newVal);

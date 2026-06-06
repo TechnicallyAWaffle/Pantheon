@@ -48,7 +48,11 @@ public class QueueManager : MonoBehaviour
         runningProcessInstance.encryption = process.encryption;
         runningProcessInstance.arguments = processArguments;
         runningProcessInstance.queue = queueObject;
-        GlobalEventBus.ProcessQueued(runningProcessInstance);
+
+        //Fire global events. If the entity is the player, fire the associated event (this is for AI behaviour)
+        GlobalEventBus.ProcessQueued(runningProcessInstance, owner);
+        if (owner == referenceManager.player)
+            GlobalEventBus.PlayerQueuedProcess(runningProcessInstance);
 
         //Add the RunningProcess instance to the queue and to the owner's list of running processes
         queueObject.queue.Add(runningProcessInstance);

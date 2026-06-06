@@ -6,12 +6,26 @@ public class EnemyBase : MonoBehaviour
 {
     public Entity entityScript;
     
-    //Runtime Vars
-    public float aggression; //0 - 1 inclusive function 
+    //Refs
+    ReferenceManager referenceManager;
+    Entity player;
 
+    //Tuning Vars
+    [SerializeField] private int minimumTolerableMemory; //The enemy will always try to keep their values over these
+    [SerializeField] private int minimumTolerableCompute;
+
+
+    //Runtime Vars
+    [SerializeField] private float aggression; //0 - 1 inclusive float
+    [SerializeField] private SOProcessData nextBestAction;
+    
     private void Start()
     {
         entityScript = GetComponent<Entity>();
+        referenceManager = ReferenceManager.Instance;
+        player = referenceManager.player;
+
+        GlobalEventBus.OnPlayerQueuedAProcess += EvaluateBestOption;
     }
 
 
@@ -24,10 +38,8 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    protected virtual void EvaluateBestOption()
+    protected virtual void EvaluateBestOption(RunningProcess process)
     {
-
-
 
     }
 
@@ -35,6 +47,17 @@ public class EnemyBase : MonoBehaviour
     { 
         
     }
+
+    protected bool CheckMemoryThreshold()
+    { 
+        return entityScript.reservedServerMemory > minimumTolerableMemory;
+    }
+
+    protected bool CheckComputeThreshold()
+    {
+        return entityScript.reservedServerCompute > minimumTolerableCompute;
+    }
+
 
 
 }

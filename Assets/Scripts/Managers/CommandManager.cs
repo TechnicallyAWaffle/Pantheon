@@ -177,6 +177,9 @@ public class CommandManager : MonoBehaviour
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: run <program> <-arguments>"); return; }
 
+        
+
+
         processManager.TryRunProcess(args, player, queueManager.playerLocalQueue, false);
     }
 

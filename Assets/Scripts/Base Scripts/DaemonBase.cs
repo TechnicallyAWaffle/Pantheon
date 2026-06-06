@@ -21,4 +21,15 @@ public class DaemonBase : MonoBehaviour
 
         //Plus other logic
     }
+
+    public virtual void OnSuspension()
+    {
+
+    }
+
+    public virtual void OnSuspensionLifted()
+    {
+
+    }
+
 }
