@@ -9,6 +9,7 @@ using UnityEngine;
 public class DaemonBase : MonoBehaviour
 {
     public bool isSuspended;
+    public string daemonName;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     

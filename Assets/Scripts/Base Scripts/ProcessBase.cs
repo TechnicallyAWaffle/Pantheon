@@ -1,3 +1,4 @@
+using UnityEditor.U2D.Tooling.Analyzer;
 using UnityEngine;
 
 public class ProcessBase : MonoBehaviour
@@ -22,6 +23,6 @@ public class ProcessBase : MonoBehaviour
 
     public virtual void Update()
     {
-        if (!isExecuted) return;
+        if (!isExecuted || runtimeProcessData.isSuspended) return;
     }
 }

@@ -7,10 +7,17 @@ public class EnemyBase : MonoBehaviour
     public Entity entityScript;
     
     //Runtime Vars
-    public int aggression;
+    public float aggression; //0 - 1 inclusive function 
+
+    private void Start()
+    {
+        entityScript = GetComponent<Entity>();
+    }
+
 
     protected virtual IEnumerator BehaviourLoop()
     {
+        //
         while (true)
         { 
             

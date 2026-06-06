@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,12 +18,14 @@ public class ProcessManager : MonoBehaviour
     ReferenceManager referenceManager;
     TerminalUIManager terminalUIManager;
     QueueManager queueManager;
+    DaemonManager daemonManager;
 
     private void Start()
     {
         referenceManager = ReferenceManager.Instance;
         terminalUIManager = referenceManager.terminalUIManager;
         queueManager = referenceManager.queueManager;
+        daemonManager = referenceManager.daemonManager;
     }
 
 
@@ -104,6 +107,7 @@ public class ProcessManager : MonoBehaviour
         //If can't run then just return
         if (!canRun) return;
 
+        //Compile list of all arguments and flags
         List<string> argsList = new();
         List<string> flagsList = new();
         //Exclude first element since that's just the process name
@@ -115,12 +119,52 @@ public class ProcessManager : MonoBehaviour
                 flagsList.Add(argumentOrFlag);
         }
 
+        //Validate arguments
+        if (!ValidateFlags(argsList.ToArray(), processData))
+        {
+            string errorMessageArguments = string.Empty;
+            foreach (SOProcessData.ArgumentType argument in processData.arguments)
+            {
+                errorMessageArguments += "<" + argument.ToString() + "> ";
+            }
+            terminalUIManager.Print("Invalid arguments detected. Process " + processData.processName
+                + " expects arguments " + errorMessageArguments);
+            return;
+        }
+
         //Flag parsing is reach goal. In future I'll probably send this to a FlagManager once the RunningProcess has been created 
         //since that's the object that actually has data that gets changed during runtime
         //ParseFlags(flagsList.ToArray());
         Debug.Log("Adding process " + processData.processName + " to " + processQueue.name + " with owner " + owner.name);
         queueManager.AddProcess(processData, processQueue, owner, argsList.ToArray());
         
+    }
+
+    private bool ValidateFlags(string[] args, SOProcessData processData)
+    {
+        int argIndex = 0;
+        foreach (SOProcessData.ArgumentType argument in processData.arguments)
+        {
+            bool isValidProcessID = queueManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
+            bool isValidDaemon = daemonManager.AllRevealedDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
+            switch (argument)
+            {
+                case SOProcessData.ArgumentType.PROCESSID:
+                    if (isValidProcessID)
+                        return true;
+                    break;
+                case SOProcessData.ArgumentType.DAEMON:
+                    if(isValidDaemon)
+                        return true;
+                    break;
+                case SOProcessData.ArgumentType.PROCESSORDAEMON:
+                    if (isValidProcessID || isValidDaemon)
+                        return true;
+                    break;  
+            }
+            argIndex++;
+        }
+        return false;
     }
 
     

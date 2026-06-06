@@ -12,5 +12,13 @@ public class SOProcessData : ScriptableObject
     public int encryption; // 1 - 3 just like authority
     public GameObject processObject;
     public bool removedWhenExecuted;
-    public string[] arguments;
+    public ArgumentType[] arguments;
+
+    public enum ArgumentType 
+    {
+        PROCESSID,
+        DAEMON,
+        PROCESSORDAEMON,
+    };
+
 }
