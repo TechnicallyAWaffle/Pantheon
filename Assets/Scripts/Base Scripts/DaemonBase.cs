@@ -10,6 +10,8 @@ public class DaemonBase : MonoBehaviour
 {
     public bool isSuspended;
     public string daemonName;
+    // integer 1-3
+    public int encryption;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     

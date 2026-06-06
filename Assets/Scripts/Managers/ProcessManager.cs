@@ -145,16 +145,26 @@ public class ProcessManager : MonoBehaviour
         int argIndex = 0;
         foreach (SOProcessData.ArgumentType argument in processData.arguments)
         {
-            bool isValidProcessID = queueManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
-            bool isValidDaemon = daemonManager.AllRevealedDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
+            bool isValidProcessID = false;
+            bool isValidDaemon = false;
+            if (args.Length > 0)
+            {
+                isValidProcessID = queueManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
+                isValidDaemon = daemonManager.AllRevealedDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
+            }
+            
             switch (argument)
             {
+                case SOProcessData.ArgumentType.NONE:
+                    if (args.Length == 0)
+                        return true;
+                    break;
                 case SOProcessData.ArgumentType.PROCESSID:
                     if (isValidProcessID)
                         return true;
                     break;
                 case SOProcessData.ArgumentType.DAEMON:
-                    if(isValidDaemon)
+                    if (isValidDaemon)
                         return true;
                     break;
                 case SOProcessData.ArgumentType.PROCESSORDAEMON:
@@ -167,16 +177,11 @@ public class ProcessManager : MonoBehaviour
         return false;
     }
 
-    
-    public bool CheckAuthority(Entity entity, RunningProcess process)
-    {
-        return entity.authority >= process.encryption;
-    }
-
     public void KillProcess(RunningProcess process)
     {
         //maybe i shouldn't name both of these properties queue lmfao
         //kill me
+        process.GetComponent<ProcessBase>().OnKilled();
         process.queue.queue.Remove(process);
         GameObject.Destroy(process);
 

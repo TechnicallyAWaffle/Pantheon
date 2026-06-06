@@ -16,6 +16,7 @@ public class SOProcessData : ScriptableObject
 
     public enum ArgumentType 
     {
+        NONE,
         PROCESSID,
         DAEMON,
         PROCESSORDAEMON,

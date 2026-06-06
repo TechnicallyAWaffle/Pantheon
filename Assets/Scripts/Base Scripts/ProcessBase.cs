@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class ProcessBase : MonoBehaviour
 {
-    ReferenceManager referenceManager;
-    RunningProcess runtimeProcessData;
+    protected ReferenceManager referenceManager;
+    protected RunningProcess runtimeProcessData;
     
     public bool isExecuted = false;
 
-    private void Start()
+    protected virtual void Start()
     {
         referenceManager = ReferenceManager.Instance;
     }
@@ -19,6 +19,21 @@ public class ProcessBase : MonoBehaviour
         //Some processes have persistent effects after they're executed, some are just one-time effects
         //This flag becomes TRUE once the process completes in the queue. Persistent effects only happen after this flag is TRUE
         isExecuted = true;
+    }
+
+    public virtual void OnKilled()
+    {
+        
+    }
+
+    public virtual void OnSuspension()
+    {
+        
+    }
+
+    public virtual void OnSuspensionLifted()
+    {
+        
     }
 
     public virtual void Update()

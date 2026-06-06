@@ -1969,6 +1969,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProcessManager
   processDatabase:
   - {fileID: 11400000, guid: 7d08aa3165c9e774b9c991176c05e414, type: 2}
+  - {fileID: 11400000, guid: 61702a2bda2b2974aa6efc53a2baadf1, type: 2}
+  - {fileID: 11400000, guid: 5f893bddff20e1a42aaddc26f9df1065, type: 2}
+  - {fileID: 11400000, guid: 0778c0e983109fa4cb1535fde5a25e3d, type: 2}
+  - {fileID: 11400000, guid: aa2dac1c3e4761b4f851f28610088fcc, type: 2}
   flagDatabase: []
 --- !u!1 &1205930008
 GameObject:
