@@ -9,7 +9,7 @@ public class SteelgrabProcessScript : ProcessBase
 
     protected override void Start()
     {
-        base.Start();   
+        base.Start();
         suspensionManager = FindAnyObjectByType<SuspensionManager>();
     }
 
@@ -26,7 +26,7 @@ public class SteelgrabProcessScript : ProcessBase
             {
                 if (referenceManager.queueManager.AllRunningProcessesByID.TryGetValue(arg0, out targetProcess))
                 {
-                    suspensionManager.Suspend(targetProcess, () => false, owner);
+                    suspensionManager.Suspend(targetProcess, () => false, this.runtimeProcessData);
                 }
                 else
                 {
