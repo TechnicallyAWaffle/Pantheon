@@ -37,13 +37,28 @@ public class ProcessQueue : MonoBehaviour
         referenceManager = ReferenceManager.Instance;
         queueManager = referenceManager.queueManager;
         terminalUIManager = referenceManager.terminalUIManager;
-        StartCoroutine(TickQueue());
+
+        GlobalEventBus.OnMemoryRequested += UpdateOpenMemory;
+        GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
+        
+            StartCoroutine(TickQueue());
     }
 
     void Update()
     {
         //TickQueue(queue);
     }
+
+    private void UpdateOpenMemory(Entity entity, int amountGiven)
+    {
+        openMemory -= amountGiven;
+    }
+
+    private void UpdateOpenCompute(Entity entity, int amountGiven)
+    {
+        openMemory -= amountGiven;
+    }
+
 
     private IEnumerator TickQueue()
     {

@@ -77,29 +77,31 @@ public class ProcessManager : MonoBehaviour
             terminalUIManager.Print("Process " + args[0] + " not recognized");
             return;
         }
+        
+        int memoryUsage = processData.memoryUsage;
         if (isServer)
         {
-            if (owner.reservedServerMemory < processData.memoryUsage)
+            if ((owner.reservedServerMemory - owner.busyServerMemory) < memoryUsage)
             {
                 terminalUIManager.Print("Insufficient memory");
                 return;
             }
             canRun = true;
-            //Take memory
-            owner.reservedServerMemory -= processData.memoryUsage;
-            GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
+            //Modify busy memory
+            owner.busyServerMemory += memoryUsage;
+            GlobalEventBus.MemoryChanged(owner, memoryUsage, owner.GetComponent<ProcessQueue>());
             Debug.Log("Attempting to run Process " + processData.processName + " on server queue");
         }
         else
         {
-            if (owner.localProcessQueue.openMemory < processData.memoryUsage)
+            if ((owner.localProcessQueue.openMemory - owner.busyLocalMemory) < memoryUsage)
             {
                 terminalUIManager.Print("Insufficient memory");
                 return;
             }
             canRun = true;
-            //Take memory
-            owner.localProcessQueue.openMemory -= processData.memoryUsage;
+            //Modfiy busy memory
+            owner.busyLocalMemory += memoryUsage;
             GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
             Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
         }

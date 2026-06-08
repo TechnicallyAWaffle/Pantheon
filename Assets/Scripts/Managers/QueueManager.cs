@@ -16,6 +16,7 @@ public class QueueManager : MonoBehaviour
     //Runtime
     //This tracks every single running process instance by their processID
     public Dictionary<string, RunningProcess> AllRunningProcessesByID = new();
+    RunningProcess runningProcessInstance;
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class QueueManager : MonoBehaviour
     {
         //Instantiates a new process and parents it to a universal running process parent
         GameObject processObject = Instantiate(process.processObject, queueObject.transform);
-        RunningProcess runningProcessInstance = processObject.GetComponent<RunningProcess>();
+        runningProcessInstance = processObject.GetComponent<RunningProcess>();
 
         //Add the process and its ID to the global process lookup dictionary
         runningProcessInstance.processID = GenerateRandomProcessID();
@@ -48,6 +49,7 @@ public class QueueManager : MonoBehaviour
         runningProcessInstance.encryption = process.encryption;
         runningProcessInstance.arguments = processArguments;
         runningProcessInstance.queue = queueObject;
+        processObject.GetComponent<ProcessBase>().runtimeProcessData = runningProcessInstance;
 
         //Fire global events. If the entity is the player, fire the associated event (this is for AI behaviour)
         GlobalEventBus.ProcessQueued(runningProcessInstance, owner);

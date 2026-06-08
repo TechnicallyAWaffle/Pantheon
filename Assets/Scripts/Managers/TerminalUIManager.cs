@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class TerminalUIManager : MonoBehaviour
 {
 
+    //Refs
+    ReferenceManager referenceManager;
 
     [SerializeField] private TextMeshProUGUI outputText;
     [SerializeField] private TextMeshProUGUI playerReservedServerMemory;
@@ -24,9 +26,18 @@ public class TerminalUIManager : MonoBehaviour
 
     private void Start()
     {
+        referenceManager = ReferenceManager.Instance;
+
         GlobalEventBus.OnMemoryRequested += UpdateMemoryUI;
         GlobalEventBus.OnComputeRequested += UpdateComputeUI;
+        GlobalEventBus.OnMemoryChanged += UpdateMemoryUI;
+        GlobalEventBus.OnComputeChanged += UpdateComputeUI;
+
         outputText.text = string.Empty;
+        UpdateMemoryUI(referenceManager.player);
+        UpdateComputeUI(referenceManager.opponent);
+        UpdateMemoryUI(referenceManager.opponent);
+        UpdateComputeUI(referenceManager.opponent);
     }
 
     private Dictionary<int, string> encryptionIntToDisplayName = new()
@@ -34,6 +45,11 @@ public class TerminalUIManager : MonoBehaviour
         {1, "light"},
         {2, "medium"},
         {3, "heavy"},
+        {4, "extreme"},
+        {5, "convoluted"},
+        {6, "incongruent"},
+        {7, "entangled"},
+        {8, "unquantifiable"},
     };
 
     private Dictionary<int, string> authorityIntToDisplayName = new()
@@ -44,6 +60,13 @@ public class TerminalUIManager : MonoBehaviour
         {3, "kernel"},
     };
 
+    private string ReturnEncryptionName(int encryptionLevel)
+    {
+        if (encryptionLevel > 8)
+            return "paradoxical";
+        else return encryptionIntToDisplayName[encryptionLevel];
+    }
+
     public void Print(string output)
     {
         string currentText = outputText.text;
@@ -52,11 +75,23 @@ public class TerminalUIManager : MonoBehaviour
 
     private void UpdateMemoryUI(Entity entity, int amount)
     {
+        playerLocalMemory.text = entity.localProcessQueue.openMemory.ToString(); //TODO: Update all these to also show busy memory
+        playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
+    }
+
+    private void UpdateMemoryUI(Entity entity)
+    {
         playerLocalMemory.text = entity.localProcessQueue.openMemory.ToString();
         playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
     }
 
     private void UpdateComputeUI(Entity entity, int amount)
+    {
+        playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
+        playerReservedServerCompute.text = entity.reservedServerCompute.ToString();
+    }
+
+    private void UpdateComputeUI(Entity entity)
     {
         playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
         playerReservedServerCompute.text = entity.reservedServerCompute.ToString();

@@ -77,4 +77,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7385488a424410746a1a9a4a4008017f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScryProcessScript
+  runtimeProcessData: {fileID: 4814880641827648730}
   isExecuted: 0
+--- !u!114 &4814880641827648730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2426636017643509719, guid: 03465750283d6b449a0ed2baf9af2a3c, type: 3}
+  m_PrefabInstance: {fileID: 7168816874271400717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335334265794423092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95de1ec3ab05a74e82b96f187a19ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunningProcess
