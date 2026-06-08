@@ -184,8 +184,8 @@ public class ProcessManager : MonoBehaviour
         //maybe i shouldn't name both of these properties queue lmfao
         //kill me
         process.GetComponent<ProcessBase>().OnKilled();
-        process.queue.queue.Remove(process);
-        GameObject.Destroy(process);
+        //process.queue.queue.Remove(process);
+        //GameObject.Destroy(process);
 
         //We can add additional functionality here (vfx, sfx, etc.)
     }

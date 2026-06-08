@@ -80,8 +80,7 @@ public class ProcessQueue : MonoBehaviour
                     process.executed = true;
 
                     //Execute the process
-                    process.data.processObject.TryGetComponent<ProcessBase>(out ProcessBase processScript);
-                    processScript.Execute(process.owner, process.arguments);
+                    process.script.Execute(process.owner, process.arguments);
                     GlobalEventBus.ProcessCompleted(process);
 
                     //Print Process execution to terminal

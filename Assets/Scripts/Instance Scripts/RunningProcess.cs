@@ -8,6 +8,7 @@ public class RunningProcess : MonoBehaviour
     public string[] arguments;
     public ProcessQueue queue;
     public int memoryUsed;
+    public ProcessBase script;
 
     //runtime
     public float timeRemaining;
