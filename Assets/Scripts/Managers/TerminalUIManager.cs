@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -81,7 +82,13 @@ public class TerminalUIManager : MonoBehaviour
 
     private void UpdateMemoryUI(Entity entity)
     {
-        playerLocalMemory.text = entity.localProcessQueue.openMemory.ToString();
+        playerLocalMemory.text = (entity.localProcessQueue.openMemory - entity.busyLocalMemory).ToString();
+        playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
+    }
+
+    private void UpdateMemoryUI(RunningProcess process, Entity entity)
+    {
+        playerLocalMemory.text = (entity.localProcessQueue.openMemory - entity.busyLocalMemory).ToString();
         playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
     }
 

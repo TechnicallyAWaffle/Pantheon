@@ -38,13 +38,16 @@ public class Entity : MonoBehaviour
 
     public void ModifyBusyMemory(ProcessQueue queue, int incomingValue)
     {
+        Debug.Log("Modifying Busy Memory: " + incomingValue);
         if (queue == serverProcessQueue)
         {
             busyServerMemory += incomingValue;
+            Debug.Log("New Server Value: " + busyServerMemory);
         }
         else
         {
             busyLocalMemory += incomingValue;
+            Debug.Log("New Local Value: " + busyLocalMemory);
         }
     }
 
