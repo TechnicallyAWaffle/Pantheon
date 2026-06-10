@@ -71,7 +71,7 @@ public class QueueManager : MonoBehaviour
             location = "SERVER CONNECTION";
         else
             location = "LOCAL CLIENT";
-        terminalUIManager.Print($"Process '{runningProcessInstance.data.processName}'_" 
+        terminalUIManager.Print($"Process '{runningProcessInstance.data.processName}'_"
             + runningProcessInstance.processID + " added to "
             + location + " scheduler queue");
     }

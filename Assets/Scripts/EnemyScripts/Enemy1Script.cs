@@ -14,7 +14,7 @@ public class Enemy1Script : EnemyBase
     {
         return new AIContext
         {
-            localMemoryAvailable = self.localProcessQueue.openMemory,
+            localMemoryAvailable = self.localProcessQueue._openMemory,
             ownAuthority = self.authority,
             ownedRunningProcesses = self.ownedProcesses.ToArray(),
             playerAuthority = player.authority,
@@ -37,19 +37,19 @@ public class Enemy1Script : EnemyBase
 
 
         if (ctx.PlayerTotalProcessThreat > tolerablePlayerProcessThreatSum)
-        { 
+        {
             return DecideDefensiveAction(ctx);
         }
 
         if (ctx.serverControlRatio >= 1)
             return DecideOffensiveAction(ctx);
-        else if(ctx.serverControlRatio <= 1)
+        else if (ctx.serverControlRatio <= 1)
             return DecideResourceAction(ctx);
 
         if (ctx.PlayerHasInstaWinProcess)
             return null;
 
-            return DecideDefaultAction(ctx);
+        return DecideDefaultAction(ctx);
     }
 
     AIAction DecideDefensiveAction(AIContext ctx)
@@ -67,7 +67,7 @@ public class Enemy1Script : EnemyBase
             {
                 if (process.arguments.Length == 0)
                     return AIAction.RunProcess(SOProcessDataToArgsArray(process, string.Empty), queueToRun);
-                else 
+                else
                     return AIAction.RunProcess(SOProcessDataToArgsArray(process, highestThreatProcess.processID), queueToRun);
             }
         }
@@ -77,7 +77,7 @@ public class Enemy1Script : EnemyBase
 
     AIAction DecideOffensiveAction(AIContext ctx)
     {
-        
+
 
 
         return null;
@@ -99,7 +99,7 @@ public class Enemy1Script : EnemyBase
                 break;
 
             case AIActionType.KillProcess:
-                string[] args = {"kill", action.target.processID};
+                string[] args = { "kill", action.target.processID };
                 referenceManager.processManager.TryRunProcess(args, self, action.queue, action.isServer);
                 break;
             case AIActionType.Wait:

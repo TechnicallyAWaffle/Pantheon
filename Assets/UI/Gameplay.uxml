@@ -14,12 +14,20 @@
                 <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
                 <ui:VisualElement name="PlayerResources" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
                     <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center;">
-                        <ui:Label text="45" name="ComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);"/>
+                        <ui:Label text="45" name="PlayerComputeNumber" data-source-type="ProcessQueue, Assembly-CSharp" data-source-path="" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="OpenCompute" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget"/>
+                            </Bindings>
+                        </ui:Label>
                         <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
                     </ui:VisualElement>
                     <ui:VisualElement name="Commands" style="flex-grow: 1;"/>
                     <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center;">
-                        <ui:Label text="3 TB" name="MemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;"/>
+                        <ui:Label text="3 TB" name="PlayerMemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
+                            </Bindings>
+                        </ui:Label>
                         <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>
                         <ui:Label text="FREE" name="FreeText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-top: 0; margin-top: 0; padding-bottom: 0; margin-bottom: 0;"/>
                     </ui:VisualElement>
@@ -57,20 +65,28 @@
             </ui:VisualElement>
             <ui:VisualElement name="Enemy" style="flex-grow: 1; max-height: 100%; min-height: 70%; width: auto; height: auto; min-width: 0%; max-width: 33%;">
                 <ui:VisualElement name="EnemyStats" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
-                    <ui:Label text="ELEGY" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(128, 209, 165); font-size: 100px; border-left-width: 0; -unity-text-align: middle-right; border-right-width: 53px;"/>
+                    <ui:Label text="ELEGY" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(249, 146, 9); font-size: 100px; border-left-width: 0; -unity-text-align: middle-right; border-right-width: 53px;"/>
                     <ui:ProgressBar value="27.9" title="Temperature" name="Temperature" style="align-self: center; justify-content: space-around; align-items: stretch; max-height: 100%; height: 100%;"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
                 <ui:VisualElement name="EnemyResources" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
                     <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center;">
-                        <ui:Label text="45" name="ComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);"/>
-                        <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
+                        <ui:Label text="45" name="EnemyComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(249, 146, 9);">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="OpenCompute" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(249, 146, 9); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
                     </ui:VisualElement>
                     <ui:VisualElement name="Commands" style="flex-grow: 1;"/>
                     <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; flex-direction: column;">
-                        <ui:Label text="3 TB" name="MemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;"/>
-                        <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>
-                        <ui:Label text="FREE" name="FreeText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 0; margin-top: 0; padding-bottom: 0; margin-bottom: 0;"/>
+                        <ui:Label text="3 TB" name="EnemyMemoryNumber" class="body" style="color: rgb(249, 146, 9); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(249, 146, 9); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>
+                        <ui:Label text="FREE" name="FreeText" class="body" style="color: rgb(249, 146, 9); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 0; margin-top: 0; padding-bottom: 0; margin-bottom: 0;"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

@@ -77,7 +77,7 @@ public class ProcessManager : MonoBehaviour
             terminalUIManager.Print("Process " + args[0] + " not recognized");
             return;
         }
-        
+
         int memoryUsage = processData.memoryUsage;
         if (isServer)
         {
@@ -94,7 +94,7 @@ public class ProcessManager : MonoBehaviour
         }
         else
         {
-            if ((owner.localProcessQueue.openMemory - owner.busyLocalMemory) < memoryUsage)
+            if ((owner.localProcessQueue._openMemory - owner.busyLocalMemory) < memoryUsage)
             {
                 terminalUIManager.Print("Insufficient memory");
                 return;
@@ -105,7 +105,7 @@ public class ProcessManager : MonoBehaviour
             GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
             Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
         }
-        
+
         //If can't run then just return
         if (!canRun) return;
 
@@ -139,7 +139,7 @@ public class ProcessManager : MonoBehaviour
         //ParseFlags(flagsList.ToArray());
         Debug.Log("Adding process " + processData.processName + " to " + processQueue.name + " with owner " + owner.name);
         queueManager.AddProcess(processData, processQueue, owner, argsList.ToArray());
-        
+
     }
 
     private bool ValidateFlags(string[] args, SOProcessData processData)
@@ -154,7 +154,7 @@ public class ProcessManager : MonoBehaviour
                 isValidProcessID = queueManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
                 isValidDaemon = daemonManager.AllRevealedDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
             }
-            
+
             switch (argument)
             {
                 case SOProcessData.ArgumentType.NONE:
@@ -172,7 +172,7 @@ public class ProcessManager : MonoBehaviour
                 case SOProcessData.ArgumentType.PROCESSORDAEMON:
                     if (isValidProcessID || isValidDaemon)
                         return true;
-                    break;  
+                    break;
             }
             argIndex++;
         }

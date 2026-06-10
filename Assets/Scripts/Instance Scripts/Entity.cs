@@ -26,7 +26,7 @@ public class Entity : MonoBehaviour
     // Ok irl 0 is kernel but for the sake of not losing my mind we're doing 0 - 3 with 3 being the highest authority
     // This is so I don't confuse the shit out of myself trying to compare this to encryption levels
     public int authority;
-    
+
     public int reservedServerMemory;
     public int reservedServerCompute;
     public int busyLocalMemory = 0; //These two values are for memory that is currently being used by a process
@@ -53,11 +53,11 @@ public class Entity : MonoBehaviour
 
     public void RequestServerMemory(int amountRequested)
     {
-        int openMemory = serverProcessQueue.openMemory;
+        int openMemory = serverProcessQueue._openMemory;
         if (amountRequested > openMemory)
         {
             reservedServerMemory += openMemory;
-            serverProcessQueue.openMemory = 0;
+            serverProcessQueue._openMemory = 0;
             GlobalEventBus.RequestMemory(this, openMemory);
         }
         else
@@ -70,11 +70,11 @@ public class Entity : MonoBehaviour
 
     public void RequestServerCompute(int amountRequested)
     {
-        int openCompute = serverProcessQueue.openCompute;
+        int openCompute = serverProcessQueue._openCompute;
         if (amountRequested > openCompute)
         {
             reservedServerCompute += openCompute;
-            serverProcessQueue.openCompute = 0;
+            serverProcessQueue._openCompute = 0;
         }
         else
         {
