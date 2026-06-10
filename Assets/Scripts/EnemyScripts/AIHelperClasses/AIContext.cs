@@ -9,15 +9,15 @@ public class AIContext
     public float localMemoryAvailable;
     public float localCompute;
     public int ownAuthority;
-    public List<RunningProcess> ownedRunningProcesses;
-    public List<DaemonBase> activeDaemons;
+    public RunningProcess[] ownedRunningProcesses;
+    public DaemonBase[] activeDaemons;
 
     // opponent state
     public float playerServerMemoryReserved;
     public float playerServerCompute;
     public int playerAuthority;
-    public List<RunningProcess> runningPlayerProcesses;
-    public List<DaemonBase> activePlayerDaemons;
+    public RunningProcess[] runningPlayerProcesses;
+    public DaemonBase[] activePlayerDaemons;
 
     // server state
     public float serverMemoryReserved;

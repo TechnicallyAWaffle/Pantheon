@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using UnityEditor.MPE;
 using UnityEditor.Tilemaps;
@@ -7,10 +9,6 @@ using static AIAction;
 
 public class Enemy1Script : EnemyBase
 {
-    private void Awake()
-    {
-        enemyName = "ELEGY";
-    }
 
     protected override AIContext GatherContext()
     {
@@ -57,11 +55,31 @@ public class Enemy1Script : EnemyBase
     AIAction DecideDefensiveAction(AIContext ctx)
     {
 
+        RunningProcess highestThreatProcess = FindHighestThreatProcess(ctx.runningPlayerProcesses);
+
+        if (CheckAuthorityAgainstEncryption(highestThreatProcess))
+            return AIAction.KillProcess(highestThreatProcess);
+
+        foreach (SOProcessData process in defensiveProcesses)
+        {
+            ProcessQueue queueToRun = TryLocalOrServerRun(process.memoryUsage);
+            if (queueToRun)
+            {
+                if (process.arguments.Length == 0)
+                    return AIAction.RunProcess(SOProcessDataToArgsArray(process, string.Empty), queueToRun);
+                else 
+                    return AIAction.RunProcess(SOProcessDataToArgsArray(process, highestThreatProcess.processID), queueToRun);
+            }
+        }
+
         return DecideOffensiveAction(ctx);
     }
 
     AIAction DecideOffensiveAction(AIContext ctx)
     {
+        
+
+
         return null;
     }
 
@@ -77,13 +95,13 @@ public class Enemy1Script : EnemyBase
         switch (action.type)
         {
             case AIActionType.RunProcess:
-                //referenceManager.processManager.TryRunProcess();
+                referenceManager.processManager.TryRunProcess(action.arguments, self, action.queue, action.isServer);
                 break;
 
             case AIActionType.KillProcess:
-                //referenceManager.processManager(action.target); TODO: Add default kill process
+                string[] args = {"kill", action.target.processID};
+                referenceManager.processManager.TryRunProcess(args, self, action.queue, action.isServer);
                 break;
-
             case AIActionType.Wait:
                 break;
         }

@@ -148,6 +148,7 @@ public class ProcessCreatorWindow : EditorWindow
         so.baseExecutionTime = baseExecutionTime;
         so.memoryUsage = memoryUsage;
         so.encryption = encryption;
+        so.name = processName + "process";
 
         string soPath = $"{soSavePath}/{processName}_Data.asset";
         AssetDatabase.CreateAsset(so, soPath);
@@ -157,7 +158,7 @@ public class ProcessCreatorWindow : EditorWindow
 
         // instantiate base prefab, add child script, save as variant
         GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(basePrefab);
-        instance.name = processName;
+        instance.name = processName + "process";
         instance.AddComponent(childScript.GetClass());
 
         GameObject variant = PrefabUtility.SaveAsPrefabAsset(instance, prefabPath);
