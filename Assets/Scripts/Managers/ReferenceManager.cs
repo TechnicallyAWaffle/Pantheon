@@ -8,6 +8,7 @@ public class ReferenceManager : MonoBehaviour
     [SerializeField] public ProcessManager processManager;
     [SerializeField] public QueueManager queueManager;
     [SerializeField] public DaemonManager daemonManager;
+    [SerializeField] public SuspensionManager suspensionManager;
     [SerializeField] public Entity player;
     [SerializeField] public Entity opponent;
     public ProcessQueue serverProcessQueue;

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 using static UnityEngine.Rendering.GPUSort;
 
@@ -46,6 +47,35 @@ public abstract class EnemyBase : MonoBehaviour
         AIAction action = Decide(ctx);
         Execute(action, ctx);
     }
+
+    //Helpers
+    protected bool CheckAuthorityAgainstEncryption(RunningProcess process)
+    {
+        return self.authority > process.encryption;
+    }
+
+    protected ProcessQueue TryLocalOrServerRun(float memoryUsage)
+    {
+        if (memoryUsage > self.localProcessQueue.openMemory)
+            return self.localProcessQueue;
+        if (memoryUsage > self.reservedServerMemory)
+            return null;
+        else
+            return referenceManager.serverProcessQueue;
+    }
+
+    protected RunningProcess FindHighestThreatProcess(RunningProcess[] processes)
+    {
+        RunningProcess highestThreatProcess = null;
+        RunningProcess lastProcess = processes[0];
+        foreach (RunningProcess process in processes)
+        {
+            if (process.data.threatLevel > lastProcess.data.threatLevel)
+                highestThreatProcess = process;
+        }
+        return highestThreatProcess;
+    }
+
 
     protected string[] SOProcessDataToArgsArray(SOProcessData processData, string processOrDaemonID)
     {

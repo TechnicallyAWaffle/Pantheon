@@ -7,9 +7,10 @@ public class AIAction
     public RunningProcess target;
     public ProcessQueue queue;
     public string[] arguments;
+    public bool isServer;
 
-    public static AIAction RunProcess(SOProcessData p, ProcessQueue q, string[] args = null)
-        => new AIAction { type = AIActionType.RunProcess, process = p, queue = q, arguments = args };
+    public static AIAction RunProcess(string[] args, ProcessQueue q)
+        => new AIAction { type = AIActionType.RunProcess, arguments = args, queue = q};
 
     public static AIAction KillProcess(RunningProcess target)
         => new AIAction { type = AIActionType.KillProcess, target = target };

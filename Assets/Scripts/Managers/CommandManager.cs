@@ -193,11 +193,19 @@ public class CommandManager : MonoBehaviour
 
     void CmdSuspend(string[] args)
     {
-        if (args.Length == 0) { terminalUIManager.Print("Usage: stop <program>"); return; }
+        if (args.Length == 0) { terminalUIManager.Print("Usage: suspend <processID>"); return; }
 
+        //SUSPENSION BASE PROCESSES ARE CURRENTLY ONLY ABLE TO BE RUN ON THE SERVER, MIGHT CHANGE IN THE FUTURE IF WE HAVE TIME
+        processManager.TryRunProcess(args, player, queueManager.serverQueue, true);
     }
 
-    void CmdKill(string[] args) { /* ... */ }
+    void CmdKill(string[] args) 
+    {
+        if (args.Length == 0) { terminalUIManager.Print("Usage: suspend <processID>"); return; }
+
+        //KILL BASE PROCESSES ARE CURRENTLY ONLY ABLE TO BE RUN ON THE SERVER, MIGHT CHANGE IN THE FUTURE IF WE HAVE TIME
+        processManager.TryRunProcess(args, player, queueManager.serverQueue, true);
+    }
 
     void CmdHelp(string[] args) 
     {
