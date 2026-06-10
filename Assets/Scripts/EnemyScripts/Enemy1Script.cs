@@ -16,7 +16,7 @@ public class Enemy1Script : EnemyBase
     {
         return new AIContext
         {
-            localMemoryAvailable = self.localProcessQueue.openMemory,
+            localMemoryAvailable = self.localProcessQueue._openMemory,
             ownAuthority = self.authority,
             ownedRunningProcesses = self.ownedProcesses,
             playerAuthority = player.authority,
@@ -39,19 +39,19 @@ public class Enemy1Script : EnemyBase
 
 
         if (ctx.PlayerTotalProcessThreat > tolerablePlayerProcessThreatSum)
-        { 
+        {
             return DecideDefensiveAction(ctx);
         }
 
         if (ctx.serverControlRatio >= 1)
             return DecideOffensiveAction(ctx);
-        else if(ctx.serverControlRatio <= 1)
+        else if (ctx.serverControlRatio <= 1)
             return DecideResourceAction(ctx);
 
         if (ctx.PlayerHasInstaWinProcess)
             return null;
 
-            return DecideDefaultAction(ctx);
+        return DecideDefaultAction(ctx);
     }
 
     AIAction DecideDefensiveAction(AIContext ctx)

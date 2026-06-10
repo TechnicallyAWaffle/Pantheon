@@ -76,36 +76,36 @@ public class TerminalUIManager : MonoBehaviour
 
     private void UpdateMemoryUI(Entity entity, int amount)
     {
-        playerLocalMemory.text = entity.localProcessQueue.openMemory.ToString(); //TODO: Update all these to also show busy memory
+        playerLocalMemory.text = entity.localProcessQueue._openMemory.ToString(); //TODO: Update all these to also show busy memory
         playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
     }
 
     private void UpdateMemoryUI(Entity entity)
     {
-        playerLocalMemory.text = (entity.localProcessQueue.openMemory - entity.busyLocalMemory).ToString();
+        playerLocalMemory.text = (entity.localProcessQueue._openMemory - entity.busyLocalMemory).ToString();
         playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
     }
 
     private void UpdateMemoryUI(RunningProcess process, Entity entity)
     {
-        playerLocalMemory.text = (entity.localProcessQueue.openMemory - entity.busyLocalMemory).ToString();
+        playerLocalMemory.text = (entity.localProcessQueue._openMemory - entity.busyLocalMemory).ToString();
         playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
     }
 
     private void UpdateComputeUI(Entity entity, int amount)
     {
-        playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
+        playerLocalCompute.text = entity.localProcessQueue._openCompute.ToString();
         playerReservedServerCompute.text = entity.reservedServerCompute.ToString();
     }
 
     private void UpdateComputeUI(Entity entity)
     {
-        playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
+        playerLocalCompute.text = entity.localProcessQueue._openCompute.ToString();
         playerReservedServerCompute.text = entity.reservedServerCompute.ToString();
     }
 
     public void UpdateServerMemoryAndComputeDistribution()
-    { 
+    {
         //playerReservedServerMemory.text = 
     }
 

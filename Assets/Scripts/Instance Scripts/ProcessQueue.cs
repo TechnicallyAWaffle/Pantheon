@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using Unity.Properties;
 
 public class ProcessQueue : MonoBehaviour
 {
@@ -21,16 +22,20 @@ public class ProcessQueue : MonoBehaviour
 
     [Header("Runtime vars, DO NOT MODIFY")]
     //Runtime
-    public int openMemory; //memory up for grabs by anyone
-    public int openCompute; //memory up for grabs by anyone
+    [CreateProperty]
+    public int OpenMemory => _openMemory;
+    public int _openMemory; //memory up for grabs by anyone
+    [CreateProperty]
+    public int OpenCompute => _openCompute;
+    public int _openCompute; //memory up for grabs by anyone
 
     public List<RunningProcess> queue = new();
     public List<RunningProcess> processesToRemove = new();
 
     private void Awake()
     {
-        openMemory = startingMemory;
-        openCompute = startingCompute;
+        _openMemory = startingMemory;
+        _openCompute = startingCompute;
     }
 
     private void Start()
@@ -41,7 +46,7 @@ public class ProcessQueue : MonoBehaviour
 
         GlobalEventBus.OnMemoryRequested += UpdateOpenMemory;
         GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
-        
+
         //StartCoroutine(TickQueue());
     }
 
@@ -52,24 +57,24 @@ public class ProcessQueue : MonoBehaviour
 
     private void UpdateOpenMemory(Entity entity, int amountGiven)
     {
-        openMemory -= amountGiven;
+        _openMemory -= amountGiven;
     }
 
     private void UpdateOpenCompute(Entity entity, int amountGiven)
     {
-        openMemory -= amountGiven;
+        _openMemory -= amountGiven;
     }
 
 
     private IEnumerator TickQueue()
     {
         while (true)
-        {   
-            
+        {
+
 
             //Honesly this might cause us issues later but I'd be down to just stick this in update again if ticking
             //once per second doesn't work out 
-            yield return new WaitForSeconds(1f);   
+            yield return new WaitForSeconds(1f);
         }
     }
 
