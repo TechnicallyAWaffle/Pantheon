@@ -11,7 +11,7 @@ public class ProcessQueue : MonoBehaviour
     //SOServerData serverData; 
     [HideInInspector] public Entity owner; //Leave this blank for server
     private ReferenceManager referenceManager;
-    private QueueManager queueManager;
+    private ProcessManager processManager;
     private TerminalUIManager terminalUIManager;
 
     //Tuning
@@ -25,6 +25,7 @@ public class ProcessQueue : MonoBehaviour
     public int openCompute; //memory up for grabs by anyone
 
     public List<RunningProcess> queue = new();
+    public List<RunningProcess> processesToRemove = new();
 
     private void Awake()
     {
@@ -35,18 +36,18 @@ public class ProcessQueue : MonoBehaviour
     private void Start()
     {
         referenceManager = ReferenceManager.Instance;
-        queueManager = referenceManager.queueManager;
+        processManager = referenceManager.processManager;
         terminalUIManager = referenceManager.terminalUIManager;
 
         GlobalEventBus.OnMemoryRequested += UpdateOpenMemory;
         GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
         
-            StartCoroutine(TickQueue());
+        //StartCoroutine(TickQueue());
     }
 
     void Update()
     {
-        //TickQueue(queue);
+        TickQueue(queue);
     }
 
     private void UpdateOpenMemory(Entity entity, int amountGiven)
@@ -62,41 +63,9 @@ public class ProcessQueue : MonoBehaviour
 
     private IEnumerator TickQueue()
     {
-        List<RunningProcess> processesToRemove = new();
         while (true)
         {   
-            foreach (RunningProcess process in queue)
-            {
-                //Skip over counting down time if process is suspended
-                if (!process.isSuspended)
-                {
-                    Debug.Log("Ticking process: " + process.data.processName);
-                    process.timeRemaining -= 1;
-                }
-
-                if (process.timeRemaining <= 0 && !process.executed)
-                {
-                    //Set executed flag to true
-                    process.executed = true;
-
-                    //Execute the process
-                    process.script.Execute(process.owner, process.arguments);
-                    GlobalEventBus.ProcessCompleted(process);
-
-                    //Print Process execution to terminal
-                    terminalUIManager.Print("Executing " +
-                        process.data.processName + "_" + process.processID);
-
-                    //Add process to a list for later removal to avoid modification during iteration
-                    if(process.data.removedWhenExecuted)
-                        processesToRemove.Add(process);
-                }
-            }
-
-            //Now remove the process by ID and then clear the list
-            foreach (RunningProcess process in processesToRemove)
-                queueManager.RemoveAndCleanupProcess(process.processID);
-            processesToRemove.Clear();
+            
 
             //Honesly this might cause us issues later but I'd be down to just stick this in update again if ticking
             //once per second doesn't work out 
@@ -107,32 +76,34 @@ public class ProcessQueue : MonoBehaviour
 
     void TickQueue(List<RunningProcess> queue)
     {
-        List<RunningProcess> processesToRemove = new();
         foreach (RunningProcess process in queue)
         {
             //Skip over counting down time if process is suspended
             if (!process.isSuspended)
             {
-                Debug.Log("Ticking process: " + process.data.processName);
+                //Debug.Log("Ticking process: " + process.data.processName);
                 process.timeRemaining -= Time.deltaTime;
             }
 
-            if (process.timeRemaining <= 0)
+            if (process.timeRemaining <= 0 && !process.executed)
             {
+                //Set executed flag to true
+                process.executed = true;
+
                 //Execute the process
-                process.data.processObject.TryGetComponent<ProcessBase>(out ProcessBase processScript);
-                processScript.Execute(process.owner, process.arguments);
+                process.script.Execute(process.owner, process.arguments);
                 GlobalEventBus.ProcessCompleted(process);
 
                 //Print Process execution to terminal
-                terminalUIManager.Print("Executing " + 
+                terminalUIManager.Print("Executing " +
                     process.data.processName + "_" + process.processID);
-
-                //Remove processes from both the queue and the owner's list of owned processes
-                //if(process.data.)
-                processesToRemove.Add(process);
             }
         }
+
+        //Now remove the process by ID and then clear the list
+        foreach (RunningProcess process in processesToRemove)
+            processManager.RemoveAndCleanupProcess(process.processID);
+        processesToRemove.Clear();
 
     }
 

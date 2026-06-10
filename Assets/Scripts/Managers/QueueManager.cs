@@ -29,6 +29,10 @@ public class QueueManager : MonoBehaviour
         //GlobalEventBus.OnMemoryChanged += CheckAndRemoveProcessesInQueue;
     }
 
+    private void Update()
+    {
+    }
+
     public void AddProcess(SOProcessData process, ProcessQueue queueObject, Entity owner, string[] processArguments)
     {
         //Instantiates a new process and parents it to a universal running process parent
@@ -41,6 +45,7 @@ public class QueueManager : MonoBehaviour
         Debug.Log("Adding process with ID " + runningProcessInstance.processID);
 
         //Moves all the data from the scriptableobject to the new live RunningProcess instance
+        runningProcessInstance.memoryUsed = process.memoryUsage;
         runningProcessInstance.data = process;
         runningProcessInstance.owner = owner;
         runningProcessInstance.timeRemaining = process.baseExecutionTime;
@@ -51,7 +56,7 @@ public class QueueManager : MonoBehaviour
         runningProcessInstance.script = processObject.GetComponent<ProcessBase>();
         runningProcessInstance.script.runtimeProcessData = runningProcessInstance;
 
-        //Fire global events. If the entity is the player, fire the associated event (this is for AI behaviour)
+        //Fire global events. If the entity is the player, fire the associated event (this is for AI behaviour
         GlobalEventBus.ProcessQueued(runningProcessInstance, owner);
         if (owner == referenceManager.player)
             GlobalEventBus.PlayerQueuedProcess(runningProcessInstance);
@@ -75,15 +80,6 @@ public class QueueManager : MonoBehaviour
     {
         int id = Random.Range(100, 9000);
         return $"{id:D4}";
-    }
-
-    public void RemoveAndCleanupProcess(string processID)
-    {
-        Debug.Log("Removing process with ID" + processID);
-        RunningProcess process = AllRunningProcessesByID[processID];
-        process.queue.queue.Remove(process);
-        process.owner.ownedProcesses.Remove(process);
-        AllRunningProcessesByID.Remove(processID);
     }
 
 

@@ -88,7 +88,7 @@ public class ProcessManager : MonoBehaviour
             }
             canRun = true;
             //Modify busy memory
-            owner.busyServerMemory += memoryUsage;
+            owner.ModifyBusyMemory(processQueue, memoryUsage);
             GlobalEventBus.MemoryChanged(owner, memoryUsage, owner.GetComponent<ProcessQueue>());
             Debug.Log("Attempting to run Process " + processData.processName + " on server queue");
         }
@@ -101,7 +101,7 @@ public class ProcessManager : MonoBehaviour
             }
             canRun = true;
             //Modfiy busy memory
-            owner.busyLocalMemory += memoryUsage;
+            owner.ModifyBusyMemory(processQueue, memoryUsage);
             GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
             Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
         }
@@ -179,16 +179,17 @@ public class ProcessManager : MonoBehaviour
         return false;
     }
 
-    public void KillProcess(RunningProcess process)
+    public void RemoveAndCleanupProcess(string processID)
     {
-        //maybe i shouldn't name both of these properties queue lmfao
-        //kill me
-        process.GetComponent<ProcessBase>().OnKilled();
-        //process.queue.queue.Remove(process);
-        //GameObject.Destroy(process);
-
-        //We can add additional functionality here (vfx, sfx, etc.)
+        Debug.Log("Removing process with ID" + processID);
+        RunningProcess process = queueManager.AllRunningProcessesByID[processID];
+        process.script.OnKilled();
+        process.queue.queue.Remove(process);
+        process.owner.ownedProcesses.Remove(process);
+        queueManager.AllRunningProcessesByID.Remove(processID);
+        GameObject.Destroy(process);
     }
+
 
     public bool CheckProcessOwnership(RunningProcess process, Entity compareTo)
     {
