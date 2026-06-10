@@ -1,0 +1,73 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
+    <ui:VisualElement name="Window" class="panel" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 99%; height: 98%; -unity-slice-scale: 0.2px; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_window.png?fileID=2800000&amp;guid=6940f0227c566d74f8d5f557259b0149&amp;type=3#box_window&quot;); -unity-slice-top: 209; -unity-slice-left: 34; -unity-slice-right: 34; -unity-slice-bottom: 34; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; min-width: 99%; min-height: 98%; max-width: 99%; max-height: 98%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-slice-type: sliced; align-self: center; top: 1%;">
+        <ui:VisualElement name="TopBar" style="flex-grow: 1; flex-direction: row; min-width: 100%; min-height: 3.5%; max-height: 3.7%;">
+            <ui:Image source="project://database/Resources/unity_builtin_extra?fileID=10906&amp;guid=0000000000000000f000000000000000&amp;type=0#Background" name="BackIcon" style="align-self: flex-start; width: auto; padding-right: 0; max-height: 100%; min-height: 100%;"/>
+            <ui:Label text="PERIPHERAL_NODE_001" name="WindowText" class="header" style="top: 0; left: 0; align-self: flex-start; font-size: 22%; -unity-text-align: middle-left; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&amp;guid=73bf2caab17f78045b5efd28483d3a8a&amp;type=3#Ac437_Amstrad_PC&quot;); translate: 20% 0; width: 353px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Gameplay" style="flex-grow: 1; max-width: 100%; max-height: 100%; flex-direction: row; align-items: stretch; justify-content: flex-start; align-self: stretch;">
+            <ui:VisualElement name="Player" style="flex-grow: 1; max-height: 100%; min-height: 70%; width: auto; height: auto; min-width: 0%; max-width: 33%;">
+                <ui:VisualElement name="PlayerStats" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
+                    <ui:Label text="USER" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(128, 209, 165); font-size: 100px; border-left-width: 53px; -unity-text-align: middle-left;"/>
+                    <ui:ProgressBar value="27.9" title="Temperature" name="Temperature" style="align-self: center; justify-content: space-around; align-items: stretch; max-height: 100%; height: 100%;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
+                <ui:VisualElement name="PlayerResources" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
+                    <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center;">
+                        <ui:Label text="45" name="ComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);"/>
+                        <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Commands" style="flex-grow: 1;"/>
+                    <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center;">
+                        <ui:Label text="3 TB" name="MemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;"/>
+                        <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>
+                        <ui:Label text="FREE" name="FreeText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-top: 0; margin-top: 0; padding-bottom: 0; margin-bottom: 0;"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="GameInterface" style="flex-grow: 1;">
+                <ui:VisualElement name="ProcessQueue" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 100%; height: 65%; max-height: 65%; max-width: 100%; align-self: stretch;">
+                    <ui:VisualElement name="Process" style="flex-grow: 1; min-width: 100%; min-height: 10%; -unity-background-scale-mode: stretch-to-fill; max-height: 20%;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Terminal" style="flex-grow: 1; align-self: stretch; min-height: 35%; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_text_window_glowing.png?fileID=2800000&amp;guid=d25cce3d5f24c8041b245004664b2616&amp;type=3#box_text_window_glowing&quot;); -unity-slice-left: 21; -unity-slice-top: 29; -unity-slice-right: 21; -unity-slice-bottom: 21; margin-bottom: -40px;">
+                    <ui:VisualElement name="CommandLine" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_text_input.png?fileID=2800000&amp;guid=ffdffbcb1f2e967429c871acca1016c3&amp;type=3#box_text_input&quot;); -unity-slice-left: 19; -unity-slice-top: 19; -unity-slice-right: 19; -unity-slice-bottom: 19; max-width: 92%; align-self: center; min-width: 92%; min-height: 20%; max-height: 20%; margin-top: 31px;"/>
+                    <ui:VisualElement name="CommandInfo" style="flex-grow: 1; flex-direction: row;">
+                        <ui:VisualElement name="MarginLeft" style="flex-grow: 1; max-width: 7%;"/>
+                        <ui:VisualElement name="CommandHelp" style="flex-grow: 1; margin-bottom: 40px;">
+                            <ui:VisualElement name="Commands" style="flex-grow: 1; flex-direction: row; max-height: 20%;">
+                                <ui:Label text="scry" name="Command" class="body" style="-unity-text-auto-size: none; -unity-text-generator: standard; font-size: 20px; background-image: url(&quot;project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&amp;guid=4a8e6057ad1aeb944b12618ab490b8ae&amp;type=3#box_encryption_light_green&quot;); -unity-slice-left: 4; -unity-slice-top: 4; -unity-slice-right: 4; -unity-slice-bottom: 4; max-height: 60%; -unity-text-align: middle-center; padding-left: 10px; padding-right: 10px; padding-top: 12px; padding-bottom: 16px; align-content: flex-start; align-self: center; margin-left: 0;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="CommandDescriptionBox" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&amp;guid=4a8e6057ad1aeb944b12618ab490b8ae&amp;type=3#box_encryption_light_green&quot;); -unity-slice-left: 4; -unity-slice-top: 4; -unity-slice-right: 4; -unity-slice-bottom: 4;">
+                                <ui:VisualElement name="CommandDescriptionHeader" style="flex-grow: 1; align-self: stretch; max-height: 20%; margin-top: 6px; flex-direction: row;">
+                                    <ui:Label text="scry" name="CommandName" class="body" style="-unity-text-align: middle-left; margin-left: 11px;"/>
+                                    <ui:Label text="3" name="Number" class="body" style="-unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 3px; padding-right: 1px; padding-bottom: 3px; padding-left: 2px; align-content: center; align-self: center; color: rgb(0, 0, 0); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&amp;guid=73bf2caab17f78045b5efd28483d3a8a&amp;type=3#Ac437_Amstrad_PC&quot;); height: auto; width: auto; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/WhiteBox.png?fileID=2800000&amp;guid=edf4900dc2fd861418a77bfc2461af9d&amp;type=3#WhiteBox&quot;); -unity-background-image-tint-color: rgb(128, 209, 165); font-size: 10px;"/>
+                                    <ui:Label text="TB" name="TBText" class="body boxed-text"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="MarginRight" style="flex-grow: 1; max-width: 7%;"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Enemy" style="flex-grow: 1; max-height: 100%; min-height: 70%; width: auto; height: auto; min-width: 0%; max-width: 33%;">
+                <ui:VisualElement name="EnemyStats" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
+                    <ui:Label text="ELEGY" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(128, 209, 165); font-size: 100px; border-left-width: 0; -unity-text-align: middle-right; border-right-width: 53px;"/>
+                    <ui:ProgressBar value="27.9" title="Temperature" name="Temperature" style="align-self: center; justify-content: space-around; align-items: stretch; max-height: 100%; height: 100%;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
+                <ui:VisualElement name="EnemyResources" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
+                    <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center;">
+                        <ui:Label text="45" name="ComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);"/>
+                        <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Commands" style="flex-grow: 1;"/>
+                    <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; flex-direction: column;">
+                        <ui:Label text="3 TB" name="MemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;"/>
+                        <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>
+                        <ui:Label text="FREE" name="FreeText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 0; margin-top: 0; padding-bottom: 0; margin-bottom: 0;"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

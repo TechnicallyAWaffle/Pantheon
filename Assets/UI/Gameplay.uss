@@ -1,0 +1,46 @@
+:root {
+}
+
+.header {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&guid=73bf2caab17f78045b5efd28483d3a8a&type=3#Ac437_Amstrad_PC");
+    font-size: 22%;
+}
+
+.unity-progress-bar {
+}
+
+.body {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&guid=67fc1b1210bc8a040bff1f6ff10f2e0a&type=3#Ac437_MBytePC230_CGA");
+    color: rgb(128, 209, 165);
+    -unity-text-align: middle-center;
+}
+
+.compute {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&guid=73bf2caab17f78045b5efd28483d3a8a&type=3#Ac437_Amstrad_PC");
+    font-size: 52px;
+}
+
+.boxed-text {
+    -unity-text-align: middle-center;
+    margin-top: 2px;
+    margin-right: 0;
+    margin-bottom: 2px;
+    margin-left: 0;
+    padding-top: 3px;
+    padding-right: 4px;
+    padding-bottom: 3px;
+    padding-left: 4px;
+    align-content: center;
+    align-self: center;
+    color: rgb(128, 209, 165);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&guid=73bf2caab17f78045b5efd28483d3a8a&type=3#Ac437_Amstrad_PC");
+    height: auto;
+    width: auto;
+    background-image: url("project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&guid=4a8e6057ad1aeb944b12618ab490b8ae&type=3#box_encryption_light_green");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    font-size: 10px;
+}
