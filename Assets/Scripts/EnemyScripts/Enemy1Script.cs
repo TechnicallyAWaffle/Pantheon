@@ -16,13 +16,13 @@ public class Enemy1Script : EnemyBase
         {
             localMemoryAvailable = self.localProcessQueue._openMemory,
             ownAuthority = self.authority,
-            ownedRunningProcesses = self.ownedProcesses,
+            ownedRunningProcesses = self.ownedProcesses.ToArray(),
             playerAuthority = player.authority,
             playerServerMemoryReserved = player.reservedServerMemory,
             playerServerCompute = player.reservedServerCompute,
-            activeDaemons = self.daemons,
-            activePlayerDaemons = player.daemons,
-            runningPlayerProcesses = player.ownedProcesses,
+            activeDaemons = self.daemons.ToArray(),
+            activePlayerDaemons = player.daemons.ToArray(),
+            runningPlayerProcesses = player.ownedProcesses.ToArray(),
             serverMemoryReserved = self.reservedServerMemory - self.busyServerMemory,
         };
     }
@@ -67,7 +67,7 @@ public class Enemy1Script : EnemyBase
             {
                 if (process.arguments.Length == 0)
                     return AIAction.RunProcess(SOProcessDataToArgsArray(process, string.Empty), queueToRun);
-                else 
+                else
                     return AIAction.RunProcess(SOProcessDataToArgsArray(process, highestThreatProcess.processID), queueToRun);
             }
         }
@@ -77,7 +77,7 @@ public class Enemy1Script : EnemyBase
 
     AIAction DecideOffensiveAction(AIContext ctx)
     {
-        
+
 
 
         return null;
@@ -99,7 +99,7 @@ public class Enemy1Script : EnemyBase
                 break;
 
             case AIActionType.KillProcess:
-                string[] args = {"kill", action.target.processID};
+                string[] args = { "kill", action.target.processID };
                 referenceManager.processManager.TryRunProcess(args, self, action.queue, action.isServer);
                 break;
             case AIActionType.Wait:

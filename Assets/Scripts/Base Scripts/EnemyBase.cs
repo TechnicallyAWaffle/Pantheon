@@ -56,7 +56,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected ProcessQueue TryLocalOrServerRun(float memoryUsage)
     {
-        if (memoryUsage > self.localProcessQueue.openMemory)
+        if (memoryUsage > self.localProcessQueue._openMemory)
             return self.localProcessQueue;
         if (memoryUsage > self.reservedServerMemory)
             return null;
