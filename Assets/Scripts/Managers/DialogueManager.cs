@@ -12,6 +12,22 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI commandLineOutput;
     public InputField inputField;
+    private string inputSubmitted = string.Empty;
+    private bool inputCorrect = false;
+    private string currentCorrectInput;
+    private int currentWrongInputResponseIndex = 0;
+
+
+    private void Start()
+    {
+        inputField.onSubmit.AddListener(OnSubmit);
+    }
+
+    private void OnSubmit(string input)
+    {
+        inputSubmitted = input;
+    }
+
 
 
     private void PrintToTerminal(string input)
@@ -40,21 +56,31 @@ public class DialogueManager : MonoBehaviour
                     textToAdd = entry.message;
                     break;
                 case DialogueEntryType.InputPrompt:
-                    //open input prompt
-                    
-
-                    //yield return WaitUntil();
-
-                    break;
-
+                    inputField.ActivateInputField();
+                    currentCorrectInput = entry.inputPrompt.correctInput;
+                    yield return new WaitUntil(() => inputSubmitted != string.Empty);
+                    if (inputSubmitted != currentCorrectInput)
+                    {
+                        i--;
+                        textToAdd = entry.inputPrompt.wrongInputResponses[currentWrongInputResponseIndex];
+                        if (currentWrongInputResponseIndex < entry.inputPrompt.wrongInputResponses.Count)
+                            currentWrongInputResponseIndex++;
+                    }
+                    else
+                    { 
+                        currentCorrectInput = string.Empty;
+                        inputCorrect = false;
+                        currentWrongInputResponseIndex = 0;
+                    }
+                        break;
             }
 
             PrintToTerminal(textToAdd);
 
             if (entry.dialogueManagerFunction != string.Empty)
             {
-
-            }
+                Invoke(entry.dialogueManagerFunction, 0f);
+            } 
         }
 
         
