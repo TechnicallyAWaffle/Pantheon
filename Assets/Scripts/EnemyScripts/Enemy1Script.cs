@@ -16,13 +16,13 @@ public class Enemy1Script : EnemyBase
         {
             localMemoryAvailable = self.localProcessQueue.openMemory,
             ownAuthority = self.authority,
-            ownedRunningProcesses = self.ownedProcesses,
+            ownedRunningProcesses = self.ownedProcesses.ToArray(),
             playerAuthority = player.authority,
             playerServerMemoryReserved = player.reservedServerMemory,
             playerServerCompute = player.reservedServerCompute,
-            activeDaemons = self.daemons,
-            activePlayerDaemons = player.daemons,
-            runningPlayerProcesses = player.ownedProcesses,
+            activeDaemons = self.daemons.ToArray(),
+            activePlayerDaemons = player.daemons.ToArray(),
+            runningPlayerProcesses = player.ownedProcesses.ToArray(),
             serverMemoryReserved = self.reservedServerMemory - self.busyServerMemory,
         };
     }
