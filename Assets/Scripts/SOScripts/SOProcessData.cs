@@ -12,6 +12,7 @@ public class SOProcessData : ScriptableObject
     public int encryption; // 1 - 3 just like authority
     public GameObject processObject;
     public bool removedWhenExecuted;
+    public int threatLevel; //1 - 10 for the enemy AI to evaluate if it's gonna fuck it up or not
     public ArgumentType[] arguments;
 
     public enum ArgumentType 
