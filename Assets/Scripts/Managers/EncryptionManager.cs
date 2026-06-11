@@ -7,7 +7,7 @@ public static class EncryptionManager
 {
     public static int GetEncryption(RunningProcess proc)
     {
-        return Math.Clamp(proc.encryption, 0, 3);
+        return Math.Clamp(proc.Encryption, 0, 3);
     }
 
     /// <summary>
