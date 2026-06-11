@@ -55,7 +55,7 @@ public class CommandManager : MonoBehaviour
         inputField.onSubmit.AddListener(OnSubmit);
         inputField.text = "";
         inputField.ActivateInputField();
-        //inputField.onValueChanged.AddListener(SetText);
+        inputField.onValueChanged.AddListener(BuildAutoCompleteList);
 
         referenceManager = ReferenceManager.Instance;
         terminalUIManager = referenceManager.terminalUIManager;
@@ -63,19 +63,6 @@ public class CommandManager : MonoBehaviour
         player = referenceManager.player;
         queueManager = referenceManager.queueManager;
 
-    }
-
-    private void SetText(string value)
-    {
-        currentText = value;
-        inputSuffixVisible = true;
-        timer = 0f;
-        UpdateInputFieldDisplay();
-    }
-
-    private void UpdateInputFieldDisplay()
-    {
-        inputText.text = currentText + (inputSuffixVisible ? '_' : ' ');
     }
 
 
@@ -122,6 +109,19 @@ public class CommandManager : MonoBehaviour
             if (!commands.ContainsKey(key))
                 Debug.LogWarning($"Handler '{key}' has no matching CommandDataSO.");
         }
+    }
+
+    private List<SOProcessData> BuildAutoCompleteList(string input)
+    {
+        List<SOProcessData> processesToList = new();
+        foreach (SOProcessData process in processManager.processDatabase)
+        {
+            if (process.processName.Contains(input))
+            { 
+                processesToList.Add(process);
+            }
+        }
+        return processesToList;
     }
 
     void OnSubmit(string input)

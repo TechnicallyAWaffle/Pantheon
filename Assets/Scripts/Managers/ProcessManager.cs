@@ -9,7 +9,7 @@ using static UnityEngine.Rendering.GPUSort;
 public class ProcessManager : MonoBehaviour
 {
 
-    [SerializeField] private SOProcessData[] processDatabase;
+    [SerializeField] public SOProcessData[] processDatabase;
     private Dictionary<string, SOProcessData> processesByName;
 
     [SerializeField] private SOFlagData[] flagDatabase;
