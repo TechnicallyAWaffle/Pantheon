@@ -151,8 +151,8 @@ public class ProcessManager : MonoBehaviour
             bool isValidDaemon = false;
             if (args.Length > 0)
             {
-                isValidProcessID = queueManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
-                isValidDaemon = daemonManager.AllRevealedDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
+                isValidProcessID = GameManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
+                isValidDaemon = GameManager.AllActiveDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
             }
 
             switch (argument)
@@ -182,11 +182,11 @@ public class ProcessManager : MonoBehaviour
     public void RemoveAndCleanupProcess(string processID)
     {
         Debug.Log("Removing process with ID" + processID);
-        RunningProcess process = queueManager.AllRunningProcessesByID[processID];
+        RunningProcess process = GameManager.AllRunningProcessesByID[processID];
         process.script.OnKilled();
         process.queue.queue.Remove(process);
         process.owner.ownedProcesses.Remove(process);
-        queueManager.AllRunningProcessesByID.Remove(processID);
+        GameManager.AllRunningProcessesByID.Remove(processID);
         GameObject.Destroy(process);
     }
 

@@ -7,8 +7,33 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using static AIAction;
 
+/*
+ * 
+RESOURCE ACTIONS
+runs acquisition
+
+DEFENSIVE ACTIONS
+
+Check highest encryption process and see if you can run gatecrash
+
+
+OFFENSIVE ACTIONS
+Check if you can kill any process with vindicate
+Excise if you can't 
+
+
+Luxury Actions
+Runs authshell on the lowest encryption daemon it has if one of them is at or lower than 1
+runs formatsandbox 
+ 
+ 
+*/
+
 public class Enemy1Script : EnemyBase
 {
+
+    private bool usedHailMary = false;
+
 
     protected override AIContext GatherContext()
     {
@@ -29,31 +54,42 @@ public class Enemy1Script : EnemyBase
 
     protected override AIAction Decide(AIContext ctx)
     {
-        if (ctx.serverControlRatio < minimumTolerableServerControlRatio)
+        AIAction finalDecision = null;
+
+        if (ctx.serverControlRatio < minimumTolerableServerControlRatio && self.daemons.Count < 3 && !usedHailMary)
         {
-            //Trump card goes here
+            //Check if hail mary exists
+            usedHailMary = true;
+            //hail mary 
             return null;
         }
 
 
         if (ctx.PlayerTotalProcessThreat > tolerablePlayerProcessThreatSum)
         {
-            return DecideDefensiveAction(ctx);
+            finalDecision = DecideDefensiveAction(ctx);
         }
 
         if (ctx.serverControlRatio >= 1)
-            return DecideOffensiveAction(ctx);
+            finalDecision = DecideOffensiveAction(ctx);
         else if (ctx.serverControlRatio <= 1)
-            return DecideResourceAction(ctx);
+            finalDecision = DecideResourceAction(ctx);
 
         if (ctx.PlayerHasInstaWinProcess)
             return null;
 
-        return DecideDefaultAction(ctx);
+        finalDecision = DecideDefaultAction(ctx);
+        return finalDecision;
     }
 
     AIAction DecideDefensiveAction(AIContext ctx)
     {
+        /*
+        Checks to see if it can kill any process
+        Checks for the highest priority process and sees if it can suspend it with sandbox
+        Checks for a process with >3 encryption that it can gatecrash (lower encryption)
+         */
+
 
         RunningProcess highestThreatProcess = FindHighestThreatProcess(ctx.runningPlayerProcesses);
 
@@ -71,13 +107,16 @@ public class Enemy1Script : EnemyBase
                     return AIAction.RunProcess(SOProcessDataToArgsArray(process, highestThreatProcess.processID), queueToRun);
             }
         }
-
-        return DecideOffensiveAction(ctx);
+        return null;
     }
 
     AIAction DecideOffensiveAction(AIContext ctx)
     {
-
+        /*
+        Checks if it can kill any Daemon
+        Checks if it can vindicate anything, 50% chance to skip, lowered by existing vindicate programs
+        Checks if it can excise anything 
+         */
 
 
         return null;
@@ -85,10 +124,22 @@ public class Enemy1Script : EnemyBase
 
     AIAction DecideResourceAction(AIContext ctx)
     {
+        /*
+        Run acquisition
+         */
         return null;
     }
 
-    AIAction DecideDefaultAction(AIContext ctx) => AIAction.Wait();
+    AIAction DecideDefaultAction(AIContext ctx)
+    {
+        /*
+        Run authshell to raise daemon encryption
+        Do nothing
+        */
+
+
+        return null;
+    }
 
     protected override void Execute(AIAction action, AIContext ctx)
     {

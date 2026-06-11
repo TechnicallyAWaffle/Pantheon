@@ -15,7 +15,7 @@ public class BracerProcessScript : ProcessBase
             // check if arg0 is a PID
             if (int.TryParse(arg0, out _))
             {
-                if (referenceManager.queueManager.AllRunningProcessesByID.TryGetValue(arg0, out var targetProcess))
+                if (GameManager.AllRunningProcessesByID.TryGetValue(arg0, out var targetProcess))
                 {
                     RaiseProcessEncryption(targetProcess);
                 }
@@ -26,7 +26,7 @@ public class BracerProcessScript : ProcessBase
             }
             else
             {
-                if (referenceManager.daemonManager.AllRevealedDaemons.TryGetValue(arg0, out var targetDaemon))
+                if (GameManager.AllActiveDaemons.TryGetValue(arg0, out var targetDaemon))
                 {
                     RaiseDaemonEncryption(targetDaemon);
                 }
@@ -49,7 +49,7 @@ public class BracerProcessScript : ProcessBase
     public void RaiseProcessEncryption(RunningProcess process)
     {
         EncryptionManager.AddEncryption(process, 2);
-        process.encryption = Math.Clamp(process.encryption + 2, 1, 3);
+        process.Encryption = Math.Clamp(process.Encryption + 2, 1, 3);
     }
 
     /// <summary>
