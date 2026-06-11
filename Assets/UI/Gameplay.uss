@@ -59,3 +59,112 @@
 .hidden {
     display: none;
 }
+
+.none-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Player/box_encryption_none_green.png?fileID=2800000&guid=bb05ca91299253c47a3410b74ca159c5&type=3#box_encryption_none_green");
+    -unity-slice-left: 8;
+    -unity-slice-top: 8;
+    -unity-slice-right: 8;
+    -unity-slice-bottom: 8;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.light-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&guid=4a8e6057ad1aeb944b12618ab490b8ae&type=3#box_encryption_light_green");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.medium-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Player/box_encryption_medium_green.png?fileID=2800000&guid=f29b5a34e690a484e893bc2ee8afde10&type=3#box_encryption_medium_green");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 0;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.high-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Player/box_encryption_high_green.png?fileID=2800000&guid=35cfa24358f63f945b8e7bfaa5f196f6&type=3#box_encryption_high_green");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.empty-space {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Player/box_dotted_green.png?fileID=2800000&guid=9f98b9744ad486e4d96b4c970614b233&type=3#box_dotted_green");
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* ProgressBar root container */
+#ProgressBar {
+    height: 20px;
+    margin: 4px 0;
+}
+
+/* The grey background track */
+#ProgressBar .unity-progress-bar__background {
+    background-color:rgb(13, 88, 46);
+
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(0, 51, 22);
+}
+
+/* The colored fill — this is what moves */
+#ProgressBar .unity-progress-bar__progress {
+    background-color:rgb(128, 209, 165);
+
+    border-radius: 4px;
+}

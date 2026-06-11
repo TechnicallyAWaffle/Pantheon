@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="LocalCommand" src="project://database/Assets/UI/Templates/LocalCommand.uxml?fileID=9197481963319205126&amp;guid=bf52d0ab963298e40b8558b8e79f9ece&amp;type=3#LocalCommand"/>
     <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
     <ui:VisualElement name="Window" class="panel" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 99%; height: 98%; -unity-slice-scale: 0.2px; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_window.png?fileID=2800000&amp;guid=6940f0227c566d74f8d5f557259b0149&amp;type=3#box_window&quot;); -unity-slice-top: 209; -unity-slice-left: 34; -unity-slice-right: 34; -unity-slice-bottom: 34; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; min-width: 99%; min-height: 98%; max-width: 99%; max-height: 98%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-slice-type: sliced; align-self: center; top: 1%;">
         <ui:VisualElement name="TopBar" style="flex-grow: 1; flex-direction: row; min-width: 100%; min-height: 3.5%; max-height: 3.7%;">
@@ -21,7 +22,38 @@
                         </ui:Label>
                         <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Commands" style="flex-grow: 1;"/>
+                    <ui:VisualElement name="PlayerCommands" style="flex-grow: 1; flex-direction: row-reverse;">
+                        <ui:VisualElement name="Empty" class="empty-space" style="flex-grow: 1;"/>
+                        <ui:Instance template="LocalCommand" name="LocalCommand"/>
+                        <ui:VisualElement name="NoneEncryption" class="none-encryption" style="flex-grow: 1;">
+                            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row;">
+                                <ui:Image name="Logo"/>
+                                <ui:Label text="Label" name="CommandName" class="body" style="white-space: nowrap; text-overflow: ellipsis;"/>
+                            </ui:VisualElement>
+                            <ui:ProgressBar value="22" title="" name="ProgressBar"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="LightEncryption" class="light-encryption">
+                            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row;">
+                                <ui:Image name="Logo"/>
+                                <ui:Label text="Label" name="CommandName" class="body" style="white-space: nowrap; text-overflow: ellipsis;"/>
+                            </ui:VisualElement>
+                            <ui:ProgressBar value="22" title="" name="ProgressBar"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="MediumEncryption" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Player/box_encryption_medium_green.png?fileID=2800000&amp;guid=f29b5a34e690a484e893bc2ee8afde10&amp;type=3#box_encryption_medium_green&quot;); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; margin-top: 14px; margin-right: 6px; margin-bottom: 14px; margin-left: 6px;">
+                            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row;">
+                                <ui:Image name="Logo"/>
+                                <ui:Label text="Label" name="CommandName" class="body" style="white-space: nowrap; text-overflow: ellipsis;"/>
+                            </ui:VisualElement>
+                            <ui:ProgressBar value="22" title="" name="ProgressBar"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="HighEncryption" class="high-encryption" style="flex-grow: 1;">
+                            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row;">
+                                <ui:Image name="Logo"/>
+                                <ui:Label text="Label" name="CommandName" class="body" style="white-space: nowrap; text-overflow: ellipsis;"/>
+                            </ui:VisualElement>
+                            <ui:ProgressBar value="22" title="" name="ProgressBar"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                     <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center;">
                         <ui:Label text="3 TB" name="PlayerMemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;">
                             <Bindings>

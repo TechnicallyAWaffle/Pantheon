@@ -1325,6 +1325,7 @@ GameObject:
   - component: {fileID: 1151528848}
   - component: {fileID: 1151528850}
   - component: {fileID: 1151528851}
+  - component: {fileID: 1151528852}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -1398,6 +1399,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommandLine
   terminalUI: {fileID: 543163620}
+--- !u!114 &1151528852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151528847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edbe1e1811501e48b31046bb3683988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  uiDocument: {fileID: 1151528848}
+  commandTemplate: {fileID: 9197481963319205126, guid: bf52d0ab963298e40b8558b8e79f9ece, type: 3}
+  entity: {fileID: 1910080314}
 --- !u!1 &1176176994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2399,7 @@ Transform:
   m_GameObject: {fileID: 1910080311}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.75, y: -1.12, z: 0}
+  m_LocalPosition: {x: -4.75, y: -0.96, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
