@@ -93,6 +93,19 @@ public class CommandManager : MonoBehaviour
         }
     }
 
+    private List<SOProcessData> BuildAutoCompleteList(string input)
+    {
+        List<SOProcessData> processesToList = new();
+        foreach (SOProcessData process in processManager.processDatabase)
+        {
+            if (process.processName.Contains(input))
+            { 
+                processesToList.Add(process);
+            }
+        }
+        return processesToList;
+    }
+
     void OnSubmit(string input)
     {
         if (string.IsNullOrWhiteSpace(input)) return;

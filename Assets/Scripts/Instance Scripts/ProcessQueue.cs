@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using Unity.Properties;
+using UnityEngine.Rendering.Universal;
 
 public class ProcessQueue : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ProcessQueue : MonoBehaviour
     private ReferenceManager referenceManager;
     private ProcessManager processManager;
     private TerminalUIManager terminalUIManager;
+    private Entity player;
+    private Entity opponent;
 
     //Tuning
     [Header("Tuning vars")]
@@ -32,6 +35,10 @@ public class ProcessQueue : MonoBehaviour
     public List<RunningProcess> queue = new();
     public List<RunningProcess> processesToRemove = new();
 
+    [SerializeField] private float timeBetweenServerResets;
+    [SerializeField] private int resourcesWiped;
+    private float currentTime;
+
     private void Awake()
     {
         _openMemory = startingMemory;
@@ -43,17 +50,56 @@ public class ProcessQueue : MonoBehaviour
         referenceManager = ReferenceManager.Instance;
         processManager = referenceManager.processManager;
         terminalUIManager = referenceManager.terminalUIManager;
+        player = referenceManager.player;
+        opponent = referenceManager.opponent;
 
         GlobalEventBus.OnMemoryRequested += UpdateOpenMemory;
         GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
 
-        //StartCoroutine(TickQueue());
+        currentTime = timeBetweenServerResets;
     }
 
     void Update()
     {
         TickQueue(queue);
+        ResetServer();
     }
+
+    private void ResetServer()
+    {
+        if (currentTime <= 0)
+        {
+            currentTime = timeBetweenServerResets;
+            int memoryToGain = 0;
+            int computeToGain = 0;
+
+            computeToGain += FreeUpResourceFromEntity(player, ref player.reservedServerCompute);
+            computeToGain += FreeUpResourceFromEntity(opponent, ref opponent.reservedServerCompute);
+            memoryToGain += FreeUpResourceFromEntity(player, ref player.reservedServerMemory);
+            memoryToGain += FreeUpResourceFromEntity(opponent, ref opponent.reservedServerMemory);
+
+            _openMemory += memoryToGain;
+            _openCompute += computeToGain;
+        }
+        else
+            currentTime -= Time.deltaTime;
+    }
+
+    private int FreeUpResourceFromEntity(Entity entity, ref int resource)
+    {
+        if (resource < resourcesWiped)
+        {
+            int resourcesToAdd = resource;
+            resource = 0;
+            return resourcesToAdd;
+        }
+        else
+        {
+            resource = resource - resourcesWiped;
+            return resourcesWiped;
+        }
+    }
+
 
     private void UpdateOpenMemory(Entity entity, int amountGiven)
     {
