@@ -62,7 +62,8 @@ public class ProcessQueue : MonoBehaviour
     void Update()
     {
         TickQueue(queue);
-        ResetServer();
+        if(!owner)
+            ResetServer();
     }
 
     private void ResetServer()

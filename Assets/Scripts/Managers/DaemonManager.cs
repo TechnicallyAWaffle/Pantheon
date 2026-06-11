@@ -6,22 +6,25 @@ public class DaemonManager : MonoBehaviour
 {
     //Daemons are gameobject prefabs that we physically attach to the player and opponent
 
-    public Dictionary<string, DaemonBase> AllRevealedDaemons = new();
-
-    public void AddDaemon(GameObject daemon, Entity owner)
+    //ONLY CALLED DURING RUNTIME 
+    public void SetupDaemon(GameObject daemon, Entity owner, Transform parent)
     {
         DaemonBase daemonScript = daemon.GetComponent<DaemonBase>();
-        daemon.transform.parent = owner.transform;
+        daemon.transform.parent = parent;
         owner.daemons.Add(daemonScript);
-        AllRevealedDaemons.Add(daemonScript.daemonName, daemonScript);
+        GameManager.AllActiveDaemons.Add(daemonScript.daemonName, daemonScript);
     }
 
-    public void KillDaemon(GameObject daemon, Entity owner)
+    public static void KillDaemon(DaemonBase daemonScript)
     {
-        DaemonBase daemonScript = daemon.GetComponent<DaemonBase>();
-        owner.daemons.Remove(daemonScript);
-        GameObject.Destroy(daemon);
-        AllRevealedDaemons.Remove(daemonScript.daemonName);
+        daemonScript.owner.daemons.Remove(daemonScript);
+        GameObject.Destroy(daemonScript);
+        GameManager.AllActiveDaemons.Remove(daemonScript.daemonName);
+    }
+
+    public static void RevealDaemon(DaemonBase daemonScript)
+    {
+        daemonScript.RevealDaemon();
     }
 
 

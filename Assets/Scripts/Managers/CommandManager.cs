@@ -42,7 +42,6 @@ public class CommandManager : MonoBehaviour
         {
             inputSuffixVisible = !inputSuffixVisible;
             timer = 0;
-            UpdateInputFieldDisplay();
         }
         else
             timer += Time.deltaTime;
@@ -55,7 +54,7 @@ public class CommandManager : MonoBehaviour
         inputField.onSubmit.AddListener(OnSubmit);
         inputField.text = "";
         inputField.ActivateInputField();
-        inputField.onValueChanged.AddListener(BuildAutoCompleteList);
+        //inputField.onValueChanged.AddListener(BuildAutoCompleteList);
 
         referenceManager = ReferenceManager.Instance;
         terminalUIManager = referenceManager.terminalUIManager;

@@ -10,20 +10,12 @@ public class CitadelhashProcessScript : ProcessBase
 
         try
         {
+            ITargetable target = GameManager.FindRunningDaemonOrProcess(arguments[0]);
             string arg0 = arguments[0];
-
-            // check if arg0 is a PID
-            if (int.TryParse(arg0, out _))
-            {
-                if (referenceManager.queueManager.AllRunningProcessesByID.TryGetValue(arg0, out var targetProcess))
-                {
-                    EncryptionManager.AddEncryption(targetProcess, 3);
-                }
-                else
-                {
-                    throw new KeyNotFoundException($"Citadelhash could not find process {arg0}. It may have been killed or completed.");
-                }
-            }
+            if(target != null)
+                EncryptionManager.AddEncryption(target, 3);
+            else
+                throw new KeyNotFoundException($"Citadelhash could not find process {arg0}. It may have been killed or completed.");
         }
         catch (Exception e)
         {

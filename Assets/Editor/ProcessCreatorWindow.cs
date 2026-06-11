@@ -1,7 +1,8 @@
 #if UNITY_EDITOR
-using UnityEngine;
-using UnityEditor;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
+using static SOProcessData;
 
 public class ProcessCreatorWindow : EditorWindow
 {
@@ -11,13 +12,15 @@ public class ProcessCreatorWindow : EditorWindow
     private float baseExecutionTime = 1f;
     private int memoryUsage = 0;
     private int encryption = 0;
+    private bool removedWhenExecuted;
+    private SOProcessData.Enterprise enterprise;
 
     // Prefab fields
     private GameObject basePrefab;
     private MonoScript childScript;
 
     // Save locations
-    private string soSavePath = "Assets/Data/Processes";
+    private string soSavePath = "Assets/ScriptableObjects/Processes";
     private string prefabSavePath = "Assets/Prefabs/Processes";
 
     private Vector2 scroll;
@@ -26,6 +29,11 @@ public class ProcessCreatorWindow : EditorWindow
     public static void Open()
     {
         GetWindow<ProcessCreatorWindow>("Process Creator");
+    }
+
+    void OnEnable()
+    {
+        basePrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Processes/processPrefab.prefab");
     }
 
     void OnGUI()
@@ -65,6 +73,8 @@ public class ProcessCreatorWindow : EditorWindow
         baseExecutionTime = EditorGUILayout.FloatField("Base Execution Time", baseExecutionTime);
         memoryUsage = EditorGUILayout.IntField("Memory Usage", memoryUsage);
         encryption = EditorGUILayout.IntField("Encryption", encryption);
+        removedWhenExecuted = EditorGUILayout.Toggle("Removed When Executed", removedWhenExecuted);
+        enterprise = (Enterprise)EditorGUILayout.EnumPopup("Enterprise", enterprise);
     }
 
     void DrawPrefabFields()
@@ -148,13 +158,15 @@ public class ProcessCreatorWindow : EditorWindow
         so.baseExecutionTime = baseExecutionTime;
         so.memoryUsage = memoryUsage;
         so.encryption = encryption;
+        so.enterprise = enterprise;
+        so.removedWhenExecuted = removedWhenExecuted;
         so.name = processName + "process";
 
-        string soPath = $"{soSavePath}/{processName}_Data.asset";
+        string soPath = $"{soSavePath}/{processName}process.asset";
         AssetDatabase.CreateAsset(so, soPath);
 
         // 2. create the prefab variant
-        string prefabPath = $"{prefabSavePath}/{processName}_Prefab.prefab";
+        string prefabPath = $"{prefabSavePath}/{processName}process.prefab";
 
         // instantiate base prefab, add child script, save as variant
         GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(basePrefab);

@@ -1251,6 +1251,8 @@ MonoBehaviour:
   processManager: {fileID: 1176176996}
   queueManager: {fileID: 906591921}
   daemonManager: {fileID: 1643238844}
+  suspensionManager: {fileID: 0}
+  dialogueManager: {fileID: 0}
   player: {fileID: 1910080314}
   opponent: {fileID: 1586301206}
   serverProcessQueue: {fileID: 1510904592}
@@ -2275,6 +2277,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205930008}
   m_CullTransparentMesh: 1
+--- !u!1001 &1218758651
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_Name
+      value: daemonprefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.41658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.31087
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
 --- !u!1 &1243743178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,6 +3010,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
+  timeBetweenServerResets: 0
+  resourcesWiped: 0
 --- !u!4 &1510904593
 Transform:
   m_ObjectHideFlags: 0
@@ -3435,6 +3496,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
+  timeBetweenServerResets: 0
+  resourcesWiped: 0
 --- !u!114 &1586301206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4461,6 +4524,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
+  timeBetweenServerResets: 0
+  resourcesWiped: 0
 --- !u!114 &1910080314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4954,3 +5019,4 @@ SceneRoots:
   - {fileID: 1111543925}
   - {fileID: 1586301204}
   - {fileID: 1910080312}
+  - {fileID: 1218758651}

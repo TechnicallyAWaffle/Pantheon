@@ -12,7 +12,7 @@ public static class EncryptionManager
     /// <returns></returns>
     public static bool CheckAuthority(Entity entity, RunningProcess process)
     {
-        return entity.authority >= process.encryption;
+        return entity.authority >= process.Encryption;
     }
         
     /// <summary>
@@ -20,7 +20,7 @@ public static class EncryptionManager
     /// </summary>
     public static bool CheckAuthority(Entity entity, DaemonBase daemon)
     {
-        return entity.authority >= daemon.encryption;
+        return entity.authority >= daemon.Encryption;
     }
 
     /// <summary>
@@ -28,19 +28,9 @@ public static class EncryptionManager
     /// </summary>
     /// <param name="process"></param>
     /// <param name="amount"></param>
-    public static void AddEncryption(RunningProcess process, int amount)
+    public static void AddEncryption(ITargetable target, int amount)
     {
-        process.encryption = Mathf.Clamp(process.encryption + amount, 1, int.MaxValue);
-    }
-
-    /// <summary>
-    /// Adds amount to encryption and clamps it between 1 and 3.
-    /// </summary>
-    /// <param name="process"></param>
-    /// <param name="amount"></param>
-    public static void AddEncryption(DaemonBase daemon, int amount)
-    {
-        daemon.encryption = Mathf.Clamp(daemon.encryption + amount, 1, int.MaxValue);
+        target.Encryption = Mathf.Clamp(target.Encryption + amount, 1, int.MaxValue);
     }
 
 }

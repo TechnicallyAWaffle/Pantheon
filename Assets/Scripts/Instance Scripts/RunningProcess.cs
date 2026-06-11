@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class RunningProcess : MonoBehaviour
+public class RunningProcess : MonoBehaviour, ITargetable
 {
     public SOProcessData data;
     public Entity owner;
@@ -13,7 +13,7 @@ public class RunningProcess : MonoBehaviour
     //runtime
     public float timeRemaining;
     public float baseTime;          // needed to recalculate on compute changes
-    public int encryption;
+    public int Encryption { get; set; }
     public string processID;
     public bool isSuspended;
     public Func<bool> suspensionLiftCondition;
