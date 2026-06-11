@@ -132,10 +132,46 @@
 .empty-space {
     flex-grow: 1;
     background-image: url("project://database/Assets/UI/Textures/Player/box_dotted_green.png?fileID=2800000&guid=9f98b9744ad486e4d96b4c970614b233&type=3#box_dotted_green");
-    -unity-slice-left: 1;
-    -unity-slice-top: 1;
-    -unity-slice-right: 1;
-    -unity-slice-bottom: 1;
+    -unity-slice-left: 2;
+    -unity-slice-top: 2;
+    -unity-slice-right: 2;
+    -unity-slice-bottom: 2;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    -unity-slice-type: tiled;
+}
+
+#ProgressBar {
+    height: 20px;
+    margin: 4px 0;
+}
+
+#ProgressBar .unity-progress-bar__background {
+    background-color: rgb(13, 88, 46);
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(0, 51, 22);
+}
+
+#ProgressBar .unity-progress-bar__progress {
+    background-color: rgb(128, 209, 165);
+    border-radius: 4px;
+}
+
+.enemy-none-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Enemy/box_encryption_none_orange.png?fileID=2800000&guid=81dbec4e88f39314ba96d3b8b87a8a0e&type=3#box_encryption_none_orange");
+    -unity-slice-left: 8;
+    -unity-slice-top: 8;
+    -unity-slice-right: 8;
+    -unity-slice-bottom: 8;
     border-bottom-width: 0;
     margin-bottom: 14px;
     margin-top: 14px;
@@ -147,24 +183,99 @@
     padding-left: 10px;
 }
 
-/* ProgressBar root container */
-#ProgressBar {
-    height: 20px;
-    margin: 4px 0;
+.enemy-light-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Enemy/box_encryption_light_orange.png?fileID=2800000&guid=d6b9457e6c12245448049f7444797e80&type=3#box_encryption_light_orange");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
-/* The grey background track */
-#ProgressBar .unity-progress-bar__background {
-    background-color:rgb(13, 88, 46);
-
-    border-radius: 4px;
-    border-width: 1px;
-    border-color: rgb(0, 51, 22);
+.enemy-medium-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Enemy/box_encryption_medium_orange.png?fileID=2800000&guid=4fb3a46880269a748b961f6b62b0a254&type=3#box_encryption_medium_orange");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
-/* The colored fill — this is what moves */
-#ProgressBar .unity-progress-bar__progress {
-    background-color:rgb(128, 209, 165);
+.enemy-high-encryption {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Enemy/box_encryption_high_orange.png?fileID=2800000&guid=d103feb2c2dced24c976e93f1c54291d&type=3#box_encryption_high_orange");
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
 
-    border-radius: 4px;
+.enemy-empty-space {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/UI/Textures/Enemy/box_dotted_orange.png?fileID=2800000&guid=94e8dd5d362bd0b4199f4b991e0acb78&type=3#box_dotted_orange");
+    -unity-slice-left: 2;
+    -unity-slice-top: 2;
+    -unity-slice-right: 2;
+    -unity-slice-bottom: 2;
+    border-bottom-width: 0;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    -unity-slice-type: tiled;
+}
+
+.enemy-body {
+    color: rgb(249, 146, 9);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&guid=67fc1b1210bc8a040bff1f6ff10f2e0a&type=3#Ac437_MBytePC230_CGA");
+    max-width: 100%;
+    white-space: pre-wrap;
+    -unity-text-auto-size: none;
+    font-size: 18px;
+    -unity-text-align: middle-right;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Only affects the enemy's progress bar fill */
+#EnemyLocalCommand .unity-progress-bar__progress {
+    background-color: rgb(249, 146, 9);
+}
+
+/* Only affects the enemy's progress bar track */
+#EnemyLocalCommand .unity-progress-bar__background {
+    background-color: rgb(60, 30, 0);
 }

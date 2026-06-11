@@ -1,37 +1,37 @@
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class LocalProcessesUI : MonoBehaviour
 {
-    [SerializeField] private UIDocument uiDocument;
+    [SerializeField] protected UIDocument uiDocument;
     [SerializeField] private VisualTreeAsset commandTemplate;
     [SerializeField] private Entity entity;
 
     List<RunningProcess> Processes => entity.localProcessQueue.queue;
     readonly Dictionary<RunningProcess, ProcessUI> processToUI = new();
 
-    readonly Dictionary<int, string> encryptionToStyle = new()
+    protected virtual Dictionary<int, string> EncryptionToStyle { get; } = new()
     {
-        {0, "none-encryption"},
-        {1, "light-encryption"},
-        {2, "medium-encryption"},
-        {3, "high-encryption"}
+        { 0, "none-encryption" },
+        { 1, "light-encryption" },
+        { 2, "medium-encryption" },
+        { 3, "high-encryption" }
     };
+    protected VisualElement _commands;
 
-    private VisualElement _playerCommands;
-
-    private void Start()
+    protected virtual void Start()
     {
-        _playerCommands = uiDocument.rootVisualElement.Q<VisualElement>("PlayerCommands");
+        _commands = uiDocument.rootVisualElement.Q<VisualElement>("PlayerCommands");
         ClearCommands();
     }
 
-    private void ClearCommands()
+    protected void ClearCommands()
     {
         var toRemove = new List<VisualElement>();
 
-        foreach (var child in _playerCommands.Children())
+        foreach (var child in _commands.Children())
         {
             if (child.name != "Empty")
             {
@@ -41,7 +41,7 @@ public class LocalProcessesUI : MonoBehaviour
 
         foreach (var child in toRemove)
         {
-            _playerCommands.Remove(child);
+            _commands.Remove(child);
         }
     }
 
@@ -126,7 +126,7 @@ public class LocalProcessesUI : MonoBehaviour
     private ProcessUI CreateUI(RunningProcess proc)
     {
         TemplateContainer instance = commandTemplate.Instantiate();
-        _playerCommands.Add(instance);
+        _commands.Add(instance);
 
         var entry = new ProcessUI
         {
@@ -151,7 +151,7 @@ public class LocalProcessesUI : MonoBehaviour
             return;
         }
 
-        _playerCommands.Remove(entry.Root);
+        _commands.Remove(entry.Root);
         processToUI.Remove(proc);
     }
 
@@ -174,9 +174,9 @@ public class LocalProcessesUI : MonoBehaviour
         }
 
         int encryption = EncryptionManager.GetEncryption(proc);
-        string encryptionStyle = encryptionToStyle[encryption];
+        string encryptionStyle = EncryptionToStyle[encryption];
 
-        foreach (var kvp in encryptionToStyle)
+        foreach (var kvp in EncryptionToStyle)
         {
             if (kvp.Value == encryptionStyle)
             {
