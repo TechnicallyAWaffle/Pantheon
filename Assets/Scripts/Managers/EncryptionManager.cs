@@ -1,9 +1,15 @@
 using System;
 using System.Diagnostics;
+using Unity.Mathematics;
 using UnityEngine;
 
 public static class EncryptionManager
 {
+    public static int GetEncryption(RunningProcess proc)
+    {
+        return Math.Clamp(proc.encryption, 0, 3);
+    }
+
     /// <summary>
     /// Returns true when the entity's authority is greater than the process's encryption. False otherwise.
     /// </summary>

@@ -11,8 +11,7 @@ using UnityEngine.UI;
 public class CommandManager : MonoBehaviour
 {
     //References
-    [SerializeField] private TMP_InputField inputField;
-    [SerializeField] private TextMeshProUGUI inputText;
+    [SerializeField] CommandLine commandLine;
     private ReferenceManager referenceManager;
     private TerminalUIManager terminalUIManager;
     private ProcessManager processManager;
@@ -26,45 +25,29 @@ public class CommandManager : MonoBehaviour
     //Runtime Vars
     SOCommand lastInputtedCommand;
     private string currentText;
-    private float timer;
     private bool inputSuffixVisible = true;
 
-    //DEV DEBUG 
-    private void Update()
+    void OnEnable()
     {
-        //Keep focus on input field for now
-        if (Input.GetMouseButtonDown(0))
-        {
-            inputField.ActivateInputField();
-        }
+        commandLine.OnCommand.AddListener(OnSubmit);
+    }
 
-        if (timer >= inputSuffixBlinkRate)
-        {
-            inputSuffixVisible = !inputSuffixVisible;
-            timer = 0;
-        }
-        else
-            timer += Time.deltaTime;
-
+    void Osable()
+    {
+        commandLine.OnCommand.RemoveListener(OnSubmit);
     }
 
     void Start()
     {
         RegisterCommands();
-        inputField.onSubmit.AddListener(OnSubmit);
-        inputField.text = "";
-        inputField.ActivateInputField();
-        //inputField.onValueChanged.AddListener(BuildAutoCompleteList);
+        //inputField.onValueChanged.AddListener(SetText);
 
         referenceManager = ReferenceManager.Instance;
         terminalUIManager = referenceManager.terminalUIManager;
         processManager = referenceManager.processManager;
         player = referenceManager.player;
         queueManager = referenceManager.queueManager;
-
     }
-
-
 
     [SerializeField] private SOCommand[] baseCommandData;
     private Dictionary<string, (SOCommand data, Action<string[]> handler)> commands;
@@ -131,9 +114,6 @@ public class CommandManager : MonoBehaviour
         terminalUIManager.Print("> " + trimmedInput);
         
         ParseInput(trimmedInput);
-
-        inputField.text = "";
-        inputField.ActivateInputField(); // keep focus after submitting
     }
 
     SOCommand GetCommandDataByString(string commandName)
