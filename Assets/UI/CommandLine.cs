@@ -4,17 +4,21 @@ using UnityEngine.UIElements;
 
 public class CommandLine : MonoBehaviour
 {
+    [SerializeField] TerminalUIManager terminalUI;
     private TextField _inputField;
-    private VisualElement _consoleOutput;
+    private VisualElement _output;
     private VisualElement _commandHelp;
+    private Label _commandOutput;
     public readonly UnityEvent<string> OnCommand = new();
 
     private void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         _inputField = root.Q<TextField>("CommandLineField"); 
-        _consoleOutput = root.Q<VisualElement>("CommandOutput");
+        _output = root.Q<VisualElement>("Output");
         _commandHelp = root.Q<VisualElement>("CommandInfo");
+        _commandOutput = root.Q<Label>("CommandOutput");
+        _commandOutput.dataSource = terminalUI;
 
         _inputField.RegisterCallback<KeyDownEvent>(OnKeyDown, TrickleDown.TrickleDown);
         _inputField.RegisterValueChangedCallback(OnInputChanged);
@@ -47,13 +51,13 @@ public class CommandLine : MonoBehaviour
 
     private void ShowConsoleOutput()
     {
-        _consoleOutput.EnableInClassList("hidden", false);  // adds the class
+        _output.EnableInClassList("hidden", false);  // adds the class
         _commandHelp.EnableInClassList("hidden", true); // removes the class
     }
 
     private void ShowCommandHelp()
     {
-        _consoleOutput.EnableInClassList("hidden", true);  // adds the class
+        _output.EnableInClassList("hidden", true);  // adds the class
         _commandHelp.EnableInClassList("hidden", false); // removes the class
     }
 
@@ -73,7 +77,7 @@ public class CommandLine : MonoBehaviour
 
         HandleCommand(submitted);
 
-        _inputField.SetValueWithoutNotify(string.Empty);
+        _inputField.value = string.Empty;
         _inputField.schedule.Execute(() => _inputField.Focus());
 
         e.StopPropagation();

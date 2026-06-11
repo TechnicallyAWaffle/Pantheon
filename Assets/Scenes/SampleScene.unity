@@ -705,14 +705,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerminalUIManager
   outputText: {fileID: 0}
-  playerReservedServerMemory: {fileID: 0}
-  playerReservedServerCompute: {fileID: 0}
-  opponentReservedServerMemory: {fileID: 0}
-  opponentReservedServerCompute: {fileID: 0}
-  playerLocalMemory: {fileID: 0}
-  playerLocalCompute: {fileID: 0}
-  opponentLocalMemory: {fileID: 0}
-  opponentLocalCompute: {fileID: 0}
 --- !u!1 &619120560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858e412fecbe6ea499c9e6400e66cf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommandLine
+  terminalUI: {fileID: 543163620}
 --- !u!1 &1176176994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1758,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
+  timeBetweenServerResets: 0
+  resourcesWiped: 0
 --- !u!4 &1510904593
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,6 +2016,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
+  timeBetweenServerResets: 0
+  resourcesWiped: 0
 --- !u!114 &1586301206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,6 +2414,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
+  timeBetweenServerResets: 0
+  resourcesWiped: 0
 --- !u!114 &1910080314
 MonoBehaviour:
   m_ObjectHideFlags: 0

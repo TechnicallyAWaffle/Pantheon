@@ -64,7 +64,11 @@
                         <ui:VisualElement name="MarginRight" style="flex-grow: 1; max-width: 7%; min-width: 7%;"/>
                     </ui:VisualElement>
                     <ui:VisualElement name="Output" class="hidden" style="flex-grow: 1;">
-                        <ui:Label text="output output output output output output output output output output output output output output output output output output output output output output output output output output output output output output " name="CommandOutput" class="body" style="-unity-text-align: middle-left; white-space: pre-wrap; border-left-width: 40px; border-right-width: 40px;"/>
+                        <ui:Label text="output output output output output output output output output output output output output output output output output output output output output output output output output output output output output output " name="CommandOutput" class="body" style="-unity-text-align: middle-left; white-space: pre-wrap; border-left-width: 40px; border-right-width: 40px;">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="ConsoleOutput" data-source-type="TerminalUIManager, Assembly-CSharp" binding-mode="ToTarget"/>
+                            </Bindings>
+                        </ui:Label>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

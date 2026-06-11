@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Properties;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,11 @@ using UnityEngine.UI;
 
 public class TerminalUIManager : MonoBehaviour
 {
+    public const int MaxLines = 15;
+
+    [CreateProperty]
+    public string ConsoleOutput => _consoleOutput;
+    string _consoleOutput = "";
 
     //Refs
     ReferenceManager referenceManager;
@@ -47,7 +53,13 @@ public class TerminalUIManager : MonoBehaviour
 
     public void Print(string output)
     {
-        string currentText = outputText.text;
-        outputText.text = output + "\n" + currentText;
+        _consoleOutput = $"{output}\n{_consoleOutput}";
+
+        string[] lines = _consoleOutput.Split('\n');
+
+        if (lines.Length > MaxLines)
+        {
+            _consoleOutput = string.Join("\n", lines, 0, MaxLines);
+        }
     }
 }
