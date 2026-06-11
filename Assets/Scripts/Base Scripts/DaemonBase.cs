@@ -16,6 +16,9 @@ public class DaemonBase : MonoBehaviour, ITargetable
     public bool isSuspended;
     public bool isRevealed = false;
     // integer 1-3
+
+    public string Identifier { get { return daemonName;} set { } }
+
     public int Encryption { get; set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

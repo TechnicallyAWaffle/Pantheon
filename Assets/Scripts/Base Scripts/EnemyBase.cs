@@ -16,10 +16,6 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] protected float tickRate = 1f;
     private float tickTimer;
 
-    [SerializeField] protected SOProcessData[] offensiveProcesses;
-    [SerializeField] protected SOProcessData[] defensiveProcesses;
-    [SerializeField] protected SOProcessData[] resourceProcesses;
-
     protected abstract AIContext GatherContext();
     protected abstract AIAction Decide(AIContext ctx);
     protected abstract void Execute(AIAction action, AIContext ctx);
@@ -49,9 +45,9 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     //Helpers
-    protected bool CheckAuthorityAgainstEncryption(RunningProcess process)
+    protected bool CheckAuthorityAgainstEncryption(ITargetable target)
     {
-        return self.authority > process.Encryption;
+        return self.authority > target.Encryption;
     }
 
     protected ProcessQueue TryLocalOrServerRun(float memoryUsage)
@@ -76,9 +72,26 @@ public abstract class EnemyBase : MonoBehaviour
         return highestThreatProcess;
     }
 
+    protected AIAction TryRunEnemyProcess(SOProcessData processData, ITargetable target)
+    {
+        ProcessQueue queueToRun = TryLocalOrServerRun(processData.memoryUsage);
+        if (!queueToRun) return null;
+        if (target == null)
+            return AIAction.RunProcess(SOProcessDataToArgsArray(processData), queueToRun);
+        else
+            return AIAction.RunProcess(SOProcessDataToArgsArray(processData, target.Identifier), queueToRun);
+
+    }
+
 
     protected string[] SOProcessDataToArgsArray(SOProcessData processData, string processOrDaemonID)
     {
         return new string[] { processData.processName, processOrDaemonID };
     }
+
+    protected string[] SOProcessDataToArgsArray(SOProcessData processData)
+    {
+        return new string[] { processData.processName};
+    }
+
 }
