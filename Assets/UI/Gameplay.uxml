@@ -1,6 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="EnemyLocalCommand" src="project://database/Assets/UI/Templates/EnemyLocalCommand.uxml?fileID=9197481963319205126&amp;guid=5fab28be3f65919489dad88659043825&amp;type=3#EnemyLocalCommand"/>
     <ui:Template name="LocalCommand" src="project://database/Assets/UI/Templates/LocalCommand.uxml?fileID=9197481963319205126&amp;guid=bf52d0ab963298e40b8558b8e79f9ece&amp;type=3#LocalCommand"/>
+    <ui:Template name="PlayerServerProcess" src="project://database/Assets/UI/Templates/PlayerServerProcess.uxml?fileID=9197481963319205126&amp;guid=2e3203da69232a4408d2a2e4b0e973e4&amp;type=3#PlayerServerProcess"/>
     <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
     <ui:VisualElement name="Window" class="panel" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 99%; height: 98%; -unity-slice-scale: 0.2px; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_window.png?fileID=2800000&amp;guid=6940f0227c566d74f8d5f557259b0149&amp;type=3#box_window&quot;); -unity-slice-top: 209; -unity-slice-left: 34; -unity-slice-right: 34; -unity-slice-bottom: 34; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; min-width: 99%; min-height: 98%; max-width: 99%; max-height: 98%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-slice-type: sliced; align-self: center; top: 1%;">
         <ui:VisualElement name="TopBar" style="flex-grow: 1; flex-direction: row; min-width: 100%; min-height: 3.5%; max-height: 3.7%;">
@@ -39,8 +40,8 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="GameInterface" style="flex-grow: 1; max-width: 34%;">
-                <ui:VisualElement name="ProcessQueue" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 100%; height: 65%; max-height: 65%; max-width: 100%; align-self: stretch;">
-                    <ui:VisualElement name="Process" style="flex-grow: 1; min-width: 100%; min-height: 10%; -unity-background-scale-mode: stretch-to-fill; max-height: 20%;"/>
+                <ui:VisualElement name="ServerProcessQueue" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 100%; height: 65%; max-height: 65%; max-width: 100%; align-self: stretch;">
+                    <ui:Instance template="PlayerServerProcess" name="PlayerServerProcess" style="flex-direction: row; min-width: 100%; min-height: 5%; max-height: 20%;"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="Terminal" style="flex-grow: 1; align-self: stretch; min-height: 35%; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_text_window_glowing.png?fileID=2800000&amp;guid=d25cce3d5f24c8041b245004664b2616&amp;type=3#box_text_window_glowing&quot;); -unity-slice-left: 21; -unity-slice-top: 29; -unity-slice-right: 21; -unity-slice-bottom: 21; margin-bottom: -40px; max-width: 100%;">
                     <ui:VisualElement name="CommandLine" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_text_input.png?fileID=2800000&amp;guid=ffdffbcb1f2e967429c871acca1016c3&amp;type=3#box_text_input&quot;); -unity-slice-left: 19; -unity-slice-top: 19; -unity-slice-right: 19; -unity-slice-bottom: 19; max-width: 92%; align-self: center; min-width: 92%; min-height: 20%; max-height: 20%; margin-top: 31px;">
@@ -109,4 +110,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Instance template="PlayerServerProcess"/>
+    <ui:Instance template="PlayerServerProcess"/>
+    <ui:Instance template="PlayerServerProcess"/>
 </ui:UXML>

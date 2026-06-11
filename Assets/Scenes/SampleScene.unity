@@ -1327,6 +1327,7 @@ GameObject:
   - component: {fileID: 1151528851}
   - component: {fileID: 1151528852}
   - component: {fileID: 1151528853}
+  - component: {fileID: 1151528854}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -1430,6 +1431,23 @@ MonoBehaviour:
   uiDocument: {fileID: 1151528848}
   commandTemplate: {fileID: 9197481963319205126, guid: 5fab28be3f65919489dad88659043825, type: 3}
   entity: {fileID: 1586301206}
+--- !u!114 &1151528854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151528847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb5d1448d65e00478c73e4d8cdf5cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  uiDocument: {fileID: 1151528848}
+  playerCommandTemplate: {fileID: 9197481963319205126, guid: 2e3203da69232a4408d2a2e4b0e973e4, type: 3}
+  enemyCommandTemplate: {fileID: 0}
+  serverQueue: {fileID: 1510904592}
+  referenceManager: {fileID: 647801319}
 --- !u!1 &1176176994
 GameObject:
   m_ObjectHideFlags: 0

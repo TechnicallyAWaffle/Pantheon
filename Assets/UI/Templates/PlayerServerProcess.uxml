@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="PlayerServerProcess" style="flex-grow: 1; min-width: 100%; min-height: 5%; -unity-background-scale-mode: stretch-to-fill; max-height: 20%; flex-direction: row; align-self: center;">
+        <ui:VisualElement name="Encryption" style="flex-grow: 1; align-self: flex-start; flex-direction: row; max-height: 100%; min-height: 100%;">
+            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row; align-self: center;">
+                <ui:Label text="Label" name="CommandName" class="body" style="align-self: flex-start; align-items: center;"/>
+                <ui:Image name="Logo"/>
+            </ui:VisualElement>
+            <ui:ProgressBar value="22" title="" style="align-self: center; align-content: center; justify-content: space-between; align-items: stretch;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
