@@ -44,3 +44,18 @@
     -unity-slice-bottom: 4;
     font-size: 10px;
 }
+
+#CommandLine .unity-base-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+
+#CommandLine .unity-base-text-field__input > .unity-text-element {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&guid=73bf2caab17f78045b5efd28483d3a8a&type=3#Ac437_Amstrad_PC");
+    color: rgb(128, 209, 165);
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
