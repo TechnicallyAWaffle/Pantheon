@@ -15,4 +15,4 @@ MonoBehaviour:
   objectName: Play_Music_Enemy1
   id: 3419910747
   guid: 2428253D-1B52-4134-96B5-E1B62AF65A4F
-  IsInUserDefinedSoundBank: 0
+  IsInUserDefinedSoundBank: 1
