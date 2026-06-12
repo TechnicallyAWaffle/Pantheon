@@ -104,6 +104,7 @@ public class ServerProcessesUI : MonoBehaviour
     {
         // UI references
         public TemplateContainer Root;
+        public VisualElement Encryption;
         public Label CommandNameLabel;
         public Image LogoElement;
         public ProgressBar ProgressBar;
@@ -146,16 +147,21 @@ public class ServerProcessesUI : MonoBehaviour
         if (proc.owner == referenceManager.player)
         {
             instance = playerCommandTemplate.Instantiate();
+            instance.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
+            instance.style.height = new StyleLength(new Length(10f, LengthUnit.Percent));
         }
         else
         {
             instance = enemyCommandTemplate.Instantiate();
+            instance.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
+            instance.style.height = new StyleLength(new Length(10f, LengthUnit.Percent));
         }
         _commands.Add(instance);
 
         var entry = new ProcessUI
         {
             Root = instance,
+            Encryption = instance.Q<VisualElement>("Encryption"),
             CommandNameLabel = instance.Q<Label>("CommandName"),
             LogoElement = instance.Q<Image>("Logo"),
             ProgressBar = instance.Q<ProgressBar>("ProgressBar"),
@@ -214,11 +220,11 @@ public class ServerProcessesUI : MonoBehaviour
         {
             if (kvp.Value == encryptionStyle)
             {
-                entry.Root.EnableInClassList(encryptionStyle, true);
+                entry.Encryption.EnableInClassList(encryptionStyle, true);
             }
             else
             {
-                entry.Root.EnableInClassList(kvp.Value, false);
+                entry.Encryption.EnableInClassList(kvp.Value, false);
             }
         }
     }
@@ -237,11 +243,11 @@ public class ServerProcessesUI : MonoBehaviour
         {
             if (kvp.Value == encryptionStyle)
             {
-                entry.Root.EnableInClassList(encryptionStyle, true);
+                entry.Encryption.EnableInClassList(encryptionStyle, true);
             }
             else
             {
-                entry.Root.EnableInClassList(kvp.Value, false);
+                entry.Encryption.EnableInClassList(kvp.Value, false);
             }
         }
     }
