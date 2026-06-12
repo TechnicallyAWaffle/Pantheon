@@ -9,6 +9,9 @@ public class Entity : MonoBehaviour
     public int authority;
     public int reservedServerMemory = 0;
     public int reservedServerCompute = 0;
+    public float AvailableLocalMemoryField;
+    public float AvailableServerMemoryField;
+
     public ModVar availableLocalMemory;
     public ModVar availableServerMemory;
 
@@ -21,6 +24,12 @@ public class Entity : MonoBehaviour
     private QueueManager queueManager;
     private ProcessQueue serverProcessQueue;
     [HideInInspector] public ProcessQueue localProcessQueue;
+
+    private void Update()
+    {
+        AvailableLocalMemoryField = availableLocalMemory.Value;
+        AvailableServerMemoryField = availableServerMemory.Value;
+    }
 
     private void Start()
     {
@@ -70,6 +79,7 @@ public class Entity : MonoBehaviour
         int actual = Mathf.Min(incomingValue, serverProcessQueue._openMemory);
         serverProcessQueue._openMemory -= actual;
         availableServerMemory.BaseValue += actual;
+        WriteDebug(name + " requesting " + incomingValue +" server memory. Got: " + actual + ". New Value: " + availableServerMemory.BaseValue);
     }
 
     public void RelinquishServerMemory(int incomingValue)

@@ -81,4 +81,4 @@ MonoBehaviour:
   owner: {fileID: 0}
   isSuspended: 0
   isRevealed: 0
-  computeGained: 5
+  computeGained: 11

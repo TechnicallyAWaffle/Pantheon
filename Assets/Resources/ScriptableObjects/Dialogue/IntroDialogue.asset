@@ -226,7 +226,7 @@ MonoBehaviour:
   - type: 0
     sender: 0.25
     message: Hello?
-    delayBefore: 0
+    delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -253,7 +253,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: "1234567890~`!@#$%^&*()_+-={}|[]\\;\u2019:\u201D,./<>?qwertyuiopasdfghjkklzxcvbnm"
-    delayBefore: 0.25
+    delayBefore: 0.75
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 

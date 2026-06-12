@@ -81,4 +81,4 @@ MonoBehaviour:
   owner: {fileID: 0}
   isSuspended: 0
   isRevealed: 0
-  timeBetweenActivations: 12
+  timeBetweenActivations: 15

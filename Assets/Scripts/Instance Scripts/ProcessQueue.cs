@@ -149,7 +149,7 @@ public class ProcessQueue : MonoBehaviour
 
     private void WriteDebug(string message)
     {
-        UnityEngine.Debug.Log("<color=pink>PROCESS QUEUE(" + queueName + ")" + message);
+        UnityEngine.Debug.Log("<color=#FF00AC>PROCESS QUEUE(" + queueName + ")" + message);
     }
 
 

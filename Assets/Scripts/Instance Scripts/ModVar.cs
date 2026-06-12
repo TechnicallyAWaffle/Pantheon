@@ -1,15 +1,17 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class ModVar
 {
-    private int baseValue;
+    public int BaseValue { get; set; }
     private Dictionary<ITargetable, int> addMods;
 
     public ModVar(int startingBaseValue)
     { 
-        baseValue = startingBaseValue;
+        BaseValue = startingBaseValue;
         addMods = new Dictionary<ITargetable, int>();
     }
 
@@ -33,16 +35,10 @@ public class ModVar
     {
         addMods.Clear();
     }
-    public int BaseValue
-    {
-        get { return baseValue; }
-        set { }
-    }
-
     public int Value
     {
         get {
-            int finalValue = baseValue;
+            int finalValue = BaseValue;
             foreach (KeyValuePair<ITargetable, int> mod in addMods)
                 finalValue += mod.Value;
             return finalValue;
