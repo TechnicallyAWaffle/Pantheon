@@ -16,6 +16,11 @@ public class ReferenceManager : MonoBehaviour
 
     public static ReferenceManager Instance;
 
+    public Entity GetOtherEntity(Entity entity)
+    {
+        return entity == player ? opponent : player;
+    }
+
     private void Awake()
     {
         Instance = this;

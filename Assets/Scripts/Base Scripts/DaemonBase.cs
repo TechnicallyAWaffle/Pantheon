@@ -61,12 +61,12 @@ public class DaemonBase : MonoBehaviour, ITargetable
 
     }
 
-    protected void OnTrigger()
+    protected virtual bool OnTrigger()
     {
-        if(isRevealed)
-            ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon " + daemonName + " executed on scheduler stack successfully");
-        else
-            ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon [AUTH ERROR: HIDDEN SIGNATURE] executed on scheduler stack successfully");
+        if (isSuspended) 
+            return false;
+        ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon " + daemonName + " executed on scheduler stack successfully");
+        return true;
     }
 
 

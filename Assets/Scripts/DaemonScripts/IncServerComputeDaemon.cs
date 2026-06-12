@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class IncServerComputeDaemon : MonoBehaviour
+public class IncServerComputeDaemon : DaemonBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float timeBetweenActivations = 12f;
+    private float currentTime;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
+        if (currentTime <= 0)
+        {
+            if (!OnTrigger()) return;
+            currentTime = timeBetweenActivations;
+            owner.RequestServerCompute(1);
+        }
+        else
+            currentTime -= Time.deltaTime;
     }
 }

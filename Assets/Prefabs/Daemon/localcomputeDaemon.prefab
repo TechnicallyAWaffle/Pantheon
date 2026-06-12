@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3303008988890474582
+--- !u!1001 &8200345647163587758
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_Name
-      value: memadderDaemon
+      value: localcomputeDaemon
       objectReference: {fileID: 0}
     - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.41658
+      value: 3.76419
       objectReference: {fileID: 0}
     - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.31087
+      value: 1.28822
       objectReference: {fileID: 0}
     - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58,27 +58,27 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3915094351979309696}
+      addedObject: {fileID: 8867717419396190697}
   m_SourcePrefab: {fileID: 100100000, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
---- !u!1 &8278340924328141608 stripped
+--- !u!1 &3384821197648590800 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
-  m_PrefabInstance: {fileID: 3303008988890474582}
+  m_PrefabInstance: {fileID: 8200345647163587758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3915094351979309696
+--- !u!114 &8867717419396190697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278340924328141608}
+  m_GameObject: {fileID: 3384821197648590800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9c99ffb02833547ae63ca2566c0e44, type: 3}
+  m_Script: {fileID: 11500000, guid: 97dda90ffdf2194499c5d4dee35410cc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::memoryAdderDaemon
-  daemonName: memadder.exe
+  m_EditorClassIdentifier: Assembly-CSharp::LocalComputeDaemon
+  daemonName: 'proccluster.mmt '
+  owner: {fileID: 0}
   isSuspended: 0
   isRevealed: 0
-  encryption: 1
-  timeBetweenActivations: 12
+  computeGained: 5

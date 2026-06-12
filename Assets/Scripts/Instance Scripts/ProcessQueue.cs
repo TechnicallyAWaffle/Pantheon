@@ -76,34 +76,14 @@ public class ProcessQueue : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = timeBetweenServerResets;
-            int memoryToGain = 0;
-            int computeToGain = 0;
-
-            computeToGain += FreeUpResourceFromEntity(player, ref player.reservedServerCompute);
-            computeToGain += FreeUpResourceFromEntity(opponent, ref opponent.reservedServerCompute);
-            memoryToGain += FreeUpResourceFromEntity(player, ref player.reservedServerMemory);
-            memoryToGain += FreeUpResourceFromEntity(opponent, ref opponent.reservedServerMemory);
-
-            _openMemory += memoryToGain;
-            _openCompute += computeToGain;
+            player.RelinquishServerMemory(resourcesWiped);
+            player.RelinquishServerCompute(resourcesWiped);
+            opponent.RelinquishServerMemory(resourcesWiped);
+            opponent.RelinquishServerCompute(resourcesWiped);
+            GlobalEventBus.SchedulerReset();
         }
         else
             currentTime -= Time.deltaTime;
-    }
-
-    private int FreeUpResourceFromEntity(Entity entity, ref int resource)
-    {
-        if (resource < resourcesWiped)
-        {
-            int resourcesToAdd = resource;
-            resource = 0;
-            return resourcesToAdd;
-        }
-        else
-        {
-            resource = resource - resourcesWiped;
-            return resourcesWiped;
-        }
     }
 
 
