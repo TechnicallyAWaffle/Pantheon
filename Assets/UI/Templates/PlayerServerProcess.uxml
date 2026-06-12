@@ -1,11 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
     <ui:VisualElement name="PlayerServerProcess" style="flex-grow: 1; min-width: 100%; min-height: 5%; -unity-background-scale-mode: stretch-to-fill; max-height: 20%; flex-direction: row; align-self: center;">
-        <ui:VisualElement name="Encryption" style="flex-grow: 1; align-self: flex-start; flex-direction: row; max-height: 100%; min-height: 100%;">
-            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row; align-self: center;">
+        <ui:VisualElement name="Encryption" style="flex-grow: 1; align-self: center; flex-direction: row; max-height: 100%; min-height: 100%;">
+            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row; align-self: center; max-width: 50%;">
                 <ui:Label text="Label" name="CommandName" class="body" style="align-self: flex-start; align-items: center;"/>
                 <ui:Image name="Logo"/>
             </ui:VisualElement>
-            <ui:ProgressBar value="22" title="" style="align-self: center; align-content: center; justify-content: space-between; align-items: stretch;"/>
+            <ui:ProgressBar value="22" title="" name="ProgressBar" style="align-self: center; align-content: center; justify-content: space-between; align-items: stretch; width: 184px; min-width: 50%;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
