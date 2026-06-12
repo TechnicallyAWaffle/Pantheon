@@ -72,7 +72,7 @@ public class Enemy1Script : EnemyBase
         float decideIfIWantToDoNothing = UnityEngine.Random.Range(0, 10);
         if (decideIfIWantToDoNothing > aggression)
         {
-            WriteDebug("I have chosen not to do anything this tick because I am a peace loving citizen");
+            reasonForWait = "I am a peace loving citizen";
             return AIAction.Wait();
         }
         
@@ -117,7 +117,6 @@ public class Enemy1Script : EnemyBase
         }
 
         //Checks for the highest priority process and sees if it can suspend it with sandbox
-        RunningProcess highestThreatProcess = FindHighestThreatProcess(ctx.runningPlayerProcesses);
         ProcessQueue queueToRun = TryLocalOrServerRun(formatsandboxProcess.memoryUsage);
         if (queueToRun)
             return AIAction.RunProcess(SOProcessDataToArgsArray(formatsandboxProcess), queueToRun);
@@ -161,7 +160,10 @@ public class Enemy1Script : EnemyBase
             DaemonBase daemon = ctx.activePlayerDaemons[UnityEngine.Random.Range(0, ctx.activePlayerDaemons.Count())];
             AIAction exciseAction = TryRunEnemyProcess(exciseProcess, daemon);
             if (exciseAction != null)
+            {
+                reasonForWait = "No memory to run vindicator";
                 return exciseAction;
+            }
         }
 
         //If excise didn't run, run vindicator
@@ -180,7 +182,10 @@ public class Enemy1Script : EnemyBase
 
         AIAction vindicatorAction = TryRunEnemyProcess(vindicatorProcess, lowestEncryptionProcess);
         if (vindicatorAction != null)
+        {
+            reasonForWait = "No memory to run vindicator";
             return vindicatorAction;
+        }
         return null;
     }
 
@@ -189,7 +194,10 @@ public class Enemy1Script : EnemyBase
         //Run acquisition if possible
         AIAction acquisitionAction = TryRunEnemyProcess(acquisitionProcess, null);
         if (acquisitionAction != null)
+        {
+            reasonForWait = "No memory to run acquisition";
             return acquisitionAction;
+        }
 
         return null;
     }
@@ -224,6 +232,7 @@ public class Enemy1Script : EnemyBase
                 referenceManager.processManager.TryRunProcess(dArgs, self, action.queue, action.isServer);
                 break;
             case AIActionType.Wait:
+                WriteDebug("Reason For Wait: " + reasonForWait);
                 break;
         }
     }

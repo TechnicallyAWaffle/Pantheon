@@ -18,7 +18,7 @@ public class ProcessBase : MonoBehaviour
     {
         isExecuted = true;
         if (runtimeProcessData.data.removedWhenExecuted)
-            runtimeProcessData.queue.processesToRemove.Add(runtimeProcessData);
+            GameManager.KillProcessOrDaemon(runtimeProcessData);
     }
 
     public virtual void OnKilled()

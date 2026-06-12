@@ -11,7 +11,8 @@ public class ShortKillProcDaemon : DaemonBase
 
     private void ShortenKillProcessExecutionTime(RunningProcess killProcess)
     {
-        if (!OnTrigger()) return;
+        if (isSuspended) return;
+        OnTrigger();
         if (killProcess.owner == owner)
             killProcess.timeRemaining = Mathf.Clamp(killProcess.timeRemaining - 5, 0, Mathf.Infinity);
     }

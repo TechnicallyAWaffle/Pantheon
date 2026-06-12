@@ -10,7 +10,7 @@ public class ProcessQueue : MonoBehaviour
     //Refs
     //Future implementation for setting unique server compute/memory levels, though honestly this can probably just be hardcoded lmao
     //SOServerData serverData;
-    [HideInInspector] public Entity owner; //Leave this blank for server
+    public Entity owner; //Leave this blank for server
     [HideInInspector] public string queueName;
     private ReferenceManager referenceManager;
     private ProcessManager processManager;
@@ -36,7 +36,7 @@ public class ProcessQueue : MonoBehaviour
     public List<RunningProcess> queue = new();
     public List<RunningProcess> processesToRemove = new();
 
-    [SerializeField] private float timeBetweenServerResets;
+    [SerializeField] private float timeBetweenServerResets = 30;
     [SerializeField] private int resourcesWiped;
     private float currentTime;
 
@@ -80,6 +80,7 @@ public class ProcessQueue : MonoBehaviour
             player.RelinquishServerCompute(resourcesWiped);
             opponent.RelinquishServerMemory(resourcesWiped);
             opponent.RelinquishServerCompute(resourcesWiped);
+            Debug.Log(currentTime);
             GlobalEventBus.SchedulerReset();
         }
         else
@@ -148,7 +149,7 @@ public class ProcessQueue : MonoBehaviour
 
     private void WriteDebug(string message)
     {
-        UnityEngine.Debug.Log("<color=pink>PROCESS QUEUE(" + queueName + ")" + message);
+        UnityEngine.Debug.Log("<color=#FF00AC>PROCESS QUEUE(" + queueName + ")" + message);
     }
 
 

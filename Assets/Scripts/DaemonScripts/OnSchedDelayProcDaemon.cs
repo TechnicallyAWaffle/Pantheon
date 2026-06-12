@@ -9,7 +9,8 @@ public class OnSchedDelayProcDaemon : DaemonBase
 
     private void SchedulerReset()
     {
-        if (!OnTrigger()) return;
+        if (isSuspended) return;
+        OnTrigger();
         ProcessQueue serverQueue = ReferenceManager.Instance.serverProcessQueue;
         Entity player = ReferenceManager.Instance.player;
         foreach (RunningProcess process in serverQueue.queue)

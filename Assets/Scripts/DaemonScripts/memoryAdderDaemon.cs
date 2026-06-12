@@ -18,7 +18,8 @@ public class MemoryAdderDaemon : DaemonBase
         base.Update();
         if (currentTime <= 0)
         {
-            if (!OnTrigger()) return;
+            if (isSuspended) return;
+            OnTrigger();
             currentTime = timeBetweenActivations;
             owner.RequestServerMemory(1);
         }

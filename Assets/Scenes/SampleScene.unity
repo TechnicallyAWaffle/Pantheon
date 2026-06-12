@@ -204,6 +204,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 4133014510904115606, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: daemonName
+      value: spatialprocess.ckpt
+      objectReference: {fileID: 0}
     - target: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -425,7 +429,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandLine: {fileID: 1151528851}
-  inputSuffixBlinkRate: 0.5
   baseCommandData:
   - {fileID: 11400000, guid: 006f7ddd9c3245248b0ccacbc35483de, type: 2}
   - {fileID: 11400000, guid: 65ab20e683584b34ca8e0751698de0fc, type: 2}
@@ -880,6 +883,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 55748460188590e48a032525951b4c8b, type: 3}
     - target: {fileID: 6339603931331964013, guid: 2275ef1f31646984fb2528f244375579, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339603931331964013, guid: 2275ef1f31646984fb2528f244375579, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -947,7 +954,6 @@ MonoBehaviour:
   queueManager: {fileID: 906591921}
   daemonManager: {fileID: 1643238844}
   suspensionManager: {fileID: 0}
-  dialogueManager: {fileID: 0}
   player: {fileID: 1910080314}
   opponent: {fileID: 1586301206}
   serverProcessQueue: {fileID: 1510904592}
@@ -1098,6 +1104,7 @@ Transform:
   - {fileID: 543163619}
   - {fileID: 906591920}
   - {fileID: 1643238843}
+  - {fileID: 2004937279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &891837021
@@ -1172,6 +1179,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f59b4586669c1dd4686f513721594655, type: 3}
+    - target: {fileID: 8971520111526656110, guid: 9528cc55a8f209a49a4a35d9977dbec8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8971520111526656110, guid: 9528cc55a8f209a49a4a35d9977dbec8, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1276,6 +1287,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 4133014510904115606, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: daemonName
+      value: 'parietal.dll '
+      objectReference: {fileID: 0}
     - target: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1899,6 +1914,7 @@ MonoBehaviour:
   uiDocument: {fileID: 1151528848}
   commandTemplate: {fileID: 9197481963319205126, guid: bf52d0ab963298e40b8558b8e79f9ece, type: 3}
   entity: {fileID: 1910080314}
+  companyToLogo: {fileID: 11400000, guid: 00972cb2623f5944a901cd4c8551ed2f, type: 2}
 --- !u!114 &1151528853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,6 +1930,7 @@ MonoBehaviour:
   uiDocument: {fileID: 1151528848}
   commandTemplate: {fileID: 9197481963319205126, guid: 5fab28be3f65919489dad88659043825, type: 3}
   entity: {fileID: 1586301206}
+  companyToLogo: {fileID: 11400000, guid: bb0ebf11276f8124e84de243654983ff, type: 2}
 --- !u!114 &1151528854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,6 +2082,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f46bae8671398d940a620d5005e0594d, type: 3}
     - target: {fileID: 7893350753864055925, guid: 1b71c22311f793c43bf618d6128c03d0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893350753864055925, guid: 1b71c22311f793c43bf618d6128c03d0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -2072,6 +2093,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1586301206}
+    - target: {fileID: 8698256070941203668, guid: 1b71c22311f793c43bf618d6128c03d0, type: 3}
+      propertyPath: daemonName
+      value: uenauthenticator.in
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2170,6 +2195,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 7395647302450303636, guid: 2275ef1f31646984fb2528f244375579, type: 3}
+      propertyPath: daemonName
+      value: selfrefengram.mdl
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2264,6 +2293,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 8867717419396190697, guid: 2fd0aaf16a31e714d8404b7965faec31, type: 3}
+      propertyPath: daemonName
+      value: cortexL.sm
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2294,6 +2327,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 12675dd3aba68dc40860501335520622, type: 3}
+    - target: {fileID: 2848375244954702538, guid: 8a074f0649c249543b5932e924223cf5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2848375244954702538, guid: 8a074f0649c249543b5932e924223cf5, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -2377,6 +2414,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 8371133ad283a684c91b6017cd1e7d69, type: 3}
     - target: {fileID: 1600754376720575068, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600754376720575068, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -2384,6 +2425,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1586301206}
+    - target: {fileID: 4133014510904115606, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: daemonName
+      value: occipital.dll
+      objectReference: {fileID: 0}
     - target: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2475,8 +2520,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
-  timeBetweenServerResets: 0
-  resourcesWiped: 0
+  timeBetweenServerResets: 35
+  resourcesWiped: 10
 --- !u!4 &1510904593
 Transform:
   m_ObjectHideFlags: 0
@@ -2547,7 +2592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c89ab7e989f5d1489c5c06ba1fe72b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
-  owner: {fileID: 0}
+  owner: {fileID: 1586301206}
   queueName: 
   startingMemory: 15
   startingCompute: 15
@@ -2572,6 +2617,8 @@ MonoBehaviour:
   authority: 0
   reservedServerMemory: 0
   reservedServerCompute: 0
+  AvailableLocalMemoryField: 0
+  AvailableServerMemoryField: 0
   temperature: 0
   ownedProcesses: []
   daemons: []
@@ -2669,6 +2716,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: cee18dc39440d9647b907271e6fad053, type: 3}
+    - target: {fileID: 3241369847225329759, guid: 3a52991cf1d3640479a3b2fc3ed66be0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3241369847225329759, guid: 3a52991cf1d3640479a3b2fc3ed66be0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -2778,7 +2829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c89ab7e989f5d1489c5c06ba1fe72b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
-  owner: {fileID: 0}
+  owner: {fileID: 1910080314}
   queueName: 
   startingMemory: 15
   startingCompute: 15
@@ -2803,6 +2854,8 @@ MonoBehaviour:
   authority: 0
   reservedServerMemory: 0
   reservedServerCompute: 0
+  AvailableLocalMemoryField: 0
+  AvailableServerMemoryField: 0
   temperature: 0
   ownedProcesses: []
   daemons: []
@@ -2872,6 +2925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 172a9cbc063dd0c4ba3cdef013891ee0, type: 3}
     - target: {fileID: 5344886929461804708, guid: 2fd0aaf16a31e714d8404b7965faec31, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344886929461804708, guid: 2fd0aaf16a31e714d8404b7965faec31, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -2889,6 +2946,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 803468630732893769, guid: 2fd0aaf16a31e714d8404b7965faec31, type: 3}
   m_PrefabInstance: {fileID: 1916199963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2004937278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004937279}
+  - component: {fileID: 2004937280}
+  m_Layer: 0
+  m_Name: SuspensionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004937279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004937278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 853939686}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004937280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004937278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308d0eb1b036ccb41bccbd481bb061af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SuspensionManager
 --- !u!1 &2034088361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,7 +3075,7 @@ Transform:
   m_GameObject: {fileID: 2034088361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6841, y: 0.6283, z: 0}
+  m_LocalPosition: {x: 0.6841, y: 0.6283, z: 1}
   m_LocalScale: {x: 21.47573, y: 13.048825, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

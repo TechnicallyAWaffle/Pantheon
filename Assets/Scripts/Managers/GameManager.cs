@@ -15,12 +15,12 @@ public static class GameManager
 
     public static ITargetable FindRunningDaemonOrProcess(string id) //name in daemon's case
     {
-        RunningProcess process = AllRunningProcessesByID[id];
+        AllRunningProcessesByID.TryGetValue(id, out var process);
         if (process)
             return process;
         else
         { 
-            DaemonBase daemon = AllActiveDaemons[id];
+            AllActiveDaemons.TryGetValue(id, out var daemon);
             if (daemon)
                 return AllActiveDaemons[id];
             else return null;

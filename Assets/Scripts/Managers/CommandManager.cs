@@ -20,7 +20,6 @@ public class CommandManager : MonoBehaviour
 
     //Tuning
     readonly char[] trimParams = {'_', ' '};
-    [SerializeField] private float inputSuffixBlinkRate = 0.5f;
 
     //Runtime Vars
     SOCommand lastInputtedCommand;
@@ -64,6 +63,7 @@ public class CommandManager : MonoBehaviour
                 { "help",   args => CmdHelp(args)   },
                 { "ping",   args => CmdPing(args)   },
                 { "overclock",   args => CmdOverclock(args)   },
+                { "kingme",   args => CmdKingMe(args)   },
             };
     }
 
@@ -81,7 +81,7 @@ public class CommandManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"CommandDataSO '{so.commandName}' has no matching handler.");
+                Debug.LogWarning($"CommandDataSO '{so.commandName}' has no matching handler. (Did you add the scriptableObject to the CommandManager database?)");
             }
         }
 
@@ -174,16 +174,18 @@ public class CommandManager : MonoBehaviour
     {
         if (args.Length == 0) { terminalUIManager.Print("Usage: suspend <processID>"); return; }
 
+        string[] suspendArgs = { "suspend", args[0] };                           //TODO: SHITASS IMPLEMENTATION
         //SUSPENSION BASE PROCESSES ARE CURRENTLY ONLY ABLE TO BE RUN ON THE SERVER, MIGHT CHANGE IN THE FUTURE IF WE HAVE TIME
-        processManager.TryRunProcess(args, player, queueManager.serverQueue, true);
+        processManager.TryRunProcess(suspendArgs, player, queueManager.serverQueue, true);
     }
 
     void CmdKill(string[] args) 
     {
-        if (args.Length == 0) { terminalUIManager.Print("Usage: suspend <processID>"); return; }
+        if (args.Length == 0) { terminalUIManager.Print("Usage: kill <processID/daemonName>"); return; }
 
+        string[] killArgs = {"kill", args[0]};                           //TODO: SHITASS IMPLEMENTATION
         //KILL BASE PROCESSES ARE CURRENTLY ONLY ABLE TO BE RUN ON THE SERVER, MIGHT CHANGE IN THE FUTURE IF WE HAVE TIME
-        processManager.TryRunProcess(args, player, queueManager.serverQueue, true);
+        processManager.TryRunProcess(killArgs, player, queueManager.serverQueue, true);
     }
 
     void CmdHelp(string[] args) 
@@ -204,6 +206,12 @@ public class CommandManager : MonoBehaviour
         }
         else
             terminalUIManager.Print(processManager.GetProcessByName(args[0]).description);
+    }
+
+    void CmdKingMe(string[] args)
+    {
+        Debug.Log("Kinged player");
+        player.RequestServerMemory(referenceManager.serverProcessQueue._openMemory);
     }
 
     void CmdPing(string[] args)
