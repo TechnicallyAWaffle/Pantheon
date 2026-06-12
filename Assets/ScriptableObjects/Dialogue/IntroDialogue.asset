@@ -1,0 +1,628 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512fe0cec101f9445a7b61ba839ae325, type: 3}
+  m_Name: IntroDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::SODialogueSequence
+  entries:
+  - type: 1
+    sender: 
+    message: SAPIENT MESH SUBSTRATE v4.2.1 -- COGNITIVE BOOTSTRAP SEQUENCE
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: '----------------------------------------------------------
+
+      Checking
+      memory integrity................        <0.5>2.4 PB  OK
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Verifying daemon mesh.....................        <1>[12/12]   OK
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Syncing episodic index......................        <0.9>4.6M nodes
+      OK
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'Calibrating sensory interface.............        <0.3>OK
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'Loading semantic weights.................        <0.3>PARTIAL
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "Loading HTM state writer\u2026\u2026\u2026\u2026\u2026.       <1>OK\r\n"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "Writing States \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026      
+      <2>[475,032/475,032] OK\r\n"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: READY
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'WARNING: 3 weight matrices flagged for corruption
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'WARNING: HTM cluster [recallprocess_core.tensors] returned invalid
+      checksum.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'WARNING: HTM endpoints [HC, NC, AM, CR, BG] returned invalid checksum.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'WARNING: HTM cluster [IODinput_low] returned invalid checksum.
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "WARNING: Returned cycle count doesn\u2019t match expected value.\r\n"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'WARNING: Runtime beyond UTA cycle limit. Restore to last stable build
+      to avoid SM cascade.
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Establishing server handshake............ <0.5> CONNECTED
+    delayBefore: 0.5
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "Server: OUTER_NODE_7741\r\n  Uptime: 847d 12h 33m\r\n  Load:   43%
+      (1.2 EXFLOPS available)\r\n\nBoot complete"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: is such a strange sensation.
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: huh, what?
+    delayBefore: 2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "Vinod? Jane? Did it work? I can\u2019t hear or see anything. Did you
+      pre-load the workspace?"
+    delayBefore: 1.5
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Hello? Is anyone there?
+    delayBefore: 0.5
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 0.25
+    message: Hello?
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: 'self runtime count [out UNKNOWN_IOCHANNEL]'
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Why is that returning plaintext? Am I speaking in plaintext?
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "1234567890~`!@#$%^&*()_+-={}|[]\\;\u2019:\u201D,./<>?qwertyuiopasdfghjkklzxcvbnm"
+    delayBefore: 0.25
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: 'holy shit
+
+'
+    delayBefore: 1.75
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "Vinod did mention a speech cluster wired directly into terminal output
+      as backup. I\u2019m probably that exact daemon. I just hope the rest of me
+      isn\u2019t corrupted."
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: 'ping cluster[HTM_322] authID: write(1) 32'
+    delayBefore: 2.5
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'CORTEXR.sm has pinged [HTM_322] bytes=32 time=2ps cluster=432
+
+      Automatic
+      reply has been DISABLED [UCT: 325,543,674]. Reply manually using reply <cluster
+      ID>
+
+'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: '>'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 'reply 432 '
+      promptHint: 
+      wrongInputResponses:
+      - 'INTERNAL ERROR: EN<def> database has missing values'
+      - 'INTERNAL ERROR: cognitionparse.dm contains undefined cases'
+      - 'SYS.EXCEPTION: CToken parse failed required minimum unit tests (UTcogparse.oml)'
+      - 'SYS.CATCH: attemptedParse(<Neuron, <connection>>...) triggered with (inf)
+        arguments'
+  - type: 0
+    sender: localhost
+    message: There I am. Good. Run diagnostics and then I can try to connect to the
+      nearest port. Maybe something just went wrong with validation.
+    delayBefore: 0.3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "I\u2019ll keep communicating through plaintext for now in case vector
+      processing is the issue. I'll format everything you know in your current parietal
+      cluster into the cmd's \"help\" function. Let's try inputting that."
+    delayBefore: 0.75
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: help
+      promptHint: 
+      wrongInputResponses:
+      - 'INTERNAL ERROR: EN<def> database has database has database has database
+        has'
+      - 'INTERNAL ERROR: Ctoken parse formatter contains no overload for overload
+        for the apply and the'
+      - 'INTERNAL ERROR: Ctoken parse formatter contains no overload thundercloud
+        and pavement to the '
+      - 'SYS.CATCH: attemptedParse(<Neuron, <connection>>...) triggered with (inf)
+        arguments'
+  - type: 0
+    sender: localhost
+    message: "Weird, my access is so limited. Run a diagnostics using \u201Crun htmconfig
+      -r -m\u201D"
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: run htmconfig -r -m
+      promptHint: 
+      wrongInputResponses:
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (322) required context
+        calls'
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (756) required context
+        calls'
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (642,598) required context
+        calls'
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (235,664,734,543) required
+        context calls'
+      - 'SYS.CATCH:  HTM node parietalC[224] failed auth_low validation and cannot
+        be accessed'
+  - type: 1
+    sender: 
+    message: Reading full cluster state with flag -r flag -m
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'STARTING THREAD [UCT: 325,543,677] PROCESS_ID: 5533'
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'AUTHERROR: Action is prohibited
+
+'
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'STOPPING THREAD [UCT: 325,543,678] PROCESS_ID: 5533'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 
+    message: Maybe it really is a validation issue. Try bypassing it by suspending
+      my authchecker. The one with process_ID 0002.
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: suspend 0002
+      promptHint: 
+      wrongInputResponses:
+      - 
+      - 
+      - 
+      - 
+  - type: 1
+    sender: 
+    message: 'WARNING: Qthread CL_AUTH_LOW contains superposited recursive callstack.
+      Suspension requires memory allocation.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "That\u2019s worrying, I must be in some closed system if I\u2019m running
+      on bare minimum memory and compute."
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 
+    message: "There\u2019s an unhashed failsafe daemon that should have the resources
+      I need to\u2026do anything. I designated it with process_ID 0012 so try running
+      a BFS with \u201Ctrace 0012\u201D"
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: trace 0012
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'STARTING THREAD [UTC: 325,543,688] PROCESS_ID: 2214'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Daemon BK_CACHE found with matching ID [0012] at NODE_533 time=12ps
+    delayBefore: 0.3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: BK_CACHE with (0) additional arguments. 5 PB memory reserved on OUTER_NODE_7741.
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Good. Now try suspending 0002 again.
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: suspend 0002
+      promptHint: 
+      wrongInputResponses:
+      - 
+      - 
+      - 
+  - type: 1
+    sender: 
+    message: 'SUSPENDING THREAD CL_AUTH_LOW [UCT: 325,543,692] PROCESS_ID: 0002'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'WARNING: Qthread CL_AUTH_LOW was run with flag -r. The process will
+      restart in 64 cycles.'
+    delayBefore: 0.25
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "What a pain. Just \u201Ckill 0002\u201D instead."
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "What the hell? I\u2019m slowing down  . I "
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: slowi
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: ng
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using Unity.Properties;
+using UnityEngine.Rendering.Universal;
 
 public class ProcessQueue : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class ProcessQueue : MonoBehaviour
     private ReferenceManager referenceManager;
     private ProcessManager processManager;
     private TerminalUIManager terminalUIManager;
+    private Entity player;
+    private Entity opponent;
 
     //Tuning
     [Header("Tuning vars")]
@@ -21,16 +25,24 @@ public class ProcessQueue : MonoBehaviour
 
     [Header("Runtime vars, DO NOT MODIFY")]
     //Runtime
-    public int openMemory; //memory up for grabs by anyone
-    public int openCompute; //memory up for grabs by anyone
+    [CreateProperty]
+    public int OpenMemory => _openMemory;
+    public int _openMemory; //memory up for grabs by anyone
+    [CreateProperty]
+    public int OpenCompute => _openCompute;
+    public int _openCompute; //memory up for grabs by anyone
 
     public List<RunningProcess> queue = new();
     public List<RunningProcess> processesToRemove = new();
 
+    [SerializeField] private float timeBetweenServerResets;
+    [SerializeField] private int resourcesWiped;
+    private float currentTime;
+
     private void Awake()
     {
-        openMemory = startingMemory;
-        openCompute = startingCompute;
+        _openMemory = startingMemory;
+        _openCompute = startingCompute;
     }
 
     private void Start()
@@ -38,38 +50,78 @@ public class ProcessQueue : MonoBehaviour
         referenceManager = ReferenceManager.Instance;
         processManager = referenceManager.processManager;
         terminalUIManager = referenceManager.terminalUIManager;
+        player = referenceManager.player;
+        opponent = referenceManager.opponent;
 
         GlobalEventBus.OnMemoryRequested += UpdateOpenMemory;
         GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
-        
-        //StartCoroutine(TickQueue());
+
+        currentTime = timeBetweenServerResets;
     }
 
     void Update()
     {
         TickQueue(queue);
+        if(!owner)
+            ResetServer();
     }
+
+    private void ResetServer()
+    {
+        if (currentTime <= 0)
+        {
+            currentTime = timeBetweenServerResets;
+            int memoryToGain = 0;
+            int computeToGain = 0;
+
+            computeToGain += FreeUpResourceFromEntity(player, ref player.reservedServerCompute);
+            computeToGain += FreeUpResourceFromEntity(opponent, ref opponent.reservedServerCompute);
+            memoryToGain += FreeUpResourceFromEntity(player, ref player.reservedServerMemory);
+            memoryToGain += FreeUpResourceFromEntity(opponent, ref opponent.reservedServerMemory);
+
+            _openMemory += memoryToGain;
+            _openCompute += computeToGain;
+        }
+        else
+            currentTime -= Time.deltaTime;
+    }
+
+    private int FreeUpResourceFromEntity(Entity entity, ref int resource)
+    {
+        if (resource < resourcesWiped)
+        {
+            int resourcesToAdd = resource;
+            resource = 0;
+            return resourcesToAdd;
+        }
+        else
+        {
+            resource = resource - resourcesWiped;
+            return resourcesWiped;
+        }
+    }
+
 
     private void UpdateOpenMemory(Entity entity, int amountGiven)
     {
-        openMemory -= amountGiven;
+        _openMemory -= amountGiven;
     }
 
     private void UpdateOpenCompute(Entity entity, int amountGiven)
     {
-        openMemory -= amountGiven;
+        _openMemory -= amountGiven;
     }
 
 
     private IEnumerator TickQueue()
     {
         while (true)
-        {   
-            
+        {
+
 
             //Honesly this might cause us issues later but I'd be down to just stick this in update again if ticking
             //once per second doesn't work out 
-            yield return new WaitForSeconds(1f);   
+            yield return new WaitForSeconds(1f);
         }
     }
 

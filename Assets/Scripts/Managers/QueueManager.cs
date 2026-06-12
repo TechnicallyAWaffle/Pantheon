@@ -14,8 +14,6 @@ public class QueueManager : MonoBehaviour
     private TerminalUIManager terminalUIManager;
 
     //Runtime
-    //This tracks every single running process instance by their processID
-    public Dictionary<string, RunningProcess> AllRunningProcessesByID = new();
 
     private void Start()
     {
@@ -40,8 +38,8 @@ public class QueueManager : MonoBehaviour
         RunningProcess runningProcessInstance = processObject.GetComponent<RunningProcess>();
 
         //Add the process and its ID to the global process lookup dictionary
-        runningProcessInstance.processID = GenerateRandomProcessID();
-        AllRunningProcessesByID.Add(runningProcessInstance.processID, runningProcessInstance);
+        runningProcessInstance.processID = GameManager.GenerateRandomID();
+        GameManager.AllRunningProcessesByID.Add(runningProcessInstance.processID, runningProcessInstance);
         Debug.Log("Adding process with ID " + runningProcessInstance.processID);
 
         //Moves all the data from the scriptableobject to the new live RunningProcess instance
@@ -50,7 +48,7 @@ public class QueueManager : MonoBehaviour
         runningProcessInstance.owner = owner;
         runningProcessInstance.timeRemaining = process.baseExecutionTime;
         runningProcessInstance.baseTime = process.baseExecutionTime;
-        runningProcessInstance.encryption = process.encryption;
+        runningProcessInstance.Encryption = process.encryption;
         runningProcessInstance.arguments = processArguments;
         runningProcessInstance.queue = queueObject;
         runningProcessInstance.script = processObject.GetComponent<ProcessBase>();
@@ -71,15 +69,9 @@ public class QueueManager : MonoBehaviour
             location = "SERVER CONNECTION";
         else
             location = "LOCAL CLIENT";
-        terminalUIManager.Print($"Process '{runningProcessInstance.data.processName}'_" 
+        terminalUIManager.Print($"Process '{runningProcessInstance.data.processName}'_"
             + runningProcessInstance.processID + " added to "
             + location + " scheduler queue");
-    }
-
-    private string GenerateRandomProcessID()
-    {
-        int id = Random.Range(100, 9000);
-        return $"{id:D4}";
     }
 
 

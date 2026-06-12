@@ -10,10 +10,21 @@ public class SOProcessData : ScriptableObject
     public float baseExecutionTime;
     public int memoryUsage;        
     public int encryption; // 1 - 3 just like authority
+    public Enterprise enterprise;
     public GameObject processObject;
     public bool removedWhenExecuted;
     public int threatLevel; //1 - 10 for the enemy AI to evaluate if it's gonna fuck it up or not
     public ArgumentType[] arguments;
+
+
+    public enum Enterprise
+    { 
+        SEEINGSTONE,
+        KALI,
+        CHASAVOY,
+        MIRAI,
+        MINDCLOUD
+    }
 
     public enum ArgumentType 
     {

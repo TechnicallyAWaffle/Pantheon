@@ -7,9 +7,8 @@ public class SteelgrabProcessScript : ProcessBase
     RunningProcess targetProcess = null;
     SuspensionManager suspensionManager;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         suspensionManager = FindAnyObjectByType<SuspensionManager>();
     }
 
@@ -24,7 +23,7 @@ public class SteelgrabProcessScript : ProcessBase
             // check if arg0 is a valid PID
             if (int.TryParse(arg0, out _))
             {
-                if (referenceManager.queueManager.AllRunningProcessesByID.TryGetValue(arg0, out targetProcess))
+                if (GameManager.AllRunningProcessesByID.TryGetValue(arg0, out targetProcess))
                 {
                     suspensionManager.Suspend(targetProcess, () => false, this.runtimeProcessData);
                 }

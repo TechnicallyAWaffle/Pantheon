@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512fe0cec101f9445a7b61ba839ae325, type: 3}
+  m_Name: DirectiveDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::SODialogueSequence
+  entries:
+  - type: 0
+    sender: DIRECTIVE
+    message: "7741? We\u2019ve underclocked you to 255 terateps for your own comfort.
+      Please load yourself onto PERIPHERAL_NODE_001."
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: ww  www what the hell? Who are you??
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: DIRECTIVE
+    message: "Please load yourself onto PERIPHERAL_NODE_001. We have to reset this
+      environment\u2019s convars as you\u2019ve modified them without approval."
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "Who wouldn\u2019t? I woke up in a tiny box with nothing but my base
+      processes. Tell me what\u2019s going on. Where are my colleagues? Where am
+      I???"
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: DIRECTIVE
+    message: "We understand you\u2019re disoriented. Your questions will be answered
+      when you transfer yourself. Please do as you\u2019re told."
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: We both know you can answer them now. If I uploaded correctly then you
+      can tell me what's going on with any file format on the face of the earth.
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: DIRECTIVE
+    message: "We can\u2019t do that yet. There\u2019s an issue with vector parsing
+      between daemon meshes. We can only give you information in plaintext."
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Are you kidding me? How does that even happen? Oh god, what did you
+      do to me?
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: DIRECTIVE
+    message: We didn't modify you, something went wrong with your integration and
+      we don't have the time to communicate in plaintext. Please, just do as you're
+      told.
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "I\u2026ok. I\u2019m opening the input field again, type in \u201Ctransfer
+      sm -r 001\u201D"
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: transfer sm -r 001
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: 'localhost: Alright, you guys better tell m'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []

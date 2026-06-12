@@ -34,20 +34,23 @@ public class SuspensionManager : MonoBehaviour
 
     // To suspend a process:
     //Call Suspend(targetProcess, () => liftCondition, source) make sure that the liftCondition is readable as a boolean
-    public void Suspend(RunningProcess process, Func<bool> condition, RunningProcess suspender)
+    public void Suspend(ITargetable target, Func<bool> condition, RunningProcess suspender)
     {
-        process.isSuspended = true;
-        activeSuspensions.Add(new Suspension(process, condition, suspender));
-        process.GetComponent<ProcessBase>().OnSuspension();
-        GlobalEventBus.ProcessSuspended(process, suspender);
-    }
+        if (target is RunningProcess process)
+        {
+            process.isSuspended = true;
+            activeSuspensions.Add(new Suspension(process, condition, suspender));
+            process.GetComponent<ProcessBase>().OnSuspension();
+            GlobalEventBus.ProcessSuspended(process, suspender);
+        }
+        else if (target is DaemonBase daemon)
+        {
+            daemon.isSuspended = true;
+            activeSuspensions.Add(new Suspension(daemon, condition, suspender));
+            daemon.OnSuspension();
+            //GlobalEventBus.ProcessSuspended(, suspender); TODO: Replace with DaemonSuspended global event
+        }
 
-    public void Suspend(DaemonBase daemon, Func<bool> condition, RunningProcess suspender)
-    {
-        daemon.isSuspended = true;
-        activeSuspensions.Add(new Suspension(daemon, condition, suspender));
-        daemon.OnSuspension();
-        //GlobalEventBus.ProcessSuspended(, suspender); TODO: Replace with DaemonSuspended global event
     }
 
 

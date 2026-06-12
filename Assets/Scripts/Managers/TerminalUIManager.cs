@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Properties;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,36 +11,18 @@ using UnityEngine.UI;
 
 public class TerminalUIManager : MonoBehaviour
 {
+    public const int MaxLines = 15;
+
+    [CreateProperty]
+    public string ConsoleOutput => _consoleOutput;
+    string _consoleOutput = "";
 
     //Refs
     ReferenceManager referenceManager;
 
     [SerializeField] private TextMeshProUGUI outputText;
-    [SerializeField] private TextMeshProUGUI playerReservedServerMemory;
-    [SerializeField] private TextMeshProUGUI playerReservedServerCompute;
-    [SerializeField] private TextMeshProUGUI opponentReservedServerMemory;
-    [SerializeField] private TextMeshProUGUI opponentReservedServerCompute;
-    [SerializeField] private TextMeshProUGUI playerLocalMemory;
-    [SerializeField] private TextMeshProUGUI playerLocalCompute;
-    [SerializeField] private TextMeshProUGUI opponentLocalMemory;
-    [SerializeField] private TextMeshProUGUI opponentLocalCompute;
     //[SerializeField] private ScrollRect scrollRect;
 
-    private void Start()
-    {
-        referenceManager = ReferenceManager.Instance;
-
-        GlobalEventBus.OnMemoryRequested += UpdateMemoryUI;
-        GlobalEventBus.OnComputeRequested += UpdateComputeUI;
-        GlobalEventBus.OnMemoryChanged += UpdateMemoryUI;
-        GlobalEventBus.OnComputeChanged += UpdateComputeUI;
-
-        outputText.text = string.Empty;
-        UpdateMemoryUI(referenceManager.player);
-        UpdateComputeUI(referenceManager.opponent);
-        UpdateMemoryUI(referenceManager.opponent);
-        UpdateComputeUI(referenceManager.opponent);
-    }
 
     private Dictionary<int, string> encryptionIntToDisplayName = new()
     {
@@ -70,44 +53,13 @@ public class TerminalUIManager : MonoBehaviour
 
     public void Print(string output)
     {
-        string currentText = outputText.text;
-        outputText.text = output + "\n" + currentText;
+        _consoleOutput = $"{output}\n{_consoleOutput}";
+
+        string[] lines = _consoleOutput.Split('\n');
+
+        if (lines.Length > MaxLines)
+        {
+            _consoleOutput = string.Join("\n", lines, 0, MaxLines);
+        }
     }
-
-    private void UpdateMemoryUI(Entity entity, int amount)
-    {
-        playerLocalMemory.text = entity.localProcessQueue.openMemory.ToString(); //TODO: Update all these to also show busy memory
-        playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
-    }
-
-    private void UpdateMemoryUI(Entity entity)
-    {
-        playerLocalMemory.text = (entity.localProcessQueue.openMemory - entity.busyLocalMemory).ToString();
-        playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
-    }
-
-    private void UpdateMemoryUI(RunningProcess process, Entity entity)
-    {
-        playerLocalMemory.text = (entity.localProcessQueue.openMemory - entity.busyLocalMemory).ToString();
-        playerReservedServerMemory.text = entity.reservedServerMemory.ToString();
-    }
-
-    private void UpdateComputeUI(Entity entity, int amount)
-    {
-        playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
-        playerReservedServerCompute.text = entity.reservedServerCompute.ToString();
-    }
-
-    private void UpdateComputeUI(Entity entity)
-    {
-        playerLocalCompute.text = entity.localProcessQueue.openCompute.ToString();
-        playerReservedServerCompute.text = entity.reservedServerCompute.ToString();
-    }
-
-    public void UpdateServerMemoryAndComputeDistribution()
-    { 
-        //playerReservedServerMemory.text = 
-    }
-
-
 }

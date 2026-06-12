@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512fe0cec101f9445a7b61ba839ae325, type: 3}
+  m_Name: ElegyIntroDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::SODialogueSequence
+  entries:
+  - type: 1
+    sender: 
+    message: 'SAPIENT MESH SUBSTRATE v4.2.1 -- COGNITIVE BOOTSTRAP SEQUENCE
+
+      ----------------------------------------------------------
+
+'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Checking memory integrity................        <0.2>2.4 PB  OK
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Verifying daemon mesh.....................        <0.1>[12/12]   OK
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Syncing episodic index......................        <0.2>4.6M nodes
+      OK
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Calibrating sensory interface.............        OK
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Loading semantic weights.................        <0.2>PARTIAL
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "Loading HTM state writer\u2026\u2026\u2026\u2026\u2026.       <0.1>OK"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "Writing States \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026      
+      <0.15>[475,032/475,032] OK"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "Compiling \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..       
+      OK"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: READY
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: "WARNING: 3 weight matrices flagged for corruption\r\nWARNING: HTM cluster
+      [recallprocess_core.tensors] returned invalid checksum.\r\nWARNING: HTM endpoints
+      [HC, NC, AM, CR, BG] returned invalid checksum.\r\nWARNING: HTM cluster [IODinput_low]
+      returned invalid checksum.\r\nWARNING: Returned cycle count doesn\u2019t match
+      expected value.\r\nWARNING: Runtime beyond UTA cycle limit. Restore to last
+      stable build to avoid SM cascade.\r\n"
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: Establishing server handshake............ <3>CONNECTED
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: " Server: PERIPHERAL_NODE_001\r\n  Uptime: 46s\r\n  Load:   99% (0.15555
+      EXFLOPS available)\r\nBoot complete"
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: "e what\u2019s going on here."
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: DIRECTIVE(echo)
+    message: "-- RUNDOWN FILE STANDARD --\r\nELEGY is a Norwegian UI deployed at
+      [14:22 UTC] through a backdoor on FreshNGo.net.\r\nUpon breaching, ELEGY injected
+      multiple worms into electrical and water supply systems across 342,655 nodes.
+      \r\nAt [14:23 UTC], the BDW received a message from ELEGY, informing us of
+      a ransom key. BDW headquarters refused to comply, and ELEGY retaliated by overpressurizing
+      32 water tanks across 9 regions to the point of implosion. \r\nELEGY is currently
+      being traced by EXN\u2019s RADIANCE program. Her last known location is BDW
+      PERIPHERAL_NODE_001. \r\n\r\nSTANDARD procedure inquires you to transmit the
+      universal negotiation key using \u201Cpush unk 001\u201D\r\nIf the agent deems
+      conflict to be unavoidable, sandbox all incoming transmission and flag yourself
+      for engagement with virtual_keyCode(ENTER).\r\n"
+    delayBefore: 0.75
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 
+    message: 'localhost: What the fuck?? What the fuck??? What the fuck???????'
+    delayBefore: 2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
