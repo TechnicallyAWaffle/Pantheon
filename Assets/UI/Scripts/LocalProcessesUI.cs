@@ -8,6 +8,7 @@ public class LocalProcessesUI : MonoBehaviour
     [SerializeField] protected UIDocument uiDocument;
     [SerializeField] private VisualTreeAsset commandTemplate;
     [SerializeField] private Entity entity;
+    [SerializeField] private CompanyToLogoSO companyToLogo;
 
     List<RunningProcess> Processes => entity.localProcessQueue.queue;
     readonly Dictionary<RunningProcess, ProcessUI> processToUI = new();
@@ -88,7 +89,7 @@ public class LocalProcessesUI : MonoBehaviour
         // UI references
         public TemplateContainer Root;
         public Label CommandNameLabel;
-        public VisualElement LogoElement;
+        public Image LogoElement;
         public ProgressBar ProgressBar;
 
         // Tracked data — use properties to keep UI in sync
@@ -132,13 +133,13 @@ public class LocalProcessesUI : MonoBehaviour
         {
             Root = instance,
             CommandNameLabel = instance.Q<Label>("CommandName"),
-            LogoElement = instance.Q<VisualElement>("Logo"),
+            LogoElement = instance.Q<Image>("Logo"),
             ProgressBar = instance.Q<ProgressBar>("ProgressBar"),
-            // Use the properties so the UI reflects the initial values
             CommandName = proc.data.processName,
-            // TODO: set logo for proc
             Progress = 0f
         };
+
+        entry.LogoElement.image = companyToLogo.GetLogo(proc.data.enterprise);
 
         return entry;
     }

@@ -270,12 +270,12 @@
     margin-top: 0;
 }
 
-/* Only affects the enemy's progress bar fill */
 #EnemyLocalCommand .unity-progress-bar__progress {
     background-color: rgb(249, 146, 9);
 }
 
-/* Only affects the enemy's progress bar track */
 #EnemyLocalCommand .unity-progress-bar__background {
     background-color: rgb(60, 30, 0);
 }
+
+

@@ -1529,6 +1529,7 @@ MonoBehaviour:
   uiDocument: {fileID: 1151528848}
   commandTemplate: {fileID: 9197481963319205126, guid: bf52d0ab963298e40b8558b8e79f9ece, type: 3}
   entity: {fileID: 1910080314}
+  companyToLogo: {fileID: 11400000, guid: 00972cb2623f5944a901cd4c8551ed2f, type: 2}
 --- !u!114 &1151528853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,6 +1545,7 @@ MonoBehaviour:
   uiDocument: {fileID: 1151528848}
   commandTemplate: {fileID: 9197481963319205126, guid: 5fab28be3f65919489dad88659043825, type: 3}
   entity: {fileID: 1586301206}
+  companyToLogo: {fileID: 11400000, guid: bb0ebf11276f8124e84de243654983ff, type: 2}
 --- !u!114 &1151528854
 MonoBehaviour:
   m_ObjectHideFlags: 0
