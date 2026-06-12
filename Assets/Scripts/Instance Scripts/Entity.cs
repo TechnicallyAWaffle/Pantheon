@@ -4,6 +4,18 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
 
+    // Ok irl 0 is kernel but for the sake of not losing my mind we're doing 0 - 3 with 3 being the highest authority
+    // This is so I don't confuse the shit out of myself trying to compare this to encryption levels
+    public int authority;
+    public int reservedServerMemory = 0;
+    public int reservedServerCompute = 0;
+    public ModVar availableLocalMemory;
+    public ModVar availableServerMemory;
+
+    public int temperature;
+    public List<RunningProcess> ownedProcesses;
+    public List<DaemonBase> daemons;
+
     //Refs
     private ReferenceManager referenceManager;
     private QueueManager queueManager;
@@ -15,6 +27,9 @@ public class Entity : MonoBehaviour
         referenceManager = ReferenceManager.Instance;
         queueManager = referenceManager.queueManager;
         serverProcessQueue = referenceManager.serverProcessQueue;
+
+        availableLocalMemory = new ModVar(localProcessQueue._openMemory);
+        availableServerMemory = new ModVar(reservedServerMemory);
     }
 
     private void Awake()
@@ -22,51 +37,50 @@ public class Entity : MonoBehaviour
         localProcessQueue = GetComponent<ProcessQueue>();
     }
 
-
-    // Ok irl 0 is kernel but for the sake of not losing my mind we're doing 0 - 3 with 3 being the highest authority
-    // This is so I don't confuse the shit out of myself trying to compare this to encryption levels
-    public int authority;
-
-    public int reservedServerMemory;
-    public int reservedServerCompute;
-    public int busyLocalMemory = 0; //These two values are for memory that is currently being used by a process
-    public int busyServerMemory = 0;
-
-    public int temperature;
-    public List<RunningProcess> ownedProcesses;
-    public List<DaemonBase> daemons;
-
-    public void ModifyBusyMemory(ProcessQueue queue, int incomingValue)
+    public void ModifyAvailableMemory(ITargetable source, ProcessQueue queue, int incomingValue)
     {
-        Debug.Log("Modifying Busy Memory: " + incomingValue);
+        WriteDebug("Adding modifier for busy memory of " + gameObject.name + " with value: " + incomingValue);
         if (queue == serverProcessQueue)
         {
-            busyServerMemory += incomingValue;
-            Debug.Log("New Server Value: " + busyServerMemory);
+            availableServerMemory.CreateAddMod(source, incomingValue);
+            //WriteDebug("New Server Value: " + busyServerMemory);
         }
         else
         {
-            busyLocalMemory += incomingValue;
-            Debug.Log("New Local Value: " + busyLocalMemory);
+            availableLocalMemory.CreateAddMod(source, incomingValue);
+            //WriteDebug("New Local Value: " + busyLocalMemory);
         }
     }
 
-    public void RequestServerMemory(int amountRequested)
+    public void RemoveAvailableMemoryMod(ITargetable source, ProcessQueue queue)
     {
-        int openMemory = serverProcessQueue._openMemory;
-        if (amountRequested > openMemory)
+        if (queue == serverProcessQueue)
         {
-            reservedServerMemory += openMemory;
-            serverProcessQueue._openMemory = 0;
-            GlobalEventBus.RequestMemory(this, openMemory);
+            availableServerMemory.RemoveAddMod(source);
         }
         else
         {
-            openMemory -= amountRequested;
-            reservedServerMemory += amountRequested;
-            GlobalEventBus.RequestMemory(this, amountRequested);
+            availableLocalMemory.RemoveAddMod(source);
         }
     }
+
+
+    public void RequestServerMemory(int incomingValue)
+    {
+        int openMemory = serverProcessQueue._openMemory;
+        int actual = Mathf.Min(incomingValue, openMemory);
+        openMemory -= actual;
+        availableServerMemory.BaseValue += actual;
+    }
+
+    public void RelinquishServerMemory(int incomingValue)
+    {
+        int openMemory = serverProcessQueue._openMemory;
+        int actual = Mathf.Min(incomingValue, reservedServerMemory);
+        openMemory += actual;
+        availableServerMemory.BaseValue -= actual;
+    }
+
 
     public void RequestServerCompute(int amountRequested)
     {
@@ -109,5 +123,10 @@ public class Entity : MonoBehaviour
             reservedLocalCompute += incomingValue;
     }
     */
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=orange>ENTITY: " + message);
+    }
 
 }

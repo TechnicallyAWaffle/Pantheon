@@ -4,8 +4,8 @@ public class AuthShellProcessScript : ProcessBase
 {
     public override void Execute(Entity owner, string[] arguments)
     {
-        DaemonBase lowestEncryptionDaemon = null;
         DaemonBase lastDaemon = owner.daemons[0];
+        DaemonBase lowestEncryptionDaemon = lastDaemon;
         foreach (DaemonBase daemon in owner.daemons)
         { 
             if(daemon.Encryption < lastDaemon.Encryption)

@@ -4,13 +4,16 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEditor.MPE;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using static AIAction;
 
 /*
- * 
+HAIL MARY
+If I'm cooked, run hailmary
+
 RESOURCE ACTIONS
 runs acquisition
 
@@ -35,6 +38,7 @@ public class Enemy1Script : EnemyBase
 {
 
     private bool usedHailMary = false;
+    [SerializeField] private DaemonBase hailMaryDaemon;
 
     [Header("Processes")]
     [SerializeField] SOProcessData vindicatorProcess;
@@ -58,22 +62,31 @@ public class Enemy1Script : EnemyBase
             activeDaemons = self.daemons.ToArray(),
             activePlayerDaemons = player.daemons.ToArray(),
             runningPlayerProcesses = player.ownedProcesses.ToArray(),
-            serverMemoryReserved = self.reservedServerMemory - self.busyServerMemory,
+            serverMemoryReserved = self.reservedServerMemory,
         };
     }
-
+    
     protected override AIAction Decide(AIContext ctx)
     {
+        //Decide if I just want to sit around and twiddle my thumbs
+        float decideIfIWantToDoNothing = UnityEngine.Random.Range(0, 10);
+        if (decideIfIWantToDoNothing > aggression)
+        {
+            WriteDebug("I have chosen not to do anything this tick because I am a peace loving citizen");
+            return AIAction.Wait();
+        }
+        
+
         AIAction finalDecision = null;
 
         if (ctx.serverControlRatio < minimumTolerableServerControlRatio && self.daemons.Count < 3 && !usedHailMary)
         {
-            //Check if hail mary exists
-            usedHailMary = true;
-            //hail mary 
-            return null;
+            if (!hailMaryDaemon.isSuspended)
+            {
+                usedHailMary = true;
+                return TryRunEnemyProcess(hailmaryProcess, null);
+            }
         }
-
 
         if (ctx.PlayerTotalProcessThreat > tolerablePlayerProcessThreatSum)
         {
@@ -85,7 +98,8 @@ public class Enemy1Script : EnemyBase
         else if (ctx.serverControlRatio <= 1)
             finalDecision = DecideResourceAction(ctx);
 
-        finalDecision = DecideDefaultAction(ctx);
+        finalDecision ??= DecideDefaultAction(ctx); //bro intellisense you gotta stop recommending me syntax from the moon wtf is this :wiltedrose: :wiltedrose:
+
         return finalDecision;
     }
 
@@ -151,8 +165,10 @@ public class Enemy1Script : EnemyBase
         }
 
         //If excise didn't run, run vindicator
-        RunningProcess lowestEncryptionProcess = null;
+        if (ctx.runningPlayerProcesses.Count() == 0)
+            return null;
         RunningProcess lastProcess = ctx.runningPlayerProcesses[0];
+        RunningProcess lowestEncryptionProcess = lastProcess;
         foreach (RunningProcess process in ctx.runningPlayerProcesses)
         {
             if (process.Encryption < lastProcess.Encryption)
@@ -181,27 +197,18 @@ public class Enemy1Script : EnemyBase
     AIAction DecideDefaultAction(AIContext ctx)
     {
 
-        //Run authshell to raise daemon encryption
-        DaemonBase lowestEncryptionDaemon = null;
-        DaemonBase lastDaemon = ctx.activeDaemons[0];
-        foreach (DaemonBase daemon in ctx.activeDaemons)                //TODO: For each of these stupid ass foreaches make a helper later 
-        {
-            if (daemon.Encryption < lastDaemon.Encryption)
-            {
-                lastDaemon = daemon;
-                lowestEncryptionDaemon = daemon;
-            }
-        }
-        AIAction authShellAction = TryRunEnemyProcess(authshellProcess, lowestEncryptionDaemon);
+        //Run authshell to raise daemon encryption (finding the right target is handled by the process itself)
+        AIAction authShellAction = TryRunEnemyProcess(authshellProcess, null);
         if (authShellAction != null)
             return authShellAction;
 
         //If you really can't do anything, wait
-        return null;
+        return AIAction.Wait();
     }
 
     protected override void Execute(AIAction action, AIContext ctx)
     {
+        WriteDebug("Executing action type " + action.type);
         switch (action.type)
         {
             case AIActionType.RunProcess:
@@ -221,5 +228,5 @@ public class Enemy1Script : EnemyBase
         }
     }
 
-
 }
+

@@ -40,7 +40,7 @@ public class QueueManager : MonoBehaviour
         //Add the process and its ID to the global process lookup dictionary
         runningProcessInstance.processID = GameManager.GenerateRandomID();
         GameManager.AllRunningProcessesByID.Add(runningProcessInstance.processID, runningProcessInstance);
-        Debug.Log("Adding process with ID " + runningProcessInstance.processID);
+        WriteDebug("Adding process with ID " + runningProcessInstance.processID);
 
         //Moves all the data from the scriptableobject to the new live RunningProcess instance
         runningProcessInstance.memoryUsed = process.memoryUsage;
@@ -53,6 +53,9 @@ public class QueueManager : MonoBehaviour
         runningProcessInstance.queue = queueObject;
         runningProcessInstance.script = processObject.GetComponent<ProcessBase>();
         runningProcessInstance.script.runtimeProcessData = runningProcessInstance;
+
+        //Modify available memory
+        owner.ModifyAvailableMemory(runningProcessInstance, queueObject, -runningProcessInstance.memoryUsed);
 
         //Fire global events. If the entity is the player, fire the associated event (this is for AI behaviour
         GlobalEventBus.ProcessQueued(runningProcessInstance, owner);
@@ -91,6 +94,11 @@ public class QueueManager : MonoBehaviour
     public void RecalculateProcessExecutionTimes(Entity entity, int newCompute)
     {
         //Take first element of each queue and search for all RunningProcesses with the matching owner instance and do some math mojo im too lazy to figure out rn
+    }
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=green>QUEUE MANAGER: " + message);
     }
 
 }

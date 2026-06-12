@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7dcb5338ed258548a6b9f2a70f9952f, type: 3}
-  m_Name: authshellprocess
+  m_Name: scryProcess
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
-  processName: authshell
-  description: 'Raises the encryption of a daemon by 1. '
-  baseExecutionTime: 5
-  memoryUsage: 2
-  encryption: 0
-  enterprise: 2
-  processObject: {fileID: 5070447243186471099, guid: 7162f1b6fd4abe0488f910090d9bf749, type: 3}
+  processName: scry
+  description: Grants you 1 TB of open memory
+  baseExecutionTime: 3
+  memoryUsage: 3
+  encryption: 1
+  enterprise: 0
+  processObject: {fileID: 335334265794423092, guid: d94044b676e744049a319c20ec2a3ffd, type: 3}
   removedWhenExecuted: 1
   threatLevel: 0
-  arguments: 02000000
+  arguments: 

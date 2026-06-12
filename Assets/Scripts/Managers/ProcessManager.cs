@@ -31,6 +31,9 @@ public class ProcessManager : MonoBehaviour
 
     private void Awake()
     {
+        //Load all processes
+        processDatabase = Resources.LoadAll<SOProcessData>("ScriptableObjects/Processes");
+
         //Set up string -> Process/Flag ScriptableObject data dictionary for lookup via GetProcessByName and GetFlagByName
         processesByName = new Dictionary<string, SOProcessData>();
         flagsByName = new Dictionary<string, SOFlagData>();
@@ -81,29 +84,24 @@ public class ProcessManager : MonoBehaviour
         int memoryUsage = processData.memoryUsage;
         if (isServer)
         {
-            if ((owner.reservedServerMemory - owner.busyServerMemory) < memoryUsage)
+            //Check for sufficient memory
+            if ((owner.availableServerMemory.Value) < memoryUsage)
             {
                 terminalUIManager.Print("Insufficient memory");
                 return;
             }
             canRun = true;
-            //Modify busy memory
-            owner.ModifyBusyMemory(processQueue, memoryUsage);
-            GlobalEventBus.MemoryChanged(owner, memoryUsage, owner.GetComponent<ProcessQueue>());
-            Debug.Log("Attempting to run Process " + processData.processName + " on server queue");
+            WriteDebug("Attempting to run Process " + processData.processName + " on server queue");
         }
         else
         {
-            if ((owner.localProcessQueue._openMemory - owner.busyLocalMemory) < memoryUsage)
+            if ((owner.availableLocalMemory.Value) < memoryUsage)
             {
                 terminalUIManager.Print("Insufficient memory");
                 return;
             }
             canRun = true;
-            //Modfiy busy memory
-            owner.ModifyBusyMemory(processQueue, memoryUsage);
-            GlobalEventBus.MemoryChanged(owner, processData.memoryUsage, owner.GetComponent<ProcessQueue>());
-            Debug.Log("Attempting to run Process " + processData.processName + " on local queue");
+            WriteDebug("Attempting to run Process " + processData.processName + " on local queue");
         }
 
         //If can't run then just return
@@ -137,23 +135,36 @@ public class ProcessManager : MonoBehaviour
         //Flag parsing is reach goal. In future I'll probably send this to a FlagManager once the RunningProcess has been created 
         //since that's the object that actually has data that gets changed during runtime
         //ParseFlags(flagsList.ToArray());
-        Debug.Log("Adding process " + processData.processName + " to " + processQueue.name + " with owner " + owner.name);
         queueManager.AddProcess(processData, processQueue, owner, argsList.ToArray());
+
+        if(owner)
+            WriteDebug("Adding process " + processData.processName + " to " + processQueue.name + " LOCAL QUEUE, with owner " + owner.name);
+        else
+            WriteDebug("Adding process " + processData.processName + " to " + processQueue.name + ", with owner " + owner.name);
 
     }
 
     private bool ValidateFlags(string[] args, SOProcessData processData)
     {
+        WriteDebug("Validating arguments [" + string.Join(", ", args) + "] against [" + string.Join(", ", processData.arguments) + "]");
+
+        //If no args then it's truebert
+        if (args.Length == 0 && processData.arguments.Length == 0)
+            return true;
+        if (args.Length != processData.arguments.Length)
+        {
+            WriteDebug("Process " + processData.processName + " has mismatched argument array lengths!");
+            return false;
+        }
+
         int argIndex = 0;
         foreach (SOProcessData.ArgumentType argument in processData.arguments)
         {
             bool isValidProcessID = false;
             bool isValidDaemon = false;
-            if (args.Length > 0)
-            {
-                isValidProcessID = GameManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
-                isValidDaemon = GameManager.AllActiveDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
-            }
+
+            isValidProcessID = GameManager.AllRunningProcessesByID.TryGetValue(args[argIndex], out RunningProcess process);
+            isValidDaemon = GameManager.AllActiveDaemons.TryGetValue(args[argIndex], out DaemonBase daemon);
 
             switch (argument)
             {
@@ -174,14 +185,15 @@ public class ProcessManager : MonoBehaviour
                         return true;
                     break;
             }
-            argIndex++;
+            if(argIndex < args.Length - 1)
+                argIndex++;
         }
         return false;
     }
 
     public void RemoveAndCleanupProcess(string processID)
     {
-        Debug.Log("Removing process with ID" + processID);
+        WriteDebug("Removing process with ID" + processID);
         RunningProcess process = GameManager.AllRunningProcessesByID[processID];
         process.script.OnKilled();
         process.queue.queue.Remove(process);
@@ -196,5 +208,10 @@ public class ProcessManager : MonoBehaviour
         return compareTo == process.owner;
     }
 
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=yellow>PROCESS MANAGER: " + message);
+    }
 
 }
