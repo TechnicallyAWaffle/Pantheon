@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Entity : MonoBehaviour
 {
@@ -39,7 +42,37 @@ public class Entity : MonoBehaviour
 
         availableLocalMemory = new ModVar(localProcessQueue._openMemory);
         availableServerMemory = new ModVar(reservedServerMemory);
+
+        GlobalEventBus.OnDaemonKilled += CheckDaemons;
+
     }
+
+    private void CheckDaemons(DaemonBase daemon)
+    {
+        if (daemons.Count > 0) return;
+        StartCoroutine(LoseCoroutine(this));
+    }
+
+    private IEnumerator LoseCoroutine(Entity entity)
+    {
+        if (entity == referenceManager.player)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                yield return new WaitForSeconds(0.1f);
+                referenceManager.terminalUIManager.Print("CRITICAL ERROR: SAPIENT MESH CANNOT FIND NEXT LAYER NODE");
+            }
+            referenceManager.terminalUIManager.Print("CRITICAL ERROR: I DONT WANT TO DIE");
+        }
+        else
+            referenceManager.terminalUIManager.Print("Congrats!! You have beaten ELEGY and restored peace and harmony to the world! (This is the end of the demo lmao)");
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
 
     private void Awake()
     {
