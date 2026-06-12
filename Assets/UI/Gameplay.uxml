@@ -10,6 +10,24 @@
             <ui:VisualElement name="Player" style="flex-grow: 1; max-height: 100%; min-height: 70%; width: auto; height: auto; min-width: 0%; max-width: 33%;">
                 <ui:VisualElement name="PlayerStats" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
                     <ui:Label text="USER" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(128, 209, 165); font-size: 100px; border-left-width: 53px; -unity-text-align: middle-left;"/>
+                    <ui:VisualElement name="AvailableMemory" style="flex-grow: 1; align-items: center;">
+                        <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row;">
+                            <ui:Label text="Available Local Mem:" class="body"/>
+                            <ui:Label text="123" name="AvailableLocalNumber" class="body">
+                                <Bindings>
+                                    <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                            <ui:Label text="Available Server Mem:&#10;" class="body"/>
+                            <ui:Label text="123" name="AvailableServerNumber" class="body">
+                                <Bindings>
+                                    <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                </Bindings>
+                            </ui:Label>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
                 <ui:VisualElement name="PlayerResources" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
@@ -36,6 +54,24 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="GameInterface" style="flex-grow: 1; max-width: 34%;">
+                <ui:VisualElement name="ServerStats" style="flex-grow: 1; height: 10%;">
+                    <ui:VisualElement name="ServerMemory" style="flex-grow: 1; flex-direction: row; justify-content: center;">
+                        <ui:Label text="OPEN SERVER MEMORY:" name="OpenServerMemory" class="body"/>
+                        <ui:Label text="123" name="ServerMemoryNumber" class="body">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: center;">
+                        <ui:Label text="OPEN SERVER COMPUTE:" name="OpenServerCompute" class="body"/>
+                        <ui:Label text="123" name="ServerComputeNumber" class="body">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="OpenCompute" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget"/>
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:VisualElement>
                 <ui:VisualElement name="ServerProcessQueue" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 100%; height: 65%; max-height: 65%; max-width: 100%; align-self: stretch;">
                     <ui:Instance template="PlayerServerProcess" name="PlayerServerProcess" style="flex-direction: row; min-width: 100%; min-height: 5%; max-height: 20%;"/>
                 </ui:VisualElement>
@@ -77,6 +113,24 @@
             <ui:VisualElement name="Enemy" style="flex-grow: 1; max-height: 100%; min-height: 70%; width: auto; height: auto; min-width: 0%; max-width: 33%;">
                 <ui:VisualElement name="EnemyStats" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
                     <ui:Label text="ELEGY" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(249, 146, 9); font-size: 100px; border-left-width: 0; -unity-text-align: middle-right; border-right-width: 53px;"/>
+                    <ui:VisualElement name="AvailableMemory" style="flex-grow: 1; align-items: center;">
+                        <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row-reverse;">
+                            <ui:Label text="123" name="EnemyAvailableLocalNumber" class="enemy-body" style="font-size: 14px;">
+                                <Bindings>
+                                    <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="Available Local Mem:" class="body enemy-body" style="-unity-text-align: middle-right; font-size: 14px;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse;">
+                            <ui:Label text="123" name="EnemyAvailableServerNumber" class="body enemy-body" style="font-size: 14px;">
+                                <Bindings>
+                                    <ui:DataBinding property="text" data-source-path="AvailableServerMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:Label text="Available Server Mem:" class="body enemy-body" style="font-size: 14px;"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
                 <ui:VisualElement name="EnemyResources" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">

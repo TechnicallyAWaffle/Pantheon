@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
+    <ui:VisualElement name="PlayerServerProcess" style="flex-grow: 1; min-width: auto; min-height: auto; -unity-background-scale-mode: stretch-to-fill; max-height: none; flex-direction: row; align-self: center; max-width: none; flex-wrap: nowrap; width: 100%;">
+        <ui:VisualElement name="Encryption" style="flex-grow: 1; align-self: center; flex-direction: row; max-height: 100%; min-height: auto; min-width: auto; align-items: center; max-width: 100%;">
+            <ui:VisualElement name="Command" style="flex-grow: 1; flex-direction: row; align-self: center; max-width: 50%; -unity-text-align: middle-left; white-space: nowrap; text-overflow: ellipsis; align-items: center;">
+                <ui:Image name="Logo" source="project://database/Assets/UI/misc%20(icons,%20buttons,%20imagery)/logo_kali_green.png?fileID=2800000&amp;guid=e99bd9e1e38491449b874b435b3cffb7&amp;type=3#logo_kali_green" style="height: 39px; width: 28px; margin-right: 20px;"/>
+                <ui:Label text="Label" name="CommandName" class="body" style="align-self: stretch; align-items: center; white-space: nowrap; -unity-text-align: middle-left;"/>
+            </ui:VisualElement>
+            <ui:ProgressBar value="22" title="" name="ProgressBar" style="align-self: center; align-content: center; justify-content: space-around; align-items: stretch; width: 184px; min-width: 50%;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

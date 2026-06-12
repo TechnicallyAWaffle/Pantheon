@@ -23,5 +23,10 @@ public static class UIConverters
         group.AddConverter<string, int>((ref string value) => int.TryParse(value, out int result) ? result : 0);
 
         ConverterGroups.RegisterConverterGroup(group);
+
+        var modVarGroup = new ConverterGroup("Mod Var Converters");
+        modVarGroup.AddConverter<ModVar, string>((ref ModVar var) => var.Value.ToString());
+
+        ConverterGroups.RegisterConverterGroup(modVarGroup);
     }
 }

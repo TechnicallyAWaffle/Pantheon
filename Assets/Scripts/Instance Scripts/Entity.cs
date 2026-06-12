@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Properties;
 
 public class Entity : MonoBehaviour
 {
@@ -10,12 +11,18 @@ public class Entity : MonoBehaviour
     // Ok irl 0 is kernel but for the sake of not losing my mind we're doing 0 - 3 with 3 being the highest authority
     // This is so I don't confuse the shit out of myself trying to compare this to encryption levels
     public int authority;
+    public int ReservedServerMemory => reservedServerMemory;
     public int reservedServerMemory = 0;
+    public int ReservedServerCompute => reservedServerCompute;
     public int reservedServerCompute = 0;
     public float AvailableLocalMemoryField;
     public float AvailableServerMemoryField;
 
+    [CreateProperty]
+    public ModVar AvailableLocalMem => availableLocalMemory;
     public ModVar availableLocalMemory;
+    [CreateProperty]
+    public ModVar AvailableServerMem => availableServerMemory;
     public ModVar availableServerMemory;
 
     public int temperature;
