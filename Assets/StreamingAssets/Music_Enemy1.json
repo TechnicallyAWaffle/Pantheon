@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{416A1D58-9AC0-49F9-A8B1-1A544D28A6A1}",
     "Language": "SFX",
-    "Hash": "{A31EBEA5-37E5-B1CB-BD1A-DC711F47BBCF}",
+    "Hash": "{39418FF6-B2C9-1F3B-F8AF-966BC4B2CA68}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\Music_Enemy1",
     "ShortName": "Music_Enemy1",
     "Path": "Music_Enemy1.bnk",
@@ -271,6 +271,6 @@
     ]
    }
   ],
-  "FileHash": "{51B6E009-56EE-D368-968B-BEA3EC80994F}"
+  "FileHash": "{72A25756-1180-9421-4B08-62FC2E2380E3}"
  }
 }
