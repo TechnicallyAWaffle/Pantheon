@@ -67,35 +67,32 @@ public class Entity : MonoBehaviour
 
     public void RequestServerMemory(int incomingValue)
     {
-        int openMemory = serverProcessQueue._openMemory;
-        int actual = Mathf.Min(incomingValue, openMemory);
-        openMemory -= actual;
+        int actual = Mathf.Min(incomingValue, serverProcessQueue._openMemory);
+        serverProcessQueue._openMemory -= actual;
         availableServerMemory.BaseValue += actual;
     }
 
     public void RelinquishServerMemory(int incomingValue)
     {
-        int openMemory = serverProcessQueue._openMemory;
         int actual = Mathf.Min(incomingValue, reservedServerMemory);
-        openMemory += actual;
+        serverProcessQueue._openMemory += actual;
         availableServerMemory.BaseValue -= actual;
     }
 
 
     public void RequestServerCompute(int amountRequested)
     {
-        int openCompute = serverProcessQueue._openCompute;
-        if (amountRequested > openCompute)
-        {
-            reservedServerCompute += openCompute;
-            serverProcessQueue._openCompute = 0;
-        }
-        else
-        {
-            openCompute -= amountRequested;
-            reservedServerCompute += amountRequested;
-        }
+        int actual = Mathf.Min(amountRequested, serverProcessQueue._openCompute);
+        serverProcessQueue._openCompute -= actual;
+        reservedServerCompute += actual;
         GlobalEventBus.RequestCompute(this, amountRequested);
+    }
+
+    public void RelinquishServerCompute(int amountRelinquished)
+    {
+        int actual = Mathf.Min(amountRelinquished, reservedServerCompute);
+        serverProcessQueue._openCompute += actual;
+        reservedServerCompute -= actual;
     }
 
 

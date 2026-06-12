@@ -1,16 +1,21 @@
 using UnityEngine;
 
-public class OnSchedDelayProcDaemon : MonoBehaviour
+public class OnSchedDelayProcDaemon : DaemonBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        GlobalEventBus.OnSchedulerReset += SchedulerReset;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SchedulerReset()
     {
-        
+        if (!OnTrigger()) return;
+        ProcessQueue serverQueue = ReferenceManager.Instance.serverProcessQueue;
+        Entity player = ReferenceManager.Instance.player;
+        foreach (RunningProcess process in serverQueue.queue)
+        {
+            if (process.owner == player)
+                process.timeRemaining += 2;
+        }
     }
 }

@@ -19,12 +19,14 @@ public static class GlobalEventBus
     // Resource events
     public static event Action<Entity> OnMemoryChanged;    //Todo figure out what events i actually want
     public static event Action<Entity, int> OnComputeChanged;
-    public static event Action<Entity, int> OnAuthorityChanged; 
+    public static event Action<Entity, int> OnAuthorityChanged;
+    public static event Action OnSchedulerReset;
 
     // Queue events
     public static event Action<RunningProcess> OnServerProcessQueued;
     public static event Action<RunningProcess> OnLocalProcessQueued;
-    public static event Action<int> OnServerQueueCountChanged; 
+    public static event Action<int> OnServerQueueCountChanged;
+    public static event Action<RunningProcess> OnBaseKillProcessQueued;
 
     // Daemon events
     public static event Action<Entity> OnDaemonRevealed;
@@ -53,6 +55,10 @@ public static class GlobalEventBus
                                                                     => OnProcessKilled?.Invoke(p, killer);
     public static void AuthorityChanged(Entity p, int newVal) => OnAuthorityChanged?.Invoke(p, newVal);
     public static void ServerQueueCountChanged(int count) => OnServerQueueCountChanged?.Invoke(count);
+
+    public static void SchedulerReset() => OnSchedulerReset?.Invoke();
+
+    public static void BaseKillProcessRan(RunningProcess process) => OnBaseKillProcessQueued?.Invoke(process);
 
     public static void RequestMemory(Entity player, int amount)
         => OnMemoryRequested?.Invoke(player, amount);

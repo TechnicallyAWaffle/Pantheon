@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5143285258098604644
+--- !u!1001 &3303008988890474582
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_Name
-      value: hailmaryDaemon
+      value: incservermemoryDaemon
       objectReference: {fileID: 0}
     - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.44823
+      value: 5.41658
       objectReference: {fileID: 0}
     - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.32922
+      value: -2.31087
       objectReference: {fileID: 0}
     - target: {fileID: 8857178165678428903, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58,26 +58,27 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 748966476787480837}
+      addedObject: {fileID: 4133014510904115606}
   m_SourcePrefab: {fileID: 100100000, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
---- !u!1 &1753211594729140506 stripped
+--- !u!1 &8278340924328141608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6860167614142172030, guid: 053f5c9b97e8a2d4a89eb5e1709e36cd, type: 3}
-  m_PrefabInstance: {fileID: 5143285258098604644}
+  m_PrefabInstance: {fileID: 3303008988890474582}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &748966476787480837
+--- !u!114 &4133014510904115606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753211594729140506}
+  m_GameObject: {fileID: 8278340924328141608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc27c7798d2a1d43bb988ad3a06069d, type: 3}
+  m_Script: {fileID: 11500000, guid: 269480e4505581043b0c0f104f4524cd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HailMaryDaemon
-  daemonName: 'ocmpanic.hc '
+  m_EditorClassIdentifier: Assembly-CSharp::IncServerMemoryDaemon
+  daemonName: 
   owner: {fileID: 0}
   isSuspended: 0
   isRevealed: 0
+  timeBetweenActivations: 12

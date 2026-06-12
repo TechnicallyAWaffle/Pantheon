@@ -1,16 +1,21 @@
 using UnityEngine;
 
-public class IncAuthDaemon : MonoBehaviour
+public class IncAuthDaemon : DaemonBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float timeBetweenActivations = 45f;
+    private float currentTime;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
+        if (currentTime <= 0)
+        {
+            if (!OnTrigger()) return;
+            currentTime = timeBetweenActivations;
+            if(owner.authority < 4)
+                owner.authority++;
+        }
+        else
+            currentTime -= Time.deltaTime;
     }
 }

@@ -4,7 +4,7 @@ public class DamoclesScript : ProcessBase
 {
     public override void Execute(Entity owner, string[] arguments)
     {
-        // damocles logic here
+        owner.authority = 3;
         base.Execute(owner, arguments);
     }
 

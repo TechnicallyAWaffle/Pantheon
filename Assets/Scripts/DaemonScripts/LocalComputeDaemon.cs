@@ -1,16 +1,29 @@
 using UnityEngine;
 
-public class LocalComputeDaemon : MonoBehaviour
+public class LocalComputeDaemon : DaemonBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] int computeGained = 5;
+
+    private void Start()
     {
-        
+        owner.localProcessQueue._openMemory += 5;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnSuspension()
     {
-        
+        base.OnSuspension();
+        owner.localProcessQueue._openCompute -= computeGained;
+    }
+
+    public override void OnSuspensionLifted()
+    {
+        base.OnSuspensionLifted();
+        owner.localProcessQueue._openCompute += computeGained;
+    }
+
+    public override void OnKilled()
+    {
+        owner.localProcessQueue._openCompute -= computeGained;
+        base.OnKilled();
     }
 }

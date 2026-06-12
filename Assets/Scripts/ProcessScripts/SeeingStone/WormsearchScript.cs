@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class WormsearchScript : ProcessBase
 {
+    [SerializeField] private int maxMod = 8;
     public override void Execute(Entity owner, string[] arguments)
     {
-        // wormsearch logic here
+        int randomExecutionTimeMod = Random.Range(0, maxMod);
+
         base.Execute(owner, arguments);
     }
 
