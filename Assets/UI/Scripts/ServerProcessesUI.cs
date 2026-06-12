@@ -13,7 +13,9 @@ public class ServerProcessesUI : MonoBehaviour
     };
     [SerializeField] protected UIDocument uiDocument;
     [SerializeField] private VisualTreeAsset playerCommandTemplate;
+    [SerializeField] private CompanyToLogoSO playerCompanyToLogo;
     [SerializeField] private VisualTreeAsset enemyCommandTemplate;
+    [SerializeField] private CompanyToLogoSO enemyCompanyToLogo;
 
     [SerializeField] private ProcessQueue serverQueue;
     [SerializeField] private ReferenceManager referenceManager;
@@ -70,7 +72,6 @@ public class ServerProcessesUI : MonoBehaviour
             SetProgress(proc, progress);
 
             // TODO: check suspension
-            // TODO: check encryption
             if (proc.owner == referenceManager.player)
             {
                 SetEncryption(proc);
@@ -104,7 +105,7 @@ public class ServerProcessesUI : MonoBehaviour
         // UI references
         public TemplateContainer Root;
         public Label CommandNameLabel;
-        public VisualElement LogoElement;
+        public Image LogoElement;
         public ProgressBar ProgressBar;
 
         // Tracked data — use properties to keep UI in sync
@@ -156,13 +157,22 @@ public class ServerProcessesUI : MonoBehaviour
         {
             Root = instance,
             CommandNameLabel = instance.Q<Label>("CommandName"),
-            LogoElement = instance.Q<VisualElement>("Logo"),
+            LogoElement = instance.Q<Image>("Logo"),
             ProgressBar = instance.Q<ProgressBar>("ProgressBar"),
             // Use the properties so the UI reflects the initial values
             CommandName = proc.data.processName,
             // TODO: set logo for proc
             Progress = 0f
         };
+
+        if (proc.owner == referenceManager.player)
+        {
+            entry.LogoElement.image = playerCompanyToLogo.GetLogo(proc.data.enterprise);
+        }
+        else
+        {
+            entry.LogoElement.image = enemyCompanyToLogo.GetLogo(proc.data.enterprise);
+        }
 
         return entry;
     }
