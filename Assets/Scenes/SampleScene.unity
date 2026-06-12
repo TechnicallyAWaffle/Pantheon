@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   uiDocument: {fileID: 1151528848}
-  commandTemplate: {fileID: 9197481963319205126, guid: 5fab28be3f65919489dad88659043825, type: 3}
+  commandTemplate: {fileID: 9197481963319205126, guid: 5a4fa04d1870e3a449fa9d1b3407579f, type: 3}
   entity: {fileID: 1586301206}
   companyToLogo: {fileID: 11400000, guid: bb0ebf11276f8124e84de243654983ff, type: 2}
 --- !u!114 &1151528854
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   uiDocument: {fileID: 1151528848}
   playerCommandTemplate: {fileID: 9197481963319205126, guid: 2e3203da69232a4408d2a2e4b0e973e4, type: 3}
-  enemyCommandTemplate: {fileID: 9197481963319205126, guid: 5fab28be3f65919489dad88659043825, type: 3}
+  enemyCommandTemplate: {fileID: 9197481963319205126, guid: 5a4fa04d1870e3a449fa9d1b3407579f, type: 3}
   serverQueue: {fileID: 1510904592}
   referenceManager: {fileID: 647801319}
 --- !u!1 &1176176994
