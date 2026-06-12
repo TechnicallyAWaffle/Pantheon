@@ -1,0 +1,81 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "1716267028",
+    "Type": "Event",
+    "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
+    "Language": "SFX",
+    "Hash": "{569DE956-7496-F56E-A5D4-B42B0BA5AB89}",
+    "ObjectPath": "Play_Phase_2",
+    "ShortName": "Play_Phase_2",
+    "Path": "Event/17/Play_Phase_2.bnk",
+    "Events": [
+     {
+      "Id": "1716267028",
+      "Name": "Play_Phase_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Phase_2",
+      "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1984645640",
+      "Name": "Combat_Elegy",
+      "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy",
+      "GUID": "{DBD84D91-D039-414E-9584-59127F5F6314}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\None",
+        "GUID": "{F98E4A10-6131-4043-8F03-B70777DB3A8A}"
+       },
+       {
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       },
+       {
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_3",
+        "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{A36B2F49-2925-8E4A-E73D-87CEDE6442B0}"
+ }
+}

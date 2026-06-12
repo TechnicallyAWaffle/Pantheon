@@ -1,0 +1,12 @@
+Event	ID	Name			Wwise Object Path	Notes
+	688867155	Command_Run_Suspend			\Default Work Unit\Player\Command_Run_Suspend	
+	932512573	Command_Run_Open			\Default Work Unit\Player\Command_Run_Open	
+	1619619347	Play_Button_UI			\Default Work Unit\Title Screen\Play_Button_UI	
+	2952433657	Command_Run_Kill			\Default Work Unit\Player\Command_Run_Kill	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	72817402	Run_Kill	.cache\A2\{A2FDA801-6EAB-90AF-9411-ADA921840F47}.wem		\Containers\Default Work Unit\SFX\World\Player\Player_RunCommands\Run_Kill		336160
+	262196973	Run_Suspend	.cache\52\{52F577C7-3432-31E5-E289-317650621BE0}.wem		\Containers\Default Work Unit\SFX\World\Player\Player_RunCommands\Run_Suspend		336160
+	659755668	Button UI	.cache\C5\{C5940EB8-BEB6-D5F5-234D-7BA6A80816ED}.wem		\Containers\Default Work Unit\SFX\World\UI\UI\Button UI		192240
+	990910083	Run_Open	.cache\A0\{A0513109-D8EE-4908-4A21-A3DB72385213}.wem		\Containers\Default Work Unit\SFX\World\Player\Player_RunCommands\Run_Open		336160
+

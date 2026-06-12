@@ -1,0 +1,1197 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "RootPaths": {
+   "ProjectRoot": "../../../Terminal_GGJ",
+   "SourceFilesRoot": "../../../Terminal_GGJ/.cache",
+   "SoundBanksRoot": ".",
+   "ExternalSourcesInputFile": "",
+   "ExternalSourcesOutputRoot": "../GeneratedSoundBanks/Windows"
+  },
+  "DialogueEvents": [],
+  "SoundBanks": [
+   {
+    "Id": "393239870",
+    "Type": "User",
+    "GUID": "{202625E7-2F37-46B5-8B01-23DF44909FFD}",
+    "Language": "SFX",
+    "Hash": "{A5453FBD-70DE-C6C2-9104-84E548D7C3C1}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\General\\SFX",
+    "ShortName": "SFX",
+    "Path": "SFX.bnk",
+    "Media": [
+     {
+      "Id": "72817402",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CommandKill_SFX.wav",
+      "CachePath": "A2/{A2FDA801-6EAB-90AF-9411-ADA921840F47}.wem"
+     },
+     {
+      "Id": "262196973",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CommandSuspend_SFX.wav",
+      "CachePath": "52/{52F577C7-3432-31E5-E289-317650621BE0}.wem"
+     },
+     {
+      "Id": "659755668",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "OptionSelect_SFX.wav",
+      "CachePath": "C5/{C5940EB8-BEB6-D5F5-234D-7BA6A80816ED}.wem"
+     },
+     {
+      "Id": "990910083",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CommandOpen_SFX.wav",
+      "CachePath": "A0/{A0513109-D8EE-4908-4A21-A3DB72385213}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2952433657",
+      "Name": "Command_Run_Kill",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Command_Run_Kill",
+      "GUID": "{FF8B5E58-FC68-4E99-BBE6-ABE5C9F9FBE0}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.75",
+      "DurationMax": "1.75",
+      "MediaRefs": [
+       {
+        "Id": "72817402"
+       }
+      ]
+     },
+     {
+      "Id": "932512573",
+      "Name": "Command_Run_Open",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Command_Run_Open",
+      "GUID": "{6EEB7360-7921-4BF2-8E36-E80932E0E74D}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.75",
+      "DurationMax": "1.75",
+      "MediaRefs": [
+       {
+        "Id": "990910083"
+       }
+      ]
+     },
+     {
+      "Id": "688867155",
+      "Name": "Command_Run_Suspend",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Command_Run_Suspend",
+      "GUID": "{F2C2EE5B-D074-4292-9868-1CB3D7D4D20D}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.75",
+      "DurationMax": "1.75",
+      "MediaRefs": [
+       {
+        "Id": "262196973"
+       }
+      ]
+     },
+     {
+      "Id": "1619619347",
+      "Name": "Play_Button_UI",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Play_Button_UI",
+      "GUID": "{42389297-51E4-4F84-879C-E478A4630775}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8169578",
+      "DurationMax": "1.2240536",
+      "MediaRefs": [
+       {
+        "Id": "659755668"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "461113388",
+    "Type": "User",
+    "GUID": "{53848237-F8AC-4CB9-A71D-310DF69CBC47}",
+    "Language": "SFX",
+    "Hash": "{B5A234C0-5138-8959-865E-E4A4B9B8F643}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\SFX_Enemy1",
+    "ShortName": "SFX_Enemy1",
+    "Path": "SFX_Enemy1.bnk",
+    "Media": [
+     {
+      "Id": "114321686",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ServerReset_SFX.wav",
+      "CachePath": "07/{0798D3DD-F6C1-821D-1826-2FBFB06B6FDD}.wem"
+     },
+     {
+      "Id": "826237111",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Elegy_Hurt.wav",
+      "CachePath": "00/{00A0954A-9F05-BABD-31FF-1683494F5F54}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4155857894",
+      "Name": "Enemy_Elegy_Hurt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Elegy\\Enemy_Elegy_Hurt",
+      "GUID": "{49881F4F-AAC4-4CF5-8513-00546C21992E}",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "MediaRefs": [
+       {
+        "Id": "826237111"
+       }
+      ]
+     },
+     {
+      "Id": "1225476372",
+      "Name": "Play_ServerReset",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Elegy\\Play_ServerReset",
+      "GUID": "{75A7F3BF-D423-4412-808B-6042C3EAAD74}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.820667",
+      "DurationMax": "6.820667",
+      "MediaRefs": [
+       {
+        "Id": "114321686"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "1355168291",
+    "Type": "User",
+    "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
+    "Language": "SFX",
+    "Hash": "{3A225D5C-D678-3ADA-7FC4-2A753D58C4FB}",
+    "ObjectPath": "Init",
+    "ShortName": "Init",
+    "Path": "Init.bnk",
+    "Plugins": {
+     "AudioDevices": [
+      {
+       "Id": "2317455096",
+       "Name": "No_Output",
+       "ObjectPath": "\\Devices\\Default Work Unit\\No_Output",
+       "GUID": "{AFAEDAD0-D9DC-4EA4-B00A-28EF47404751}",
+       "LibName": "No Output",
+       "LibId": "11862023"
+      },
+      {
+       "Id": "3859886410",
+       "Name": "System",
+       "ObjectPath": "\\Devices\\Default Work Unit\\System",
+       "GUID": "{5AFF726D-14EA-43F9-9267-45858D4EC17D}",
+       "LibName": "System",
+       "LibId": "11403271"
+      }
+     ]
+    },
+    "Busses": [
+     {
+      "Id": "2246998526",
+      "Name": "Main Audio Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "822163944",
+      "Name": "SS_Air_RPM",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_RPM",
+      "GUID": "{A34890AB-B9D5-4526-A64D-5290C43EF2DC}"
+     },
+     {
+      "Id": "1029930033",
+      "Name": "SS_Air_Fury",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Fury",
+      "GUID": "{A2AE79DC-CA3A-46BA-9652-9986C322A87B}"
+     },
+     {
+      "Id": "1351367891",
+      "Name": "SS_Air_Fear",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Fear",
+      "GUID": "{F72E0659-4346-4E1C-A1B1-DAB46A05101E}"
+     },
+     {
+      "Id": "2648548617",
+      "Name": "SS_Air_Month",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Month",
+      "GUID": "{09E2B445-C4A3-447F-B3CA-818A1D925EF7}"
+     },
+     {
+      "Id": "3002758120",
+      "Name": "SS_Air_Freefall",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Freefall",
+      "GUID": "{2F2DFE37-4F9E-4D94-83D8-53CCA39781AD}"
+     },
+     {
+      "Id": "3074696722",
+      "Name": "SS_Air_Size",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Size",
+      "GUID": "{1329EBEF-A193-472E-A38C-64668B494879}"
+     },
+     {
+      "Id": "3203397129",
+      "Name": "SS_Air_TimeOfDay",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_TimeOfDay",
+      "GUID": "{536FA72C-8C7E-4C8B-AE03-EF34FDADC314}"
+     },
+     {
+      "Id": "3715662592",
+      "Name": "SS_Air_Storm",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Storm",
+      "GUID": "{E93F8CDB-06D1-4737-ACAF-7CD44BBED783}"
+     },
+     {
+      "Id": "3847924954",
+      "Name": "SS_Air_Presence",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Presence",
+      "GUID": "{E3B7811A-7B2F-490F-B44F-5FE51B468041}"
+     },
+     {
+      "Id": "4160247818",
+      "Name": "SS_Air_Turbulence",
+      "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Turbulence",
+      "GUID": "{EDA87B19-73AA-40A0-9F19-2073606DB710}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1984645640",
+      "Name": "Combat_Elegy",
+      "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy",
+      "GUID": "{DBD84D91-D039-414E-9584-59127F5F6314}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\None",
+        "GUID": "{F98E4A10-6131-4043-8F03-B70777DB3A8A}"
+       },
+       {
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       },
+       {
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_3",
+        "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     }
+    ],
+    "AcousticTextures": [
+     {
+      "Id": "504532776",
+      "Name": "Brick",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Brick",
+      "GUID": "{B086A5A9-F204-4C53-A838-BDB18B18F6D6}",
+      "Color": "8",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "12"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "18"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "23"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "35"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "513139656",
+      "Name": "Mountain",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Mountain",
+      "GUID": "{C5933731-001A-4AB4-98DD-9B033A8C8EAB}",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "0"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "0"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "0"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "0"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "841620460",
+      "Name": "Concrete",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Concrete",
+      "GUID": "{5CF81C00-2896-4AE0-AF7C-3080BDABA682}",
+      "Color": "27",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "6"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "6"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "6"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "14"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "1755085759",
+      "Name": "Wood_Deep",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Wood_Deep",
+      "GUID": "{5246478E-C5DA-4E0C-A0DE-C98D1479529A}",
+      "Color": "9",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "1"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "8"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "20"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "35"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "1873957695",
+      "Name": "Anechoic",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Anechoic",
+      "GUID": "{8B0AC232-02E2-4EDE-BEAC-FDD1A900E3ED}",
+      "Color": "13",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "1970351858",
+      "Name": "Fabric",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Fabric",
+      "GUID": "{8381D532-DB6E-4EED-A7A3-BC7B0A0B8BA8}",
+      "Color": "4",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "3"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "13"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "48"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "72"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "2058049674",
+      "Name": "Wood",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Wood",
+      "GUID": "{1FFFBC96-6FE7-489E-BA6C-7C14A71391AE}",
+      "Color": "7",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "32"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "25"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "20"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "35"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "2412606308",
+      "Name": "Carpet",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Carpet",
+      "GUID": "{34227589-DC56-4260-96C4-B9F4B669092B}",
+      "Color": "17",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "46"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "45"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "76"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "2637588553",
+      "Name": "Tile",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Tile",
+      "GUID": "{A882DAC4-132A-47B7-BA9D-B9907BA29CC0}",
+      "Color": "16",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "67"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "41"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "12"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "0"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "2928161104",
+      "Name": "Curtains",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Curtains",
+      "GUID": "{F8E69E33-5C97-4968-B508-A1535F2D66E8}",
+      "Color": "3",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "7"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "60"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "0"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "84"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "3195498748",
+      "Name": "Cork_Tiles",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Cork_Tiles",
+      "GUID": "{30D2C919-925F-4143-8906-3DBB3C4AE5E2}",
+      "Color": "19",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "14"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "30"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "73"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "3670307564",
+      "Name": "Drywall",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Drywall",
+      "GUID": "{68A4E3F4-4C0B-4687-A8B8-A84DB93DBC8F}",
+      "Color": "15",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "2"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "2"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "2"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "2"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "4168643977",
+      "Name": "Acoustic_Banner",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Acoustic_Banner",
+      "GUID": "{2F2D53F2-DACC-408E-8B88-98B1B52A26D6}",
+      "Color": "10",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "37"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "100"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     },
+     {
+      "Id": "4262522749",
+      "Name": "Wood_Bright",
+      "ObjectPath": "\\Virtual Acoustics\\Factory Acoustic Textures\\Textures\\Wood_Bright",
+      "GUID": "{7B85D1E5-C1A2-4E63-9A13-CEC54B641ADC}",
+      "Color": "20",
+      "Properties": [
+       {
+        "Name": "AbsorptionLow",
+        "Type": "Real32",
+        "Value": "32"
+       },
+       {
+        "Name": "AbsorptionMidLow",
+        "Type": "Real32",
+        "Value": "25"
+       },
+       {
+        "Name": "AbsorptionMidHigh",
+        "Type": "Real32",
+        "Value": "10"
+       },
+       {
+        "Name": "AbsorptionHigh",
+        "Type": "Real32",
+        "Value": "9"
+       },
+       {
+        "Name": "Scattering",
+        "Type": "Real32",
+        "Value": "0"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "1716267028",
+    "Type": "Event",
+    "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
+    "Language": "SFX",
+    "Hash": "{569DE956-7496-F56E-A5D4-B42B0BA5AB89}",
+    "ObjectPath": "Play_Phase_2",
+    "ShortName": "Play_Phase_2",
+    "Path": "Event/17/Play_Phase_2.bnk",
+    "Events": [
+     {
+      "Id": "1716267028",
+      "Name": "Play_Phase_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Phase_2",
+      "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1984645640",
+      "Name": "Combat_Elegy",
+      "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy",
+      "GUID": "{DBD84D91-D039-414E-9584-59127F5F6314}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\None",
+        "GUID": "{F98E4A10-6131-4043-8F03-B70777DB3A8A}"
+       },
+       {
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       },
+       {
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_3",
+        "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "3933681844",
+    "Type": "User",
+    "GUID": "{416A1D58-9AC0-49F9-A8B1-1A544D28A6A1}",
+    "Language": "SFX",
+    "Hash": "{39418FF6-B2C9-1F3B-F8AF-966BC4B2CA68}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\Music_Enemy1",
+    "ShortName": "Music_Enemy1",
+    "Path": "Music_Enemy1.bnk",
+    "Media": [
+     {
+      "Id": "9158009",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase1_Layer2_189bpm_6-8_L32M.wav",
+      "CachePath": "28/{28125B2C-79BA-C9E7-21F6-EFA187EFD133}.wem"
+     },
+     {
+      "Id": "36729177",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3Transition_189bpm_6-8_L16M.wav",
+      "CachePath": "73/{73E91C04-EE77-A67D-3A70-32CDD76AB6D3}.wem"
+     },
+     {
+      "Id": "88217755",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer2_189bpm_6-8_L32M.wav",
+      "CachePath": "7B/{7B9DBA18-0FBE-C7D0-D404-8BEB0F5AEF76}.wem"
+     },
+     {
+      "Id": "119097690",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase1_Layer1_189bpm_6-8_L32M.wav",
+      "CachePath": "9B/{9B424F83-FEF3-E173-679A-804DBCAA2ED5}.wem"
+     },
+     {
+      "Id": "160026248",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer1_189bpm_6-8_L32M.wav",
+      "CachePath": "7C/{7C66E950-345A-17D8-F078-4EC742CBD5F4}.wem"
+     },
+     {
+      "Id": "450512928",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3_Layer2_189bpm_6-8_L16M.wav",
+      "CachePath": "62/{62A13E1A-15B6-D77A-82C7-99ACB2295DB1}.wem"
+     },
+     {
+      "Id": "518367640",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2Transition_189bpm_6-8_L2M.wav",
+      "CachePath": "85/{858FD044-7B61-6D02-6C1A-2E63B5B8E8C9}.wem"
+     },
+     {
+      "Id": "664061544",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer4_189bpm_6-8_L32M.wav",
+      "CachePath": "8F/{8F4A5563-302A-0100-CA9A-C1B419190089}.wem"
+     },
+     {
+      "Id": "787503771",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3_Layer1_189bpm_6-8_L16M.wav",
+      "CachePath": "5E/{5E06B28E-CA42-A681-CD2D-487EDD67D76C}.wem"
+     },
+     {
+      "Id": "855859331",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Pre-Entry_189bpm_6-8_L3M.wav",
+      "CachePath": "AF/{AFCAB7C7-9AD8-F025-D249-3E27D4FBF858}.wem"
+     },
+     {
+      "Id": "887191092",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase1_Layer3_189bpm_6-8_L32M.wav",
+      "CachePath": "4B/{4BB562A0-163D-85C3-FD51-931831BA74B8}.wem"
+     },
+     {
+      "Id": "898747478",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_CombatEnd_189bpm_6-8_L2M.wav",
+      "CachePath": "E7/{E76C0021-7055-B844-2700-15CC71412D5C}.wem"
+     },
+     {
+      "Id": "934364612",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer3_189bpm_6-8_L16M.wav",
+      "CachePath": "A6/{A6BD0F36-1CE0-A285-97E0-DC0D8F7734D0}.wem"
+     },
+     {
+      "Id": "1034965571",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3_Layer3_189bpm_6-8_L16M.wav",
+      "CachePath": "2E/{2E641F2A-9654-39E0-6F20-BB6CD4BACB0B}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3419910747",
+      "Name": "Play_Music_Enemy1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Elegy Music\\Play_Music_Enemy1",
+      "GUID": "{2428253D-1B52-4134-96B5-E1B62AF65A4F}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1984645640",
+         "Id": "1622949422",
+         "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "9158009"
+         },
+         {
+          "Id": "36729177"
+         },
+         {
+          "Id": "88217755"
+         },
+         {
+          "Id": "119097690"
+         },
+         {
+          "Id": "160026248"
+         },
+         {
+          "Id": "450512928"
+         },
+         {
+          "Id": "518367640"
+         },
+         {
+          "Id": "664061544"
+         },
+         {
+          "Id": "787503771"
+         },
+         {
+          "Id": "855859331"
+         },
+         {
+          "Id": "887191092"
+         },
+         {
+          "Id": "934364612"
+         },
+         {
+          "Id": "1034965571"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1984645640",
+         "Id": "1073432751",
+         "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "898747478"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     },
+     {
+      "Id": "2014669969",
+      "Name": "Stop_Music_Enemy1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Elegy Music\\Stop_Music_Enemy1",
+      "GUID": "{71E35525-9F10-40EF-845F-08BD0BC1514F}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1984645640",
+      "Name": "Combat_Elegy",
+      "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy",
+      "GUID": "{DBD84D91-D039-414E-9584-59127F5F6314}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\None",
+        "GUID": "{F98E4A10-6131-4043-8F03-B70777DB3A8A}"
+       },
+       {
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       },
+       {
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_3",
+        "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "3991942870",
+    "Type": "User",
+    "GUID": "{DA867644-26A9-4D06-9333-B1CE7C5B4DA4}",
+    "Language": "SFX",
+    "Hash": "{8BF45BBC-011D-63C0-4541-064D42EE3330}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\General\\Music",
+    "ShortName": "Music",
+    "Path": "Music.bnk",
+    "Media": [
+     {
+      "Id": "410796900",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Threat_MainTheme_120bpm_4-4_L17M_P1M.wav",
+      "CachePath": "1D/{1D24EF5B-D2A3-8742-B4B7-E6D8CBDA86B0}.wem"
+     },
+     {
+      "Id": "1003634684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DeathStinger_SFX.wav",
+      "CachePath": "29/{290B7FE2-3645-ACEE-4A92-D0DA224514D9}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1685309164",
+      "Name": "Play_Music_TitleScreen",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Play_Music_TitleScreen",
+      "GUID": "{7D5392B9-6DA6-4622-81C9-74B340056EF2}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "410796900"
+       }
+      ]
+     },
+     {
+      "Id": "940694589",
+      "Name": "Player_Health_Nothing",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Player_Health_Nothing",
+      "GUID": "{CFD51937-412E-4AE2-B166-F9B7AA91A40D}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.4553337",
+      "DurationMax": "5.4553337",
+      "MediaRefs": [
+       {
+        "Id": "1003634684"
+       }
+      ]
+     },
+     {
+      "Id": "2662133298",
+      "Name": "Stop_Music_TitleScreen",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Stop_Music_TitleScreen",
+      "GUID": "{3B44DDF0-0199-4D7F-83CE-998C9A87C907}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{6D6069DC-082C-30E1-F0C5-51BDBBB859DA}"
+ }
+}
