@@ -1,6 +1,4 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="EnemyLocalCommand" src="project://database/Assets/UI/Templates/EnemyLocalCommand.uxml?fileID=9197481963319205126&amp;guid=5fab28be3f65919489dad88659043825&amp;type=3#EnemyLocalCommand"/>
-    <ui:Template name="LocalCommand" src="project://database/Assets/UI/Templates/LocalCommand.uxml?fileID=9197481963319205126&amp;guid=bf52d0ab963298e40b8558b8e79f9ece&amp;type=3#LocalCommand"/>
     <ui:Template name="PlayerServerProcess" src="project://database/Assets/UI/Templates/PlayerServerProcess.uxml?fileID=9197481963319205126&amp;guid=2e3203da69232a4408d2a2e4b0e973e4&amp;type=3#PlayerServerProcess"/>
     <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
     <ui:VisualElement name="Window" class="panel" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 99%; height: 98%; -unity-slice-scale: 0.2px; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_window.png?fileID=2800000&amp;guid=6940f0227c566d74f8d5f557259b0149&amp;type=3#box_window&quot;); -unity-slice-top: 209; -unity-slice-left: 34; -unity-slice-right: 34; -unity-slice-bottom: 34; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; min-width: 99%; min-height: 98%; max-width: 99%; max-height: 98%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-slice-type: sliced; align-self: center; top: 1%;">
@@ -15,7 +13,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
                 <ui:VisualElement name="PlayerResources" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
-                    <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center;">
+                    <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center; min-width: 20%;">
                         <ui:Label text="45" name="PlayerComputeNumber" data-source-type="ProcessQueue, Assembly-CSharp" data-source-path="" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);">
                             <Bindings>
                                 <ui:DataBinding property="text" data-source-path="OpenCompute" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget"/>
@@ -23,11 +21,10 @@
                         </ui:Label>
                         <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="PlayerCommands" style="flex-grow: 1; flex-direction: row-reverse;">
-                        <ui:VisualElement name="Empty" class="empty-space" style="flex-grow: 1;"/>
-                        <ui:Instance template="LocalCommand" name="LocalCommand"/>
+                    <ui:VisualElement name="PlayerCommands" style="flex-grow: 1; flex-direction: row-reverse; max-height: 75%; align-items: stretch; justify-content: flex-start; align-self: center; min-height: 75%;">
+                        <ui:VisualElement name="Empty" class="empty-space" style="flex-grow: 1; justify-content: space-around; align-self: center; max-height: 75%; flex-direction: row; align-items: stretch; min-height: 75%;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center;">
+                    <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; min-width: 17%;">
                         <ui:Label text="3 TB" name="PlayerMemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;">
                             <Bindings>
                                 <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
@@ -83,7 +80,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
                 <ui:VisualElement name="EnemyResources" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
-                    <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center;">
+                    <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center; min-width: 20%;">
                         <ui:Label text="45" name="EnemyComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(249, 146, 9);">
                             <Bindings>
                                 <ui:DataBinding property="text" data-source-path="OpenCompute" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget"/>
@@ -91,11 +88,10 @@
                         </ui:Label>
                         <ui:Label text="FLOPS" name="FlopsText" class="body" style="color: rgb(249, 146, 9); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;);"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="EnemyCommands" style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement name="EnemyCommands" style="flex-grow: 1; flex-direction: row; max-height: 75%; align-self: center; justify-content: flex-end; align-items: stretch; min-height: 75%;">
                         <ui:VisualElement name="Empty" class="empty-space" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Enemy/box_dotted_orange.png?fileID=2800000&amp;guid=94e8dd5d362bd0b4199f4b991e0acb78&amp;type=3#box_dotted_orange&quot;);"/>
-                        <ui:Instance template="EnemyLocalCommand" name="EnemyLocalCommand"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; flex-direction: column;">
+                    <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; flex-direction: column; min-width: 17%;">
                         <ui:Label text="3 TB" name="EnemyMemoryNumber" class="body enemy-body">
                             <Bindings>
                                 <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
