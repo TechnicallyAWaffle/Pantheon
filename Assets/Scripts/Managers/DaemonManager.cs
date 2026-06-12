@@ -17,6 +17,7 @@ public class DaemonManager : MonoBehaviour
 
     public static void KillDaemon(DaemonBase daemonScript)
     {
+        daemonScript.OnKilled();
         daemonScript.owner.daemons.Remove(daemonScript);
         GameObject.Destroy(daemonScript);
         GameManager.AllActiveDaemons.Remove(daemonScript.daemonName);

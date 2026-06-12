@@ -11,14 +11,11 @@ public abstract class EnemyBase : MonoBehaviour
     public string enemyName;
     [Tooltip("The limit of the sum of player process threat levels until something drastic must be done")]
     [SerializeField] protected int tolerablePlayerProcessThreatSum = 15;
-    [Tooltip("The minimum threshold of the ratio of server control (0 - 2) until something must be done")]
+    [Tooltip("The minimum threshold of the ratio of server control (0 - 1 - inf) until something must be done")]
     [SerializeField] protected float minimumTolerableServerControlRatio = 0.2f;
     [SerializeField] protected float tickRate = 1f;
+    [SerializeField] protected float aggression = 1f;
     private float tickTimer;
-
-    [SerializeField] protected SOProcessData[] offensiveProcesses;
-    [SerializeField] protected SOProcessData[] defensiveProcesses;
-    [SerializeField] protected SOProcessData[] resourceProcesses;
 
     protected abstract AIContext GatherContext();
     protected abstract AIAction Decide(AIContext ctx);
@@ -49,19 +46,19 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     //Helpers
-    protected bool CheckAuthorityAgainstEncryption(RunningProcess process)
+    protected bool CheckAuthorityAgainstEncryption(ITargetable target)
     {
-        return self.authority > process.Encryption;
+        return self.authority > target.Encryption;
     }
 
     protected ProcessQueue TryLocalOrServerRun(float memoryUsage)
     {
-        if (memoryUsage > self.localProcessQueue._openMemory)
+        if (memoryUsage < self.availableLocalMemory.Value)
             return self.localProcessQueue;
-        if (memoryUsage > self.reservedServerMemory)
-            return null;
-        else
+        if (memoryUsage < self.availableServerMemory.Value)
             return referenceManager.serverProcessQueue;
+        else
+            return null;
     }
 
     protected RunningProcess FindHighestThreatProcess(RunningProcess[] processes)
@@ -76,9 +73,31 @@ public abstract class EnemyBase : MonoBehaviour
         return highestThreatProcess;
     }
 
+    protected AIAction TryRunEnemyProcess(SOProcessData processData, ITargetable target)
+    {
+        ProcessQueue queueToRun = TryLocalOrServerRun(processData.memoryUsage);
+        if (!queueToRun) return null;
+        WriteDebug("Queue found for enemy process " + processData.processName + ": " + queueToRun.queueName);
+        if (target == null)
+            return AIAction.RunProcess(SOProcessDataToArgsArray(processData), queueToRun);
+        else
+            return AIAction.RunProcess(SOProcessDataToArgsArray(processData, target.Identifier), queueToRun);
+    }
+
 
     protected string[] SOProcessDataToArgsArray(SOProcessData processData, string processOrDaemonID)
     {
         return new string[] { processData.processName, processOrDaemonID };
     }
+
+    protected string[] SOProcessDataToArgsArray(SOProcessData processData)
+    {
+        return new string[] { processData.processName};
+    }
+
+    protected void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=#00FFF4> OPPONENT AI: " + message);
+    }
+
 }

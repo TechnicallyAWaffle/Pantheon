@@ -24,7 +24,7 @@ public class ProcessBase : MonoBehaviour
     public virtual void OnKilled()
     {
         Debug.Log("Releasing " + runtimeProcessData.memoryUsed + " busy memory");
-        runtimeProcessData.owner.ModifyBusyMemory(runtimeProcessData.queue, -runtimeProcessData.memoryUsed);
+        runtimeProcessData.owner.RemoveAvailableMemoryMod(runtimeProcessData, runtimeProcessData.queue);
     }
 
     public virtual void OnSuspension()

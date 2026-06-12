@@ -9,6 +9,7 @@ public class RunningProcess : MonoBehaviour, ITargetable
     public ProcessQueue queue;
     public int memoryUsed;
     public ProcessBase script;
+    public string Identifier { get { return processID; } set { } }
 
     //runtime
     public float timeRemaining;

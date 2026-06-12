@@ -7,16 +7,17 @@ using UnityEngine.Rendering.Universal;
 
 public class ProcessQueue : MonoBehaviour
 {
-
     //Refs
     //Future implementation for setting unique server compute/memory levels, though honestly this can probably just be hardcoded lmao
-    //SOServerData serverData; 
+    //SOServerData serverData;
     [HideInInspector] public Entity owner; //Leave this blank for server
+    [HideInInspector] public string queueName;
     private ReferenceManager referenceManager;
     private ProcessManager processManager;
     private TerminalUIManager terminalUIManager;
     private Entity player;
     private Entity opponent;
+    
 
     //Tuning
     [Header("Tuning vars")]
@@ -57,6 +58,10 @@ public class ProcessQueue : MonoBehaviour
         GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
 
         currentTime = timeBetweenServerResets;
+        if (owner)
+            queueName = owner.name + "LOCAL QUEUE";
+        else
+            queueName = "SERVER";
     }
 
     void Update()
@@ -133,7 +138,6 @@ public class ProcessQueue : MonoBehaviour
             //Skip over counting down time if process is suspended
             if (!process.isSuspended)
             {
-                //Debug.Log("Ticking process: " + process.data.processName);
                 process.timeRemaining -= Time.deltaTime;
             }
 
@@ -154,9 +158,18 @@ public class ProcessQueue : MonoBehaviour
 
         //Now remove the process by ID and then clear the list
         foreach (RunningProcess process in processesToRemove)
+        {
+            WriteDebug("Removing and cleaning up process " + process.data.processName);
             processManager.RemoveAndCleanupProcess(process.processID);
+        }
         processesToRemove.Clear();
 
     }
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=pink>PROCESS QUEUE(" + queueName + ")" + message);
+    }
+
 
 }

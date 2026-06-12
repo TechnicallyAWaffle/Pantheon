@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dcb5338ed258548a6b9f2a70f9952f, type: 3}
+  m_Name: wormsearchprocess
+  m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
+  processName: wormsearch
+  description: Performs a search with variable execution time for a daemon. Has a
+    chance to fail.
+  baseExecutionTime: 10
+  memoryUsage: 2
+  encryption: 0
+  enterprise: 0
+  processObject: {fileID: 6623334703384831941, guid: 466079382e99d1843b35dac2aa207b7b, type: 3}
+  removedWhenExecuted: 1
+  threatLevel: 0
+  arguments: 02000000

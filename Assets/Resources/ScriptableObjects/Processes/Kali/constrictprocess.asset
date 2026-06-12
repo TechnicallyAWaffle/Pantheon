@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dcb5338ed258548a6b9f2a70f9952f, type: 3}
+  m_Name: constrictprocess
+  m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
+  processName: constrict
+  description: 'Suspends an enemy process for 1 second every 4 seconds until the
+    process completes. '
+  baseExecutionTime: 3
+  memoryUsage: 3
+  encryption: 1
+  enterprise: 1
+  processObject: {fileID: 3148241431129019350, guid: d492b5aef35b10249bdee13d21256d2c, type: 3}
+  removedWhenExecuted: 0
+  threatLevel: 0
+  arguments: 01000000

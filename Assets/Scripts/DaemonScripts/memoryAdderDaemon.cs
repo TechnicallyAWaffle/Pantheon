@@ -1,7 +1,7 @@
 using System.Buffers;
 using UnityEngine;
 
-public class memoryAdderDaemon : DaemonBase
+public class MemoryAdderDaemon : DaemonBase
 {
     [SerializeField] float timeBetweenActivations = 12;
     private float currentTime;

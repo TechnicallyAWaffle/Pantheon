@@ -16,15 +16,20 @@ public class DaemonBase : MonoBehaviour, ITargetable
     public bool isSuspended;
     public bool isRevealed = false;
     // integer 1-3
+
+    public string Identifier { get { return daemonName;} set { } }
+
     public int Encryption { get; set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private void Awake()
+    private void Start()
     {
         daemonSprite = GetComponent<SpriteRenderer>();
-        if (transform.root.TryGetComponent<Entity>(out Entity owner))
-            this.owner = owner;
+        if (transform.root.TryGetComponent<Entity>(out Entity entityOwner))
+        {
+            owner = entityOwner;
+        }
         else
             Debug.LogError("Daemon could not find root object with Entity component!");
         if (owner == ReferenceManager.Instance.player)
@@ -33,6 +38,9 @@ public class DaemonBase : MonoBehaviour, ITargetable
         //Add to GameManager tracker
         GameManager.AllActiveDaemons.Add(daemonName, this);
 
+        //Add to owner's Daemon List
+        owner.daemons.Add(this);
+;
     }
 
     protected virtual void Update()
@@ -53,9 +61,24 @@ public class DaemonBase : MonoBehaviour, ITargetable
 
     }
 
+    protected void OnTrigger()
+    {
+        if(isRevealed)
+            ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon " + daemonName + " executed on scheduler stack successfully");
+        else
+            ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon [AUTH ERROR: HIDDEN SIGNATURE] executed on scheduler stack successfully");
+    }
+
+
     public virtual void OnSuspensionLifted()
     {
 
     }
+
+    public virtual void OnKilled()
+    { 
+    
+    }
+
 
 }

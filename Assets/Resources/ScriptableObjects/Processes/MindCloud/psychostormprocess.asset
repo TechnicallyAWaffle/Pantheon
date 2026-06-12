@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7dcb5338ed258548a6b9f2a70f9952f, type: 3}
-  m_Name: scryProcess
+  m_Name: psychostormprocess
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
-  processName: scry
-  description: Grants you 1 TB of open memory
-  baseExecutionTime: 3
+  processName: psychostorm
+  description: 'Suspends the target daemon for 5 seconds '
+  baseExecutionTime: 5
   memoryUsage: 3
   encryption: 1
-  processObject: {fileID: 335334265794423092, guid: d94044b676e744049a319c20ec2a3ffd, type: 3}
+  enterprise: 4
+  processObject: {fileID: 2815967418162803124, guid: 68e5c3105c4ef844a96dbf23e7df7244, type: 3}
   removedWhenExecuted: 1
-  arguments: 00000000
+  threatLevel: 0
+  arguments: 02000000

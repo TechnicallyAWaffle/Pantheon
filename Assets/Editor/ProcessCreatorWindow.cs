@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using static SOProcessData;
@@ -17,11 +18,11 @@ public class ProcessCreatorWindow : EditorWindow
 
     // Prefab fields
     private GameObject basePrefab;
-    private MonoScript childScript;
 
     // Save locations
     private string soSavePath = "Assets/ScriptableObjects/Processes";
     private string prefabSavePath = "Assets/Prefabs/Processes";
+    private string scriptSavePath = "Assets/Scripts/ProcessScripts";
 
     private Vector2 scroll;
 
@@ -82,19 +83,12 @@ public class ProcessCreatorWindow : EditorWindow
         basePrefab = (GameObject)EditorGUILayout.ObjectField(
             "Base Process Prefab", basePrefab, typeof(GameObject), false);
 
-        childScript = (MonoScript)EditorGUILayout.ObjectField(
-            "Child Script", childScript, typeof(MonoScript), false);
-
-        // warn if the selected script doesn't inherit from ProcessBase
-        if (childScript != null)
+        // show the script name that will be generated
+        if (!string.IsNullOrWhiteSpace(processName))
         {
-            System.Type type = childScript.GetClass();
-            if (type == null || !type.IsSubclassOf(typeof(ProcessBase)))
-            {
-                EditorGUILayout.HelpBox(
-                    "Selected script does not inherit from ProcessBase.",
-                    MessageType.Warning);
-            }
+            EditorGUILayout.HelpBox(
+                $"Script to generate: {GenerateClassName(processName)}.cs",
+                MessageType.Info);
         }
     }
 
@@ -110,6 +104,12 @@ public class ProcessCreatorWindow : EditorWindow
         prefabSavePath = EditorGUILayout.TextField("Prefab Save Path", prefabSavePath);
         if (GUILayout.Button("Browse", GUILayout.Width(60)))
             prefabSavePath = BrowseFolder(prefabSavePath);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        scriptSavePath = EditorGUILayout.TextField("Script Save Path", scriptSavePath);
+        if (GUILayout.Button("Browse", GUILayout.Width(60)))
+            scriptSavePath = BrowseFolder(scriptSavePath);
         EditorGUILayout.EndHorizontal();
     }
 
@@ -134,22 +134,17 @@ public class ProcessCreatorWindow : EditorWindow
         if (basePrefab == null)
         { error = "Base prefab is required."; return false; }
 
-        if (childScript == null)
-        { error = "Child script is required."; return false; }
-
-        System.Type type = childScript.GetClass();
-        if (type == null || !type.IsSubclassOf(typeof(ProcessBase)))
-        { error = "Child script must inherit from ProcessBase."; return false; }
-
         error = "";
         return true;
     }
 
     void CreateProcess()
     {
-        // ensure save directories exist
         EnsureDirectory(soSavePath);
         EnsureDirectory(prefabSavePath);
+        EnsureDirectory(scriptSavePath);
+
+        string className = GenerateClassName(processName);
 
         // 1. create the SO
         SOProcessData so = ScriptableObject.CreateInstance<SOProcessData>();
@@ -165,35 +160,114 @@ public class ProcessCreatorWindow : EditorWindow
         string soPath = $"{soSavePath}/{processName}process.asset";
         AssetDatabase.CreateAsset(so, soPath);
 
-        // 2. create the prefab variant
-        string prefabPath = $"{prefabSavePath}/{processName}process.prefab";
+        // 2. generate the script
+        string scriptPath = $"{scriptSavePath}/{className}.cs";
+        string scriptContent =
+$@"using UnityEngine;
 
-        // instantiate base prefab, add child script, save as variant
+public class {className} : ProcessBase
+{{
+    public override void Execute(Entity owner, string[] arguments)
+    {{
+        // {processName} logic here
+        base.Execute(owner, arguments);
+    }}
+
+    public override void OnKilled()
+    {{
+        base.OnKilled();
+    }}
+}}";
+
+        File.WriteAllText(scriptPath, scriptContent);
+        AssetDatabase.ImportAsset(scriptPath);
+
+        // 3. save state to EditorPrefs so we can finish after recompile
+        EditorPrefs.SetString("PendingProcessName", processName);
+        EditorPrefs.SetString("PendingProcessSOPath", soPath);
+        EditorPrefs.SetString("PendingProcessScript", scriptPath);
+        EditorPrefs.SetString("PendingPrefabPath", $"{prefabSavePath}/{processName}process.prefab");
+        EditorPrefs.SetString("PendingBasePrefabPath", AssetDatabase.GetAssetPath(basePrefab));
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh(); // triggers recompile — OnRecompile finishes the rest
+    }
+
+    // runs after every recompile, checks if there's a pending process to finish
+    [InitializeOnLoadMethod]
+    static void OnRecompile()
+    {
+        if (!EditorPrefs.HasKey("PendingProcessName")) return;
+
+        // defer until AssetDatabase has finished importing
+        EditorApplication.delayCall += FinishProcessCreation;
+    }
+
+    static void FinishProcessCreation()
+    {
+        if (!EditorPrefs.HasKey("PendingProcessName")) return;
+
+        string pendingName = EditorPrefs.GetString("PendingProcessName");
+        string soPath = EditorPrefs.GetString("PendingProcessSOPath");
+        string prefabPath = EditorPrefs.GetString("PendingPrefabPath");
+        string basePrefabPath = EditorPrefs.GetString("PendingBasePrefabPath");
+
+        EditorPrefs.DeleteKey("PendingProcessName");
+        EditorPrefs.DeleteKey("PendingProcessSOPath");
+        EditorPrefs.DeleteKey("PendingProcessScript");
+        EditorPrefs.DeleteKey("PendingPrefabPath");
+        EditorPrefs.DeleteKey("PendingBasePrefabPath");
+
+        string className = GenerateClassName(pendingName);
+        System.Type type = System.AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(a => a.GetTypes())
+            .FirstOrDefault(t => t.Name == className);
+
+        if (type == null)
+        {
+            Debug.LogWarning($"Process Creator: could not find type '{className}' after recompile.");
+            return;
+        }
+
+        GameObject basePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(basePrefabPath);
+        if (basePrefab == null)
+        {
+            Debug.LogWarning($"Process Creator: could not load base prefab at '{basePrefabPath}'.");
+            return;
+        }
+
         GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(basePrefab);
-        instance.name = processName + "process";
-        instance.AddComponent(childScript.GetClass());
+        instance.name = pendingName + "process";
+        instance.AddComponent(type);
 
         GameObject variant = PrefabUtility.SaveAsPrefabAsset(instance, prefabPath);
         DestroyImmediate(instance);
 
-        // 3. assign the variant to the SO
-        so.processObject = variant;
-        EditorUtility.SetDirty(so);
+        SOProcessData so = AssetDatabase.LoadAssetAtPath<SOProcessData>(soPath);
+        if (so != null)
+        {
+            so.processObject = variant;
+            EditorUtility.SetDirty(so);
+            AssetDatabase.SaveAssets();
+            EditorGUIUtility.PingObject(so);
+            Debug.Log($"Process Creator: '{pendingName}' fully created.");
+        }
+        else
+        {
+            Debug.LogWarning($"Process Creator: could not load SO at '{soPath}'.");
+        }
+    }
 
-        // save everything
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-
-        // ping both new assets in the project window
-        EditorGUIUtility.PingObject(so);
-
-        Debug.Log($"Created process: {processName}\n  SO: {soPath}\n  Prefab: {prefabPath}");
+    // capitalizes first character and appends "Script"
+    static string GenerateClassName(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return "Script";
+        return char.ToUpper(name[0]) + name[1..] + "Script";
     }
 
     string BrowseFolder(string current)
     {
         string result = EditorUtility.OpenFolderPanel("Select Folder", current, "");
-        // convert absolute path to relative
         if (result.StartsWith(Application.dataPath))
             return "Assets" + result.Substring(Application.dataPath.Length);
         return current;
