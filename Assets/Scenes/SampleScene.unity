@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 4133014510904115606, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: daemonName
+      value: spatialprocess.ckpt
+      objectReference: {fileID: 0}
     - target: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -743,7 +747,6 @@ MonoBehaviour:
   queueManager: {fileID: 906591921}
   daemonManager: {fileID: 1643238844}
   suspensionManager: {fileID: 0}
-  dialogueManager: {fileID: 0}
   player: {fileID: 1910080314}
   opponent: {fileID: 1586301206}
   serverProcessQueue: {fileID: 1510904592}
@@ -782,6 +785,7 @@ Transform:
   - {fileID: 543163619}
   - {fileID: 906591920}
   - {fileID: 1643238843}
+  - {fileID: 2004937279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &891837021
@@ -960,6 +964,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 4133014510904115606, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: daemonName
+      value: 'parietal.dll '
+      objectReference: {fileID: 0}
     - target: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1792,6 +1800,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 7395647302450303636, guid: 2275ef1f31646984fb2528f244375579, type: 3}
+      propertyPath: daemonName
+      value: selfrefengram.mdl
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1886,6 +1898,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1910080314}
+    - target: {fileID: 8867717419396190697, guid: 2fd0aaf16a31e714d8404b7965faec31, type: 3}
+      propertyPath: daemonName
+      value: cortexL.sm
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2006,6 +2022,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1586301206}
+    - target: {fileID: 4133014510904115606, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
+      propertyPath: daemonName
+      value: occipital.dll
+      objectReference: {fileID: 0}
     - target: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2097,8 +2117,8 @@ MonoBehaviour:
   _openCompute: 0
   queue: []
   processesToRemove: []
-  timeBetweenServerResets: 0
-  resourcesWiped: 0
+  timeBetweenServerResets: 35
+  resourcesWiped: 10
 --- !u!4 &1510904593
 Transform:
   m_ObjectHideFlags: 0
@@ -2167,7 +2187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c89ab7e989f5d1489c5c06ba1fe72b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
-  owner: {fileID: 0}
+  owner: {fileID: 1586301206}
   queueName: 
   startingMemory: 15
   startingCompute: 15
@@ -2397,7 +2417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c89ab7e989f5d1489c5c06ba1fe72b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
-  owner: {fileID: 0}
+  owner: {fileID: 1910080314}
   queueName: 
   startingMemory: 15
   startingCompute: 15
@@ -2508,6 +2528,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 803468630732893769, guid: 2fd0aaf16a31e714d8404b7965faec31, type: 3}
   m_PrefabInstance: {fileID: 1916199963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2004937278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004937279}
+  - component: {fileID: 2004937280}
+  m_Layer: 0
+  m_Name: SuspensionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004937279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004937278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 853939686}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004937280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004937278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308d0eb1b036ccb41bccbd481bb061af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SuspensionManager
 --- !u!1 &2034088361
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,18 +63,17 @@ public class ProcessManager : MonoBehaviour
         return flagData;
     }
 
-    private string[] ReturnArguments(string[] commandArgs, string[] processArguments)
-    {
-        //My math might be wrong on this but essentially this tries to tell how many arguments there are and then returns the elements
-        //in that range
-        return commandArgs[1..(processArguments.Length + 1)];
-    }
+
 
     public void TryRunProcess(string[] args, Entity owner, ProcessQueue processQueue, bool isServer)
     {
         bool canRun = false;
         //Argument at index 0 is the processname
         SOProcessData processData = GetProcessByName(args[0]);
+
+        if (args[0] == "kill")          //This is terrible and needs to go later i just need to implmenet this for the game jam ourghhh
+
+
         if (processData == null)
         {
             terminalUIManager.Print("Process " + args[0] + " not recognized");

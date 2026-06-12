@@ -10,7 +10,8 @@ public class IncServerComputeDaemon : DaemonBase
         base.Update();
         if (currentTime <= 0)
         {
-            if (!OnTrigger()) return;
+            if (isSuspended) return;
+            OnTrigger();
             currentTime = timeBetweenActivations;
             owner.RequestServerCompute(1);
         }

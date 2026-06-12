@@ -61,12 +61,9 @@ public class DaemonBase : MonoBehaviour, ITargetable
 
     }
 
-    protected virtual bool OnTrigger()
+    protected virtual void OnTrigger()
     {
-        if (isSuspended) 
-            return false;
         ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon " + daemonName + " executed on scheduler stack successfully");
-        return true;
     }
 
 

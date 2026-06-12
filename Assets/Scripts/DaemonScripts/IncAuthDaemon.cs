@@ -10,7 +10,8 @@ public class IncAuthDaemon : DaemonBase
         base.Update();
         if (currentTime <= 0)
         {
-            if (!OnTrigger()) return;
+            if (isSuspended) return;
+            OnTrigger();
             currentTime = timeBetweenActivations;
             if(owner.authority < 4)
                 owner.authority++;
