@@ -1,0 +1,30 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2014669969	Stop_Music_Enemy1			\Default Work Unit\Elegy Music\Stop_Music_Enemy1	
+	3419910747	Play_Music_Enemy1			\Default Work Unit\Elegy Music\Play_Music_Enemy1	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1984645640	Combat_Elegy			\Default Work Unit\Enemy 1\Combat_Elegy	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Combat_Elegy			
+	1073432751	Enemy_Defeat	Combat_Elegy			
+	1622949420	Phase_3	Combat_Elegy			
+	1622949421	Phase_2	Combat_Elegy			
+	1622949422	Phase_1	Combat_Elegy			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	9158009	FirstThreat_Phase1_Layer2_189bpm_6-8_L32M	.cache\28\{28125B2C-79BA-C9E7-21F6-EFA187EFD133}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 1\Phase 1 Layer 2\FirstThreat_Phase1_Layer2_189bpm_6-8_L32M		7601344
+	36729177	FirstThreat_Phase3Transition_189bpm_6-8_L16M	.cache\73\{73E91C04-EE77-A67D-3A70-32CDD76AB6D3}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 3\Phase 3 Transition\FirstThreat_Phase3Transition_189bpm_6-8_L16M		4455584
+	88217755	FirstThreat_Phase2_Layer2_189bpm_6-8_L32M	.cache\7B\{7B9DBA18-0FBE-C7D0-D404-8BEB0F5AEF76}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 2\Phase 2 Layer 2\FirstThreat_Phase2_Layer2_189bpm_6-8_L32M		7077008
+	119097690	FirstThreat_Phase1_Layer1_189bpm_6-8_L32M	.cache\9B\{9B424F83-FEF3-E173-679A-804DBCAA2ED5}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 1\Phase 1 Layer 1\FirstThreat_Phase1_Layer1_189bpm_6-8_L32M		7601344
+	160026248	FirstThreat_Phase2_Layer1_189bpm_6-8_L32M	.cache\7C\{7C66E950-345A-17D8-F078-4EC742CBD5F4}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 2\Phase 2 Layer 1\FirstThreat_Phase2_Layer1_189bpm_6-8_L32M		7077008
+	450512928	FirstThreat_Phase3_Layer2_189bpm_6-8_L16M	.cache\62\{62A13E1A-15B6-D77A-82C7-99ACB2295DB1}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 3\Phase 3 Layer 2\FirstThreat_Phase3_Layer2_189bpm_6-8_L16M		4193424
+	518367640	FirstThreat_Phase2Transition_189bpm_6-8_L2M	.cache\85\{858FD044-7B61-6D02-6C1A-2E63B5B8E8C9}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 2\Phase2_Transition\FirstThreat_Phase2Transition_189bpm_6-8_L2M		1571984
+	664061544	FirstThreat_Phase2_Layer4_189bpm_6-8_L32M	.cache\8F\{8F4A5563-302A-0100-CA9A-C1B419190089}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 2\Phase 2 Layer 4\FirstThreat_Phase2_Layer4_189bpm_6-8_L32M		7077008
+	787503771	FirstThreat_Phase3_Layer1_189bpm_6-8_L16M	.cache\5E\{5E06B28E-CA42-A681-CD2D-487EDD67D76C}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 3\Phase 3 Layer 1\FirstThreat_Phase3_Layer1_189bpm_6-8_L16M		4455568
+	855859331	FirstThreat_Pre-Entry_189bpm_6-8_L3M	.cache\AF\{AFCAB7C7-9AD8-F025-D249-3E27D4FBF858}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 1\Phase 1Pre-Entry\FirstThreat_Pre-Entry_189bpm_6-8_L3M		2358400
+	887191092	FirstThreat_Phase1_Layer3_189bpm_6-8_L32M	.cache\4B\{4BB562A0-163D-85C3-FD51-931831BA74B8}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 1\Phase 1 Layer 3\FirstThreat_Phase1_Layer3_189bpm_6-8_L32M		7601344
+	898747478	FirstThreat_CombatEnd_189bpm_6-8_L2M	.cache\E7\{E76C0021-7055-B844-2700-15CC71412D5C}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Enemy Death\Enemy Death\FirstThreat_CombatEnd_189bpm_6-8_L2M		1571920
+	934364612	FirstThreat_Phase2_Layer3_189bpm_6-8_L16M	.cache\A6\{A6BD0F36-1CE0-A285-97E0-DC0D8F7734D0}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 2\Phase 2 Layer 3\FirstThreat_Phase2_Layer3_189bpm_6-8_L16M		4193424
+	1034965571	FirstThreat_Phase3_Layer3_189bpm_6-8_L16M	.cache\2E\{2E641F2A-9654-39E0-6F20-BB6CD4BACB0B}.wem		\Containers\Default Work Unit\Music\Combat Music\Music_Enemy1\Phase 3\Phase 3 Layer 3\FirstThreat_Phase3_Layer3_189bpm_6-8_L16M		4193424
+
