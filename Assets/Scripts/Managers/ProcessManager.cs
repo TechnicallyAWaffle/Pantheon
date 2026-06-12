@@ -37,7 +37,7 @@ public class ProcessManager : MonoBehaviour
         //Set up string -> Process/Flag ScriptableObject data dictionary for lookup via GetProcessByName and GetFlagByName
         processesByName = new Dictionary<string, SOProcessData>();
         flagsByName = new Dictionary<string, SOFlagData>();
-
+        
         foreach (var process in processDatabase)
         {
             if (!processesByName.TryAdd(process.processName.ToLower(), process))
@@ -67,15 +67,16 @@ public class ProcessManager : MonoBehaviour
 
     public void TryRunProcess(string[] args, Entity owner, ProcessQueue processQueue, bool isServer)
     {
-        bool canRun = false;
+        bool isBaseProcess = false;
         //Argument at index 0 is the processname
         SOProcessData processData = GetProcessByName(args[0]);
 
-        if (args[0] == "kill")          //This is terrible and needs to go later i just need to implmenet this for the game jam ourghhh
-
+        if (processData.processName == "kill" || processData.processName == "suspend")            //TODO: SHITASS IMPLEMENTATION
+            isBaseProcess = true;
 
         if (processData == null)
         {
+            WriteDebug("Process " + args[0] + " not found");
             terminalUIManager.Print("Process " + args[0] + " not recognized");
             return;
         }
@@ -86,25 +87,26 @@ public class ProcessManager : MonoBehaviour
             //Check for sufficient memory
             if ((owner.availableServerMemory.Value) < memoryUsage)
             {
-                terminalUIManager.Print("Insufficient memory");
+                if(isBaseProcess)
+                    terminalUIManager.Print("Insufficient memory. Base processes must be run on the server.");
+                else
+                    terminalUIManager.Print("Insufficient server memory.");
                 return;
             }
-            canRun = true;
             WriteDebug("Attempting to run Process " + processData.processName + " on server queue");
         }
         else
         {
             if ((owner.availableLocalMemory.Value) < memoryUsage)
             {
-                terminalUIManager.Print("Insufficient memory");
+                terminalUIManager.Print("Insufficient local memory");
                 return;
             }
-            canRun = true;
             WriteDebug("Attempting to run Process " + processData.processName + " on local queue");
         }
 
-        //If can't run then just return
-        if (!canRun) return;
+        //If can't run then just return obselete because of early returns
+        //if (!canRun) return;
 
         //Compile list of all arguments and flags
         List<string> argsList = new();
@@ -198,7 +200,7 @@ public class ProcessManager : MonoBehaviour
         process.queue.queue.Remove(process);
         process.owner.ownedProcesses.Remove(process);
         GameManager.AllRunningProcessesByID.Remove(processID);
-        GameObject.Destroy(process);
+        GameObject.Destroy(process.gameObject);
     }
 
 

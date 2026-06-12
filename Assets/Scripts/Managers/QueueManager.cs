@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Net;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -46,13 +48,21 @@ public class QueueManager : MonoBehaviour
         runningProcessInstance.memoryUsed = process.memoryUsage;
         runningProcessInstance.data = process;
         runningProcessInstance.owner = owner;
-        runningProcessInstance.timeRemaining = process.baseExecutionTime;
-        runningProcessInstance.baseTime = process.baseExecutionTime;
         runningProcessInstance.Encryption = process.encryption;
         runningProcessInstance.arguments = processArguments;
         runningProcessInstance.queue = queueObject;
         runningProcessInstance.script = processObject.GetComponent<ProcessBase>();
         runningProcessInstance.script.runtimeProcessData = runningProcessInstance;
+
+        //Modify time remaining based on compute                 //SHITASS IMPLEMENTATION
+        if (queueObject == serverQueue)
+            runningProcessInstance.baseTime = CalculateExecutionTimeBasedOnCompute(process.baseExecutionTime, owner.reservedServerCompute);
+        else
+            runningProcessInstance.baseTime = CalculateExecutionTimeBasedOnCompute(process.baseExecutionTime, owner.localProcessQueue._openCompute);
+        runningProcessInstance.timeRemaining = runningProcessInstance.baseTime;
+        WriteDebug("Process " + runningProcessInstance.data.processName + 
+            " execution time lowered to " + runningProcessInstance.timeRemaining + " from " + process.baseExecutionTime);
+
 
         //Modify available memory
         owner.ModifyAvailableMemory(runningProcessInstance, queueObject, -runningProcessInstance.memoryUsed);
@@ -61,6 +71,10 @@ public class QueueManager : MonoBehaviour
         GlobalEventBus.ProcessQueued(runningProcessInstance, owner);
         if (owner == referenceManager.player)
             GlobalEventBus.PlayerQueuedProcess(runningProcessInstance);
+        if (runningProcessInstance.data.processName == "kill")
+        {
+            GlobalEventBus.BaseKillProcessRan(runningProcessInstance);
+        }
 
         //Add the RunningProcess instance to the queue and to the owner's list of running processes
         queueObject.queue.Add(runningProcessInstance);
@@ -89,6 +103,13 @@ public class QueueManager : MonoBehaviour
         }
         //Need to know what memory to compare here 
 
+    }
+
+    private float CalculateExecutionTimeBasedOnCompute(float executionTime, float compute)
+    {
+        float finalValue = executionTime * (100 / (100 + compute));
+        Debug.Log("adflmaldkfmaldfasdfdsf" + finalValue);
+        return finalValue;
     }
 
     public void RecalculateProcessExecutionTimes(Entity entity, int newCompute)

@@ -16,6 +16,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] protected float tickRate = 1f;
     [SerializeField] protected float aggression = 1f;
     private float tickTimer;
+    protected string reasonForWait;
 
     protected abstract AIContext GatherContext();
     protected abstract AIAction Decide(AIContext ctx);

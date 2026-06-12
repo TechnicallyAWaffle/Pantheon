@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7dcb5338ed258548a6b9f2a70f9952f, type: 3}
   m_Name: killprocess
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
-  processName: Kill
+  processName: kill
   description: You're not supposed to be seeing this
   baseExecutionTime: 10
   memoryUsage: 10
   encryption: 0
-  processObject: {fileID: 0}
+  enterprise: 0
+  processObject: {fileID: 4670963260437243312, guid: bea55f4a63af2de48aa9e2f7040bbc28, type: 3}
   removedWhenExecuted: 1
   threatLevel: 3
   arguments: 03000000

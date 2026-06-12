@@ -51,6 +51,7 @@ public class DaemonBase : MonoBehaviour, ITargetable
 
     public void RevealDaemon()
     {
+        WriteDebug("Revealing daemon: " + daemonName);
         daemonSprite.enabled = true;
         isRevealed = true;
         //Plus other logic
@@ -63,7 +64,8 @@ public class DaemonBase : MonoBehaviour, ITargetable
 
     protected virtual void OnTrigger()
     {
-        ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] Daemon " + daemonName + " executed on scheduler stack successfully");
+        if(owner == ReferenceManager.Instance.opponent)
+            ReferenceManager.Instance.terminalUIManager.Print("[SYSALERT] External daemon " + daemonName + " executed on scheduler stack successfully");
     }
 
 
@@ -75,6 +77,11 @@ public class DaemonBase : MonoBehaviour, ITargetable
     public virtual void OnKilled()
     { 
     
+    }
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=white>DAEMON: " + message);
     }
 
 
