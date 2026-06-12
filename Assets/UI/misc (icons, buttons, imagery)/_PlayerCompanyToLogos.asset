@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec1453a8cb8e744bb1afc5fa595e3e0, type: 3}
+  m_Name: _PlayerCompanyToLogos
+  m_EditorClassIdentifier: Assembly-CSharp::CompanyToLogoReferences
+  companyToLogos:
+  - enterprise: 0
+    logo: {fileID: 2800000, guid: 285b399e554996b468c6b10e990ac701, type: 3}
+  - enterprise: 1
+    logo: {fileID: 2800000, guid: e99bd9e1e38491449b874b435b3cffb7, type: 3}
+  - enterprise: 2
+    logo: {fileID: 2800000, guid: 7b1afd09d3c9c4947a06cad7dbc767f4, type: 3}
+  - enterprise: 3
+    logo: {fileID: 2800000, guid: e3c6c468886e1d841aa96dbdb61a5f11, type: 3}
+  - enterprise: 4
+    logo: {fileID: 2800000, guid: 1e91487339a4ed9428cd6d2275e29450, type: 3}
