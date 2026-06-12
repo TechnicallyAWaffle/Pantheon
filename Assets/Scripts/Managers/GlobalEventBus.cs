@@ -30,6 +30,7 @@ public static class GlobalEventBus
 
     // Daemon events
     public static event Action<Entity> OnDaemonRevealed;
+    public static event Action<DaemonBase> OnDaemonKilled;
 
     // requests — anyone can fire these
     public static event Action<Entity, int> OnMemoryRequested;
@@ -56,6 +57,7 @@ public static class GlobalEventBus
     public static void AuthorityChanged(Entity p, int newVal) => OnAuthorityChanged?.Invoke(p, newVal);
     public static void ServerQueueCountChanged(int count) => OnServerQueueCountChanged?.Invoke(count);
 
+    public static void DaemonKilled(DaemonBase daemon) => OnDaemonKilled?.Invoke(daemon);
     public static void SchedulerReset() => OnSchedulerReset?.Invoke();
 
     public static void BaseKillProcessRan(RunningProcess process) => OnBaseKillProcessQueued?.Invoke(process);
