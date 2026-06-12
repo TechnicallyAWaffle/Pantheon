@@ -1,9 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
-	940694589	Player_Health_Nothing			\Default Work Unit\Player\Player_Health_Nothing	
 	1685309164	Play_Music_TitleScreen			\Default Work Unit\Title Screen\Play_Music_TitleScreen	
 	2662133298	Stop_Music_TitleScreen			\Default Work Unit\Title Screen\Stop_Music_TitleScreen	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	410796900	Threat_MainTheme_120bpm_4-4_L17M_P1M	.cache\1D\{1D24EF5B-D2A3-8742-B4B7-E6D8CBDA86B0}.wem		\Containers\Default Work Unit\Music\Music_TitleScreen\Music_TitleScreen\Threat_MainTheme_120bpm_4-4_L17M_P1M		8126624
-	1003634684	DeathStinger_SFX	.cache\29\{290B7FE2-3645-ACEE-4A92-D0DA224514D9}.wem		\Containers\Default Work Unit\Music\Death Stinger\DeathStinger\DeathStinger_SFX		1047584
 

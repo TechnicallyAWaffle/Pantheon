@@ -174,6 +174,43 @@
     ]
    },
    {
+    "Id": "940694589",
+    "Type": "Event",
+    "GUID": "{CFD51937-412E-4AE2-B166-F9B7AA91A40D}",
+    "Language": "SFX",
+    "Hash": "{E4160BE0-916E-19C6-E6FC-E3E0DA3FD8DE}",
+    "ObjectPath": "Player_Health_Nothing",
+    "ShortName": "Player_Health_Nothing",
+    "Path": "Event/94/Player_Health_Nothing.bnk",
+    "Media": [
+     {
+      "Id": "1003634684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "DeathStinger_SFX.wav",
+      "Path": "Media/10/1003634684.wem",
+      "CachePath": "29/{290B7FE2-3645-ACEE-4A92-D0DA224514D9}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "940694589",
+      "Name": "Player_Health_Nothing",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Player_Health_Nothing",
+      "GUID": "{CFD51937-412E-4AE2-B166-F9B7AA91A40D}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.4553337",
+      "DurationMax": "5.4553337",
+      "MediaRefs": [
+       {
+        "Id": "1003634684"
+       }
+      ]
+     }
+    ]
+   },
+   {
     "Id": "1355168291",
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
@@ -1130,7 +1167,7 @@
     "Type": "User",
     "GUID": "{DA867644-26A9-4D06-9333-B1CE7C5B4DA4}",
     "Language": "SFX",
-    "Hash": "{8BF45BBC-011D-63C0-4541-064D42EE3330}",
+    "Hash": "{1AC9B5D5-3C30-AD89-BC93-A2B476BA97B6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\General\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -1142,14 +1179,6 @@
       "Location": "Memory",
       "ShortName": "Threat_MainTheme_120bpm_4-4_L17M_P1M.wav",
       "CachePath": "1D/{1D24EF5B-D2A3-8742-B4B7-E6D8CBDA86B0}.wem"
-     },
-     {
-      "Id": "1003634684",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DeathStinger_SFX.wav",
-      "CachePath": "29/{290B7FE2-3645-ACEE-4A92-D0DA224514D9}.wem"
      }
     ],
     "Events": [
@@ -1166,20 +1195,6 @@
       ]
      },
      {
-      "Id": "940694589",
-      "Name": "Player_Health_Nothing",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Player_Health_Nothing",
-      "GUID": "{CFD51937-412E-4AE2-B166-F9B7AA91A40D}",
-      "DurationType": "OneShot",
-      "DurationMin": "5.4553337",
-      "DurationMax": "5.4553337",
-      "MediaRefs": [
-       {
-        "Id": "1003634684"
-       }
-      ]
-     },
-     {
       "Id": "2662133298",
       "Name": "Stop_Music_TitleScreen",
       "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Stop_Music_TitleScreen",
@@ -1192,6 +1207,6 @@
     ]
    }
   ],
-  "FileHash": "{6D6069DC-082C-30E1-F0C5-51BDBBB859DA}"
+  "FileHash": "{C96AB000-F3C9-873D-1A48-D09B782AC83E}"
  }
 }

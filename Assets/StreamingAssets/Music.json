@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DA867644-26A9-4D06-9333-B1CE7C5B4DA4}",
     "Language": "SFX",
-    "Hash": "{8BF45BBC-011D-63C0-4541-064D42EE3330}",
+    "Hash": "{1AC9B5D5-3C30-AD89-BC93-A2B476BA97B6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\General\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -22,14 +22,6 @@
       "Location": "Memory",
       "ShortName": "Threat_MainTheme_120bpm_4-4_L17M_P1M.wav",
       "CachePath": "1D/{1D24EF5B-D2A3-8742-B4B7-E6D8CBDA86B0}.wem"
-     },
-     {
-      "Id": "1003634684",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DeathStinger_SFX.wav",
-      "CachePath": "29/{290B7FE2-3645-ACEE-4A92-D0DA224514D9}.wem"
      }
     ],
     "Events": [
@@ -46,20 +38,6 @@
       ]
      },
      {
-      "Id": "940694589",
-      "Name": "Player_Health_Nothing",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Player_Health_Nothing",
-      "GUID": "{CFD51937-412E-4AE2-B166-F9B7AA91A40D}",
-      "DurationType": "OneShot",
-      "DurationMin": "5.4553337",
-      "DurationMax": "5.4553337",
-      "MediaRefs": [
-       {
-        "Id": "1003634684"
-       }
-      ]
-     },
-     {
       "Id": "2662133298",
       "Name": "Stop_Music_TitleScreen",
       "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Stop_Music_TitleScreen",
@@ -72,6 +50,6 @@
     ]
    }
   ],
-  "FileHash": "{52E5AB40-04E9-7823-275C-4676228DD52C}"
+  "FileHash": "{A4EB5630-198A-758C-E7BA-17957563C8EE}"
  }
 }
