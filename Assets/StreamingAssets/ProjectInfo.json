@@ -1,0 +1,36 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "Terminal_GGJ",
+   "GUID": "{ECA6F394-FA48-4E8C-B81C-986E731E004A}",
+   "Generator": "2025.1.8.9170"
+  },
+  "CacheRoot": "../.cache",
+  "Platforms": [
+   {
+    "Name": "Mac",
+    "GUID": "{CB9E06A1-46D1-466F-8B45-0E3083B33C15}",
+    "BasePlatform": "Mac",
+    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
+    "Path": "Mac"
+   },
+   {
+    "Name": "Windows",
+    "GUID": "{33206EB3-75F0-4EC5-8CAE-7677D5C05407}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{8D7E8C0D-0237-4A1A-BC42-B406953189C9}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{10DA6311-F823-7D50-DD4D-02EFE191A3BF}"
+ }
+}
