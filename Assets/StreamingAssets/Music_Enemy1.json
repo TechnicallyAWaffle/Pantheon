@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{416A1D58-9AC0-49F9-A8B1-1A544D28A6A1}",
     "Language": "SFX",
-    "Hash": "{4DB6A60F-8FB1-FB6B-2E31-FB4B2FEE37AE}",
+    "Hash": "{A31EBEA5-37E5-B1CB-BD1A-DC711F47BBCF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\Music_Enemy1",
     "ShortName": "Music_Enemy1",
     "Path": "Music_Enemy1.bnk",
@@ -148,29 +148,19 @@
           "Id": "9158009"
          },
          {
-          "Id": "119097690"
+          "Id": "36729177"
          },
-         {
-          "Id": "855859331"
-         },
-         {
-          "Id": "887191092"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1984645640",
-         "Id": "1622949421",
-         "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
-        },
-        "MediaRefs": [
          {
           "Id": "88217755"
          },
          {
+          "Id": "119097690"
+         },
+         {
           "Id": "160026248"
+         },
+         {
+          "Id": "450512928"
          },
          {
           "Id": "518367640"
@@ -179,26 +169,16 @@
           "Id": "664061544"
          },
          {
-          "Id": "934364612"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1984645640",
-         "Id": "1622949420",
-         "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "36729177"
-         },
-         {
-          "Id": "450512928"
-         },
-         {
           "Id": "787503771"
+         },
+         {
+          "Id": "855859331"
+         },
+         {
+          "Id": "887191092"
+         },
+         {
+          "Id": "934364612"
          },
          {
           "Id": "1034965571"
@@ -291,6 +271,6 @@
     ]
    }
   ],
-  "FileHash": "{76B5E5A8-E99A-04A0-F48B-0C5BC665E46F}"
+  "FileHash": "{51B6E009-56EE-D368-968B-BEA3EC80994F}"
  }
 }

@@ -795,81 +795,19 @@
     "Type": "Event",
     "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
     "Language": "SFX",
-    "Hash": "{98D13C72-BA80-7700-1974-F229390BA64A}",
+    "Hash": "{569DE956-7496-F56E-A5D4-B42B0BA5AB89}",
     "ObjectPath": "Play_Phase_2",
     "ShortName": "Play_Phase_2",
     "Path": "Event/17/Play_Phase_2.bnk",
-    "Media": [
-     {
-      "Id": "88217755",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer2_189bpm_6-8_L32M.wav",
-      "Path": "Media/88/88217755.wem",
-      "CachePath": "7B/{7B9DBA18-0FBE-C7D0-D404-8BEB0F5AEF76}.wem"
-     },
-     {
-      "Id": "160026248",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer1_189bpm_6-8_L32M.wav",
-      "Path": "Media/16/160026248.wem",
-      "CachePath": "7C/{7C66E950-345A-17D8-F078-4EC742CBD5F4}.wem"
-     },
-     {
-      "Id": "518367640",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2Transition_189bpm_6-8_L2M.wav",
-      "Path": "Media/51/518367640.wem",
-      "CachePath": "85/{858FD044-7B61-6D02-6C1A-2E63B5B8E8C9}.wem"
-     },
-     {
-      "Id": "664061544",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer4_189bpm_6-8_L32M.wav",
-      "Path": "Media/66/664061544.wem",
-      "CachePath": "8F/{8F4A5563-302A-0100-CA9A-C1B419190089}.wem"
-     },
-     {
-      "Id": "934364612",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer3_189bpm_6-8_L16M.wav",
-      "Path": "Media/93/934364612.wem",
-      "CachePath": "A6/{A6BD0F36-1CE0-A285-97E0-DC0D8F7734D0}.wem"
-     }
-    ],
     "Events": [
      {
       "Id": "1716267028",
       "Name": "Play_Phase_2",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Phase_2",
       "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "88217755"
-       },
-       {
-        "Id": "160026248"
-       },
-       {
-        "Id": "518367640"
-       },
-       {
-        "Id": "664061544"
-       },
-       {
-        "Id": "934364612"
-       }
-      ],
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
       "ActionSetState": [
        {
         "GroupId": "1984645640",
@@ -927,7 +865,7 @@
     "Type": "User",
     "GUID": "{416A1D58-9AC0-49F9-A8B1-1A544D28A6A1}",
     "Language": "SFX",
-    "Hash": "{4DB6A60F-8FB1-FB6B-2E31-FB4B2FEE37AE}",
+    "Hash": "{A31EBEA5-37E5-B1CB-BD1A-DC711F47BBCF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\Music_Enemy1",
     "ShortName": "Music_Enemy1",
     "Path": "Music_Enemy1.bnk",
@@ -1065,29 +1003,19 @@
           "Id": "9158009"
          },
          {
-          "Id": "119097690"
+          "Id": "36729177"
          },
-         {
-          "Id": "855859331"
-         },
-         {
-          "Id": "887191092"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1984645640",
-         "Id": "1622949421",
-         "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
-        },
-        "MediaRefs": [
          {
           "Id": "88217755"
          },
          {
+          "Id": "119097690"
+         },
+         {
           "Id": "160026248"
+         },
+         {
+          "Id": "450512928"
          },
          {
           "Id": "518367640"
@@ -1096,26 +1024,16 @@
           "Id": "664061544"
          },
          {
-          "Id": "934364612"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1984645640",
-         "Id": "1622949420",
-         "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "36729177"
-         },
-         {
-          "Id": "450512928"
-         },
-         {
           "Id": "787503771"
+         },
+         {
+          "Id": "855859331"
+         },
+         {
+          "Id": "887191092"
+         },
+         {
+          "Id": "934364612"
          },
          {
           "Id": "1034965571"
@@ -1274,6 +1192,6 @@
     ]
    }
   ],
-  "FileHash": "{DE514B0A-8982-4796-D522-E605BE64F5E1}"
+  "FileHash": "{5CFDC568-E636-5AC8-0D10-F9DE5865D541}"
  }
 }

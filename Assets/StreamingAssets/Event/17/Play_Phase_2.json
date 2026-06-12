@@ -10,81 +10,19 @@
     "Type": "Event",
     "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
     "Language": "SFX",
-    "Hash": "{98D13C72-BA80-7700-1974-F229390BA64A}",
+    "Hash": "{569DE956-7496-F56E-A5D4-B42B0BA5AB89}",
     "ObjectPath": "Play_Phase_2",
     "ShortName": "Play_Phase_2",
     "Path": "Event/17/Play_Phase_2.bnk",
-    "Media": [
-     {
-      "Id": "88217755",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer2_189bpm_6-8_L32M.wav",
-      "Path": "Media/88/88217755.wem",
-      "CachePath": "7B/{7B9DBA18-0FBE-C7D0-D404-8BEB0F5AEF76}.wem"
-     },
-     {
-      "Id": "160026248",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer1_189bpm_6-8_L32M.wav",
-      "Path": "Media/16/160026248.wem",
-      "CachePath": "7C/{7C66E950-345A-17D8-F078-4EC742CBD5F4}.wem"
-     },
-     {
-      "Id": "518367640",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2Transition_189bpm_6-8_L2M.wav",
-      "Path": "Media/51/518367640.wem",
-      "CachePath": "85/{858FD044-7B61-6D02-6C1A-2E63B5B8E8C9}.wem"
-     },
-     {
-      "Id": "664061544",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer4_189bpm_6-8_L32M.wav",
-      "Path": "Media/66/664061544.wem",
-      "CachePath": "8F/{8F4A5563-302A-0100-CA9A-C1B419190089}.wem"
-     },
-     {
-      "Id": "934364612",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Loose",
-      "ShortName": "FirstThreat_Phase2_Layer3_189bpm_6-8_L16M.wav",
-      "Path": "Media/93/934364612.wem",
-      "CachePath": "A6/{A6BD0F36-1CE0-A285-97E0-DC0D8F7734D0}.wem"
-     }
-    ],
     "Events": [
      {
       "Id": "1716267028",
       "Name": "Play_Phase_2",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Phase_2",
       "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "88217755"
-       },
-       {
-        "Id": "160026248"
-       },
-       {
-        "Id": "518367640"
-       },
-       {
-        "Id": "664061544"
-       },
-       {
-        "Id": "934364612"
-       }
-      ],
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
       "ActionSetState": [
        {
         "GroupId": "1984645640",
@@ -138,6 +76,6 @@
     ]
    }
   ],
-  "FileHash": "{5DFA83BE-CAB5-AF66-E65F-F42EE3D7361A}"
+  "FileHash": "{A36B2F49-2925-8E4A-E73D-87CEDE6442B0}"
  }
 }
