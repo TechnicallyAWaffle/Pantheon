@@ -18,4 +18,11 @@ public class EnemyLocalProcessesUI : LocalProcessesUI
         _commands = uiDocument.rootVisualElement.Q<VisualElement>("EnemyCommands");
         ClearCommands();
     }
+
+    protected override ProcessUI CreateUI(RunningProcess proc)
+    {
+        var procUI = base.CreateUI(proc);
+        procUI.Root.name = "EnemyLocalCommand";
+        return procUI;
+    }
 }

@@ -123,7 +123,7 @@ public class LocalProcessesUI : MonoBehaviour
     }
 
     // Creates a new UI box for a process
-    private ProcessUI CreateUI(RunningProcess proc)
+    protected virtual ProcessUI CreateUI(RunningProcess proc)
     {
         TemplateContainer instance = commandTemplate.Instantiate();
         _commands.Add(instance);
@@ -187,6 +187,6 @@ public class LocalProcessesUI : MonoBehaviour
                 entry.Root.EnableInClassList(kvp.Value, false);
             }
         }
-        
+
     }
 }
