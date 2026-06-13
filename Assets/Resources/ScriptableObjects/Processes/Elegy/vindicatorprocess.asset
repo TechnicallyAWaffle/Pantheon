@@ -15,7 +15,7 @@ MonoBehaviour:
   processName: vindicator
   description: Lowers the target's encryption by 1 or kills it if it has no memory.
     Costs 2 memory less for each other running vindicator process
-  baseExecutionTime: 7
+  baseExecutionTime: 9
   memoryUsage: 8
   encryption: 0
   enterprise: 1

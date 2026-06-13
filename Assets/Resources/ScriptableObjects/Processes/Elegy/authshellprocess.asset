@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
   processName: authshell
   description: 'Raises the encryption of a daemon by 1. '
-  baseExecutionTime: 5
+  baseExecutionTime: 16
   memoryUsage: 2
   encryption: 0
   enterprise: 2

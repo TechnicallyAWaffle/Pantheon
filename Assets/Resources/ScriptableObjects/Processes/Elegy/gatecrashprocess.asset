@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
   processName: gatecrash
   description: "Lowers the target process or daemon\u2019s encryption by 3. "
-  baseExecutionTime: 13
+  baseExecutionTime: 15
   memoryUsage: 2
   encryption: 0
   enterprise: 4
