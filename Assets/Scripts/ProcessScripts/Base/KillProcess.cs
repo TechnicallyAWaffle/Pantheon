@@ -5,7 +5,7 @@ public class KillProcess : ProcessBase
     public override void Execute(Entity owner, string[] arguments)
     {
         ITargetable targetToKill = GameManager.FindRunningDaemonOrProcess(arguments[0]);
-        if (owner.authority > targetToKill.Encryption)
+        if (owner.authority > targetToKill.Encryption || owner == targetToKill.Owner)
             GameManager.KillProcessOrDaemon(targetToKill);
         else
             referenceManager.terminalUIManager.Print("AUTHORIZATION ERROR: Access to process decryption hash denied");

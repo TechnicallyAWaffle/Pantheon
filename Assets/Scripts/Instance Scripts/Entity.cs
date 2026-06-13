@@ -51,7 +51,6 @@ public class Entity : MonoBehaviour
         availableServerMemory = new ModVar(reservedServerMemory);
 
         GlobalEventBus.OnDaemonKilled += CheckDaemons;
-
     }
 
     private void CheckDaemons(DaemonBase daemon)

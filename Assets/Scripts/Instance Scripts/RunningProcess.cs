@@ -9,6 +9,8 @@ public class RunningProcess : MonoBehaviour, ITargetable
     public ProcessQueue queue;
     public int memoryUsed;
     public ProcessBase script;
+
+    public Entity Owner { get { return owner; } set { } }
     public string Identifier { get { return processID; } set { } }
 
     //runtime

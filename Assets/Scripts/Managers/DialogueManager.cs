@@ -41,7 +41,36 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        Debug.Log(scrollRect.verticalNormalizedPosition);
+    }
 
+
+    private void PrintToTerminal(string input)
+    {
+        GameObject systemMessage = Instantiate(systemMessagePrefab, commandLineContainer.transform);
+        systemMessage.GetComponent<TextMeshProUGUI>().text = input;
+
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
+        //scrollRect.verticalNormalizedPosition = 0f; // 0 is bottom, 1 is top
+
+        StartCoroutine(Scroll());
+
+    }
+
+    private IEnumerator Scroll()
+    {
+        yield return new WaitForEndOfFrame();
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content.GetComponent<RectTransform>());
+
+        // 1f for bottom-anchored Content, 0f for top-anchored
+        scrollRect.verticalNormalizedPosition = 1f;
+    }
+
+
+    /*
     private IEnumerator PrintToTerminal(string[] input, float waitTime)
     {
         Debug.Log(input[0] + input[1]);
@@ -58,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         scrollRect.verticalNormalizedPosition = 0f;
     }
+    */
 
 public IEnumerator RunDialogueSegment(SODialogueSequence dialogue)
     {
@@ -65,15 +95,15 @@ public IEnumerator RunDialogueSegment(SODialogueSequence dialogue)
         {
             DialogueEntry entry = dialogue.entries[i];
             yield return new WaitForSeconds(entry.delayBefore);
-            string[] textToAdd = {string.Empty, string.Empty };
-            float waitTime = 0f;
+            string textToAdd = string.Empty;
+            //float waitTime = 0f;
             switch (entry.type)
             {
                 case DialogueEntryType.UserMessage:
-                    textToAdd[0] = entry.sender + ": " + entry.message;
+                    textToAdd = entry.sender + ": " + entry.message;
                     break;
                 case DialogueEntryType.SystemMessage:
-                    textToAdd[0] = entry.message;
+                    textToAdd = entry.message;
                     break;
                 case DialogueEntryType.InputPrompt:
                     Instantiate(userInputPrefab, commandLineContainer.transform);
@@ -83,7 +113,7 @@ public IEnumerator RunDialogueSegment(SODialogueSequence dialogue)
                     if (inputSubmitted != currentCorrectInput)
                     {
                         i--;
-                        textToAdd[0] = entry.inputPrompt.wrongInputResponses[currentWrongInputResponseIndex];
+                        textToAdd = entry.inputPrompt.wrongInputResponses[currentWrongInputResponseIndex];
                         if (currentWrongInputResponseIndex < entry.inputPrompt.wrongInputResponses.Count)
                             currentWrongInputResponseIndex++;
                     }
@@ -96,7 +126,9 @@ public IEnumerator RunDialogueSegment(SODialogueSequence dialogue)
                         break;
             }
 
-            yield return StartCoroutine(PrintToTerminal(textToAdd, waitTime));
+            PrintToTerminal(textToAdd);
+
+            //yield return StartCoroutine(PrintToTerminal(textToAdd, waitTime));
 
             if (entry.dialogueManagerFunction != string.Empty)
             {

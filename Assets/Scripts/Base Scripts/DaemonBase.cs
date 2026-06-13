@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 
 
@@ -20,6 +21,8 @@ public class DaemonBase : MonoBehaviour, ITargetable
     public string Identifier { get { return daemonName;} set { } }
 
     public int Encryption { get; set; }
+
+    public Entity Owner { get { return owner; } set { } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

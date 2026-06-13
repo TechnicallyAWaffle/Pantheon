@@ -27,7 +27,7 @@ MonoBehaviour:
     message: '----------------------------------------------------------
 
       Checking
-      memory integrity................        <0.5>2.4 PB  OK
+      memory integrity................        2.4 PB  OK
 
 '
     delayBefore: 0.1
@@ -38,7 +38,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: Verifying daemon mesh.....................        <1>[12/12]   OK
+    message: Verifying daemon mesh.....................        [12/12]   OK
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -47,8 +47,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: Syncing episodic index......................        <0.9>4.6M nodes
-      OK
+    message: Syncing episodic index......................        4.6M nodes OK
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -57,7 +56,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: 'Calibrating sensory interface.............        <0.3>OK
+    message: 'Calibrating sensory interface.............        OK
 
 '
     delayBefore: 0.1
@@ -68,7 +67,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: 'Loading semantic weights.................        <0.3>PARTIAL
+    message: 'Loading semantic weights.................        PARTIAL
 
 '
     delayBefore: 0.1
@@ -79,7 +78,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: "Loading HTM state writer\u2026\u2026\u2026\u2026\u2026.       <1>OK\r\n"
+    message: "Loading HTM state writer\u2026\u2026\u2026\u2026\u2026.       OK\r\n"
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -89,7 +88,7 @@ MonoBehaviour:
   - type: 1
     sender: 
     message: "Writing States \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026      
-      <2>[475,032/475,032] OK\r\n"
+      [475,032/475,032] OK\r\n"
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
