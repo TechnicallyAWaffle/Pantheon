@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
+using UnityEditor.U2D.Tooling.Analyzer;
 using UnityEngine;
 
 public class SuspensionManager : MonoBehaviour
@@ -17,12 +18,14 @@ public class SuspensionManager : MonoBehaviour
 
         public Suspension(RunningProcess process, Func<bool> condition, RunningProcess suspender)
         {
+            this.suspender = suspender;
             this.processSuspended = process;
             this.liftCondition = condition;
         }
 
         public Suspension(DaemonBase daemon, Func<bool> condition, RunningProcess suspender)
         {
+            this.suspender = suspender;
             this.daemonSuspended = daemon;
             this.liftCondition = condition;
         }
@@ -38,6 +41,7 @@ public class SuspensionManager : MonoBehaviour
     {
         if (target is RunningProcess process)
         {
+            WriteDebug("Process suspension started: " + suspender.data.processName + " is suspending " + process.data.processName);
             process.isSuspended = true;
             activeSuspensions.Add(new Suspension(process, condition, suspender));
             process.GetComponent<ProcessBase>().OnSuspension();
@@ -45,6 +49,7 @@ public class SuspensionManager : MonoBehaviour
         }
         else if (target is DaemonBase daemon)
         {
+            WriteDebug("Daemon suspension started: " + suspender.data.processName + " is suspending " + daemon.daemonName);
             daemon.isSuspended = true;
             activeSuspensions.Add(new Suspension(daemon, condition, suspender));
             daemon.OnSuspension();
@@ -56,9 +61,13 @@ public class SuspensionManager : MonoBehaviour
 
     void Update()
     {
+
+        if (activeSuspensions.Count == 0) return;
+
         for (int i = activeSuspensions.Count - 1; i >= 0; i--)
         {
             Suspension suspension = activeSuspensions[i];
+            WriteDebug("Suspender is: " + suspension.suspender);
             if (!suspension.suspender || suspension.liftCondition())
             {
                 Lift(suspension);
@@ -96,16 +105,23 @@ public class SuspensionManager : MonoBehaviour
         //Add OnSuspended call to the suspended process here
         if (suspension.processSuspended)
         {
+            WriteDebug("Lifting process suspension: " + suspension.processSuspended.data.processName);
             suspension.processSuspended.isSuspended = false;
             suspension.processSuspended.GetComponent<ProcessBase>().OnSuspensionLifted();
         }
         else
         {
+            WriteDebug("Lifting daemon suspension: " + suspension.daemonSuspended.daemonName);
             suspension.daemonSuspended.isSuspended = false;
             suspension.daemonSuspended.OnSuspensionLifted();
         }
         //If we need something to listen to when a process is resumed we can add a condition for that in the global event bus
         //GlobalEventBus.ProcessResumed(suspension.suspended);
+    }
+
+    protected void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=#D469F5> Suspension Manager: " + message);
     }
 
 }
