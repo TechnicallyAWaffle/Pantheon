@@ -3,7 +3,6 @@ using UnityEngine.UIElements;
 
 // InitializeOnLoad runs this in the editor on domain reload,
 // which is when the binding window needs to see converters
-[InitializeOnLoad]
 public static class UIConverters
 {
     static UIConverters()

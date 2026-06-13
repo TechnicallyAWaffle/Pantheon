@@ -1,10 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VectorGraphics;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public static class GameManager

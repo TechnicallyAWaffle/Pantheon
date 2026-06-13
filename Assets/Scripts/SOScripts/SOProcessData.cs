@@ -1,4 +1,3 @@
-using UnityEditor.Build;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SOProcessData", menuName = "Scriptable Objects/SOProcessData")]

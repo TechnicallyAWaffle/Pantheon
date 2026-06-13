@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Collections;
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Properties;
