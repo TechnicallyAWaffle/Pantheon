@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using Unity.Properties;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UI;
 
 //README
 //Anything that interacts with visual elements should delegate their logic here to avoid clutter
