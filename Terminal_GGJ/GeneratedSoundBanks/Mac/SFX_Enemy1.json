@@ -1,0 +1,69 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "461113388",
+    "Type": "User",
+    "GUID": "{53848237-F8AC-4CB9-A71D-310DF69CBC47}",
+    "Language": "SFX",
+    "Hash": "{B5A234C0-5138-8959-865E-E4A4B9B8F643}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\SFX_Enemy1",
+    "ShortName": "SFX_Enemy1",
+    "Path": "SFX_Enemy1.bnk",
+    "Media": [
+     {
+      "Id": "114321686",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ServerReset_SFX.wav",
+      "CachePath": "07/{0798D3DD-F6C1-821D-1826-2FBFB06B6FDD}.wem"
+     },
+     {
+      "Id": "826237111",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Elegy_Hurt.wav",
+      "CachePath": "00/{00A0954A-9F05-BABD-31FF-1683494F5F54}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4155857894",
+      "Name": "Enemy_Elegy_Hurt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Elegy\\Enemy_Elegy_Hurt",
+      "GUID": "{49881F4F-AAC4-4CF5-8513-00546C21992E}",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "MediaRefs": [
+       {
+        "Id": "826237111"
+       }
+      ]
+     },
+     {
+      "Id": "1225476372",
+      "Name": "Play_ServerReset",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Elegy\\Play_ServerReset",
+      "GUID": "{75A7F3BF-D423-4412-808B-6042C3EAAD74}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.820667",
+      "DurationMax": "6.820667",
+      "MediaRefs": [
+       {
+        "Id": "114321686"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{B9BB98D0-B21E-0D86-7DE3-655970D1BC84}"
+ }
+}

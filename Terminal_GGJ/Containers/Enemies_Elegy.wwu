@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{806759E0-AF91-4CCC-8D41-329F6EB89853}" SchemaVersion="133" RootDocumentID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}" ParentDocumentID="{E92730D6-80B6-490A-9A97-711298713ACB}">
+	<Containers>
+		<WorkUnit Name="Enemies_Elegy" ID="{806759E0-AF91-4CCC-8D41-329F6EB89853}" OwnerID="{17660FD9-4C33-4EBD-9824-D8AF2790CBFC}" PersistMode="Nested">
+			<ChildrenList>
+				<PropertyContainer Name="Elegy" ID="{CEDA0935-6F09-4108-BFA5-7A758CA58626}" ShortID="1073739815">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02B45FA-7969-4DD3-9E76-FF5FD5ECD0A2}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F9F343CD-B0FC-4D35-A5DB-104E082E88CD}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="Elegy_Hurt" ID="{755F7777-9E7A-4DBC-983D-C2801F726234}" ShortID="946533301">
+							<ChildrenList>
+								<Sound Name="Elegy_Hurt" ID="{B9D9AE65-0501-4DE6-B2EE-ED0091321DAE}" ShortID="758949841">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02B45FA-7969-4DD3-9E76-FF5FD5ECD0A2}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F9F343CD-B0FC-4D35-A5DB-104E082E88CD}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Elegy_Hurt" ID="{8AFDE7E6-438B-429C-A552-B1256EABF736}">
+											<Language>SFX</Language>
+											<AudioFile>Elegy_Hurt.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="826237111"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Elegy_Hurt" ID="{8AFDE7E6-438B-429C-A552-B1256EABF736}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Server Reset" ID="{BE7507E7-96E5-4E83-BA5C-10C5521B9A57}" ShortID="653691127">
+							<ChildrenList>
+								<Sound Name="ServerReset" ID="{AE58A6ED-75E8-4B12-90E0-B01773768AD7}" ShortID="195522753">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02B45FA-7969-4DD3-9E76-FF5FD5ECD0A2}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F9F343CD-B0FC-4D35-A5DB-104E082E88CD}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ServerReset_SFX" ID="{B5943664-558F-440B-AD36-11A0DFA21C33}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="4.00858"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>ServerReset_SFX.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="114321686"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ServerReset_SFX" ID="{B5943664-558F-440B-AD36-11A0DFA21C33}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</PropertyContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</Containers>
+</WwiseDocument>

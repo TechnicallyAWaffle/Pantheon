@@ -1,0 +1,77 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "3991942870",
+    "Type": "User",
+    "GUID": "{DA867644-26A9-4D06-9333-B1CE7C5B4DA4}",
+    "Language": "SFX",
+    "Hash": "{8BF45BBC-011D-63C0-4541-064D42EE3330}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\General\\Music",
+    "ShortName": "Music",
+    "Path": "Music.bnk",
+    "Media": [
+     {
+      "Id": "410796900",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Threat_MainTheme_120bpm_4-4_L17M_P1M.wav",
+      "CachePath": "1D/{1D24EF5B-D2A3-8742-B4B7-E6D8CBDA86B0}.wem"
+     },
+     {
+      "Id": "1003634684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DeathStinger_SFX.wav",
+      "CachePath": "29/{290B7FE2-3645-ACEE-4A92-D0DA224514D9}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1685309164",
+      "Name": "Play_Music_TitleScreen",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Play_Music_TitleScreen",
+      "GUID": "{7D5392B9-6DA6-4622-81C9-74B340056EF2}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "410796900"
+       }
+      ]
+     },
+     {
+      "Id": "940694589",
+      "Name": "Player_Health_Nothing",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Player_Health_Nothing",
+      "GUID": "{CFD51937-412E-4AE2-B166-F9B7AA91A40D}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.4553337",
+      "DurationMax": "5.4553337",
+      "MediaRefs": [
+       {
+        "Id": "1003634684"
+       }
+      ]
+     },
+     {
+      "Id": "2662133298",
+      "Name": "Stop_Music_TitleScreen",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Stop_Music_TitleScreen",
+      "GUID": "{3B44DDF0-0199-4D7F-83CE-998C9A87C907}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{52E5AB40-04E9-7823-275C-4676228DD52C}"
+ }
+}

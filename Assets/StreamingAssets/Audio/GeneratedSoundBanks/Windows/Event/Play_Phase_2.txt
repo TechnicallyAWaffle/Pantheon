@@ -1,0 +1,13 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1716267028	Play_Phase_2			\Default Work Unit\Play_Phase_2	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1984645640	Combat_Elegy			\Default Work Unit\Enemy 1\Combat_Elegy	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Combat_Elegy			
+	1073432751	Enemy_Defeat	Combat_Elegy			
+	1622949420	Phase_3	Combat_Elegy			
+	1622949421	Phase_2	Combat_Elegy			
+	1622949422	Phase_1	Combat_Elegy			
+

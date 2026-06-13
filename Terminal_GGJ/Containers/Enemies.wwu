@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E92730D6-80B6-490A-9A97-711298713ACB}" SchemaVersion="133" RootDocumentID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}" ParentDocumentID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}">
+	<Containers>
+		<WorkUnit Name="Enemies" ID="{E92730D6-80B6-490A-9A97-711298713ACB}" OwnerID="{2D885669-6C53-4397-A75D-E4EF7C878FE8}" PersistMode="Nested">
+			<ChildrenList>
+				<PropertyContainer Name="Enemies" ID="{17660FD9-4C33-4EBD-9824-D8AF2790CBFC}" ShortID="41892623">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02B45FA-7969-4DD3-9E76-FF5FD5ECD0A2}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F9F343CD-B0FC-4D35-A5DB-104E082E88CD}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<WorkUnit Name="Enemies_Elegy" ID="{806759E0-AF91-4CCC-8D41-329F6EB89853}" PersistMode="Reference"/>
+					</ChildrenList>
+				</PropertyContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</Containers>
+</WwiseDocument>

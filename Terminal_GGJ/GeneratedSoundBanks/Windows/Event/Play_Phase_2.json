@@ -1,0 +1,143 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "1716267028",
+    "Type": "Event",
+    "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
+    "Language": "SFX",
+    "Hash": "{98D13C72-BA80-7700-1974-F229390BA64A}",
+    "ObjectPath": "Play_Phase_2",
+    "ShortName": "Play_Phase_2",
+    "Path": "Event/Play_Phase_2.bnk",
+    "Media": [
+     {
+      "Id": "88217755",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "FirstThreat_Phase2_Layer2_189bpm_6-8_L32M.wav",
+      "Path": "Media/88217755.wem",
+      "CachePath": "7B/{7B9DBA18-0FBE-C7D0-D404-8BEB0F5AEF76}.wem"
+     },
+     {
+      "Id": "160026248",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "FirstThreat_Phase2_Layer1_189bpm_6-8_L32M.wav",
+      "Path": "Media/160026248.wem",
+      "CachePath": "7C/{7C66E950-345A-17D8-F078-4EC742CBD5F4}.wem"
+     },
+     {
+      "Id": "518367640",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "FirstThreat_Phase2Transition_189bpm_6-8_L2M.wav",
+      "Path": "Media/518367640.wem",
+      "CachePath": "85/{858FD044-7B61-6D02-6C1A-2E63B5B8E8C9}.wem"
+     },
+     {
+      "Id": "664061544",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "FirstThreat_Phase2_Layer4_189bpm_6-8_L32M.wav",
+      "Path": "Media/664061544.wem",
+      "CachePath": "8F/{8F4A5563-302A-0100-CA9A-C1B419190089}.wem"
+     },
+     {
+      "Id": "934364612",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "FirstThreat_Phase2_Layer3_189bpm_6-8_L16M.wav",
+      "Path": "Media/934364612.wem",
+      "CachePath": "A6/{A6BD0F36-1CE0-A285-97E0-DC0D8F7734D0}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1716267028",
+      "Name": "Play_Phase_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Phase_2",
+      "GUID": "{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "88217755"
+       },
+       {
+        "Id": "160026248"
+       },
+       {
+        "Id": "518367640"
+       },
+       {
+        "Id": "664061544"
+       },
+       {
+        "Id": "934364612"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1984645640",
+      "Name": "Combat_Elegy",
+      "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy",
+      "GUID": "{DBD84D91-D039-414E-9584-59127F5F6314}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\None",
+        "GUID": "{F98E4A10-6131-4043-8F03-B70777DB3A8A}"
+       },
+       {
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       },
+       {
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_3",
+        "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E425C980-3643-39AB-42D0-ABCB24CA9E1C}"
+ }
+}

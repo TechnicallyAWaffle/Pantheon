@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9B1C4F8E-4325-4D4A-996D-96BE5E10A8A1}" SchemaVersion="133">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{9B1C4F8E-4325-4D4A-996D-96BE5E10A8A1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Enemy 1" ID="{987B3E55-0967-4B49-84FD-02A3258B87F7}" ShortID="1019549940">
+					<ChildrenList>
+						<StateGroup Name="Combat_Elegy" ID="{DBD84D91-D039-414E-9584-59127F5F6314}">
+							<ChildrenList>
+								<State Name="None" ID="{F98E4A10-6131-4043-8F03-B70777DB3A8A}"/>
+								<State Name="Phase_1" ID="{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"/>
+								<State Name="Phase_2" ID="{58DDD811-58EB-4739-907B-750D79BC25D6}"/>
+								<State Name="Phase_3" ID="{01532B48-B442-405D-AE56-7343AF532187}"/>
+								<State Name="Enemy_Defeat" ID="{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"/>
+							</ChildrenList>
+						</StateGroup>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

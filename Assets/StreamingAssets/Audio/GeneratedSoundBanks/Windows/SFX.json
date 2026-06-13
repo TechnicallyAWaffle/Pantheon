@@ -1,0 +1,113 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "393239870",
+    "Type": "User",
+    "GUID": "{202625E7-2F37-46B5-8B01-23DF44909FFD}",
+    "Language": "SFX",
+    "Hash": "{A5453FBD-70DE-C6C2-9104-84E548D7C3C1}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\General\\SFX",
+    "ShortName": "SFX",
+    "Path": "SFX.bnk",
+    "Media": [
+     {
+      "Id": "72817402",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CommandKill_SFX.wav",
+      "CachePath": "A2/{A2FDA801-6EAB-90AF-9411-ADA921840F47}.wem"
+     },
+     {
+      "Id": "262196973",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CommandSuspend_SFX.wav",
+      "CachePath": "52/{52F577C7-3432-31E5-E289-317650621BE0}.wem"
+     },
+     {
+      "Id": "659755668",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "OptionSelect_SFX.wav",
+      "CachePath": "C5/{C5940EB8-BEB6-D5F5-234D-7BA6A80816ED}.wem"
+     },
+     {
+      "Id": "990910083",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CommandOpen_SFX.wav",
+      "CachePath": "A0/{A0513109-D8EE-4908-4A21-A3DB72385213}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2952433657",
+      "Name": "Command_Run_Kill",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Command_Run_Kill",
+      "GUID": "{FF8B5E58-FC68-4E99-BBE6-ABE5C9F9FBE0}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.75",
+      "DurationMax": "1.75",
+      "MediaRefs": [
+       {
+        "Id": "72817402"
+       }
+      ]
+     },
+     {
+      "Id": "932512573",
+      "Name": "Command_Run_Open",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Command_Run_Open",
+      "GUID": "{6EEB7360-7921-4BF2-8E36-E80932E0E74D}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.75",
+      "DurationMax": "1.75",
+      "MediaRefs": [
+       {
+        "Id": "990910083"
+       }
+      ]
+     },
+     {
+      "Id": "688867155",
+      "Name": "Command_Run_Suspend",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Command_Run_Suspend",
+      "GUID": "{F2C2EE5B-D074-4292-9868-1CB3D7D4D20D}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.75",
+      "DurationMax": "1.75",
+      "MediaRefs": [
+       {
+        "Id": "262196973"
+       }
+      ]
+     },
+     {
+      "Id": "1619619347",
+      "Name": "Play_Button_UI",
+      "ObjectPath": "\\Events\\Default Work Unit\\Title Screen\\Play_Button_UI",
+      "GUID": "{42389297-51E4-4F84-879C-E478A4630775}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8169578",
+      "DurationMax": "1.2240536",
+      "MediaRefs": [
+       {
+        "Id": "659755668"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{C5701F29-39A8-5CC3-6F25-0DC95AE374DA}"
+ }
+}

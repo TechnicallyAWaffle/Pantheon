@@ -3,7 +3,7 @@
   <CopySoundBanksAsPreBuildStep>true</CopySoundBanksAsPreBuildStep>
   <GenerateSoundBanksAsPreBuildStep>false</GenerateSoundBanksAsPreBuildStep>
   <WwiseStreamingAssetsPath>../StreamingAssets</WwiseStreamingAssetsPath>
-  <RootOutputPath>Audio/GeneratedSoundBanks/</RootOutputPath>
+  <RootOutputPath>StreamingAssets</RootOutputPath>
   <CreatedPicker>true</CreatedPicker>
   <CreateWwiseGlobal>true</CreateWwiseGlobal>
   <CreateWwiseListener>true</CreateWwiseListener>
@@ -12,8 +12,8 @@
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
   <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <WwiseInstallationPathMac>/Applications/Audiokinetic/Wwise_2025.1.8.9170/Wwise.app</WwiseInstallationPathMac>
-  <WwiseInstallationPathWindows />
-  <WwiseProjectPath>../../Terminal_GGJ/Terminal_GGJ.wproj</WwiseProjectPath>
+  <WwiseInstallationPathWindows>C:\Audiokinetic\Wwise_2025.1.8.9170</WwiseInstallationPathWindows>
+  <WwiseProjectPath>../Terminal_GGJ/Terminal_GGJ.wproj</WwiseProjectPath>
   <UseWaapi>true</UseWaapi>
   <WaapiPort>8080</WaapiPort>
   <WaapiIP>127.0.0.1</WaapiIP>

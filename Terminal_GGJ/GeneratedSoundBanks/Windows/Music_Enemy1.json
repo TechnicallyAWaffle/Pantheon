@@ -1,0 +1,296 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "3933681844",
+    "Type": "User",
+    "GUID": "{416A1D58-9AC0-49F9-A8B1-1A544D28A6A1}",
+    "Language": "SFX",
+    "Hash": "{4DB6A60F-8FB1-FB6B-2E31-FB4B2FEE37AE}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Local\\Music_Enemy1",
+    "ShortName": "Music_Enemy1",
+    "Path": "Music_Enemy1.bnk",
+    "Media": [
+     {
+      "Id": "9158009",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase1_Layer2_189bpm_6-8_L32M.wav",
+      "CachePath": "28/{28125B2C-79BA-C9E7-21F6-EFA187EFD133}.wem"
+     },
+     {
+      "Id": "36729177",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3Transition_189bpm_6-8_L16M.wav",
+      "CachePath": "73/{73E91C04-EE77-A67D-3A70-32CDD76AB6D3}.wem"
+     },
+     {
+      "Id": "88217755",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer2_189bpm_6-8_L32M.wav",
+      "CachePath": "7B/{7B9DBA18-0FBE-C7D0-D404-8BEB0F5AEF76}.wem"
+     },
+     {
+      "Id": "119097690",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase1_Layer1_189bpm_6-8_L32M.wav",
+      "CachePath": "9B/{9B424F83-FEF3-E173-679A-804DBCAA2ED5}.wem"
+     },
+     {
+      "Id": "160026248",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer1_189bpm_6-8_L32M.wav",
+      "CachePath": "7C/{7C66E950-345A-17D8-F078-4EC742CBD5F4}.wem"
+     },
+     {
+      "Id": "450512928",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3_Layer2_189bpm_6-8_L16M.wav",
+      "CachePath": "62/{62A13E1A-15B6-D77A-82C7-99ACB2295DB1}.wem"
+     },
+     {
+      "Id": "518367640",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2Transition_189bpm_6-8_L2M.wav",
+      "CachePath": "85/{858FD044-7B61-6D02-6C1A-2E63B5B8E8C9}.wem"
+     },
+     {
+      "Id": "664061544",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer4_189bpm_6-8_L32M.wav",
+      "CachePath": "8F/{8F4A5563-302A-0100-CA9A-C1B419190089}.wem"
+     },
+     {
+      "Id": "787503771",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3_Layer1_189bpm_6-8_L16M.wav",
+      "CachePath": "5E/{5E06B28E-CA42-A681-CD2D-487EDD67D76C}.wem"
+     },
+     {
+      "Id": "855859331",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Pre-Entry_189bpm_6-8_L3M.wav",
+      "CachePath": "AF/{AFCAB7C7-9AD8-F025-D249-3E27D4FBF858}.wem"
+     },
+     {
+      "Id": "887191092",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase1_Layer3_189bpm_6-8_L32M.wav",
+      "CachePath": "4B/{4BB562A0-163D-85C3-FD51-931831BA74B8}.wem"
+     },
+     {
+      "Id": "898747478",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_CombatEnd_189bpm_6-8_L2M.wav",
+      "CachePath": "E7/{E76C0021-7055-B844-2700-15CC71412D5C}.wem"
+     },
+     {
+      "Id": "934364612",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase2_Layer3_189bpm_6-8_L16M.wav",
+      "CachePath": "A6/{A6BD0F36-1CE0-A285-97E0-DC0D8F7734D0}.wem"
+     },
+     {
+      "Id": "1034965571",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FirstThreat_Phase3_Layer3_189bpm_6-8_L16M.wav",
+      "CachePath": "2E/{2E641F2A-9654-39E0-6F20-BB6CD4BACB0B}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3419910747",
+      "Name": "Play_Music_Enemy1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Elegy Music\\Play_Music_Enemy1",
+      "GUID": "{2428253D-1B52-4134-96B5-E1B62AF65A4F}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1984645640",
+         "Id": "1622949422",
+         "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "9158009"
+         },
+         {
+          "Id": "119097690"
+         },
+         {
+          "Id": "855859331"
+         },
+         {
+          "Id": "887191092"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1984645640",
+         "Id": "1622949421",
+         "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "88217755"
+         },
+         {
+          "Id": "160026248"
+         },
+         {
+          "Id": "518367640"
+         },
+         {
+          "Id": "664061544"
+         },
+         {
+          "Id": "934364612"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1984645640",
+         "Id": "1622949420",
+         "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "36729177"
+         },
+         {
+          "Id": "450512928"
+         },
+         {
+          "Id": "787503771"
+         },
+         {
+          "Id": "1034965571"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1984645640",
+         "Id": "1073432751",
+         "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "898747478"
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     },
+     {
+      "Id": "2014669969",
+      "Name": "Stop_Music_Enemy1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Elegy Music\\Stop_Music_Enemy1",
+      "GUID": "{71E35525-9F10-40EF-845F-08BD0BC1514F}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1984645640",
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1984645640",
+      "Name": "Combat_Elegy",
+      "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy",
+      "GUID": "{DBD84D91-D039-414E-9584-59127F5F6314}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\None",
+        "GUID": "{F98E4A10-6131-4043-8F03-B70777DB3A8A}"
+       },
+       {
+        "Id": "1073432751",
+        "Name": "Enemy_Defeat",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Enemy_Defeat",
+        "GUID": "{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}"
+       },
+       {
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_3",
+        "GUID": "{01532B48-B442-405D-AE56-7343AF532187}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_2",
+        "GUID": "{58DDD811-58EB-4739-907B-750D79BC25D6}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Enemy 1\\Combat_Elegy\\Phase_1",
+        "GUID": "{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{76B5E5A8-E99A-04A0-F48B-0C5BC665E46F}"
+ }
+}

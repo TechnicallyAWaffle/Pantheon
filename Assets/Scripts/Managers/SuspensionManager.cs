@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VisualScripting;
-using UnityEditor.U2D.Tooling.Analyzer;
 using UnityEngine;
 
 public class SuspensionManager : MonoBehaviour

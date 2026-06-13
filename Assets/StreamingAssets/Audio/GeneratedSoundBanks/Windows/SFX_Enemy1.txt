@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1225476372	Play_ServerReset			\Default Work Unit\Enemies\Elegy\Play_ServerReset	
+	4155857894	Enemy_Elegy_Hurt			\Default Work Unit\Enemies\Elegy\Enemy_Elegy_Hurt	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	114321686	ServerReset	.cache\07\{0798D3DD-F6C1-821D-1826-2FBFB06B6FDD}.wem		\Containers\Default Work Unit\SFX\World\Enemies\Enemies\Enemies_Elegy\Elegy\Server Reset\ServerReset		1309808
+	826237111	Elegy_Hurt	.cache\00\{00A0954A-9F05-BABD-31FF-1683494F5F54}.wem		\Containers\Default Work Unit\SFX\World\Enemies\Enemies\Enemies_Elegy\Elegy\Elegy_Hurt\Elegy_Hurt		192160
+

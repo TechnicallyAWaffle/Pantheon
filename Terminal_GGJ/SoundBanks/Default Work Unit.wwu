@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1F9B4AF2-7340-4688-983C-AF12E32E5BDC}" SchemaVersion="133">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{1F9B4AF2-7340-4688-983C-AF12E32E5BDC}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="General" ID="{BC3111DC-DCD8-45F6-801A-205460745A47}" ShortID="1073447931">
+					<ChildrenList>
+						<SoundBank Name="Music" ID="{DA867644-26A9-4D06-9333-B1CE7C5B4DA4}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>104857600</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Music_TitleScreen" ID="{7D5392B9-6DA6-4622-81C9-74B340056EF2}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Player_Health_Nothing" ID="{CFD51937-412E-4AE2-B166-F9B7AA91A40D}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Stop_Music_TitleScreen" ID="{3B44DDF0-0199-4D7F-83CE-998C9A87C907}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="SFX" ID="{202625E7-2F37-46B5-8B01-23DF44909FFD}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>104857600</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Command_Run_Suspend" ID="{F2C2EE5B-D074-4292-9868-1CB3D7D4D20D}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Command_Run_Open" ID="{6EEB7360-7921-4BF2-8E36-E80932E0E74D}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Command_Run_Kill" ID="{FF8B5E58-FC68-4E99-BBE6-ABE5C9F9FBE0}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Play_Button_UI" ID="{42389297-51E4-4F84-879C-E478A4630775}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Local" ID="{03588465-C32F-49C7-8A82-8F2FA4085765}" ShortID="1030163092">
+					<ChildrenList>
+						<SoundBank Name="Music_Enemy1" ID="{416A1D58-9AC0-49F9-A8B1-1A544D28A6A1}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>104857600</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Stop_Music_Enemy1" ID="{71E35525-9F10-40EF-845F-08BD0BC1514F}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Play_Music_Enemy1" ID="{2428253D-1B52-4134-96B5-E1B62AF65A4F}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="SFX_Enemy1" ID="{53848237-F8AC-4CB9-A71D-310DF69CBC47}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>104857600</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_ServerReset" ID="{75A7F3BF-D423-4412-808B-6042C3EAAD74}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Enemy_Elegy_Hurt" ID="{49881F4F-AAC4-4CF5-8513-00546C21992E}" WorkUnitID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

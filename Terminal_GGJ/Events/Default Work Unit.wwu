@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" SchemaVersion="133">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{E762DB5D-6409-44E5-B406-BC6D190142A3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Title Screen" ID="{3A491E6C-601B-4E15-AD94-00CD3AA6E7DB}" ShortID="43461118">
+					<ChildrenList>
+						<Event Name="Play_Music_TitleScreen" ID="{7D5392B9-6DA6-4622-81C9-74B340056EF2}">
+							<ChildrenList>
+								<Action Name="" ID="{CE575D31-DE29-4872-AABB-1B3F68241E65}" ShortID="201388644">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music_TitleScreen" ID="{AB0662D3-AAA2-4DB6-9E11-E5F99892C882}" WorkUnitID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Music_TitleScreen" ID="{3B44DDF0-0199-4D7F-83CE-998C9A87C907}">
+							<ChildrenList>
+								<Action Name="" ID="{69FE0FD2-F9B6-410D-91C2-16A58F6451F8}" ShortID="353516362">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music_TitleScreen" ID="{AB0662D3-AAA2-4DB6-9E11-E5F99892C882}" WorkUnitID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Button_UI" ID="{42389297-51E4-4F84-879C-E478A4630775}">
+							<ChildrenList>
+								<Action Name="" ID="{84720A43-F170-48F2-9A59-E19737AC909A}" ShortID="111497656">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Button UI" ID="{2ADEF439-DF88-47A0-9767-1FB247129A66}" WorkUnitID="{3C846E10-BC5D-4C2E-B3AB-356E8422CBA1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Elegy Music" ID="{14C645F4-91D3-4985-AA97-CBBA94CD0203}" ShortID="634913028">
+					<ChildrenList>
+						<Event Name="Play_Music_Enemy1" ID="{2428253D-1B52-4134-96B5-E1B62AF65A4F}">
+							<ChildrenList>
+								<Action Name="" ID="{7C06245E-B8C9-479B-8652-05113DC44965}" ShortID="749974896">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music_Enemy1" ID="{D8A77239-0E62-42E4-9117-714CB6D769E3}" WorkUnitID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{3D3C217D-B0B8-465D-8776-CA714156642E}" ShortID="865466733">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Phase_1" ID="{DBE205E3-8E6B-44C1-B6EF-BAB40CD7AA23}" WorkUnitID="{9B1C4F8E-4325-4D4A-996D-96BE5E10A8A1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Music_Enemy1" ID="{71E35525-9F10-40EF-845F-08BD0BC1514F}">
+							<ChildrenList>
+								<Action Name="" ID="{9FEE68FB-7E87-4F22-92F6-E99F15EADD33}" ShortID="332423829">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music_Enemy1" ID="{D8A77239-0E62-42E4-9117-714CB6D769E3}" WorkUnitID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0D7F6A38-D6FE-4730-B39E-58B123041AAD}" ShortID="73282220">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Defeat" ID="{5B1A2565-6142-4A10-A9B6-AAF330E7B6B6}" WorkUnitID="{9B1C4F8E-4325-4D4A-996D-96BE5E10A8A1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Enemies" ID="{F3007D87-4507-4A2F-A637-36BD4B0559D7}" ShortID="908085931">
+					<ChildrenList>
+						<Folder Name="Elegy" ID="{E08314EA-3CFA-4576-A4BA-E8A63B3024AA}" ShortID="696755480">
+							<ChildrenList>
+								<Event Name="Enemy_Elegy_Hurt" ID="{49881F4F-AAC4-4CF5-8513-00546C21992E}">
+									<ChildrenList>
+										<Action Name="" ID="{94A8170F-3A11-4579-83C1-BCBFA4253A17}" ShortID="51546425">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Elegy_Hurt" ID="{B9D9AE65-0501-4DE6-B2EE-ED0091321DAE}" WorkUnitID="{806759E0-AF91-4CCC-8D41-329F6EB89853}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_ServerReset" ID="{75A7F3BF-D423-4412-808B-6042C3EAAD74}">
+									<ChildrenList>
+										<Action Name="" ID="{C8E79C78-4D0F-4C40-A52F-07266510BA98}" ShortID="246889035">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ServerReset" ID="{AE58A6ED-75E8-4B12-90E0-B01773768AD7}" WorkUnitID="{806759E0-AF91-4CCC-8D41-329F6EB89853}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Player" ID="{D8C4E23A-81A6-42DF-BA75-65091BF9419B}" ShortID="81759040">
+					<ChildrenList>
+						<Event Name="Command_Run_Kill" ID="{FF8B5E58-FC68-4E99-BBE6-ABE5C9F9FBE0}">
+							<ChildrenList>
+								<Action Name="" ID="{1B22E854-FFE1-4445-8F93-FE042C20A653}" ShortID="556108206">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Run_Kill" ID="{E5371020-495A-4F06-8370-0D08DBEF1960}" WorkUnitID="{7774E5F8-A3CA-44E6-AEB4-D97368EEA868}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Command_Run_Open" ID="{6EEB7360-7921-4BF2-8E36-E80932E0E74D}">
+							<ChildrenList>
+								<Action Name="" ID="{B3134F91-0D09-498D-AC3B-224B9D551345}" ShortID="674099447">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Run_Open" ID="{F8C0439D-2904-4749-911E-0AD720D83DF0}" WorkUnitID="{7774E5F8-A3CA-44E6-AEB4-D97368EEA868}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Command_Run_Suspend" ID="{F2C2EE5B-D074-4292-9868-1CB3D7D4D20D}">
+							<ChildrenList>
+								<Action Name="" ID="{8C6768D5-3F7F-404D-9041-FD2A9A9202C7}" ShortID="975083711">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Run_Suspend" ID="{3F49BB1A-C651-4147-AA66-980424F52A01}" WorkUnitID="{7774E5F8-A3CA-44E6-AEB4-D97368EEA868}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Player_Health_Nothing" ID="{CFD51937-412E-4AE2-B166-F9B7AA91A40D}">
+							<ChildrenList>
+								<Action Name="" ID="{E3787163-FC87-4DF0-85B8-BC821AB8E8BC}" ShortID="639797629">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Death Stinger" ID="{F3D69B47-68ED-448B-B74B-2E6644DA9C2D}" WorkUnitID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Play_Phase_2" ID="{025AC0F8-3945-4C4A-8D3E-10C4A3E3FDF4}">
+					<ChildrenList>
+						<Action Name="" ID="{2CEE0974-E65E-4609-98F5-FD8BFC6802D5}" ShortID="915385049">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Phase 2" ID="{41764E00-6232-4BFA-ABE7-96870640ABE3}" WorkUnitID="{F1DE6FA5-2389-4957-9BD7-F39DAC9B338B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E5206C17-03AE-4BA3-82BA-D9BD9EA7D62F}" ShortID="468075685">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Phase_2" ID="{58DDD811-58EB-4739-907B-750D79BC25D6}" WorkUnitID="{9B1C4F8E-4325-4D4A-996D-96BE5E10A8A1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
