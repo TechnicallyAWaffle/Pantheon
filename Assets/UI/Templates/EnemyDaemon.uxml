@@ -1,0 +1,15 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
+    <ui:VisualElement name="Panel" style="flex-grow: 1; align-self: center; align-content: center; width: 100%; height: 100%; justify-content: space-around; align-items: stretch;">
+        <ui:VisualElement name="Header" style="flex-grow: 1; flex-direction: row-reverse; max-height: 60%; height: 60%; min-height: 60%; justify-content: flex-end; align-items: flex-end; align-self: center; width: 100%; max-width: 100%; min-width: 100%;">
+            <ui:VisualElement name="Text" style="flex-direction: column-reverse; justify-content: flex-start; align-items: auto;">
+                <ui:Label text="+1 UI Design" name="DaemonDescription" class="enemy-body-real" style="-unity-text-align: middle-left;"/>
+                <ui:Label text="OCCIPITAL.DLL" name="DaemonName" class="enemy-body-real" style="-unity-text-align: middle-left;"/>
+            </ui:VisualElement>
+            <ui:Image source="project://database/Assets/UI/misc%20(icons,%20buttons,%20imagery)/logo_other_orange.png?fileID=2800000&amp;guid=7fbdf6fc6ede8ad4b83d2be55bd467c2&amp;type=3#logo_other_orange" name="Icon" scale-mode="ScaleToFit" style="aspect-ratio: 1; width: 20%; height: 20%;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Footer" style="flex-grow: 1; width: 80%; align-items: stretch; justify-content: flex-start; align-self: flex-end;">
+            <ui:ProgressBar value="22" title="" name="EnemyProgressBar" class="enemy-progress-bar"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
