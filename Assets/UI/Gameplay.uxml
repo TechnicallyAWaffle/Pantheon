@@ -1,10 +1,15 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="EnemyDaemon" src="project://database/Assets/UI/Templates/EnemyDaemon.uxml?fileID=9197481963319205126&amp;guid=edca549d41763d34abae07c12b8d5fac&amp;type=3#EnemyDaemon"/>
+    <ui:Template name="PlayerDaemon" src="project://database/Assets/UI/Templates/PlayerDaemon.uxml?fileID=9197481963319205126&amp;guid=96fb3d0c3c1af62488b1f26d0e24b46e&amp;type=3#PlayerDaemon"/>
     <ui:Template name="PlayerServerProcess" src="project://database/Assets/UI/Templates/PlayerServerProcess.uxml?fileID=9197481963319205126&amp;guid=2e3203da69232a4408d2a2e4b0e973e4&amp;type=3#PlayerServerProcess"/>
     <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
     <ui:VisualElement name="Window" class="panel" style="flex-grow: 1; flex-basis: auto; align-items: center; width: 99%; height: 98%; -unity-slice-scale: 0.2px; background-image: url(&quot;project://database/Assets/UI/Textures/Generic/box_window.png?fileID=2800000&amp;guid=6940f0227c566d74f8d5f557259b0149&amp;type=3#box_window&quot;); -unity-slice-top: 209; -unity-slice-left: 34; -unity-slice-right: 34; -unity-slice-bottom: 34; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; min-width: 99%; min-height: 98%; max-width: 99%; max-height: 98%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-slice-type: sliced; align-self: center; top: 1%;">
         <ui:VisualElement name="TopBar" style="flex-grow: 1; flex-direction: row; min-width: 100%; min-height: 3.5%; max-height: 3.7%;">
-            <ui:Image source="project://database/Assets/UI/misc%20(icons,%20buttons,%20imagery)/button_back_2Xsize.png?fileID=2800000&amp;guid=f67d9f4a5324f434d9b22c3f41d95d3f&amp;type=3#button_back_2Xsize" name="BackIcon" style="align-self: flex-start; width: 38px; padding-right: 0; max-height: 100%; min-height: auto; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px; min-width: 3%;"/>
+            <ui:Image source="project://database/Assets/UI/misc%20(icons,%20buttons,%20imagery)/button_back_2Xsize.png?fileID=2800000&amp;guid=f67d9f4a5324f434d9b22c3f41d95d3f&amp;type=3#button_back_2Xsize" name="BackIcon" style="align-self: flex-start; width: 38px; padding-right: 0; max-height: 100%; min-height: auto; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px; min-width: 3%; align-content: center; align-items: flex-start; justify-content: flex-end;"/>
             <ui:Label text="PERIPHERAL_NODE_001" name="WindowText" class="header" style="top: 0; left: 0; align-self: flex-start; font-size: 22%; -unity-text-align: middle-left; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_Amstrad_PC.ttf?fileID=12800000&amp;guid=73bf2caab17f78045b5efd28483d3a8a&amp;type=3#Ac437_Amstrad_PC&quot;); translate: 3% 0; width: 353px;"/>
+            <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse;">
+                <ui:Image source="project://database/Assets/UI/misc%20(icons,%20buttons,%20imagery)/button_x_2Xsize.png?fileID=2800000&amp;guid=f165979a6f5caee428cc180872764a4f&amp;type=3#button_x_2Xsize" name="CloseIcon" style="align-self: flex-end; width: 38px; padding-right: 0; max-height: 100%; min-height: auto; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px; min-width: 3%; align-content: center; align-items: flex-start; justify-content: flex-end;"/>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Gameplay" style="flex-grow: 1; max-width: 100%; max-height: 100%; flex-direction: row; align-items: stretch; justify-content: flex-start; align-self: stretch;">
             <ui:VisualElement name="Player" style="flex-grow: 1; max-height: 100%; min-height: 70%; width: auto; height: auto; min-width: 0%; max-width: 33%;">
@@ -29,7 +34,13 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
+                <ui:VisualElement name="Daemons" style="flex-grow: 1; align-items: auto; justify-content: flex-end; flex-direction: column-reverse;">
+                    <ui:VisualElement name="Empty" style="flex-grow: 1; align-self: flex-end; align-content: flex-end; min-height: 32%; min-width: 100%; max-height: 32%; flex-direction: row; max-width: 100%;"/>
+                    <ui:Instance template="PlayerDaemon" name="TemplateContainer"/>
+                    <ui:Instance template="PlayerDaemon" name="TemplateContainer"/>
+                    <ui:Instance template="PlayerDaemon" name="TemplateContainer"/>
+                    <ui:Instance template="PlayerDaemon" name="TemplateContainer"/>
+                </ui:VisualElement>
                 <ui:VisualElement name="PlayerResources" style="flex-grow: 1; max-height: 15%; flex-direction: row;">
                     <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center; min-width: 20%;">
                         <ui:Label text="45" name="PlayerComputeNumber" data-source-type="ProcessQueue, Assembly-CSharp" data-source-path="" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(128, 209, 165);">
@@ -132,7 +143,13 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Daemons" style="flex-grow: 1;"/>
+                <ui:VisualElement name="EnemyDaemons" style="flex-grow: 1; align-items: flex-start; justify-content: flex-end; flex-direction: column-reverse;">
+                    <ui:VisualElement name="Empty" style="flex-grow: 1; align-self: flex-end; align-content: flex-end; min-height: 32%; min-width: 100%; max-height: 32%; flex-direction: row; max-width: 100%;"/>
+                    <ui:Instance template="EnemyDaemon"/>
+                    <ui:Instance template="EnemyDaemon"/>
+                    <ui:Instance template="EnemyDaemon"/>
+                    <ui:Instance template="EnemyDaemon"/>
+                </ui:VisualElement>
                 <ui:VisualElement name="EnemyResources" style="flex-grow: 1; max-height: 15%; flex-direction: row-reverse;">
                     <ui:VisualElement name="Compute" style="flex-grow: 1; max-width: 20%; align-self: center; min-width: 20%;">
                         <ui:Label text="45" name="EnemyComputeNumber" class="compute" style="font-size: 52px; -unity-text-align: upper-center; color: rgb(249, 146, 9);">

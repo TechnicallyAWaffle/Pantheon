@@ -278,14 +278,27 @@
     background-color: rgb(60, 30, 0);
 }
 
-
-
 #EnemyServerProcess .unity-progress-bar__progress {
     background-color: rgb(249, 146, 9);
 }
 
-
-
 #EnemyServerProcess .unity-progress-bar__background {
     background-color: rgb(60, 30, 0);
+}
+
+.enemy-body-real {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&guid=67fc1b1210bc8a040bff1f6ff10f2e0a&type=3#Ac437_MBytePC230_CGA");
+    color: rgb(249, 146, 9);
+    -unity-text-align: middle-center;
+}
+
+#EnemyProgressBar .unity-progress-bar__progress {
+    background-color: rgb(249, 146, 9);
+}
+
+#EnemyProgressBar .unity-progress-bar__background {
+    background-color: rgb(60, 30, 0);
+}
+
+.enemy-progress-bar {
 }
