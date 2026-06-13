@@ -117,7 +117,7 @@ public class ProcessQueue : MonoBehaviour
         foreach (RunningProcess process in queue)
         {
             //Skip over counting down time if process is suspended
-            if (!process.isSuspended)
+            if (!process.isSuspended || process.executed)
             {
                 process.timeRemaining -= Time.deltaTime;
             }

@@ -19,6 +19,6 @@ MonoBehaviour:
   encryption: 0
   enterprise: 0
   processObject: {fileID: 4320005509813805674, guid: 520a65bc6b675864fa8480a276af89ce, type: 3}
-  removedWhenExecuted: 1
+  removedWhenExecuted: 0
   threatLevel: 0
   arguments: 01000000

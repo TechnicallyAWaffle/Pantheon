@@ -6,7 +6,7 @@ public class SuspendProcess : ProcessBase
     {
         ITargetable targetToSuspend = GameManager.AllRunningProcessesByID[arguments[0]];
 
-        if (owner.authority > targetToSuspend.Encryption)
+        if (owner.authority > targetToSuspend.Encryption || owner == targetToSuspend.Owner)
             GameManager.SuspendProcessOrDaemon(targetToSuspend, () => false, runtimeProcessData);
         else
             referenceManager.terminalUIManager.Print("AUTHORIZATION ERROR: Access to process decryption hash denied");

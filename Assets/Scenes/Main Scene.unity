@@ -1002,7 +1002,7 @@ MonoBehaviour:
   processManager: {fileID: 1176176996}
   queueManager: {fileID: 906591921}
   daemonManager: {fileID: 1643238844}
-  suspensionManager: {fileID: 0}
+  suspensionManager: {fileID: 2004937280}
   player: {fileID: 1910080314}
   opponent: {fileID: 1586301206}
   serverProcessQueue: {fileID: 1510904592}
