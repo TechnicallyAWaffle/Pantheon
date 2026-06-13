@@ -166,7 +166,7 @@ public class ServerProcessesUI : MonoBehaviour
             LogoElement = instance.Q<Image>("Logo"),
             ProgressBar = instance.Q<ProgressBar>("ProgressBar"),
             // Use the properties so the UI reflects the initial values
-            CommandName = proc.data.processName,
+            CommandName = $"{proc.data.processName}_{proc.Identifier}",
             // TODO: set logo for proc
             Progress = 0f
         };

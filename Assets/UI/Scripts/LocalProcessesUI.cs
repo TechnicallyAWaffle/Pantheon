@@ -135,7 +135,7 @@ public class LocalProcessesUI : MonoBehaviour
             CommandNameLabel = instance.Q<Label>("CommandName"),
             LogoElement = instance.Q<Image>("Logo"),
             ProgressBar = instance.Q<ProgressBar>("ProgressBar"),
-            CommandName = proc.data.processName,
+            CommandName = $"{proc.data.processName}_{proc.Identifier}",
             Progress = 0f
         };
 
