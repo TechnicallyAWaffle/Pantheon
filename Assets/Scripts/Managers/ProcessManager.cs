@@ -189,8 +189,8 @@ public class ProcessManager : MonoBehaviour
 
     public void RemoveAndCleanupProcess(string processID)
     {
-        WriteDebug("Removing process with ID" + processID);
         RunningProcess process = GameManager.AllRunningProcessesByID[processID];
+        WriteDebug("Removing process" + process.data.processName + " with ID " + processID);
         process.script.OnKilled();
         process.queue.queue.Remove(process);
         process.owner.ownedProcesses.Remove(process);

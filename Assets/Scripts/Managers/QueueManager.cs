@@ -58,7 +58,6 @@ public class QueueManager : MonoBehaviour
         WriteDebug("Process " + runningProcessInstance.data.processName + 
             " execution time lowered to " + runningProcessInstance.timeRemaining + " from " + process.baseExecutionTime);
 
-
         //Modify available memory
         owner.ModifyAvailableMemory(runningProcessInstance, queueObject, -runningProcessInstance.memoryUsed);
 

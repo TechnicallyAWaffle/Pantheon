@@ -33,7 +33,7 @@ public static class GameManager
             if (daemon.isRevealed)
                 DaemonManager.KillDaemon(daemon);
             else
-                //print error
+                ReferenceManager.Instance.terminalUIManager.Print("AUTH ERROR: DAEMON address cannot be found");
                 return;
         }
     }
@@ -41,8 +41,9 @@ public static class GameManager
     public static void SuspendProcessOrDaemon(ITargetable target, Func<bool> condition, RunningProcess suspender)
     {
         if (target is DaemonBase daemon && !daemon.isRevealed)
-        { 
-            //print error
+        {
+            ReferenceManager.Instance.terminalUIManager.Print("AUTH ERROR: DAEMON address cannot be found");
+            return;
         }
         ReferenceManager.Instance.suspensionManager.Suspend(target, condition, suspender);
     }
