@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
   processName: kill
   description: You're not supposed to be seeing this
-  baseExecutionTime: 10
+  baseExecutionTime: 15
   memoryUsage: 10
   encryption: 0
   enterprise: 0

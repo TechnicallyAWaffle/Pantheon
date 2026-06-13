@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
   processName: formatsandbox
   description: 'Suspends the target for 15 seconds. '
-  baseExecutionTime: 11
+  baseExecutionTime: 13
   memoryUsage: 11
   encryption: 3
   enterprise: 3

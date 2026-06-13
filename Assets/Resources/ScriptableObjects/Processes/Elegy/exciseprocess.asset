@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
   processName: excise
   description: "Performs a search for a user\u2019s daemon. "
-  baseExecutionTime: 13
+  baseExecutionTime: 16
   memoryUsage: 3
   encryption: 2
   enterprise: 4

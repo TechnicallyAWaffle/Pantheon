@@ -15,7 +15,7 @@ MonoBehaviour:
   processName: 02acquisition
   description: 'Reserves 5 memory or compute on the server, whichever the user has
     less of at the time of execution. '
-  baseExecutionTime: 5
+  baseExecutionTime: 14
   memoryUsage: 3
   encryption: 0
   enterprise: 0
