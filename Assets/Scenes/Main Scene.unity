@@ -2649,8 +2649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
   owner: {fileID: 1586301206}
   queueName: 
-  startingMemory: 15
-  startingCompute: 15
+  startingMemory: 5
+  startingCompute: 5
   _openMemory: 0
   _openCompute: 0
   queue: []
@@ -2886,8 +2886,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProcessQueue
   owner: {fileID: 1910080314}
   queueName: 
-  startingMemory: 15
-  startingCompute: 15
+  startingMemory: 5
+  startingCompute: 5
   _openMemory: 0
   _openCompute: 0
   queue: []
