@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -22,6 +23,12 @@ public class CommandLine : MonoBehaviour
 
         _inputField.RegisterCallback<KeyDownEvent>(OnKeyDown, TrickleDown.TrickleDown);
         _inputField.RegisterValueChangedCallback(OnInputChanged);
+
+        _inputField.RegisterCallback<FocusOutEvent>(evt =>
+        {
+            // Re-schedule to next frame to avoid focus conflicts
+            _inputField.schedule.Execute(() => _inputField.Focus());
+        });
     }
 
     private void OnDisable()
@@ -32,6 +39,7 @@ public class CommandLine : MonoBehaviour
 
     void Start()
     {
+        _inputField.Focus();
         ShowConsoleOutput();
     }
 
