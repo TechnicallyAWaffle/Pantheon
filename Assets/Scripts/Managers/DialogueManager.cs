@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        inputField.onSubmit.AddListener(OnSubmit);
+        //inputField.onSubmit.AddListener(OnSubmit);
         StartCoroutine(RunDialogueSegment(introDialogue));
     }
 
@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         //LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
         //scrollRect.verticalNormalizedPosition = 0f; // 0 is bottom, 1 is top
 
-        StartCoroutine(Scroll());
+        //StartCoroutine(Scroll());
 
     }
 
@@ -101,7 +101,7 @@ public IEnumerator RunDialogueSegment(SODialogueSequence dialogue)
                     break;
                 case DialogueEntryType.InputPrompt:
                     Instantiate(userInputPrefab, commandLineContainer.transform);
-                    inputField.ActivateInputField();
+                    //inputField.ActivateInputField();
                     currentCorrectInput = entry.inputPrompt.correctInput;
                     yield return new WaitUntil(() => inputSubmitted != string.Empty);
                     if (inputSubmitted != currentCorrectInput)

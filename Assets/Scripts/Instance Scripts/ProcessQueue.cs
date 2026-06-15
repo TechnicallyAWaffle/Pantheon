@@ -54,9 +54,6 @@ public class ProcessQueue : MonoBehaviour
         player = referenceManager.player;
         opponent = referenceManager.opponent;
 
-        GlobalEventBus.OnMemoryRequested += UpdateOpenMemory;
-        GlobalEventBus.OnComputeRequested += UpdateOpenCompute;
-
         currentTime = timeBetweenServerResets;
         if (owner)
             queueName = owner.name + "LOCAL QUEUE";
@@ -80,6 +77,9 @@ public class ProcessQueue : MonoBehaviour
             player.RelinquishServerCompute(resourcesWiped);
             opponent.RelinquishServerMemory(resourcesWiped);
             opponent.RelinquishServerCompute(resourcesWiped);
+            WriteDebug("SERVER RESET. New server resource values: " +
+                "Player(Memory = " + player.reservedServerMemory + ", Compute = " + player.reservedServerCompute + ")"
+                + " Enemy(Memory = " + opponent.reservedServerMemory + ", Compute = " + opponent.reservedServerCompute + ")");
             Debug.Log(currentTime);
             GlobalEventBus.SchedulerReset();
         }
@@ -87,16 +87,6 @@ public class ProcessQueue : MonoBehaviour
             currentTime -= Time.deltaTime;
     }
 
-
-    private void UpdateOpenMemory(Entity entity, int amountGiven)
-    {
-        _openMemory -= amountGiven;
-    }
-
-    private void UpdateOpenCompute(Entity entity, int amountGiven)
-    {
-        _openMemory -= amountGiven;
-    }
 
 
     private IEnumerator TickQueue()

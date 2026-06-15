@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public static class GameManager
 {
+    //Static global vars
+    public static bool inCombat = false;
+
     //This tracks every single running process instance by their processID
     public static Dictionary<string, RunningProcess> AllRunningProcessesByID = new();
 
@@ -27,14 +30,16 @@ public static class GameManager
     public static void KillProcessOrDaemon(ITargetable target)
     {
         if (target is RunningProcess process)
+        {
             process.queue.processesToRemove.Add(process);
+        }
         else if (target is DaemonBase daemon)
         {
             if (daemon.isRevealed)
                 DaemonManager.KillDaemon(daemon);
             else
                 ReferenceManager.Instance.terminalUIManager.Print("AUTH ERROR: DAEMON address cannot be found");
-                return;
+            return;
         }
     }
 

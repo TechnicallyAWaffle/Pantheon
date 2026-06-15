@@ -58,6 +58,7 @@ public class CommandManager : MonoBehaviour
                 { "ping",   args => CmdPing(args)   },
                 { "overclock",   args => CmdOverclock(args)   },
                 { "kingme",   args => CmdKingMe(args)   },
+                { "cd", args => CmdChangeDirectory(args)}
             };
     }
 
@@ -210,6 +211,11 @@ public class CommandManager : MonoBehaviour
 
     void CmdPing(string[] args)
     { 
+    }
+
+    void CmdChangeDirectory(string[] args)
+    { 
+    
     }
 
     void CmdOverclock(string[] args) { }

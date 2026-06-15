@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Properties;
+using UnityEditor.UI;
 
 public class Entity : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Entity : MonoBehaviour
     public int reservedServerCompute = 0;
     public float AvailableLocalMemoryField;
     public float AvailableServerMemoryField;
+
+    public List<SOProcessData> processesInInventory;
 
     [CreateProperty]
     public ModVar AvailableLocalMem => availableLocalMemory;
@@ -37,6 +40,7 @@ public class Entity : MonoBehaviour
     private void Update()
     {
         AvailableLocalMemoryField = availableLocalMemory.Value;
+        WriteDebug("AHHHHHHHHHH" + AvailableLocalMemoryField);
         AvailableServerMemoryField = availableServerMemory.Value;
     }
 
@@ -86,16 +90,19 @@ public class Entity : MonoBehaviour
 
     public void ModifyAvailableMemory(ITargetable source, ProcessQueue queue, int incomingValue)
     {
-        WriteDebug("Adding modifier for busy memory of " + gameObject.name + " with value: " + incomingValue);
         if (queue == serverProcessQueue)
         {
             availableServerMemory.CreateAddMod(source, incomingValue);
-            //WriteDebug("New Server Value: " + busyServerMemory);
+            WriteDebug("Modfying available server memory of: "
+            + gameObject.name + " by " + incomingValue +
+            ". Available Memory: " + this.availableServerMemory.Value + " / " + this.reservedServerMemory);
         }
         else
         {
             availableLocalMemory.CreateAddMod(source, incomingValue);
-            //WriteDebug("New Local Value: " + busyLocalMemory);
+            WriteDebug("Modfying available local memory of: "
+            + gameObject.name + " by " + incomingValue +
+            ". Available Memory: " + this.availableLocalMemory.Value + " / " + this.localProcessQueue._openMemory);
         }
     }
 
@@ -109,6 +116,12 @@ public class Entity : MonoBehaviour
         {
             availableLocalMemory.RemoveAddMod(source);
         }
+    }
+
+    public void ChangeOpenLocalMemory(int value)
+    {
+        this.localProcessQueue._openMemory += value;
+        availableLocalMemory.BaseValue += value;
     }
 
 
@@ -171,7 +184,7 @@ public class Entity : MonoBehaviour
 
     private void WriteDebug(string message)
     {
-        UnityEngine.Debug.Log("<color=orange>ENTITY: " + message);
+        UnityEngine.Debug.Log("<color=orange>ENTITY " + gameObject.name + ": " + message);
     }
 
 }

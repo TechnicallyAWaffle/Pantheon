@@ -17,12 +17,14 @@ public class ProcessBase : MonoBehaviour
     {
         isExecuted = true;
         if (runtimeProcessData.data.removedWhenExecuted)
+        {
             GameManager.KillProcessOrDaemon(runtimeProcessData);
+        }
     }
 
     public virtual void OnKilled()
     {
-        Debug.Log("Releasing " + runtimeProcessData.memoryUsed + " busy memory");
+        WriteDebug("Releasing " + runtimeProcessData.memoryUsed + " busy memory to " + runtimeProcessData.owner);
         runtimeProcessData.owner.RemoveAvailableMemoryMod(runtimeProcessData, runtimeProcessData.queue);
     }
 
@@ -40,4 +42,10 @@ public class ProcessBase : MonoBehaviour
     {
         if (!isExecuted || runtimeProcessData.isSuspended) return;
     }
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=#d5ebc5>Process " + runtimeProcessData.data.processName + ": " + message);
+    }
+
 }

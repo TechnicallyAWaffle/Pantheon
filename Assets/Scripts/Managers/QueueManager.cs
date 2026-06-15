@@ -37,7 +37,7 @@ public class QueueManager : MonoBehaviour
         //Add the process and its ID to the global process lookup dictionary
         runningProcessInstance.processID = GameManager.GenerateRandomID();
         GameManager.AllRunningProcessesByID.Add(runningProcessInstance.processID, runningProcessInstance);
-        WriteDebug("Adding process with ID " + runningProcessInstance.processID);
+        WriteDebug("Adding process" + process.processName + " with ID " + runningProcessInstance.processID);
 
         //Moves all the data from the scriptableobject to the new live RunningProcess instance
         runningProcessInstance.memoryUsed = process.memoryUsage;

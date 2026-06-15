@@ -6,24 +6,24 @@ public class LocalMemoryDaemon : DaemonBase
 
     private void Start()
     {
-        owner.localProcessQueue._openMemory += 5;
+        owner.ChangeOpenLocalMemory(memoryGained);
     }
 
     public override void OnSuspension()
     {
         base.OnSuspension();
-        owner.localProcessQueue._openMemory -= memoryGained;
+        owner.ChangeOpenLocalMemory(-memoryGained);
     }
 
     public override void OnSuspensionLifted()
     {
         base.OnSuspensionLifted();
-        owner.localProcessQueue._openMemory += memoryGained;
+        owner.ChangeOpenLocalMemory(memoryGained);
     }
 
     public override void OnKilled()
     {
-        owner.localProcessQueue._openMemory -= memoryGained;
+        owner.ChangeOpenLocalMemory(-memoryGained);
         base.OnKilled();
     }
 

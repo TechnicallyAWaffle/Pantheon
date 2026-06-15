@@ -82,7 +82,7 @@ public class DaemonBase : MonoBehaviour, ITargetable
 
     private void WriteDebug(string message)
     {
-        UnityEngine.Debug.Log("<color=white>DAEMON: " + message);
+        UnityEngine.Debug.Log("<color=#eef0d3>DAEMON: " + message);
     }
 
 
