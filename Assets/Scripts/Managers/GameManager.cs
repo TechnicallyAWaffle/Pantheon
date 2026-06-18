@@ -29,6 +29,8 @@ public static class GameManager
 
     public static void KillProcessOrDaemon(ITargetable target)
     {
+        if (target == null)
+            return;
         if (target is RunningProcess process)
         {
             process.queue.processesToRemove.Add(process);

@@ -15,7 +15,7 @@ MonoBehaviour:
   processName: hailmary
   description: "Randomly kills one of the player\u2019s daemons and grants 50 local
     memory and compute for the rest of the battle."
-  baseExecutionTime: 25
+  baseExecutionTime: 27
   memoryUsage: 0
   encryption: 5
   enterprise: 3

@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Properties;
-using UnityEditor.UI;
 
 public class Entity : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class Entity : MonoBehaviour
     public int authority;
     public int ReservedServerMemory => reservedServerMemory;
     public int reservedServerMemory = 0;
+    [CreateProperty]
     public int ReservedServerCompute => reservedServerCompute;
     public int reservedServerCompute = 0;
     public float AvailableLocalMemoryField;
@@ -40,7 +40,6 @@ public class Entity : MonoBehaviour
     private void Update()
     {
         AvailableLocalMemoryField = availableLocalMemory.Value;
-        WriteDebug("AHHHHHHHHHH" + AvailableLocalMemoryField);
         AvailableServerMemoryField = availableServerMemory.Value;
     }
 
@@ -129,6 +128,7 @@ public class Entity : MonoBehaviour
     {
         int actual = Mathf.Min(incomingValue, serverProcessQueue._openMemory);
         serverProcessQueue._openMemory -= actual;
+        reservedServerMemory += actual;
         availableServerMemory.BaseValue += actual;
         WriteDebug(name + " requesting " + incomingValue +" server memory. Got: " + actual + ". New Value: " + availableServerMemory.BaseValue);
     }
@@ -138,6 +138,8 @@ public class Entity : MonoBehaviour
         int actual = Mathf.Min(incomingValue, reservedServerMemory);
         serverProcessQueue._openMemory += actual;
         availableServerMemory.BaseValue -= actual;
+        WriteDebug(name + " relinquishing " + incomingValue + " server memory. Returned: " 
+            + actual + ". New Value: " + availableServerMemory.BaseValue);
     }
 
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   processName: 02acquisition
   description: 'Reserves 5 memory or compute on the server, whichever the user has
     less of at the time of execution. '
-  baseExecutionTime: 14
-  memoryUsage: 3
+  baseExecutionTime: 16
+  memoryUsage: 5
   encryption: 0
   enterprise: 0
   processObject: {fileID: 8580729837077960612, guid: 3cd08a509dcbb724fac7b70f13dc4cff, type: 3}

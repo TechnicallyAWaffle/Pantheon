@@ -37,7 +37,7 @@ public class QueueManager : MonoBehaviour
         //Add the process and its ID to the global process lookup dictionary
         runningProcessInstance.processID = GameManager.GenerateRandomID();
         GameManager.AllRunningProcessesByID.Add(runningProcessInstance.processID, runningProcessInstance);
-        WriteDebug("Adding process" + process.processName + " with ID " + runningProcessInstance.processID);
+        WriteDebug("Adding process " + process.processName + " with ID " + runningProcessInstance.processID);
 
         //Moves all the data from the scriptableobject to the new live RunningProcess instance
         runningProcessInstance.memoryUsed = process.memoryUsage;
@@ -62,7 +62,7 @@ public class QueueManager : MonoBehaviour
         owner.ModifyAvailableMemory(runningProcessInstance, queueObject, -runningProcessInstance.memoryUsed);
 
         //Fire global events. If the entity is the player, fire the associated event (this is for AI behaviour
-        GlobalEventBus.ProcessQueued(runningProcessInstance, owner);
+        GlobalEventBus.ProcessQueued(runningProcessInstance);
         if (owner == referenceManager.player)
             GlobalEventBus.PlayerQueuedProcess(runningProcessInstance);
         if (runningProcessInstance.data.processName == "kill")
@@ -101,9 +101,8 @@ public class QueueManager : MonoBehaviour
 
     private float CalculateExecutionTimeBasedOnCompute(float executionTime, float compute)
     {
-        float finalValue = executionTime * (100 / (100 + compute));
-        Debug.Log("adflmaldkfmaldfasdfdsf" + finalValue);
-        return finalValue;
+        float finalValue = executionTime * (75 / (100 + compute));
+        return Mathf.Round(finalValue);
     }
 
     public void RecalculateProcessExecutionTimes(Entity entity, int newCompute)

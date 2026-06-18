@@ -66,15 +66,16 @@ public class ProcessManager : MonoBehaviour
         //Argument at index 0 is the processname
         SOProcessData processData = GetProcessByName(args[0]);
 
-        if (processData.processName == "kill" || processData.processName == "suspend")            //TODO: SHITASS IMPLEMENTATION
-            isBaseProcess = true;
-
         if (processData == null)
         {
             WriteDebug("Process " + args[0] + " not found");
             terminalUIManager.Print("Process " + args[0] + " not recognized");
             return;
         }
+
+        if (processData.processName == "kill" || processData.processName == "suspend")            //TODO: SHITASS IMPLEMENTATION
+            isBaseProcess = true;
+
 
         int memoryUsage = processData.memoryUsage;
         if (isServer)
@@ -119,6 +120,12 @@ public class ProcessManager : MonoBehaviour
         if (!ValidateFlags(argsList.ToArray(), processData))
         {
             string errorMessageArguments = string.Empty;
+            if (processData.arguments.Length == 0)
+            {
+                terminalUIManager.Print("Invalid arguments detected. Process <" + processData.processName
+                + "> expects no arguments");
+                return;
+            }
             foreach (SOProcessData.ArgumentType argument in processData.arguments)
             {
                 errorMessageArguments += "<" + argument.ToString() + "> ";
@@ -189,8 +196,13 @@ public class ProcessManager : MonoBehaviour
 
     public void RemoveAndCleanupProcess(string processID)
     {
-        RunningProcess process = GameManager.AllRunningProcessesByID[processID];
-        WriteDebug("Removing process" + process.data.processName + " with ID " + processID);
+        RunningProcess process = (RunningProcess)GameManager.FindRunningDaemonOrProcess(processID);
+
+        //Null check
+        if (process == null)
+            return;
+
+        WriteDebug("Removing process " + process.data.processName + " with ID " + processID);
         process.script.OnKilled();
         process.queue.queue.Remove(process);
         process.owner.ownedProcesses.Remove(process);

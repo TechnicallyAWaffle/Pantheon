@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class LogicbombScript : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        DaemonBase daemon = (DaemonBase)GameManager.FindRunningDaemonOrProcess(arguments[0]);
-        EncryptionManager.AddEncryption(daemon, -1);
-        base.Execute(owner, arguments);
+        EncryptionManager.AddEncryption(target, -1);
     }
 
     public override void OnKilled()

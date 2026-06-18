@@ -24,10 +24,10 @@ public class ProcessQueue : MonoBehaviour
     public int startingMemory;
     public int startingCompute;
 
-    [Header("Runtime vars, DO NOT MODIFY")]
-    //Runtime
+    
     [CreateProperty]
     public int OpenMemory => _openMemory;
+    [Header("Runtime vars, DO NOT MODIFY")]
     public int _openMemory; //memory up for grabs by anyone
     [CreateProperty]
     public int OpenCompute => _openCompute;
@@ -36,7 +36,7 @@ public class ProcessQueue : MonoBehaviour
     public List<RunningProcess> queue = new();
     public List<RunningProcess> processesToRemove = new();
 
-    [SerializeField] private float timeBetweenServerResets = 30;
+    [SerializeField] private float timeBetweenServerResets = 45;
     [SerializeField] private int resourcesWiped;
     private float currentTime;
 

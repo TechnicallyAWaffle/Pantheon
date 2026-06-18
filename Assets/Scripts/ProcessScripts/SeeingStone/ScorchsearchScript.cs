@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class ScorchsearchScript : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        DaemonBase daemon = GameManager.AllActiveDaemons[arguments[0]];
+        DaemonBase daemon = (DaemonBase)(target);
         daemon.RevealDaemon();
-        base.Execute(owner, arguments);
     }
 
     public override void OnKilled()

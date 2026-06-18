@@ -6,7 +6,7 @@ public class HailMaryProcess : ProcessBase
 {
     [SerializeField] int memoryAndComputeGranted = 50;
 
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
 
         if (referenceManager.player.daemons.Count > 0)
@@ -17,8 +17,6 @@ public class HailMaryProcess : ProcessBase
         }
         owner.localProcessQueue._openMemory += memoryAndComputeGranted;
         owner.localProcessQueue._openCompute += memoryAndComputeGranted;
-
-        base.Execute(owner, arguments);
     }
 
 }

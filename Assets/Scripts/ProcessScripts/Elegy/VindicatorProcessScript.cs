@@ -13,15 +13,13 @@ public class VindicatorProcessScript : ProcessBase
         }
     }
 
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        ITargetable target = GameManager.FindRunningDaemonOrProcess(arguments[0]);
         if (target.Encryption == 0)
             GameManager.KillProcessOrDaemon(target);
         else
         {
             EncryptionManager.AddEncryption(target, -1);
         }
-        base.Execute(owner, arguments);
     }
 }

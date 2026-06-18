@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class CitadelhashProcessScript : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        base.Execute(owner, arguments);
-
         try
         {
             ITargetable target = GameManager.FindRunningDaemonOrProcess(arguments[0]);

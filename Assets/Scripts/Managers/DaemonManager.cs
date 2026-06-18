@@ -17,17 +17,19 @@ public class DaemonManager : MonoBehaviour
 
     public static void KillDaemon(DaemonBase daemonScript)
     {
+        WriteDebug("Killing daemon " + daemonScript.daemonName);
         daemonScript.OnKilled();
         daemonScript.owner.daemons.Remove(daemonScript);
-        GameObject.Destroy(daemonScript);
         GameManager.AllActiveDaemons.Remove(daemonScript.daemonName);
         GlobalEventBus.DaemonKilled(daemonScript);
+        GameObject.Destroy(daemonScript.gameObject);
     }
 
     public static void RevealDaemon(DaemonBase daemonScript)
     {
         daemonScript.RevealDaemon();
     }
+
 
 
     public void SetDaemonsActiveState(Entity owner, bool isActive)
@@ -37,4 +39,10 @@ public class DaemonManager : MonoBehaviour
             daemon.enabled = isActive;
         }
     }
+
+    private static void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=#F5276C>DAEMON MANAGER: " + message);
+    }
+
 }

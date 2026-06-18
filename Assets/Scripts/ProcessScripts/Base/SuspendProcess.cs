@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class SuspendProcess : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        ITargetable targetToSuspend = GameManager.AllRunningProcessesByID[arguments[0]];
-
-        if (owner.authority > targetToSuspend.Encryption || owner == targetToSuspend.Owner)
-            GameManager.SuspendProcessOrDaemon(targetToSuspend, () => false, runtimeProcessData);
+        if (owner.authority > target.Encryption || owner == target.Owner)
+            GameManager.SuspendProcessOrDaemon(target, () => false, runtimeProcessData);
         else
             referenceManager.terminalUIManager.Print("AUTHORIZATION ERROR: Access to process decryption hash denied");
-        base.Execute(owner, arguments);
     }
 }

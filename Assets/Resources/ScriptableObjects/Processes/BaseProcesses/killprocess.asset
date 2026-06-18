@@ -15,7 +15,7 @@ MonoBehaviour:
   processName: kill
   description: You're not supposed to be seeing this
   baseExecutionTime: 15
-  memoryUsage: 10
+  memoryUsage: 5
   encryption: 0
   enterprise: 0
   processObject: {fileID: 4670963260437243312, guid: bea55f4a63af2de48aa9e2f7040bbc28, type: 3}

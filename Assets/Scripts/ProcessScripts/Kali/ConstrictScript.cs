@@ -4,27 +4,30 @@ using UnityEngine;
 public class ConstrictScript : ProcessBase
 {
 
-    [SerializeField] private int delayBetweenSuspensions = 4;
+    [SerializeField] private int delayBetweenSuspensions = 3;
     [SerializeField] private int suspensionDuration = 1;
 
 
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        ITargetable target = GameManager.FindRunningDaemonOrProcess(arguments[0]);
-
         StartCoroutine(PeriodicSuspensionHelper(target));
-
-        base.Execute(owner, arguments);
     }
 
     private IEnumerator PeriodicSuspensionHelper(ITargetable target)
     {
-        if (runtimeProcessData.isSuspended) yield return new WaitUntil(() => !runtimeProcessData.isSuspended);
+        while (true)
+        {
+            if (runtimeProcessData.isSuspended) yield return new WaitUntil(() => !runtimeProcessData.isSuspended);
+            if (target == null)
+            {
+                StopAllCoroutines();
+                GameManager.KillProcessOrDaemon(runtimeProcessData);
+            }
+            float endTime = Time.time + suspensionDuration;
+            referenceManager.suspensionManager.Suspend(target, () => Time.time >= endTime, runtimeProcessData);
 
-        float endTime = Time.time + suspensionDuration;
-        referenceManager.suspensionManager.Suspend(target, () => Time.time >= endTime, runtimeProcessData);
-
-        yield return new WaitForSeconds(delayBetweenSuspensions);
+            yield return new WaitForSeconds(delayBetweenSuspensions);
+        }
     }
 
 

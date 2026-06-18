@@ -153,7 +153,7 @@ public class Enemy1Script : EnemyBase
             AIAction exciseAction = TryRunEnemyProcess(exciseProcess, daemon);
             if (exciseAction != null)
             {
-                reasonForWait = "No memory to run vindicator";
+                reasonForWait = "No memory to run excise";
                 return exciseAction;
             }
         }

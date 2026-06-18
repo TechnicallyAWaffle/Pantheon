@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SOProcessData
   processName: suspend
   description: you're not supposed to be seeing this
-  baseExecutionTime: 15
+  baseExecutionTime: 5
   memoryUsage: 10
   encryption: 0
   enterprise: 0

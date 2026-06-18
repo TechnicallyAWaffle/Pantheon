@@ -4,7 +4,7 @@ public class MeltdownScript : ProcessBase
 {
 
     [SerializeField] private int suspensionDuration = 10;
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
         SuspensionManager suspensionManager = referenceManager.suspensionManager;
         Entity target = referenceManager.GetOtherEntity(owner);
@@ -25,10 +25,8 @@ public class MeltdownScript : ProcessBase
                 highestEncryptionDaemon = daemon;
             }
         }
-
-        GameManager.KillProcessOrDaemon(highestEncryptionDaemon);
-
-        base.Execute(owner, arguments);
+        if(highestEncryptionDaemon)
+            GameManager.KillProcessOrDaemon(highestEncryptionDaemon);
     }
 
     public override void OnKilled()

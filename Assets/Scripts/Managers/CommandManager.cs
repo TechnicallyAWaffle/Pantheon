@@ -207,6 +207,8 @@ public class CommandManager : MonoBehaviour
     {
         Debug.Log("Kinged player");
         player.RequestServerMemory(referenceManager.serverProcessQueue._openMemory);
+        player.authority = 3;
+        player.RequestServerCompute(referenceManager.serverProcessQueue._openCompute);
     }
 
     void CmdPing(string[] args)

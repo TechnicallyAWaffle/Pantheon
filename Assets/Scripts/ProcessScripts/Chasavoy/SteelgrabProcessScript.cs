@@ -12,9 +12,8 @@ public class SteelgrabProcessScript : ProcessBase
         suspensionManager = FindAnyObjectByType<SuspensionManager>();
     }
 
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        base.Execute(owner, arguments);
 
         try
         {

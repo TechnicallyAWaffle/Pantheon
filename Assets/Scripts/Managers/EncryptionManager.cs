@@ -36,6 +36,8 @@ public static class EncryptionManager
     /// <param name="amount"></param>
     public static void AddEncryption(ITargetable target, int amount)
     {
+        if (target == null)
+            return;
         target.Encryption = Mathf.Clamp(target.Encryption + amount, 1, int.MaxValue);
     }
 

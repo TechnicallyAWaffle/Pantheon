@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="AutoCompleteProcess" src="project://database/Assets/UI/Templates/AutoCompleteProcess.uxml?fileID=9197481963319205126&amp;guid=5c7298b0a83db0543870aadf1f92d685&amp;type=3#AutoCompleteProcess"/>
     <ui:Template name="EnemyDaemon" src="project://database/Assets/UI/Templates/EnemyDaemon.uxml?fileID=9197481963319205126&amp;guid=edca549d41763d34abae07c12b8d5fac&amp;type=3#EnemyDaemon"/>
     <ui:Template name="PlayerDaemon" src="project://database/Assets/UI/Templates/PlayerDaemon.uxml?fileID=9197481963319205126&amp;guid=96fb3d0c3c1af62488b1f26d0e24b46e&amp;type=3#PlayerDaemon"/>
     <ui:Template name="PlayerServerProcess" src="project://database/Assets/UI/Templates/PlayerServerProcess.uxml?fileID=9197481963319205126&amp;guid=2e3203da69232a4408d2a2e4b0e973e4&amp;type=3#PlayerServerProcess"/>
@@ -17,18 +18,18 @@
                     <ui:Label text="USER" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(128, 209, 165); font-size: 100px; border-left-width: 53px; -unity-text-align: middle-left;"/>
                     <ui:VisualElement name="AvailableMemory" style="flex-grow: 1; align-items: center;">
                         <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row;">
-                            <ui:Label text="Available Local Mem:" class="body"/>
-                            <ui:Label text="123" name="AvailableLocalNumber" class="body">
+                            <ui:Label text="Server Compute: " class="body"/>
+                            <ui:Label text="123" name="PlayerServerComputeNumber" class="body">
                                 <Bindings>
-                                    <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                    <ui:DataBinding property="text" data-source-path="ReservedServerCompute" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
                                 </Bindings>
                             </ui:Label>
                         </ui:VisualElement>
                         <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
                             <ui:Label text="Available Server Mem:&#10;" class="body"/>
-                            <ui:Label text="123" name="AvailableServerNumber" class="body">
+                            <ui:Label text="123" name="PlayerAvailableServerMemoryNumber" class="body">
                                 <Bindings>
-                                    <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                    <ui:DataBinding property="text" data-source-path="AvailableServerMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
                                 </Bindings>
                             </ui:Label>
                         </ui:VisualElement>
@@ -56,7 +57,7 @@
                     <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; min-width: 17%;">
                         <ui:Label text="3 TB" name="PlayerMemoryNumber" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-bottom: 0; margin-bottom: 0; padding-top: 0; margin-top: 0;">
                             <Bindings>
-                                <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
+                                <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
                             </Bindings>
                         </ui:Label>
                         <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(128, 209, 165); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-left; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>
@@ -92,9 +93,9 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="CommandInfo" enabled="true" style="flex-grow: 1; flex-direction: row; max-width: 100%; max-height: 100%;">
                         <ui:VisualElement name="MarginLeft" style="flex-grow: 1; max-width: 7%; min-width: 7%;"/>
-                        <ui:VisualElement name="CommandHelp" style="flex-grow: 1; margin-bottom: 40px; max-width: 100%;">
-                            <ui:VisualElement name="Commands" style="flex-grow: 1; flex-direction: row; max-height: 20%;">
-                                <ui:Label text="scry" name="Command" class="body" style="-unity-text-auto-size: none; -unity-text-generator: standard; font-size: 20px; background-image: url(&quot;project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&amp;guid=4a8e6057ad1aeb944b12618ab490b8ae&amp;type=3#box_encryption_light_green&quot;); -unity-slice-left: 4; -unity-slice-top: 4; -unity-slice-right: 4; -unity-slice-bottom: 4; max-height: 60%; -unity-text-align: middle-center; padding-left: 10px; padding-right: 10px; padding-top: 12px; padding-bottom: 16px; align-content: flex-start; align-self: center; margin-left: 0;"/>
+                        <ui:VisualElement name="CommandHelp" style="flex-grow: 1; margin-bottom: 40px; max-width: 100%; flex-direction: column;">
+                            <ui:VisualElement name="Commands" style="flex-grow: 1; flex-direction: row; max-height: 20%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                                <ui:Instance template="AutoCompleteProcess" name="AutoCompleteProcess"/>
                             </ui:VisualElement>
                             <ui:VisualElement name="CommandDescriptionBox" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&amp;guid=4a8e6057ad1aeb944b12618ab490b8ae&amp;type=3#box_encryption_light_green&quot;); -unity-slice-left: 4; -unity-slice-top: 4; -unity-slice-right: 4; -unity-slice-bottom: 4; max-width: 100%; max-height: 100%;">
                                 <ui:VisualElement name="CommandDescriptionHeader" style="flex-grow: 1; align-self: stretch; max-height: 20%; margin-top: 6px; flex-direction: row;">
@@ -126,15 +127,15 @@
                     <ui:Label text="ELEGY" name="Name" style="max-width: 100%; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&amp;guid=ffe8918a188f6554fa4d5ab1dab5eb73&amp;type=3#Ac437_IBM_Model30r0&quot;); color: rgb(249, 146, 9); font-size: 100px; border-left-width: 0; -unity-text-align: middle-right; border-right-width: 53px;"/>
                     <ui:VisualElement name="AvailableMemory" style="flex-grow: 1; align-items: center;">
                         <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row-reverse;">
-                            <ui:Label text="123" name="EnemyAvailableLocalNumber" class="enemy-body" style="font-size: 14px;">
+                            <ui:Label text="123" name="EnemyServerComputeNumber" class="enemy-body" style="font-size: 14px;">
                                 <Bindings>
-                                    <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
+                                    <ui:DataBinding property="text" data-source-path="ReservedServerCompute" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
                                 </Bindings>
                             </ui:Label>
-                            <ui:Label text="Available Local Mem:" class="body enemy-body" style="-unity-text-align: middle-right; font-size: 14px;"/>
+                            <ui:Label text="Server Compute: " class="body enemy-body" style="-unity-text-align: middle-right; font-size: 14px;"/>
                         </ui:VisualElement>
                         <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse;">
-                            <ui:Label text="123" name="EnemyAvailableServerNumber" class="body enemy-body" style="font-size: 14px;">
+                            <ui:Label text="123" name="EnemyAvailableServerMemoryNumber" class="body enemy-body" style="font-size: 14px;">
                                 <Bindings>
                                     <ui:DataBinding property="text" data-source-path="AvailableServerMem" data-source-type="Entity, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Mod Var Converters"/>
                                 </Bindings>
@@ -165,7 +166,7 @@
                     <ui:VisualElement name="Memory" style="flex-grow: 1; max-width: 17%; align-self: center; flex-direction: column; min-width: 17%;">
                         <ui:Label text="3 TB" name="EnemyMemoryNumber" class="body enemy-body">
                             <Bindings>
-                                <ui:DataBinding property="text" data-source-path="OpenMemory" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
+                                <ui:DataBinding property="text" data-source-path="AvailableLocalMem" data-source-type="ProcessQueue, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Open Memory To String"/>
                             </Bindings>
                         </ui:Label>
                         <ui:Label text="MEMORY" name="MemoryText" class="body" style="color: rgb(249, 146, 9); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Ac437_MBytePC230_CGA.ttf?fileID=12800000&amp;guid=67fc1b1210bc8a040bff1f6ff10f2e0a&amp;type=3#Ac437_MBytePC230_CGA&quot;); max-width: 100%; white-space: pre-wrap; -unity-text-auto-size: none; font-size: 18px; -unity-text-align: middle-right; padding-top: 2px; margin-top: 0; padding-bottom: 2px; margin-bottom: 0;"/>

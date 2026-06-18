@@ -32,7 +32,7 @@ public class DaemonBase : MonoBehaviour, ITargetable
             owner = entityOwner;
         }
         else
-            Debug.LogError("Daemon could not find root object with Entity component!");
+            WriteDebug("Daemon could not find root object with Entity component!");
         if (owner == ReferenceManager.Instance.player)
             daemonSprite.enabled = true;
 

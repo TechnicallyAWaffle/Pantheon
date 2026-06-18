@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AuthShellProcessScript : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
         DaemonBase lastDaemon = owner.daemons[0];
         DaemonBase lowestEncryptionDaemon = lastDaemon;
@@ -12,7 +12,5 @@ public class AuthShellProcessScript : ProcessBase
                 lowestEncryptionDaemon = daemon;
         }
         EncryptionManager.AddEncryption(lowestEncryptionDaemon, 1);
-
-        base.Execute(owner, arguments);
     }
 }

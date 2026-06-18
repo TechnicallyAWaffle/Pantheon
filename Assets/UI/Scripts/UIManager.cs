@@ -18,15 +18,18 @@ public class UIManager : MonoBehaviour
 
         // bind player data sources to player process queue
         root.Q<VisualElement>("PlayerComputeNumber").dataSource = playerQueue;
-        root.Q<VisualElement>("PlayerMemoryNumber").dataSource = playerQueue;
-        root.Q<VisualElement>("AvailableLocalNumber").dataSource = playerEntity;
-        root.Q<VisualElement>("AvailableServerNumber").dataSource = playerEntity;
+        root.Q<VisualElement>("PlayerMemoryNumber").dataSource = playerEntity;
+        root.Q<VisualElement>("PlayerServerComputeNumber").dataSource = playerEntity;
+        root.Q<VisualElement>("PlayerAvailableServerMemoryNumber").dataSource = playerEntity;
+
+        //bind player process autocomplete to CommandManager
+
 
         // bind enemy data sources to enemy process queue
         root.Q<VisualElement>("EnemyComputeNumber").dataSource = enemyQueue;
-        root.Q<VisualElement>("EnemyMemoryNumber").dataSource = enemyQueue;
-        root.Q<VisualElement>("EnemyAvailableLocalNumber").dataSource = enemyEntity;
-        root.Q<VisualElement>("EnemyAvailableServerNumber").dataSource = enemyEntity;
+        root.Q<VisualElement>("EnemyMemoryNumber").dataSource = enemyEntity;
+        root.Q<VisualElement>("EnemyServerComputeNumber").dataSource = enemyEntity;
+        root.Q<VisualElement>("EnemyAvailableServerMemoryNumber").dataSource = enemyEntity;
 
         // bind server data sources to server process queue
         root.Q<VisualElement>("ServerComputeNumber").dataSource = serverQueue;

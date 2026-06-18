@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class KillProcess : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        ITargetable targetToKill = GameManager.FindRunningDaemonOrProcess(arguments[0]);
-        if (owner.authority > targetToKill.Encryption || owner == targetToKill.Owner)
-            GameManager.KillProcessOrDaemon(targetToKill);
+        if (owner.authority > target.Encryption || owner == target.Owner)
+            GameManager.KillProcessOrDaemon(target);
         else
             referenceManager.terminalUIManager.Print("AUTHORIZATION ERROR: Access to process decryption hash denied");
-        base.Execute(owner, arguments);
     }
 }

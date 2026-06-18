@@ -6,9 +6,8 @@ public class HashwallProcessScript : ProcessBase
     Entity _owner;
     List<RunningProcess> affectedProcesses;
 
-    public override void Execute(Entity owner, string[] arguments)
+    protected override void ExecuteAction(Entity owner, string[] arguments)
     {
-        base.Execute(owner, arguments);
         this._owner = owner;
 
         affectedProcesses = owner.ownedProcesses;

@@ -11,7 +11,7 @@ public static class GlobalEventBus
 
     // Process events
     public static event Action<RunningProcess> OnPlayerQueuedAProcess;
-    public static event Action<RunningProcess, Entity> OnProcessQueued;
+    public static event Action<RunningProcess> OnProcessQueued;
     public static event Action<RunningProcess> OnProcessCompleted;
     public static event Action<RunningProcess, Entity> OnProcessKilled;
     public static event Action<RunningProcess, RunningProcess> OnProcessSuspended;
@@ -46,7 +46,7 @@ public static class GlobalEventBus
 
     public static void MemoryChanged(Entity owner, int amount, ProcessQueue location)
         => OnMemoryChanged?.Invoke(owner);
-    public static void ProcessQueued(RunningProcess p, Entity entity) => OnProcessQueued?.Invoke(p, entity);
+    public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);
 
     public static void PlayerQueuedProcess(RunningProcess p) => OnPlayerQueuedAProcess?.Invoke(p);
     public static void ProcessCompleted(RunningProcess p) => OnProcessCompleted?.Invoke(p);

@@ -15,7 +15,7 @@ MonoBehaviour:
   processName: excise
   description: "Performs a search for a user\u2019s daemon. "
   baseExecutionTime: 16
-  memoryUsage: 3
+  memoryUsage: 5
   encryption: 2
   enterprise: 4
   processObject: {fileID: 388001825920314472, guid: 9d58089d83ea0d64b804fe2cfdcc7837, type: 3}

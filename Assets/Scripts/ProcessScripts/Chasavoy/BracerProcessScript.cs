@@ -4,60 +4,18 @@ using UnityEngine;
 
 public class BracerProcessScript : ProcessBase
 {
-    public override void Execute(Entity owner, string[] arguments)
-    {
-        base.Execute(owner, arguments);
+    private readonly int processEncryptionAmount = 2; 
+    private readonly int daemonEncryptionAmount = 1;
 
-        try
+    protected override void ExecuteAction(Entity owner, string[] arguments)
+    {
+        if (target is RunningProcess)
         {
-            string arg0 = arguments[0];
-
-            // check if arg0 is a PID
-            if (int.TryParse(arg0, out _))
-            {
-                if (GameManager.AllRunningProcessesByID.TryGetValue(arg0, out var targetProcess))
-                {
-                    RaiseProcessEncryption(targetProcess);
-                }
-                else
-                {
-                    throw new KeyNotFoundException($"Bracer could not find process {arg0}. It may have been killed or completed.");
-                }
-            }
-            else
-            {
-                if (GameManager.AllActiveDaemons.TryGetValue(arg0, out var targetDaemon))
-                {
-                    RaiseDaemonEncryption(targetDaemon);
-                }
-                else
-                {
-                    throw new KeyNotFoundException($"Bracer could not find daemon {arg0}. It may have been killed or completed.");
-                }
-            }
+            EncryptionManager.AddEncryption(target, processEncryptionAmount);
         }
-        catch (Exception e)
+        if (target is DaemonBase)
         {
-            Debug.LogError(e);
+            EncryptionManager.AddEncryption(target, daemonEncryptionAmount);
         }
-    }
-
-    /// <summary>
-    /// Raises a process's encryption by 2. 
-    /// </summary>
-    /// <param name="process"></param>
-    public void RaiseProcessEncryption(RunningProcess process)
-    {
-        EncryptionManager.AddEncryption(process, 2);
-        process.Encryption = Math.Clamp(process.Encryption + 2, 1, 3);
-    }
-
-    /// <summary>
-    /// Raises a daemon's encryption by 1. 
-    /// </summary>
-    /// <param name="process"></param>
-    public void RaiseDaemonEncryption(DaemonBase daemon)
-    {
-        EncryptionManager.AddEncryption(daemon, 1);
     }
 }
