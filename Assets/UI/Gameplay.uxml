@@ -1,6 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="AutoCompleteProcess" src="project://database/Assets/UI/Templates/AutoCompleteProcess.uxml?fileID=9197481963319205126&amp;guid=5c7298b0a83db0543870aadf1f92d685&amp;type=3#AutoCompleteProcess"/>
     <ui:Template name="EnemyDaemon" src="project://database/Assets/UI/Templates/EnemyDaemon.uxml?fileID=9197481963319205126&amp;guid=edca549d41763d34abae07c12b8d5fac&amp;type=3#EnemyDaemon"/>
+    <ui:Template name="HelpProcess" src="project://database/Assets/UI/Templates/HelpProcess.uxml?fileID=9197481963319205126&amp;guid=7019db305b9bedd48bbfa12f4c3497a9&amp;type=3#HelpProcess"/>
     <ui:Template name="PlayerDaemon" src="project://database/Assets/UI/Templates/PlayerDaemon.uxml?fileID=9197481963319205126&amp;guid=96fb3d0c3c1af62488b1f26d0e24b46e&amp;type=3#PlayerDaemon"/>
     <ui:Template name="PlayerServerProcess" src="project://database/Assets/UI/Templates/PlayerServerProcess.uxml?fileID=9197481963319205126&amp;guid=2e3203da69232a4408d2a2e4b0e973e4&amp;type=3#PlayerServerProcess"/>
     <Style src="project://database/Assets/UI/Gameplay.uss?fileID=7433441132597879392&amp;guid=1c4cf46f8df57cf4cb8d4bf1c67a0577&amp;type=3#Gameplay"/>
@@ -93,9 +94,9 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="CommandInfo" enabled="true" style="flex-grow: 1; flex-direction: row; max-width: 100%; max-height: 100%;">
                         <ui:VisualElement name="MarginLeft" style="flex-grow: 1; max-width: 7%; min-width: 7%;"/>
-                        <ui:VisualElement name="CommandHelp" style="flex-grow: 1; margin-bottom: 40px; max-width: 100%; flex-direction: column;">
-                            <ui:VisualElement name="Commands" style="flex-grow: 1; flex-direction: row; max-height: 20%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
-                                <ui:Instance template="AutoCompleteProcess" name="AutoCompleteProcess"/>
+                        <ui:VisualElement name="CommandHelp" style="flex-grow: 1; margin-bottom: 40px; max-width: 100%;">
+                            <ui:VisualElement name="Commands" style="flex-grow: 1; flex-direction: row; max-height: 20%;">
+                                <ui:Instance template="HelpProcess" name="HelpProcess"/>
                             </ui:VisualElement>
                             <ui:VisualElement name="CommandDescriptionBox" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Textures/Player/box_encryption_light_green.png?fileID=2800000&amp;guid=4a8e6057ad1aeb944b12618ab490b8ae&amp;type=3#box_encryption_light_green&quot;); -unity-slice-left: 4; -unity-slice-top: 4; -unity-slice-right: 4; -unity-slice-bottom: 4; max-width: 100%; max-height: 100%;">
                                 <ui:VisualElement name="CommandDescriptionHeader" style="flex-grow: 1; align-self: stretch; max-height: 20%; margin-top: 6px; flex-direction: row;">

@@ -6,6 +6,7 @@ using UnityEditor;
 public class AIContext
 {
     // own state
+    public Entity self;
     public float localMemoryAvailable;
     public float localCompute;
     public int ownAuthority;
@@ -22,15 +23,32 @@ public class AIContext
     // server state
     public float serverMemoryReserved;
     public float serverCompute;
+    public List<SuspensionManager.Suspension> activeSuspensions;
 
     // derived helpers
     public bool HasGreaterAuthority => playerAuthority > ownAuthority;
     public bool PlayerHasInstaWinProcess;
     public int PlayerTotalProcessThreat => PlayerTotalProcessThreatCalculator();
 
-    public float serverControlRatio => (serverMemoryReserved + serverCompute) 
-        / (playerServerMemoryReserved + playerServerCompute);  
+    public List<RunningProcess> OwnedSuspendedProcesses => FindOwnedSuspendedProcesses();
 
+    public float serverControlRatio => (serverMemoryReserved + serverCompute) 
+        / (playerServerMemoryReserved + playerServerCompute);
+
+    private List<RunningProcess> FindOwnedSuspendedProcesses()
+    {
+        List<RunningProcess> temp = new();
+        foreach (SuspensionManager.Suspension suspension in SuspensionManager.ActiveSuspensions)
+        {
+            if (suspension.processSuspended.owner == self)
+            {
+                temp.Add(suspension.processSuspended);
+            }
+        }
+        return temp;
+    }
+
+    
     private int PlayerTotalProcessThreatCalculator()
     {
         int threatLevelSum = 0;

@@ -55,6 +55,8 @@ public class Enemy1Script : EnemyBase
             activePlayerDaemons = player.daemons.ToArray(),
             runningPlayerProcesses = player.ownedProcesses.ToArray(),
             serverMemoryReserved = self.reservedServerMemory,
+            activeSuspensions = SuspensionManager.ActiveSuspensions,
+            self = this.self
         };
     }
     

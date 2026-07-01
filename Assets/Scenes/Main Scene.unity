@@ -1958,6 +1958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommandLine
   terminalUI: {fileID: 543163620}
+  processTemplate: {fileID: 9197481963319205126, guid: 7019db305b9bedd48bbfa12f4c3497a9, type: 3}
 --- !u!114 &1151528852
 MonoBehaviour:
   m_ObjectHideFlags: 0
