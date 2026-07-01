@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,13 +58,14 @@ public class ProcessManager : MonoBehaviour
         return flagData;
     }
 
+
+
     public void TryRunProcess(string[] args, Entity owner, ProcessQueue processQueue, bool isServer)
     {
         bool isBaseProcess = false;
         //Argument at index 0 is the processname
         SOProcessData processData = GetProcessByName(args[0]);
 
-        //Null check
         if (processData == null)
         {
             WriteDebug("Process " + args[0] + " not found");
@@ -76,8 +76,30 @@ public class ProcessManager : MonoBehaviour
         if (processData.processName == "kill" || processData.processName == "suspend")            //TODO: SHITASS IMPLEMENTATION
             isBaseProcess = true;
 
-        //Check Memory
-        CheckMemoryUsage(processData, isServer, owner, isBaseProcess);
+
+        int memoryUsage = processData.memoryUsage;
+        if (isServer)
+        {
+            //Check for sufficient memory
+            if ((owner.availableServerMemory.Value) < memoryUsage)
+            {
+                if(isBaseProcess)
+                    terminalUIManager.Print("Insufficient memory. Base processes must be run on the server.");
+                else
+                    terminalUIManager.Print("Insufficient server memory.");
+                return;
+            }
+            WriteDebug("Attempting to run Process " + processData.processName + " on server queue");
+        }
+        else
+        {
+            if ((owner.availableLocalMemory.Value) < memoryUsage)
+            {
+                terminalUIManager.Print("Insufficient local memory");
+                return;
+            }
+            WriteDebug("Attempting to run Process " + processData.processName + " on local queue");
+        }
 
         //If can't run then just return obselete because of early returns
         //if (!canRun) return;
@@ -124,37 +146,6 @@ public class ProcessManager : MonoBehaviour
             WriteDebug("Adding process " + processData.processName + " to " + processQueue.name + ", with owner " + owner.name);
 
     }
-
-    //Helpers
-
-    private bool CheckMemoryUsage(SOProcessData processData, bool isServer, Entity owner, bool isBaseProcess)
-    {
-        int memoryUsage = processData.memoryUsage;
-        if (isServer)
-        {
-            //Check for sufficient memory
-            if ((owner.availableServerMemory.Value) < memoryUsage)
-            {
-                if (isBaseProcess)
-                    terminalUIManager.Print("Insufficient memory. Base processes must be run on the server.");
-                else
-                    terminalUIManager.Print("Insufficient server memory.");
-                return false;
-            }
-            WriteDebug("Attempting to run Process " + processData.processName + " on server queue");
-        }
-        else
-        {
-            if ((owner.availableLocalMemory.Value) < memoryUsage)
-            {
-                terminalUIManager.Print("Insufficient local memory");
-                return false;
-            }
-            WriteDebug("Attempting to run Process " + processData.processName + " on local queue");
-        }
-        return true;
-    }
-
 
     private bool ValidateFlags(string[] args, SOProcessData processData)
     {

@@ -88,7 +88,7 @@ public class CommandManager : MonoBehaviour
         }
     }
 
-    public List<SOProcessData> BuildAutoCompleteList(string input)
+    private List<SOProcessData> BuildAutoCompleteList(string input)
     {
         List<SOProcessData> processesToList = new();
         foreach (SOProcessData process in processManager.processDatabase)

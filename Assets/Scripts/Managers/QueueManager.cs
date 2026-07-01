@@ -28,7 +28,6 @@ public class QueueManager : MonoBehaviour
     {
     }
 
-
     public void AddProcess(SOProcessData process, ProcessQueue queueObject, Entity owner, string[] processArguments)
     {
         //Instantiates a new process and parents it to a universal running process parent
