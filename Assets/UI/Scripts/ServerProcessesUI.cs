@@ -112,7 +112,7 @@ public class ServerProcessesUI : MonoBehaviour
         // Tracked data — use properties to keep UI in sync
         private string _commandName;
         private float _progress;
-
+       
         public string CommandName
         {
             get => _commandName;

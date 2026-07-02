@@ -88,13 +88,20 @@ public class CommandManager : MonoBehaviour
         }
     }
 
-    private List<SOProcessData> BuildAutoCompleteList(string input)
+    public List<SOProcessData> BuildAutoCompleteList(string input)
     {
         List<SOProcessData> processesToList = new();
-        foreach (SOProcessData process in processManager.processDatabase)
+        string[] splitString = input.Split(' ');
+        //Check for a case where only the command verb is typed out OR if we've only typed a space
+        if (splitString.Length < 2 || string.IsNullOrWhiteSpace(splitString[1]))
+            return processesToList;
+
+        foreach (SOProcessData process in processManager.processDatabase) //TODO: Compare this with player inventory instead
         {
-            if (process.processName.Contains(input))
-            { 
+            //WriteDebug("Comparing input: " + splitString[1] + " with process in database: " + process.processName);
+            if (process.processName.StartsWith(splitString[1]))
+            {
+                //WriteDebug("Adding: " + process.processName);
                 processesToList.Add(process);
             }
         }
@@ -221,4 +228,9 @@ public class CommandManager : MonoBehaviour
     }
 
     void CmdOverclock(string[] args) { }
+
+    private void WriteDebug(string message)
+    {
+        UnityEngine.Debug.Log("<color=green>COMMAND MANAGER: " + message);
+    }
 }
