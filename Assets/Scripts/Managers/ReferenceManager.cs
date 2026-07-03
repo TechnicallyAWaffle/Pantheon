@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ReferenceManager : MonoBehaviour
 {
-
     [SerializeField] public CommandManager commandManager;
     [SerializeField] public TerminalUIManager terminalUIManager;
     [SerializeField] public ProcessManager processManager;
@@ -13,6 +12,8 @@ public class ReferenceManager : MonoBehaviour
     [SerializeField] public Entity player;
     [SerializeField] public Entity opponent;
     public ProcessQueue serverProcessQueue;
+
+    //private EncounterConfig encounterConfig;
 
     public static ReferenceManager Instance;
 

@@ -1,0 +1,45 @@
+.terminal-root {
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: rgb(10, 10, 10);
+    padding: 8px;
+}
+
+.terminal-scroll {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* hides the scrollbar if you want a cleaner look */
+.terminal-scroll > #unity-content-and-vertical-scroll-container
+                 > #unity-vertical-scroller {
+    display: none;
+}
+
+.terminal-content {
+    flex-direction: column;
+    padding: 4px;
+}
+
+.terminal-input {
+    height: 32px;
+    background-color: rgb(10, 10, 10);
+    color: rgb(0, 255, 0);
+    border-color: rgb(0, 255, 0);
+    border-width: 1px;
+    margin-top: 4px;
+}
+
+.terminal-line {
+    color: rgb(0, 255, 0);
+    white-space: normal;
+    margin: 1px 0;
+}
+
+.terminal-line-user {
+    color: rgb(255, 255, 255);
+}
+
+.terminal-line-system {
+    color: rgb(150, 150, 150);
+}

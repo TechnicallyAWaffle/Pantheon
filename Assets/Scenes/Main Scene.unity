@@ -963,6 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647801318}
   - component: {fileID: 647801319}
+  - component: {fileID: 647801320}
   m_Layer: 0
   m_Name: ReferenceManager
   m_TagString: Untagged
@@ -1006,6 +1007,18 @@ MonoBehaviour:
   player: {fileID: 1910080314}
   opponent: {fileID: 1586301206}
   serverProcessQueue: {fileID: 1510904592}
+--- !u!114 &647801320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647801317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225e875f86f606644ac2edb922c52aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterConfig
 --- !u!1 &813292961
 GameObject:
   m_ObjectHideFlags: 0

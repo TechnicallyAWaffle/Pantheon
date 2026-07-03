@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TerminalUI.uss?fileID=7433441132597879392&amp;guid=3f0c7bdeeebbc1a409ae4efccf16aaca&amp;type=3#TerminalUI"/>
+    <ui:VisualElement name="terminal-root" class="terminal-root" style="background-size: 100% 100%;">
+        <ui:ScrollView name="terminal-scroll" class="terminal-scroll">
+            <ui:VisualElement name="terminal-content" class="terminal-content"/>
+        </ui:ScrollView>
+        <ui:TextField name="terminal-input" class="terminal-input"/>
+    </ui:VisualElement>
 </ui:UXML>

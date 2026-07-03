@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class CommandLine : MonoBehaviour
@@ -20,9 +22,8 @@ public class CommandLine : MonoBehaviour
     //Autocomplete stuff
     [SerializeField] private VisualTreeAsset processTemplate;
     private VisualElement autoCompleteProcessUI;
-    private List<SOProcessData> autoCompleteProcessList = new();
     private Dictionary<SOProcessData, AutoCompleteUI> autoCompleteProcesses = new();
-    private SOProcessData activeAutoCompleteProcess;
+    SOProcessData activeAutoCompleteProcess;
     private Label processNameUI;
     private Label processMemoryUsageUI;
     private Label processExecutionTimeUI;
@@ -73,26 +74,25 @@ public class CommandLine : MonoBehaviour
     private void OnInputChanged(ChangeEvent<string> e)
     {
         string current = e.newValue;
+        UpdateAutoComplete(current);
+    }
 
-        if (current.Length > 0)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            UpdateAutoComplete(current);
-            //UpdateCurrentProcessHelp();
-            ShowCommandHelp();
-        }
-        else
-        {
-            activeAutoCompleteProcess = null;
-            ShowConsoleOutput();
+            if (activeAutoCompleteProcess)
+            {
+                string[] splitString = _inputField.text.Split(' ');
+                _inputField.value = splitString[0] + " " + activeAutoCompleteProcess.processName;
+                _inputField.SelectRange(_inputField.text.Length, _inputField.text.Length);
+            }
         }
     }
 
     private void ShowProcessHelp(SOProcessData processData)
     {
-        //If the active matches in the incoming request, ignore it
-        if (processData == activeAutoCompleteProcess)
-            return;
-
+        activeAutoCompleteProcess = processData;
         processNameUI.text = processData.processName;
         processMemoryUsageUI.text = processData.memoryUsage.ToString();
         processExecutionTimeUI.text = processData.baseExecutionTime.ToString();
@@ -100,20 +100,20 @@ public class CommandLine : MonoBehaviour
         processDescriptionUI.text = processData.description;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && activeAutoCompleteProcess)
-        { 
-            //int prevIndex = activeAutoCompleteProcess
-            //activeAutoCompleteProcess = autoCompleteProcessList[]
-        }
-    }
-
-
     private void UpdateAutoComplete(string input)
     {
         HashSet<SOProcessData> processesToKeep = new();
-        foreach (SOProcessData processData in commandManager.BuildAutoCompleteList(input))
+        bool showedFirstAutoCompleteUI = false;
+        
+        List<SOProcessData> autoCompleteList = commandManager.BuildAutoCompleteList(input);
+        if (autoCompleteList.Count > 0)
+            ShowCommandHelp();
+        else
+        {
+            ShowConsoleOutput();
+            activeAutoCompleteProcess = null;
+        }
+        foreach (SOProcessData processData in autoCompleteList)
         {
             TemplateContainer uiInstance = processTemplate.Instantiate();
             var instance = new AutoCompleteUI
@@ -125,12 +125,18 @@ public class CommandLine : MonoBehaviour
                 encryption = processData.encryption,
                 processDescription = processData.description
             };
+
+            if (!showedFirstAutoCompleteUI)
+            {
+                showedFirstAutoCompleteUI = true;
+                ShowProcessHelp(processData);
+            }
+
             //Check if process is in the ui Dictionary. If not, add it
             if (!autoCompleteProcesses.ContainsKey(processData))
             {
-                Debug.Log("Adding to list of autocomplete processes: " + processData);
+                //Debug.Log("Adding to list of autocomplete processes: " + processData);
                 autoCompleteProcesses.Add(processData, instance);
-                autoCompleteProcessList.Add(processData);
                 uiInstance.Q<Label>("Command").text = processData.processName;
                 autoCompleteProcessUI.Add(uiInstance);
             }
@@ -146,14 +152,9 @@ public class CommandLine : MonoBehaviour
         foreach (SOProcessData process in processesToRemove)
         {
             Debug.Log("Removing process from autocomplete list: " + process);
-            autoCompleteProcessList.Remove(process);
             autoCompleteProcessUI.Remove(autoCompleteProcesses[process].Root);
             autoCompleteProcesses.Remove(process);
         }
-
-        if (!activeAutoCompleteProcess && autoCompleteProcessList.Count > 0)
-            activeAutoCompleteProcess = autoCompleteProcessList[0];
-
     }
 
     public class AutoCompleteUI
@@ -164,6 +165,7 @@ public class CommandLine : MonoBehaviour
         public float executionTime;
         public int encryption;
         public string processDescription;
+        public int uiIndex;
     }
 
 
