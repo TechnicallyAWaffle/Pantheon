@@ -1,9 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/TerminalUI.uss?fileID=7433441132597879392&amp;guid=3f0c7bdeeebbc1a409ae4efccf16aaca&amp;type=3#TerminalUI"/>
-    <ui:VisualElement name="terminal-root" class="terminal-root" style="background-size: 100% 100%;">
+    <ui:VisualElement name="terminal-root" class="terminal-root">
         <ui:ScrollView name="terminal-scroll" class="terminal-scroll">
-            <ui:VisualElement name="terminal-content" class="terminal-content"/>
+            <ui:VisualElement name="terminal-content" class="terminal-content">
+                <ui:VisualElement name="input-row" class="input-row">
+                    <ui:Label name="input-prompt" text="&gt;" class="input-prompt" style="color: rgb(255, 255, 255);"/>
+                    <ui:TextField name="terminal-input" class="terminal-input"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:ScrollView>
-        <ui:TextField name="terminal-input" class="terminal-input"/>
     </ui:VisualElement>
 </ui:UXML>

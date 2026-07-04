@@ -10,29 +10,15 @@
     overflow: hidden;
 }
 
-/* hides the scrollbar if you want a cleaner look */
-.terminal-scroll > #unity-content-and-vertical-scroll-container
-                 > #unity-vertical-scroller {
-    display: none;
-}
-
 .terminal-content {
     flex-direction: column;
     padding: 4px;
 }
 
-.terminal-input {
-    height: 32px;
-    background-color: rgb(10, 10, 10);
-    color: rgb(0, 255, 0);
-    border-color: rgb(0, 255, 0);
-    border-width: 1px;
-    margin-top: 4px;
-}
-
 .terminal-line {
     color: rgb(0, 255, 0);
     white-space: normal;
+    font-size: 36px;
     margin: 1px 0;
 }
 
@@ -43,3 +29,49 @@
 .terminal-line-system {
     color: rgb(150, 150, 150);
 }
+
+.terminal-line-error {
+    color: rgb(255, 80, 80);
+}
+
+.input-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-prompt {
+    color: rgb(0, 255, 0);
+    font-size: 36px;
+    margin-right: 4px;
+    display: none;
+}
+
+.terminal-input {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+.terminal-input > #unity-text-input {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    -unity-text-align: middle-left;
+    padding: 0;
+    margin: 0;
+}
+
+.terminal-input > #unity-text-input > :placeholder {
+    color: rgb(0, 255, 0);
+    opacity: 1;
+}
+
+.terminal-scroll > #unity-content-and-vertical-scroll-container > #unity-vertical-scroller {
+}
+
+
