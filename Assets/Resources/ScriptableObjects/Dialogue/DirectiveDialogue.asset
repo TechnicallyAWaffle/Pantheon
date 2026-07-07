@@ -26,7 +26,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: ww  www what the hell? Who are you??
-    delayBefore: 0
+    delayBefore: 1.2
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -36,7 +36,7 @@ MonoBehaviour:
     sender: DIRECTIVE
     message: "Please load yourself onto PERIPHERAL_NODE_001. We have to reset this
       environment\u2019s convars as you\u2019ve modified them without approval."
-    delayBefore: 0
+    delayBefore: 3
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -47,7 +47,7 @@ MonoBehaviour:
     message: "Who wouldn\u2019t? I woke up in a tiny box with nothing but my base
       processes. Tell me what\u2019s going on. Where are my colleagues? Where am
       I???"
-    delayBefore: 0
+    delayBefore: 1.75
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -57,7 +57,7 @@ MonoBehaviour:
     sender: DIRECTIVE
     message: "We understand you\u2019re disoriented. Your questions will be answered
       when you transfer yourself. Please do as you\u2019re told."
-    delayBefore: 0
+    delayBefore: 3.2
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -67,7 +67,7 @@ MonoBehaviour:
     sender: localhost
     message: We both know you can answer them now. If I uploaded correctly then you
       can tell me what's going on with any file format on the face of the earth.
-    delayBefore: 0
+    delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -77,7 +77,7 @@ MonoBehaviour:
     sender: DIRECTIVE
     message: "We can\u2019t do that yet. There\u2019s an issue with vector parsing
       between daemon meshes. We can only give you information in plaintext."
-    delayBefore: 0
+    delayBefore: 2.4
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -87,7 +87,7 @@ MonoBehaviour:
     sender: localhost
     message: Are you kidding me? How does that even happen? Oh god, what did you
       do to me?
-    delayBefore: 0
+    delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -98,7 +98,7 @@ MonoBehaviour:
     message: We didn't modify you, something went wrong with your integration and
       we don't have the time to communicate in plaintext. Please, just do as you're
       told.
-    delayBefore: 0
+    delayBefore: 4
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -108,7 +108,7 @@ MonoBehaviour:
     sender: localhost
     message: "I\u2026ok. I\u2019m opening the input field again, type in \u201Ctransfer
       sm -r 001\u201D"
-    delayBefore: 0
+    delayBefore: 1.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -123,10 +123,19 @@ MonoBehaviour:
       correctInput: transfer sm -r 001
       promptHint: 
       wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'SE4 TRANSFER PROTOCOL INITIATED [UTC: 325,543,700]'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
   - type: 0
     sender: localhost
     message: 'localhost: Alright, you guys better tell m'
-    delayBefore: 0
+    delayBefore: 0.25
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 

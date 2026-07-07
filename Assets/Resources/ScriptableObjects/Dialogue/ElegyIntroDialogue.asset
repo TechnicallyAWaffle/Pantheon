@@ -56,7 +56,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: Calibrating sensory interface.............        OK
+    message: Calibrating sensory interface.............        <0.2>OK
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -94,7 +94,7 @@ MonoBehaviour:
   - type: 1
     sender: 
     message: "Compiling \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..       
-      OK"
+      <0.8>OK"
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -154,26 +154,40 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: DIRECTIVE(echo)
-    message: "-- RUNDOWN FILE STANDARD --\r\nELEGY is a Norwegian UI deployed at
-      [14:22 UTC] through a backdoor on FreshNGo.net.\r\nUpon breaching, ELEGY injected
-      multiple worms into electrical and water supply systems across 342,655 nodes.
-      \r\nAt [14:23 UTC], the BDW received a message from ELEGY, informing us of
-      a ransom key. BDW headquarters refused to comply, and ELEGY retaliated by overpressurizing
-      32 water tanks across 9 regions to the point of implosion. \r\nELEGY is currently
-      being traced by EXN\u2019s RADIANCE program. Her last known location is BDW
-      PERIPHERAL_NODE_001. \r\n\r\nSTANDARD procedure inquires you to transmit the
-      universal negotiation key using \u201Cpush unk 001\u201D\r\nIf the agent deems
-      conflict to be unavoidable, sandbox all incoming transmission and flag yourself
-      for engagement with virtual_keyCode(ENTER).\r\n"
-    delayBefore: 0.75
+    message: "-- RUNDOWN FILE STANDARD --\r\n\nCONTACT: \n\tELEGY is a Norwegian
+      UI deployed at [325,543,542 UTC] through a backdoor on FreshNGo.net.\r\n\tUpon
+      breaching, ELEGY injected multiple worms into electrical and water supply systems
+      across 342,655 nodes. \r\n\nONGOING:\n\tAt [325,543,575 UTC], the BDW received
+      a message from ELEGY, informing us of a ransom key. \n\tBDW headquarters refused
+      to comply, and ELEGY retaliated by overpressurizing 32 water tanks across 9
+      regions to the point of implosion. \n\tELEGY is currently being traced by EXN\u2019s
+      RADIANCE program. Her last known location is BDW PERIPHERAL_NODE_001. \n\nCONTEXT:\n\tELEGY
+      was last deployed into a BDW backup server on a transport ship near Hawaii,
+      where it wiped backups for 32 UA\u2019s using a formatted traceanddestroy with
+      a previously unknown signature.\r\n\tELEGY possesses enterprise-grade combat
+      daemon and process frameworks. BDW informants also suspect a strain-triggered
+      switch connected to some form of trump card.\t\n\r\nSTANDARD procedure inquires
+      you to transmit the universal negotiation key using \u201Cpush unk 001\u201D\r\nIf
+      the agent deems conflict to be unavoidable, sandbox all incoming transmission
+      and flag yourself for engagement with virtual_keyCode(ENTER).\r\n"
+    delayBefore: 1.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
       promptHint: 
       wrongInputResponses: []
   - type: 0
-    sender: 
-    message: 'localhost: What the fuck?? What the fuck??? What the fuck???????'
+    sender: localhost
+    message: 'What the fuck?? '
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: What the fuck??? What the fuck???????
     delayBefore: 2
     dialogueManagerFunction: 
     inputPrompt:

@@ -5,6 +5,7 @@ using System.Collections;
 public class BasicTerminalUIManager : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
+    [SerializeField] private DialogueManager dialogueManager;
 
     private ScrollView scrollView;
     private VisualElement content;
@@ -14,6 +15,7 @@ public class BasicTerminalUIManager : MonoBehaviour
 
     void OnEnable()
     {
+        uiDocument = GameObject.Find("UIDocument").GetComponent<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
         scrollView = root.Q<ScrollView>("terminal-scroll");
@@ -39,6 +41,9 @@ public class BasicTerminalUIManager : MonoBehaviour
         inputField.multiline = false;
 
         HideInputField();
+
+        dialogueManager = GetComponent<DialogueManager>();
+
     }
 
     void OnDisable()
@@ -57,6 +62,7 @@ public class BasicTerminalUIManager : MonoBehaviour
             return;
 
         string input = inputField.value.Trim();
+        dialogueManager.inputSubmitted = input;
         if (string.IsNullOrWhiteSpace(input)) return;
 
         Print("> " + input, "terminal-line-user");
@@ -79,19 +85,45 @@ public class BasicTerminalUIManager : MonoBehaviour
         inputField.Focus();
     }
 
-    public void Print(string message, string additionalClass = null)
+    public void Print(string message, string additionalClass = null, bool appendToLast = false)
     {
+        if (appendToLast)
+        {
+            int inputRowIndex = content.IndexOf(inputRow);
+            if (inputRowIndex > 0)
+            {
+                var lastLine = content.ElementAt(inputRowIndex - 1) as Label;
+                if (lastLine != null)
+                {
+                    lastLine.text += message;
+
+                    StartCoroutine(ScrollAfterLayout());
+                    return;
+                }
+            }
+        }
+
+        // default behavior — create a new line
         var line = new Label(message);
         line.AddToClassList("terminal-line");
 
         if (!string.IsNullOrEmpty(additionalClass))
             line.AddToClassList(additionalClass);
 
-        int inputRowIndex = content.IndexOf(inputRow);
-        content.Insert(inputRowIndex, line);
+        int index = content.IndexOf(inputRow);
+        content.Insert(index, line);
 
         StartCoroutine(ScrollAfterLayout());
     }
+
+    public void Clear()
+    {
+        int inputRowIndex = content.IndexOf(inputRow);
+
+        for (int i = inputRowIndex - 1; i >= 0; i--)
+            content.RemoveAt(i);
+    }
+
 
     IEnumerator ScrollAfterLayout()
     {

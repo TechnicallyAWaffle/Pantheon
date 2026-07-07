@@ -42,7 +42,13 @@ public class DialogueSequenceEditor : Editor
         scroll = EditorGUILayout.BeginScrollView(scroll);
 
         for (int i = 0; i < so.entries.Count; i++)
+        {
+            DrawInsertButton(i);
             DrawEntry(i);
+        }
+
+        // insert button after the last entry
+        DrawInsertButton(so.entries.Count);
 
         EditorGUILayout.EndScrollView();
 
@@ -68,6 +74,39 @@ public class DialogueSequenceEditor : Editor
             for (int i = 0; i < foldouts.Count; i++) foldouts[i] = false;
 
         EditorGUILayout.EndHorizontal();
+    }
+
+    // ── Insert Button ────────────────────────────────────────────────────────
+
+    void DrawInsertButton(int i)
+    {
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+
+        if (GUILayout.Button("+ Insert Here", EditorStyles.miniButton, GUILayout.Width(90)))
+            ShowInsertMenu(i);
+
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.EndHorizontal();
+    }
+
+    void ShowInsertMenu(int index)
+    {
+        GenericMenu menu = new GenericMenu();
+
+        menu.AddItem(new GUIContent("User Message"), false, () => InsertEntry(index, DialogueEntryType.UserMessage));
+        menu.AddItem(new GUIContent("System Message"), false, () => InsertEntry(index, DialogueEntryType.SystemMessage));
+        menu.AddItem(new GUIContent("Input Prompt"), false, () => InsertEntry(index, DialogueEntryType.InputPrompt));
+        menu.AddItem(new GUIContent("Function Call"), false, () => InsertEntry(index, DialogueEntryType.FunctionCall));
+
+        menu.ShowAsContext();
+    }
+
+    void InsertEntry(int index, DialogueEntryType type)
+    {
+        Undo.RecordObject(so, "Insert Dialogue Entry");
+        so.entries.Insert(index, new DialogueEntry { type = type });
+        foldouts.Insert(index, true);
     }
 
     // ── Single Entry ─────────────────────────────────────────────────────────

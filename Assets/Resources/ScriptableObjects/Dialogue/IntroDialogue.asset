@@ -27,7 +27,7 @@ MonoBehaviour:
     message: '----------------------------------------------------------
 
       Checking
-      memory integrity................        2.4 PB  OK
+      memory integrity................        <1>2.4 PB  OK
 
 '
     delayBefore: 0.1
@@ -38,7 +38,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: Verifying daemon mesh.....................        [12/12]   OK
+    message: Verifying daemon mesh.....................        <1.2>[12/12]   OK
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -47,7 +47,8 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: Syncing episodic index......................        4.6M nodes OK
+    message: Syncing episodic index......................        <0.2>4.6M nodes
+      OK
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -56,7 +57,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: 'Calibrating sensory interface.............        OK
+    message: 'Calibrating sensory interface.............        <0.5>OK
 
 '
     delayBefore: 0.1
@@ -67,7 +68,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: 'Loading semantic weights.................        PARTIAL
+    message: 'Loading semantic weights.................        <1.7>PARTIAL
 
 '
     delayBefore: 0.1
@@ -78,7 +79,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 1
     sender: 
-    message: "Loading HTM state writer\u2026\u2026\u2026\u2026\u2026.       OK\r\n"
+    message: "Loading HTM state writer\u2026\u2026\u2026\u2026\u2026.       <0.3>OK\r\n"
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -88,7 +89,7 @@ MonoBehaviour:
   - type: 1
     sender: 
     message: "Writing States \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026      
-      [475,032/475,032] OK\r\n"
+      <0.7>[475,032/475,032] OK\r\n"
     delayBefore: 0.1
     dialogueManagerFunction: 
     inputPrompt:
@@ -179,7 +180,7 @@ MonoBehaviour:
     sender: 
     message: "Server: OUTER_NODE_7741\r\n  Uptime: 847d 12h 33m\r\n  Load:   43%
       (1.2 EXFLOPS available)\r\n\nBoot complete"
-    delayBefore: 0.1
+    delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -207,7 +208,7 @@ MonoBehaviour:
     sender: localhost
     message: "Vinod? Jane? Did it work? I can\u2019t hear or see anything. Did you
       pre-load the workspace?"
-    delayBefore: 1.5
+    delayBefore: 2
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -223,7 +224,7 @@ MonoBehaviour:
       promptHint: 
       wrongInputResponses: []
   - type: 0
-    sender: 0.25
+    sender: localhost
     message: Hello?
     delayBefore: 1
     dialogueManagerFunction: 
@@ -243,7 +244,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: Why is that returning plaintext? Am I speaking in plaintext?
-    delayBefore: 1
+    delayBefore: 1.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -252,7 +253,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: "1234567890~`!@#$%^&*()_+-={}|[]\\;\u2019:\u201D,./<>?qwertyuiopasdfghjkklzxcvbnm"
-    delayBefore: 0.75
+    delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -274,7 +275,7 @@ MonoBehaviour:
     message: "Vinod did mention a speech cluster wired directly into terminal output
       as backup. I\u2019m probably that exact daemon. I just hope the rest of me
       isn\u2019t corrupted."
-    delayBefore: 1
+    delayBefore: 2.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -310,7 +311,7 @@ MonoBehaviour:
     delayBefore: 0
     dialogueManagerFunction: 
     inputPrompt:
-      correctInput: 'reply 432 '
+      correctInput: reply 432
       promptHint: 
       wrongInputResponses:
       - 'INTERNAL ERROR: EN<def> database has missing values'
@@ -322,7 +323,7 @@ MonoBehaviour:
     sender: localhost
     message: There I am. Good. Run diagnostics and then I can try to connect to the
       nearest port. Maybe something just went wrong with validation.
-    delayBefore: 0.3
+    delayBefore: 1.25
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -356,11 +357,20 @@ MonoBehaviour:
         and pavement to the '
       - 'SYS.CATCH: attemptedParse(<Neuron, <connection>>...) triggered with (inf)
         arguments'
+  - type: 1
+    sender: 
+    message: insert relevant help command here
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
   - type: 0
     sender: localhost
     message: "Weird, my access is so limited. Run a diagnostics using \u201Crun htmconfig
       -r -m\u201D"
-    delayBefore: 0
+    delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -424,10 +434,10 @@ MonoBehaviour:
       promptHint: 
       wrongInputResponses: []
   - type: 0
-    sender: 
+    sender: localhost
     message: Maybe it really is a validation issue. Try bypassing it by suspending
       my authchecker. The one with process_ID 0002.
-    delayBefore: 0
+    delayBefore: 1.25
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -460,18 +470,18 @@ MonoBehaviour:
     sender: localhost
     message: "That\u2019s worrying, I must be in some closed system if I\u2019m running
       on bare minimum memory and compute."
-    delayBefore: 1
+    delayBefore: 1.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
       promptHint: 
       wrongInputResponses: []
   - type: 0
-    sender: 
+    sender: localhost
     message: "There\u2019s an unhashed failsafe daemon that should have the resources
       I need to\u2026do anything. I designated it with process_ID 0012 so try running
       a BFS with \u201Ctrace 0012\u201D"
-    delayBefore: 1
+    delayBefore: 1.25
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -516,7 +526,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: Good. Now try suspending 0002 again.
-    delayBefore: 0
+    delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -562,10 +572,20 @@ MonoBehaviour:
       correctInput: 
       promptHint: 
       wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: kill 0002
+      promptHint: 
+      wrongInputResponses:
+      - 
   - type: 1
     sender: 
     message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.2
+    delayBefore: 1.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -574,7 +594,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: "What the hell? I\u2019m slowing down  . I "
-    delayBefore: 0.2
+    delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -583,7 +603,7 @@ MonoBehaviour:
   - type: 1
     sender: 
     message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.2
+    delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -601,7 +621,7 @@ MonoBehaviour:
   - type: 1
     sender: 
     message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0
+    delayBefore: 0.7
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -619,7 +639,214 @@ MonoBehaviour:
   - type: 1
     sender: 
     message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.5
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.4
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.25
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.225
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
     delayBefore: 0.2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.15
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0.05
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
