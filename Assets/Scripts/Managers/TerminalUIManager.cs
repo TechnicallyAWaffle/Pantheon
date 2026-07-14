@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using TMPro;
 using Unity.Properties;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 //README
 //Anything that interacts with visual elements should delegate their logic here to avoid clutter
@@ -16,11 +18,15 @@ public class TerminalUIManager : MonoBehaviour
     string _consoleOutput = "";
 
     //Refs
+    [SerializeField] UIDocument uIDocument;
     ReferenceManager referenceManager;
-
-    [SerializeField] private TextMeshProUGUI outputText;
     //[SerializeField] private ScrollRect scrollRect;
 
+    private void OnEnable()
+    {
+        var root = uIDocument.rootVisualElement;
+        root.dataSource = this;
+    }
 
     private Dictionary<int, string> encryptionIntToDisplayName = new()
     {

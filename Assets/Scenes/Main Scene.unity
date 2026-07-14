@@ -274,75 +274,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
   m_PrefabInstance: {fileID: 292303293}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &354628302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 354628303}
-  - component: {fileID: 354628305}
-  - component: {fileID: 354628304}
-  m_Layer: 0
-  m_Name: TerminalDialogueManagers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &354628303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354628302}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 317.97714, y: 153.63086, z: -1.0919696}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 708503291}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &354628304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354628302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 130bc7a480b34a64cb29659ec9eca775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicTerminalUIManager
-  uiDocument: {fileID: 1151528848}
-  dialogueManager: {fileID: 0}
---- !u!114 &354628305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354628302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f1c6b0fbe0e33143b290c6c5e00b534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  terminalUIManager: {fileID: 0}
-  inputSubmitted: 
-  introDialogue: {fileID: 11400000, guid: 43e5fe39696a37047bc845015bb50f7f, type: 2}
-  directiveDialogue: {fileID: 11400000, guid: 00b34e28d95f489429f0198615bcba85, type: 2}
-  elegyIntroDialogue: {fileID: 11400000, guid: e94fd50f0f7a65241bf95723859d3e72, type: 2}
-  elegyNegotiateDialogue: {fileID: 0}
-  commandLineContainer: {fileID: 0}
-  systemMessagePrefab: {fileID: 0}
-  userInputPrefab: {fileID: 0}
-  scrollRect: {fileID: 0}
 --- !u!1 &376013315
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +892,6 @@ Transform:
   - {fileID: 1278624642}
   - {fileID: 826699366}
   - {fileID: 559573914}
-  - {fileID: 354628303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813292961
@@ -1210,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba23a6f23358a4458ae00407257329e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerminalUIManager
-  outputText: {fileID: 0}
+  uIDocument: {fileID: 1151528848}
 --- !u!1001 &891837021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2011,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858e412fecbe6ea499c9e6400e66cf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommandLine
-  terminalUI: {fileID: 0}
+  terminalUI: {fileID: 846925986}
   processTemplate: {fileID: 9197481963319205126, guid: 5c7298b0a83db0543870aadf1f92d685, type: 3}
 --- !u!114 &1151528852
 MonoBehaviour:
@@ -3102,7 +3032,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1942363571}
   - component: {fileID: 1942363573}
-  - component: {fileID: 1942363572}
   m_Layer: 0
   m_Name: ReferenceManager
   m_TagString: Untagged
@@ -3125,19 +3054,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 708503291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1942363572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942363570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225e875f86f606644ac2edb922c52aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EncounterConfig
-  opponent: {fileID: 0}
 --- !u!114 &1942363573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3156,7 +3072,7 @@ MonoBehaviour:
   queueManager: {fileID: 1083157901}
   daemonManager: {fileID: 1278624643}
   suspensionManager: {fileID: 826699367}
-  dialogueManager: {fileID: 354628305}
+  dialogueManager: {fileID: 0}
   player: {fileID: 1910080314}
   opponent: {fileID: 1586301206}
   serverProcessQueue: {fileID: 1510904592}
