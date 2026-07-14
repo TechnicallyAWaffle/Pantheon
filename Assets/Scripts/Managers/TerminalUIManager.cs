@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 public class TerminalUIManager : MonoBehaviour
 {
-    public const int MaxLines = 15;
+    public const int MaxLines = 5;
 
     [CreateProperty]
     public string ConsoleOutput => _consoleOutput;
@@ -57,13 +57,12 @@ public class TerminalUIManager : MonoBehaviour
 
     public void Print(string output)
     {
-        _consoleOutput = $"{output}\n{_consoleOutput}";
-
+        _consoleOutput = $"{_consoleOutput}\n<line-height=115%>{output}</line-height>";
         string[] lines = _consoleOutput.Split('\n');
-
         if (lines.Length > MaxLines)
         {
-            _consoleOutput = string.Join("\n", lines, 0, MaxLines);
+            _consoleOutput = string.Join("\n", lines, lines.Length - MaxLines, MaxLines);
         }
     }
+
 }

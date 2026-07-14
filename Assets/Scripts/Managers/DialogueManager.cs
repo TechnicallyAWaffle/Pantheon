@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -108,9 +109,9 @@ public class DialogueManager : MonoBehaviour
         return delay;
     }
 
-    private void Function()
-    { 
-        
+    private void RunTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
 

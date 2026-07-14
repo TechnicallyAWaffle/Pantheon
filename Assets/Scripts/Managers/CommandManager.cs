@@ -6,6 +6,7 @@ public class CommandManager : MonoBehaviour
 {
     //References
     [SerializeField] CommandLine commandLine;
+    [SerializeField] TutorialSequence tutorialSequence;
     private ReferenceManager referenceManager;
     private TerminalUIManager terminalUIManager;
     private ProcessManager processManager;
@@ -24,8 +25,8 @@ public class CommandManager : MonoBehaviour
     {
         commandLine.OnCommand.AddListener(OnSubmit);
     }
-
-    void Osable()
+        
+    void OnDisable()
     {
         commandLine.OnCommand.RemoveListener(OnSubmit);
     }
@@ -223,8 +224,12 @@ public class CommandManager : MonoBehaviour
     }
 
     void CmdChangeDirectory(string[] args)
-    { 
-    
+    {
+        if (tutorialSequence && args.Length > 0)
+        {
+            if(args[0] == "i++")
+                tutorialSequence.PrintTutorialMessage();
+        }
     }
 
     void CmdOverclock(string[] args) { }

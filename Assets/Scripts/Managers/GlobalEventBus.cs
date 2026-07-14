@@ -8,6 +8,10 @@ public static class GlobalEventBus
     //Suscribe whatever you need to the events here with Action += Function in Start()
     //Set when these events actually fire by calling the Invokers down below
 
+    //Tutorial events
+    public static event Action tutorialPlayerRanProcess;
+    public static event Action tutorialPlayerSuspendedProcess;
+    public static event Action tutorialPlayerKilledProcess;
 
     // Process events
     public static event Action<RunningProcess> OnPlayerQueuedAProcess;
