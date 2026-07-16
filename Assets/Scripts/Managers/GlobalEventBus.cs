@@ -9,9 +9,7 @@ public static class GlobalEventBus
     //Set when these events actually fire by calling the Invokers down below
 
     //Tutorial events
-    public static event Action tutorialPlayerRanProcess;
-    public static event Action tutorialPlayerSuspendedProcess;
-    public static event Action tutorialPlayerKilledProcess;
+    public static event Action<string> OnTutorialSubmit;
 
     // Process events
     public static event Action<RunningProcess> OnPlayerQueuedAProcess;
@@ -47,7 +45,7 @@ public static class GlobalEventBus
 
 
     // Invokers
-
+    public static void TutorialSubmit(string input) => OnTutorialSubmit(input);
     public static void MemoryChanged(Entity owner, int amount, ProcessQueue location)
         => OnMemoryChanged?.Invoke(owner);
     public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);

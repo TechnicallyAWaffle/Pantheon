@@ -2012,10 +2012,10 @@ MonoBehaviour:
     (UI). \nIf you believe you are outmatched, DO NOT attempt to continue engagement."
   - Standard combat philosphy with embodied, physical humans has little relation
     to UI combat. Engagements with UI's start and end with how many resources you
-    can seize from your surroundings or your enemy.
-  - "The two most important resources on a virtual battlefield are memory and compute.
-    \nMemory defines how many processes you can run simultaneously. More memory means
-    more processes.\nCompute defines how fast those processes take to complete. More
+    can seize from your surroundings and your enemy.
+  - "The two most important resources on a virtual battlefield are MEMORY and COMPUTE.
+    \nMEMORY defines how many processes you can run simultaneously. More memory means
+    more processes.\nCOMPUTE defines how fast those processes take to complete. More
     compute means faster processes."
   - Your integration contains local memory and compute specifically set aside for
     lethal engagements. These two resources are indicated on the bottom left of your
@@ -2030,6 +2030,7 @@ MonoBehaviour:
     "run scry" into the workspace''s input field.
 
 '
+  - 'Good. Your local memory has increased. '
 --- !u!4 &1392867577
 Transform:
   m_ObjectHideFlags: 0

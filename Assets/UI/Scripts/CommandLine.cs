@@ -197,6 +197,8 @@ public class CommandLine : MonoBehaviour
 
         HandleCommand(submitted);
 
+        GlobalEventBus.TutorialSubmit(submitted);
+        
         _inputField.value = string.Empty;
         _inputField.schedule.Execute(() => _inputField.Focus());
 

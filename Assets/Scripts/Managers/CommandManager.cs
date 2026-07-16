@@ -227,7 +227,7 @@ public class CommandManager : MonoBehaviour
     {
         if (tutorialSequence && args.Length > 0)
         {
-            if(args[0] == "i++")
+            if(args[0] == "next")
                 tutorialSequence.PrintTutorialMessage();
         }
     }
