@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class TutorialSequence : MonoBehaviour
 {
+    ReferenceManager referenceManager;
     TerminalUIManager terminalUIManager;
     public int currentTutorialIndex = 0;
+    public Entity tutorialOpponent;
     [TextArea]
     [SerializeField] string[] tutorialMessages;
+
+    //Stupid stuff
+    private bool hasRanSuspension = false;
+    private bool hasRanKill = false;
     void Start()
     {
-        terminalUIManager = ReferenceManager.Instance.terminalUIManager;
+        referenceManager = ReferenceManager.Instance;
+        terminalUIManager = referenceManager.terminalUIManager;
         TutorialIntroMessage();
         GlobalEventBus.OnTutorialSubmit += TutorialPlayerSubmitted;
     }
@@ -24,6 +31,13 @@ public class TutorialSequence : MonoBehaviour
 
     public void PrintTutorialMessage()
     {
+        if (currentTutorialIndex == 10)
+        {
+            string[] dummyProcess = {"dummy"};
+            referenceManager.processManager.TryRunProcess(dummyProcess, tutorialOpponent, referenceManager.serverProcessQueue, true);
+            referenceManager.processManager.TryRunProcess(dummyProcess, tutorialOpponent, referenceManager.serverProcessQueue, true);
+        }
+
         if (currentTutorialIndex < tutorialMessages.Length)
         {
             terminalUIManager.Print(tutorialMessages[currentTutorialIndex]);
@@ -36,8 +50,19 @@ public class TutorialSequence : MonoBehaviour
         Debug.Log(input + " at index: " + currentTutorialIndex);
         if (input == "run scry" && currentTutorialIndex == 5) //This is +1 the current index because i hate meowself
         {
-            Debug.Log("YAY");
             Invoke(nameof(PrintTutorialMessage), 3f);
+        }
+        if (input.Contains("suspend") && currentTutorialIndex == 11 && !hasRanSuspension)
+        {
+            hasRanSuspension = true;
+        }
+        if (input.Contains("kill") && currentTutorialIndex == 11 && !hasRanKill)
+        {
+            hasRanKill = true;
+        }
+        if (currentTutorialIndex == 11 && hasRanKill && hasRanSuspension)
+        {
+            Invoke(nameof(PrintTutorialMessage), 10f);
         }
     }
 

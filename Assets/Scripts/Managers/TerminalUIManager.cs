@@ -16,6 +16,7 @@ public class TerminalUIManager : MonoBehaviour
     [CreateProperty]
     public string ConsoleOutput => _consoleOutput;
     string _consoleOutput = "";
+    private ScrollView commandOutputScroll;
 
     //Refs
     [SerializeField] UIDocument uIDocument;
@@ -25,7 +26,15 @@ public class TerminalUIManager : MonoBehaviour
     private void OnEnable()
     {
         var root = uIDocument.rootVisualElement;
+        commandOutputScroll = root.Q<ScrollView>("CommandOutputScroll");
         root.dataSource = this;
+
+        commandOutputScroll.contentContainer.RegisterCallback<GeometryChangedEvent>(OnContentGeometryChanged);
+    }
+
+    void OnDisable()
+    {
+        commandOutputScroll?.contentContainer.UnregisterCallback<GeometryChangedEvent>(OnContentGeometryChanged);
     }
 
     private Dictionary<int, string> encryptionIntToDisplayName = new()
@@ -57,9 +66,22 @@ public class TerminalUIManager : MonoBehaviour
 
     public void Print(string output)
     {
+        output = output.Trim();
         _consoleOutput = $"{_consoleOutput}\n<line-height=115%>{output}</line-height>";
         if (_consoleOutput.Length > MaxCharacters)
             _consoleOutput = _consoleOutput.Substring(_consoleOutput.Length - MaxCharacters);
+    }
+
+    void OnContentGeometryChanged(GeometryChangedEvent e)
+    {
+        var label = commandOutputScroll.Q<Label>("CommandOutput");
+        label.MarkDirtyRepaint();
+
+        commandOutputScroll.schedule.Execute(() =>
+        {
+            if (commandOutputScroll.contentContainer.layout.height > commandOutputScroll.layout.height)
+                commandOutputScroll.verticalScroller.value = commandOutputScroll.verticalScroller.highValue;
+        }).ExecuteLater(1);
     }
 
 }

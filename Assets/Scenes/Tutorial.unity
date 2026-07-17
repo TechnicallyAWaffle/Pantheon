@@ -274,37 +274,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6286358439231158961, guid: 9c7504127b2210d4a88fe3132f01416e, type: 3}
   m_PrefabInstance: {fileID: 292303293}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &376013315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 376013316}
-  m_Layer: 0
-  m_Name: StartUp_Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &376013316
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376013315}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.52602, y: -1.92213, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399406542
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,9 +941,7 @@ Transform:
   m_LocalPosition: {x: 6.69, y: 0.01, z: 0}
   m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 2144274578}
-  - {fileID: 1409328837}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846925984
@@ -1567,37 +1534,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0029, y: -0.0116}
   m_SizeDelta: {x: 1772.5613, y: 1002.1224}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1135466591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1135466592}
-  m_Layer: 0
-  m_Name: TitleScreen_Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1135466592
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135466591}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.52602, y: -1.92213, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151528847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +1942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialSequence
   currentTutorialIndex: 0
+  tutorialOpponent: {fileID: 829461195}
   tutorialMessages:
   - "This training is intended to be used by internal civilian militia, and will
     only cover the absolute basics of engagements witih hostile uploaded intelligences
@@ -2025,12 +1962,81 @@ MonoBehaviour:
     yourself a virtual body. Using this mental framework, imagine yourself typing
     on a keyboard to input the letters into the command field.
 
-
     Now try inputting
-    "run scry" into the workspace''s input field.
+    "run scry" into the workspace''s input field.'
+  - 'Processes take time to execute their effects. Scry grants you memory on the
+    server, which is a shared space where you and your opponent can run processes. '
+  - The server contains far more memory and compute than your local integration.
+    Seizing these resources for yourself and depriving your opponent of them is crucial
+    to victory.
+  - Occasionally, the server will undergo a wipe that returns a portion of memor
+    and compute each party has back to the server. These resources are all shown
+    at the top of the screen.
+  - "Processes take time to execute their effects. Scry grants you memory on the
+    server, which is a shared space where you and your opponent can run processes.
+    \n\nThe server contains far more memory and compute than your local integration.
+    Seizing these resources for yourself and depriving your opponent of them is crucial
+    to victory.\n\nOccasionally, the server will undergo a wipe that returns a portion
+    of memor and compute each party has back to the server. These resources are all
+    shown at the top of the screen."
+  - 'You can disrupt your opponent''s processes by SUSPENDING or KILLING them.
+
+
+    Suspending
+    a process stalls it until a condition is met, holding the memory it''s using
+    hostage.
+
+    Killing a process simply destroys it outright.'
+  - 'The workspace will now run two dummy processes. Each process has a 4 digit process
+    ID that you can use to target them for action.
+
+
+    Suspend one process using
+    "suspend processID"
+
+    Kill the other using "kill processID"'
+  - 'Some processes are protected by ENCRYPTION, preventing you from suspending or
+    killing them. This is shown by a number in the process box.
+
+
+    Certain processes
+    can lower encryption levels, allowing you to target them.'
+  - 'Alternatively, some processes can raise your AUTHORITY, shown as swords around
+    your automatically rendered workspace avatar.
 
 '
-  - 'Good. Your local memory has increased. '
+  - If your authority is greater than the encryption level of the process you're
+    attempting to access, you ignore its encryption entirely.
+  - 'Think of daemons as the digital equivalent of your brain and vital organs. They
+    are background functions that make up your consciousness as a whole, and they
+    can be suspended, killed, encrypted, and decrypted just like processes. '
+  - '
+
+    Daemons are shown in front of each workspace avatar on the sides of the
+    server process queue. They each provide special bonuses to their owners, which
+    you can read about with the "query" command.'
+  - "If retreat is not an option, do not hesitate to kill every single one of your
+    opponent\u2019s daemons."
+  - Now you understand the basics of defending yourself against digital terrorism.
+    If you wish to further support the war efforts, be sure to only buy software
+    from any of our 5 trusted enterprise partners! Continue for a list of these companies
+    and their respective specializations!
+  - 'SeeingStone - Intelligence and resource gathering
+
+    Kali - Cheap and fast
+    offense
+
+    Chasavoy - Strong defense and disruption
+
+    Mirai - Expensive
+    but devastating software
+
+    MindCloud - Daemon disruptionm
+
+
+    Congratulations
+    on completing the basic civilian upload combat readiness training program. We
+    hope you may never have to use the skills you''ve learned today.'
 --- !u!4 &1392867577
 Transform:
   m_ObjectHideFlags: 0
@@ -2045,37 +2051,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1409328836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1409328837}
-  m_Layer: 0
-  m_Name: Elegy_SFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1409328837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409328836}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 829461196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1421728569
 PrefabInstance:
@@ -2302,8 +2277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb308aca11083b4cb1330fb8b79298b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
-  authority: 0
-  reservedServerMemory: 0
+  authority: 1
+  reservedServerMemory: 100
   reservedServerCompute: 0
   AvailableLocalMemoryField: 0
   AvailableServerMemoryField: 0
@@ -2457,118 +2432,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2144274577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2144274578}
-  - component: {fileID: 2144274581}
-  - component: {fileID: 2144274580}
-  - component: {fileID: 2144274579}
-  m_Layer: 0
-  m_Name: Elegy_Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2144274578
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144274577}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 829461196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2144274579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144274577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d19cdceef4194cdcb44f0bb9ee4f6ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkEvent
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 8d4f569562fea46cfa81d74b827e67b4, type: 2}
-  useCallbacks: 0
-  stopSoundOnDestroy: 1
-  Callbacks: []
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
---- !u!114 &2144274580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144274577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c19e401043cd0450aa655b022a27a8eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  usePositionOffsetData: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  scalingFactor: 1
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!114 &2144274581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144274577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed6185f861a1d4489a1a445eec1021a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkBank
-  triggerList: f7e1664c
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: a891702f44c2647c7952d3d62b2875ed, type: 2}
-  decodeBank: 0
-  overrideLoadSetting: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2581,8 +2444,6 @@ SceneRoots:
   - {fileID: 1111543925}
   - {fileID: 1910080312}
   - {fileID: 212456207}
-  - {fileID: 1135466592}
-  - {fileID: 376013316}
   - {fileID: 708503291}
   - {fileID: 1392867577}
   - {fileID: 829461196}
