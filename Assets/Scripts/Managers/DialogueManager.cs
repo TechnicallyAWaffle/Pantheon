@@ -111,7 +111,7 @@ public class DialogueManager : MonoBehaviour
 
     private void RunTutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Tutorial", LoadSceneMode.Additive);
     }
 
 

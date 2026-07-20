@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialSequence : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class TutorialSequence : MonoBehaviour
     {
         if (currentTutorialIndex == 10)
         {
-            string[] dummyProcess = {"dummy"};
+            string[] dummyProcess = { "dummy" };
             referenceManager.processManager.TryRunProcess(dummyProcess, tutorialOpponent, referenceManager.serverProcessQueue, true);
             referenceManager.processManager.TryRunProcess(dummyProcess, tutorialOpponent, referenceManager.serverProcessQueue, true);
         }
@@ -42,6 +43,10 @@ public class TutorialSequence : MonoBehaviour
         {
             terminalUIManager.Print(tutorialMessages[currentTutorialIndex]);
             currentTutorialIndex++;
+        }
+        else
+        {
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
     }
 

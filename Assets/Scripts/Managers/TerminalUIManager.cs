@@ -68,8 +68,8 @@ public class TerminalUIManager : MonoBehaviour
     {
         output = output.Trim();
         _consoleOutput = $"{_consoleOutput}\n<line-height=115%>{output}</line-height>";
-        if (_consoleOutput.Length > MaxCharacters)
-            _consoleOutput = _consoleOutput.Substring(_consoleOutput.Length - MaxCharacters);
+        /*if (_consoleOutput.Length > MaxCharacters)
+            _consoleOutput = _consoleOutput.Substring(_consoleOutput.Length - MaxCharacters);*/
     }
 
     void OnContentGeometryChanged(GeometryChangedEvent e)
@@ -78,7 +78,7 @@ public class TerminalUIManager : MonoBehaviour
         label.MarkDirtyRepaint();
 
         commandOutputScroll.schedule.Execute(() =>
-        {
+        {   
             if (commandOutputScroll.contentContainer.layout.height > commandOutputScroll.layout.height)
                 commandOutputScroll.verticalScroller.value = commandOutputScroll.verticalScroller.highValue;
         }).ExecuteLater(1);

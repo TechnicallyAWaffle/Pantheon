@@ -272,9 +272,8 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: "Vinod did mention a speech cluster wired directly into terminal output
-      as backup. I\u2019m probably that exact daemon. I just hope the rest of me
-      isn\u2019t corrupted."
+    message: "I\u2019m probably the speech cluster wired directly into terminal output
+      as backup. I can only hope that my other clusters can read this chatlog."
     delayBefore: 2.5
     dialogueManagerFunction: 
     inputPrompt:
@@ -321,8 +320,9 @@ MonoBehaviour:
         arguments'
   - type: 0
     sender: localhost
-    message: There I am. Good. Run diagnostics and then I can try to connect to the
-      nearest port. Maybe something just went wrong with validation.
+    message: "Thank God. You must be my left brain\u2019s occipital cluster. If our
+      brain hemispheres are separated something must have just stalled in the upload
+      validation. Run diagnostics and then I can try to connect to the nearest port."
     delayBefore: 1.25
     dialogueManagerFunction: 
     inputPrompt:
@@ -331,70 +331,14 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: "I\u2019ll keep communicating through plaintext for now in case vector
-      processing is the issue. I'll format everything you know in your current parietal
-      cluster into the cmd's \"help\" function. Let's try inputting that."
+    message: "Oh, right. You can\u2019t remember how to do that because you don\u2019t
+      have access to long term memory. Type \u201Crun htmconfig -r -m\u201D."
     delayBefore: 0.75
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
       promptHint: 
       wrongInputResponses: []
-  - type: 2
-    sender: 
-    message: 
-    delayBefore: 0
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: help
-      promptHint: 
-      wrongInputResponses:
-      - 'INTERNAL ERROR: EN<def> database has database has database has database
-        has'
-      - 'INTERNAL ERROR: Ctoken parse formatter contains no overload for overload
-        for the apply and the'
-      - 'INTERNAL ERROR: Ctoken parse formatter contains no overload thundercloud
-        and pavement to the '
-      - 'SYS.CATCH: attemptedParse(<Neuron, <connection>>...) triggered with (inf)
-        arguments'
-  - type: 1
-    sender: 
-    message: insert relevant help command here
-    delayBefore: 0
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 0
-    sender: localhost
-    message: "Weird, my access is so limited. Run a diagnostics using \u201Crun htmconfig
-      -r -m\u201D"
-    delayBefore: 1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 2
-    sender: 
-    message: 
-    delayBefore: 0
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: run htmconfig -r -m
-      promptHint: 
-      wrongInputResponses:
-      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (322) required context
-        calls'
-      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (756) required context
-        calls'
-      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (642,598) required context
-        calls'
-      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (235,664,734,543) required
-        context calls'
-      - 'SYS.CATCH:  HTM node parietalC[224] failed auth_low validation and cannot
-        be accessed'
   - type: 1
     sender: 
     message: Reading full cluster state with flag -r flag -m
@@ -452,10 +396,16 @@ MonoBehaviour:
       correctInput: suspend 0002
       promptHint: 
       wrongInputResponses:
-      - 
-      - 
-      - 
-      - 
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (322) required context
+        calls'
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (756) required context
+        calls'
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (642,598) required context
+        calls'
+      - 'INTERNAL ERROR: HTM node parietalC[224] is missing (235,664,734,543) required
+        context calls'
+      - 'SYS.CATCH:  HTM node parietalC[224] failed auth_low validation and cannot
+        be accessed'
   - type: 1
     sender: 
     message: 'WARNING: Qthread CL_AUTH_LOW contains superposited recursive callstack.
@@ -565,7 +515,9 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: "What a pain. Just \u201Ckill 0002\u201D instead."
+    message: "Are you kidding me? I don\u2019t want to just kill the thing so maybe
+      there\u2019s some other command that can help? You can probably output available
+      commands in the current workspace using \u201Chelp\u201D or something"
     delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
@@ -578,10 +530,61 @@ MonoBehaviour:
     delayBefore: 0
     dialogueManagerFunction: 
     inputPrompt:
-      correctInput: kill 0002
+      correctInput: help
       promptHint: 
       wrongInputResponses:
       - 
+  - type: 1
+    sender: 
+    message: "USER: Arsi Wren\r\nENGAGEMENT CALIBRATION: Incomplete\r\nPlease perform
+      a combat calibration [IMMEDIATELY] using \u201Crun cmodule_v12\u201D\n\nINHERITED
+      WORKSPACE PROCESSES:\r\nrun process_name \r\nsrun process_name\r\nsuspend process_ID\r\nkill
+      process_ID\r\noverclock scaledTime\r\n\r\n"
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Why do these look like cybersecurity packages...
+    delayBefore: 4
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 
+    message: Daemon and network process manipulation tools, closed loop malware,
+      and an uplink to some kind of calibration program?
+    delayBefore: 1.75
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 
+    message: "You should probably run that calibration program unless you know something
+      I don\u2019t in your partitioned memory. Otherwise just kill 0002 and we can
+      start trying to integrate our memories."
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: RunTutorial
+    inputPrompt:
+      correctInput: run cmodule_v12
+      promptHint: 
+      wrongInputResponses: []
   - type: 1
     sender: 
     message: 'ERROR: Cycle time format does not match expected time slice.'
