@@ -3,6 +3,7 @@ using System.Collections;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,9 +15,9 @@ public class DialogueManager : MonoBehaviour
     private bool inputCorrect = false;
     private string currentCorrectInput;
     private int currentWrongInputResponseIndex = 0;
+    private bool functionIsRunning = false;
 
-
-    private void Start()
+    private void Awake()
     {
         terminalUIManager = GetComponent<BasicTerminalUIManager>();
     }
@@ -24,11 +25,12 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator RunDialogueSegment(SODialogueSequence dialogue, bool clearBefore = false)
     {
-        if(clearBefore)
+        if (clearBefore)
             terminalUIManager.Clear();
 
         for (int i = 0; i < dialogue.entries.Count; i++)
         {
+            inputSubmitted = string.Empty;
             DialogueEntry entry = dialogue.entries[i];
             yield return new WaitForSeconds(entry.delayBefore);
             string textToAdd = string.Empty;
@@ -65,7 +67,6 @@ public class DialogueManager : MonoBehaviour
                     yield return new WaitUntil(() => inputSubmitted != string.Empty);
                     if (inputSubmitted != currentCorrectInput) //Incorrect Input
                     {
-                        inputSubmitted = string.Empty;
                         i--;
                         textToAdd = entry.inputPrompt.wrongInputResponses[currentWrongInputResponseIndex];
                         if (currentWrongInputResponseIndex < entry.inputPrompt.wrongInputResponses.Count - 1)
@@ -74,7 +75,6 @@ public class DialogueManager : MonoBehaviour
                     else //Correct Input
                     {
                         terminalUIManager.HideInputField();
-                        inputSubmitted = string.Empty;
                         currentCorrectInput = string.Empty;
                         inputCorrect = false;
                         currentWrongInputResponseIndex = 0;
@@ -86,8 +86,10 @@ public class DialogueManager : MonoBehaviour
 
             if (entry.dialogueManagerFunction != string.Empty)
             {
+                functionIsRunning = true;
                 Invoke(entry.dialogueManagerFunction, 0f);
-            } 
+                yield return new WaitUntil(() => functionIsRunning == false); 
+            }
         }
     }
 
@@ -109,9 +111,31 @@ public class DialogueManager : MonoBehaviour
         return delay;
     }
 
-    private void RunTutorial()
+    public void RunTutorial()
     {
-        SceneManager.LoadScene("Tutorial", LoadSceneMode.Additive);
+        if (inputSubmitted == "run cmodule_v12")
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+    }
+
+    public void SkipIntro()
+    {
+        if (inputSubmitted == "Y")
+            functionIsRunning = false;
+        if (inputSubmitted == "N")
+        {
+            Debug.Log(inputSubmitted);
+            SceneManager.LoadScene("Main Scene");
+        }
+    }
+
+    public void StartCombat()
+    {
+        if (inputSubmitted == "flag sm -r")
+        {
+            SceneManager.LoadScene("Main Scene");
+        }
     }
 
 

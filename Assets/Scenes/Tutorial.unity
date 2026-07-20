@@ -1965,7 +1965,8 @@ MonoBehaviour:
     Now try inputting
     "run scry" into the workspace''s input field.'
   - 'Processes take time to execute their effects. Scry grants you memory on the
-    server, which is a shared space where you and your opponent can run processes. '
+    server, which is a shared space where you and your opponent can run processes.
+    You can run processes on the server by using the keyword "srun" instead. '
   - The server contains far more memory and compute than your local integration.
     Seizing these resources for yourself and depriving your opponent of them is crucial
     to victory.

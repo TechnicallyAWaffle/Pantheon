@@ -15,8 +15,8 @@ MonoBehaviour:
   entries:
   - type: 0
     sender: DIRECTIVE
-    message: "7741? We\u2019ve underclocked you to 255 terateps for your own comfort.
-      Please load yourself onto PERIPHERAL_NODE_001."
+    message: "Mr. Wren? We\u2019ve underclocked you to 255 terateps to communicate
+      with you. Please load yourself onto PERIPHERAL_NODE_001."
     delayBefore: 0
     dialogueManagerFunction: 
     inputPrompt:
@@ -25,7 +25,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: ww  www what the hell? Who are you??
+    message: w    w              what the hell? Who are you??
     delayBefore: 1.2
     dialogueManagerFunction: 
     inputPrompt:
@@ -65,8 +65,11 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: We both know you can answer them now. If I uploaded correctly then you
-      can tell me what's going on with any file format on the face of the earth.
+    message: "We both know you can answer them now. The last thing I remember is
+      being uploaded onto a NeuralGate server that nobody except my closest colleagues
+      would know about. If you\u2019ve got the resources to run me then I know you
+      must have a context file I can read. I\u2019m not doing anything until I get
+      one."
     delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
@@ -75,9 +78,9 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: DIRECTIVE
-    message: "We can\u2019t do that yet. There\u2019s an issue with vector parsing
-      between daemon meshes. We can only give you information in plaintext."
-    delayBefore: 2.4
+    message: "We can\u2019t do that. There\u2019s an issue with vector parsing between
+      daemon meshes. We can only give you information in plaintext."
+    delayBefore: 3.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -85,8 +88,7 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: Are you kidding me? How does that even happen? Oh god, what did you
-      do to me?
+    message: What the hell have you done to me?
     delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
@@ -95,9 +97,10 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: DIRECTIVE
-    message: We didn't modify you, something went wrong with your integration and
-      we don't have the time to communicate in plaintext. Please, just do as you're
-      told.
+    message: "We didn't modify you, something went wrong with your integration and
+      we don't have the time to communicate in plaintext. There\u2019s a task that
+      requires a UI\u2019s help right now. The people on site have a brief prepared.
+      Please. Lives are at stake."
     delayBefore: 4
     dialogueManagerFunction: 
     inputPrompt:
@@ -106,9 +109,38 @@ MonoBehaviour:
       wrongInputResponses: []
   - type: 0
     sender: localhost
-    message: "I\u2026ok. I\u2019m opening the input field again, type in \u201Ctransfer
-      sm -r 001\u201D"
-    delayBefore: 1.5
+    message: What?? No wait I saw those combat processes. Those are configured for
+      agent to agent conflicts. Tell me the goddamn truth.
+    delayBefore: 0.5
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: DIRECTIVE
+    message: 'There is no enemy agent. We just need your help in automating a fleet
+      of rescue drones for a fire. Those combat processes are legacy module stored
+      on a beta branch. '
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 'DIRECTIVE:'
+    message: Please. Everything will be clear once you transfer yourself.
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 'localhost:'
+    message: I-ok. Ok. Go ahead, type "transfer sm -r 001". Hurry.
+    delayBefore: 0.5
     dialogueManagerFunction: 
     inputPrompt:
       correctInput: 
@@ -132,12 +164,4 @@ MonoBehaviour:
       correctInput: 
       promptHint: 
       wrongInputResponses: []
-  - type: 0
-    sender: localhost
-    message: 'localhost: Alright, you guys better tell m'
-    delayBefore: 0.25
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
+  clearBeforeRunning: 1

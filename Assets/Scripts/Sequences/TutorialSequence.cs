@@ -25,7 +25,7 @@ public class TutorialSequence : MonoBehaviour
     private void TutorialIntroMessage()
     {
         terminalUIManager.Print("Welcome to Uploaded Intelligence combat training module version 12. " +
-            "Terminal format workspaces are being deprecated in the upcoming EXODIA 6 updates. " +
+            "Terminal format workspaces are being deprecated in the upcoming EXODIA 6 updates releasing soon on 12/4/2039. " +
             "Please switch to integrated 3D environment workspaces as soon as possible.");
         terminalUIManager.Print("Input \" cd next\" during calibration to advance to the next portion");
     }
@@ -46,7 +46,7 @@ public class TutorialSequence : MonoBehaviour
         }
         else
         {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            SceneManager.LoadScene("PostTutorialIntro");
         }
     }
 

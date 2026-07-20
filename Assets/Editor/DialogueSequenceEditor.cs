@@ -36,6 +36,9 @@ public class DialogueSequenceEditor : Editor
         serializedObject.Update();
         SyncFoldouts();
 
+        so.clearBeforeRunning = EditorGUILayout.Toggle("Clear Before Running", so.clearBeforeRunning);
+        EditorGUILayout.Space(4);
+
         DrawToolbar();
         EditorGUILayout.Space(4);
 

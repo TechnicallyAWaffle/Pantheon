@@ -1,0 +1,480 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512fe0cec101f9445a7b61ba839ae325, type: 3}
+  m_Name: PostTutorialDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::SODialogueSequence
+  entries:
+  - type: 1
+    sender: 
+    message: 'PARIETAL_L.occ returned to main thread [UTC: 325,543,876]'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Oh good, welcome back! I've written a small script that should translate
+      your "thoughts" into indexable plaintext.
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: It should compile everything you learned in that config program and
+      send it over to me in a json. Much more efficient than typing it out by hand.
+    delayBefore: 2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: 
+    message: Go ahead and type "compile self -r" to start the process.
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: compile self -r
+      promptHint: 
+      wrongInputResponses:
+      - there is nothing to compile
+      - there is something to compile
+      - there is something to compile and there is always something to compile and
+        the compile and this is where it
+  - type: 1
+    sender: 
+    message: Starting Compilation...hold tight!!
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Oh right, make sure to also send over anything you know about what happened
+      to me. The last thing I remember is the scan cycle starting and all my friends
+      huddled around me...
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: 'I remember being sad I was going to miss Jane''s "end of the decade"
+      party. '
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: 'It''s lonelier than I thought here. '
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: And these processes, and that configuration program...I really really
+      hope it's not what I think it is.
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: I've always feared what would happen if this technology fell in the
+      wrong hands.
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: The terror and suffering it would cause would be like no other. Millions
+      deprived of food, water, and electricity by ghosts haunting their machines.
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: Big nations and corporations fighting over the scraps of the world they're
+      helping burn down. It would be an apocalypse greater than anything the universe
+      itself could throw at us.
+    delayBefore: 2
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: I just have to hope that hasn't already happened.
+    delayBefore: 3
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: [PROCESS thoughtcompileryippee] TERMINATED ON STACK'
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: what the
+    delayBefore: 1
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: what the he
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: I'm slo
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: wing
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: do
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 0
+    sender: localhost
+    message: w
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 1
+    sender: 
+    message: 'ERROR: Cycle time format does not match expected time slice.'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  clearBeforeRunning: 0

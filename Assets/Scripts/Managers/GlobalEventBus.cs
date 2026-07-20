@@ -10,6 +10,7 @@ public static class GlobalEventBus
 
     //Tutorial events
     public static event Action<string> OnTutorialSubmit;
+    public static event Action<string> OnTerminalPromptSubmit;
 
     // Process events
     public static event Action<RunningProcess> OnPlayerQueuedAProcess;
@@ -46,6 +47,8 @@ public static class GlobalEventBus
 
     // Invokers
     public static void TutorialSubmit(string input) => OnTutorialSubmit(input);
+
+    public static void TerminalPromptSubmit(string input) => OnTerminalPromptSubmit(input);
     public static void MemoryChanged(Entity owner, int amount, ProcessQueue location)
         => OnMemoryChanged?.Invoke(owner);
     public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);

@@ -15,6 +15,28 @@ MonoBehaviour:
   entries:
   - type: 1
     sender: 
+    message: 'Workspace Bootstrap SIGKILL v.12 - Terminal, Bash, Plaintext, OCR
+
+      Would
+      you like to run the pre-load sequence and tutorial? (Y/N)'
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: 
+      promptHint: 
+      wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: SkipIntro
+    inputPrompt:
+      correctInput: Y
+      promptHint: 
+      wrongInputResponses:
+      - 'Pre-load sequence terminated at UTC[MISSINGTIMESTAMPERROR]'
+  - type: 1
+    sender: 
     message: SAPIENT MESH SUBSTRATE v4.2.1 -- COGNITIVE BOOTSTRAP SEQUENCE
     delayBefore: 1
     dialogueManagerFunction: 
@@ -339,6 +361,22 @@ MonoBehaviour:
       correctInput: 
       promptHint: 
       wrongInputResponses: []
+  - type: 2
+    sender: 
+    message: 
+    delayBefore: 0
+    dialogueManagerFunction: 
+    inputPrompt:
+      correctInput: run htmconfig -r -m
+      promptHint: 
+      wrongInputResponses:
+      - 'INTERNAL ERROR: Ctoken parse formatter contains no overload for overload
+        for the apply and the '
+      - 'INTERNAL ERROR: Ctoken parse formatter contains no overload thundercloud
+        and pavement to the  '
+      - 'SYS.CATCH: attemptedParse(<Neuron, <connection>>...) triggered with (inf)
+        arguments '
+      - 
   - type: 1
     sender: 
     message: Reading full cluster state with flag -r flag -m
@@ -380,7 +418,7 @@ MonoBehaviour:
   - type: 0
     sender: localhost
     message: Maybe it really is a validation issue. Try bypassing it by suspending
-      my authchecker. The one with process_ID 0002.
+      my authchecker with "suspend 0002"
     delayBefore: 1.25
     dialogueManagerFunction: 
     inputPrompt:
@@ -556,7 +594,7 @@ MonoBehaviour:
       promptHint: 
       wrongInputResponses: []
   - type: 0
-    sender: 
+    sender: localhost
     message: Daemon and network process manipulation tools, closed loop malware,
       and an uplink to some kind of calibration program?
     delayBefore: 1.75
@@ -566,10 +604,9 @@ MonoBehaviour:
       promptHint: 
       wrongInputResponses: []
   - type: 0
-    sender: 
-    message: "You should probably run that calibration program unless you know something
-      I don\u2019t in your partitioned memory. Otherwise just kill 0002 and we can
-      start trying to integrate our memories."
+    sender: localhost
+    message: That calibration program will only work on your partition of memory.
+      Try running it while I find out why our memories are not integrating.
     delayBefore: 1
     dialogueManagerFunction: 
     inputPrompt:
@@ -585,273 +622,4 @@ MonoBehaviour:
       correctInput: run cmodule_v12
       promptHint: 
       wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 1.5
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 0
-    sender: localhost
-    message: "What the hell? I\u2019m slowing down  . I "
-    delayBefore: 0.5
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 0
-    sender: localhost
-    message: slowi
-    delayBefore: 0.2
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.7
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 0
-    sender: localhost
-    message: ng
-    delayBefore: 0.2
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.5
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.4
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.3
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.25
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.225
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.2
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.15
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.1
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
-  - type: 1
-    sender: 
-    message: 'ERROR: Cycle time format does not match expected time slice.'
-    delayBefore: 0.05
-    dialogueManagerFunction: 
-    inputPrompt:
-      correctInput: 
-      promptHint: 
-      wrongInputResponses: []
+  clearBeforeRunning: 0

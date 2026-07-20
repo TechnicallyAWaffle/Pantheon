@@ -24,14 +24,17 @@
 
 .terminal-line-user {
     color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Terminal%20F4.ttf?fileID=12800000&guid=b6ef52f6640b1ad45920dba66751dde8&type=3#Terminal F4");
 }
 
 .terminal-line-system {
-    color: rgb(150, 150, 150);
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Terminal%20F4.ttf?fileID=12800000&guid=b6ef52f6640b1ad45920dba66751dde8&type=3#Terminal F4");
 }
 
 .terminal-line-error {
-    color: rgb(255, 80, 80);
+    color: rgb(255, 0, 0);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Ac437_IBM_Model30r0.ttf?fileID=12800000&guid=ffe8918a188f6554fa4d5ab1dab5eb73&type=3#Ac437_IBM_Model30r0");
 }
 
 .input-row {
@@ -73,5 +76,3 @@
 
 .terminal-scroll > #unity-content-and-vertical-scroll-container > #unity-vertical-scroller {
 }
-
-

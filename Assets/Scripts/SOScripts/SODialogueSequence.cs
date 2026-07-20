@@ -5,6 +5,7 @@ using UnityEngine;
 public class SODialogueSequence : ScriptableObject
 {
     public List<DialogueEntry> entries = new();
+    public bool clearBeforeRunning = false;
 }
 
 [System.Serializable]
