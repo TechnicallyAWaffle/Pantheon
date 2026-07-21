@@ -46,9 +46,9 @@ public static class GlobalEventBus
 
 
     // Invokers
-    public static void TutorialSubmit(string input) => OnTutorialSubmit(input);
+    public static void TutorialSubmit(string input) => OnTutorialSubmit?.Invoke(input);
 
-    public static void TerminalPromptSubmit(string input) => OnTerminalPromptSubmit(input);
+    public static void TerminalPromptSubmit(string input) => OnTerminalPromptSubmit?.Invoke(input);
     public static void MemoryChanged(Entity owner, int amount, ProcessQueue location)
         => OnMemoryChanged?.Invoke(owner);
     public static void ProcessQueued(RunningProcess p) => OnProcessQueued?.Invoke(p);

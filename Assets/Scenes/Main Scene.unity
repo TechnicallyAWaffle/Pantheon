@@ -1993,7 +1993,7 @@ MonoBehaviour:
   enemyCommandTemplate: {fileID: 9197481963319205126, guid: 3461cb8de3bae194cb47e94f8238cea0, type: 3}
   enemyCompanyToLogo: {fileID: 11400000, guid: bb0ebf11276f8124e84de243654983ff, type: 2}
   serverQueue: {fileID: 1510904592}
-  referenceManager: {fileID: 0}
+  referenceManager: {fileID: 1942363573}
 --- !u!114 &1151528855
 MonoBehaviour:
   m_ObjectHideFlags: 0
